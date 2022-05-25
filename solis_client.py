@@ -60,7 +60,7 @@ class SolisClient(ClientBase):
     master_tag: transp.MasterTag
     octo_cache: bytes
     octo_server_revision: str
-    notice_list: apip.NoticeListResponse
+    _notice_list: apip.NoticeListResponse
 
     def _get_metadata_pairs(self) -> list[tuple[str, str]]:
         return list(self._metadata_dict.items())
@@ -108,16 +108,21 @@ class SolisClient(ClientBase):
         return ticks
 
     def generate_notice_json(self):
-        notice_dict = MessageToDict(self.notice_list, use_integers_for_enums=True)
+        notice_dict = MessageToDict(self._notice_list, use_integers_for_enums=True)
         with open("cache/notice.json", "w", encoding="utf8") as fp:
             json.dump(notice_dict, fp, ensure_ascii=False, indent=2)
 
-    def update_master(self, kvtoken: str="", kvurl: str="", notify_kv: bool=False):
+    def update_master(self, notify_kv: bool=False):
         if master.has_new(self.master_tag):
             master.generate_data(self.master_tag)
             if notify_kv:
-                upload.main(kvtoken=kvtoken, kvurl=kvurl)
+                upload.main()
             set_cache("masterVersion", self.master_tag.version)
+    
+    def put_notice(self):
+        notice_dict = MessageToDict(self._notice_list, use_integers_for_enums=True)
+        notice_json = json.dumps(notice_dict, ensure_ascii=False)
+        upload.send_kv("Notice", notice_json)
 
     def update_octo(self):
         if get_cache("octoCacheRevision") < self.octo_server_revision:
@@ -313,8 +318,8 @@ class SolisClient(ClientBase):
         stub = apig.NoticeStub(self._channel)
         request = empty.Empty()
         response, _, err = self._call_rpc(stub.List.with_call, request)
-        self.notice_list = response
-        self.notice_list.commonResponse.Clear()
+        self._notice_list = response
+        self._notice_list.commonResponse.Clear()
         return err
 
 if __name__ == '__main__':

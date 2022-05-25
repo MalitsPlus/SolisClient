@@ -4,6 +4,7 @@ import requests
 import cache_manager
 from pathlib import Path
 import rich_console as console
+import upload
 from solis_client import SolisClient
 
 _CACHE_DIR = "cache"
@@ -54,9 +55,14 @@ def main():
         client.run_login_scenarios()
         # Generate notice list json
         client.generate_notice_json()
-        # Update masterdata if new version is found
+        # If kvauth and kvurl are given, notify the server to update data
         if args.kvauth != "" and args.kvurl != "":
-            client.update_master(kvtoken=args.kvauth, kvurl=args.kvurl, notify_kv=True)
+            # Set secret args
+            upload.set_config(kvtoken=args.kvauth, kvurl=args.kvurl)
+            # Update masterdata if new version is found
+            client.update_master(notify_kv=True)
+            # Update notices inconditionaly
+            client.put_notice()
         # Update octo if new revision is found
         # client.update_octo()
     console.info("Tasks all done.")

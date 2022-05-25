@@ -50,33 +50,37 @@ def send_request(name: str, data: str, err_count: int = 0):
         sleep(5)
         send_request(name, data, err_count)
 
+def send_kv(name: str, data: str):
+    body = {
+        "key": DATA_PREFIX + name,
+        # KV server side only accepts string values.
+        "value": data
+    }
+    compacted = json.dumps(
+        body, ensure_ascii=False, separators=separators)
+    send_request(name, compacted)
+
 def async_task(file: Path):
     with file.open(mode="r", encoding="utf8") as fp:
         name = file.name.removesuffix(".json")
         origin = json.load(fp)
-        origin = json.dumps(
-            origin, ensure_ascii=False, separators=separators)
-        body = {
-            "key": DATA_PREFIX + name,
-            # KV server side only accepts string values.
-            "value": origin
-        }
-        compacted = json.dumps(
-            body, ensure_ascii=False, separators=separators)
-        send_request(name, compacted)
+    origin = json.dumps(
+        origin, ensure_ascii=False, separators=separators)
+    send_kv(name, origin)
 
-def main(kvtoken: str = admin_token, kvurl: str = api_endpoint):
+def set_config(kvtoken: str = admin_token, kvurl: str = api_endpoint):
     global admin_token
     global api_endpoint
-    # Check necessary args
     if kvtoken == "" or kvurl == "":
-        console.print(f"[bold red]>>> [Error][/bold red] KV-token and KV-url must not be empty.")
+        console.print(
+            f"[bold red]>>> [Error][/bold red] KV-token and KV-url must not be empty.")
         os._exit(-1)
     else:
         admin_token = kvtoken
         api_endpoint = kvurl
-
     headers["Authorization"] = f"Bearer {admin_token}"
+
+def main():
     dir = Path("masterdata")
     console.print(
         f">>> [Info] Start putting data.")
