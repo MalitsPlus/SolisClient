@@ -1,4 +1,4 @@
-[![CircleCI](https://circleci.com/gh/MalitsPlus/SolisClient/tree/master.svg?style=svg)](https://circleci.com/gh/MalitsPlus/SolisClient/tree/master)
+[![CircleCI](https://circleci.com/gh/MalitsPlus/SolisClient/tree/master.svg?style=shield&circle-token=cc6ec2eea021e431785d7d719d53afaf60747f83)](https://circleci.com/gh/MalitsPlus/SolisClient/tree/master)
 
 # Solis Client 
 
