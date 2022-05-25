@@ -1,0 +1,36 @@
+version: 2.1
+
+orbs:
+  # The python orb contains a set of prepackaged CircleCI configuration you can use repeatedly in your configuration files
+  # Orb commands and jobs help you with common scripting around a language/tool
+  # so you dont have to copy and paste it everywhere.
+  # See the orb documentation here: https://circleci.com/developer/orbs/orb/circleci/python
+  python: circleci/python@2.0.3
+
+jobs:
+  job-run-scenarios: 
+  
+    docker:
+      - image: cimg/python:3.10.2
+
+    steps:
+      - checkout
+      - python/install-packages:
+          pkg-manager: pip
+          pip-dependency-file: requirements.txt
+      - restore_cache:
+          name: Restoring client cache
+          key: client-cache
+      - run:
+          name: Run scenarios
+          command: python main.py --token ${REFRESH_TOKEN} --kvauth ${KV_AUTH} --kvurl ${KV_URL}
+      - save_cache:
+          name: Saving client cache
+          key: client-cache
+          paths: 
+            - cache
+
+workflows:
+  run-scenarios:
+    jobs:
+      - job-run-scenarios
