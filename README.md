@@ -1,31 +1,22 @@
-## Solis Client 
+[![CircleCI](https://circleci.com/gh/MalitsPlus/SolisClient/tree/master.svg?style=svg)](https://circleci.com/gh/MalitsPlus/SolisClient/tree/master)
 
-### Preparations
-1. Create cache directories. 
-```
-> mkdir cache
-> mkdir masterdata
-```
+# Solis Client 
 
-2. Create a `client_cache.json` in this folder, which has the following schema: 
+## Usage
 ```
-{
-    "masterVersion": "abcd",
-    "octoCacheRevision": 0,
-    "refreshToken": "abcd",
-    "idToken": "abcd",
-    "firebaseAuthToken": "abcd"
-}
-```
-You can set all string values to empty because they will be automatically updating during the program running except `refreshToken`, which MUST be given at the first running. 
+> python main.py [-h] [-t TOKEN] [--kvauth KVAUTH] [--kvurl KVURL]
 
-### How to use
+optional arguments:
+  -h, --help            show this help message and exit
+  -t TOKEN, --token TOKEN
+                        Your firebase refreshToken.
+  --kvauth KVAUTH       KV server auth token.
+  --kvurl KVURL         KV server endpoint.
 ```
-> python main.py
-```
-That's all. 
+- `--token`: **Must be given at first running**, can be omitted if `refreshToken` in `cache/client_cache.json` it not empty. If they both exist, the one in `client_cache.json` will be used first. 
+- `--kvauth, --kvurl`: Both of them **must be present at the same time**, otherwise they will be ignored. 
 
-### Updating
+## Updating
 If API has been updated, take the following steps to keep the client proto schema up-to-date with server. 
 
 0. Back up your files to avoid unexpected overrides. 
@@ -60,7 +51,7 @@ service Notice {
 }
 ```
 
-4. Run `gen_proto.bat` to generate python code, or run the following commands in orde. 
+4. Run `gen_proto.bat` to generate python code, or run the following commands in order. 
 ```
 > python -m grpc_tools.protoc --proto_path=. ./ProtoEnum.proto ./ProtoMaster.proto ./ProtoTransaction.proto --python_out=.
 > python -m grpc_tools.protoc --proto_path=. ./ProtoApi.proto --python_out=. --grpc_python_out=.
