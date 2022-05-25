@@ -7,3 +7,4 @@ rich==12.4.4
 sqlcipher3-binary
 UnityPy==1.8.14
 protobuf
+lxml
