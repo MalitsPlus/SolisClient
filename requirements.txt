@@ -4,6 +4,6 @@ pycryptodome==3.14.1
 PyJWT==2.4.0
 requests==2.26.0
 rich==12.4.4
-sqlcipher3==0.4.5
+sqlcipher3-binary
 UnityPy==1.8.14
 protobuf

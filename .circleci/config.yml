@@ -19,13 +19,13 @@ jobs:
           pkg-manager: pip
           pip-dependency-file: requirements.txt
       - restore_cache:
-          name: Restoring cache
+          name: Restoring client cache
           key: client-cache
       - run:
           name: Run scenarios
           command: python main.py --token ${REFRESH_TOKEN} --kvauth ${KV_AUTH} --kvurl ${KV_URL}
       - save_cache:
-          name: Saving cache
+          name: Saving client cache
           key: client-cache
           paths: 
             - cache
