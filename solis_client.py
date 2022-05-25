@@ -112,11 +112,11 @@ class SolisClient(ClientBase):
         with open("cache/notice.json", "w", encoding="utf8") as fp:
             json.dump(notice_dict, fp, ensure_ascii=False, indent=2)
 
-    def update_master(self, notify_kv: bool):
+    def update_master(self, kvtoken: str="", kvurl: str="", notify_kv: bool=False):
         if master.has_new(self.master_tag):
             master.generate_data(self.master_tag)
             if notify_kv:
-                upload.main()
+                upload.main(kvtoken=kvtoken, kvurl=kvurl)
             set_cache("masterVersion", self.master_tag.version)
 
     def update_octo(self):
@@ -153,10 +153,11 @@ class SolisClient(ClientBase):
 
     def _is_token_expired(self) -> bool:
         token = get_cache("idToken")
-        payload = jwt.decode(token, options={"verify_signature": False})
-        exp = payload["exp"]
-        if time.time() < exp:
-            return False
+        if token != "":
+            payload = jwt.decode(token, options={"verify_signature": False})
+            exp = payload["exp"]
+            if time.time() < exp:
+                return False
         return True
 
     def run_login_scenarios(self, retries=0):
