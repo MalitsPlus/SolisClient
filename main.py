@@ -46,6 +46,8 @@ def main():
 
     # Restore caches
     restore_cache(args.token)
+    console.info(
+        f"Previous master version: {cache_manager.get_cache('masterVersion')}.")
 
     # For network testing
     r = requests.get("https://google.co.jp")

@@ -32,7 +32,8 @@ checkKeyCache() {
 if [ ! -d ${REPO_NAME} ]; then
   checkKeyCache
   echo ">>> Cloning repo from remote..."
-  git -c core.sshCommand="ssh -i ${KEY_CACHE}" clone ${REPO_SSH}
+  # git -c core.sshCommand="ssh -i ${KEY_CACHE}" clone ${REPO_SSH}
+  git clone ${REPO_SSH}
   if [ $? -ne 0 ]; then
     echo ">>> Failed to clone repo."
     exit 1
@@ -59,7 +60,8 @@ git -C ${REPO_NAME} config user.name "server-acc"
 git -C ${REPO_NAME} config user.email "anonymous@e.mail"
 
 echo ">>> Pulling from remote..."
-git -c core.sshCommand="ssh -i ${KEY_CACHE}" -C ${REPO_NAME} pull
+# git -c core.sshCommand="ssh -i ${KEY_CACHE}" -C ${REPO_NAME} pull
+git -C ${REPO_NAME} pull
 
 if [ $? -ne 0 ]; then
   echo ">>> Failed to pull repo."
