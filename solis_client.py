@@ -198,6 +198,10 @@ class SolisClient(ClientBase):
 
     def get_app_version(self) -> int:
         r = requests.get(self._app_store_url)
+        if r.status_code != 200:
+            console.error(r.text)
+            console.error(f"Error while getting app version, status code: {r.status_code}.")
+            exit(-1)
         parsed = BeautifulSoup(r.text, features="lxml")
         outter_json = parsed.find(
             "script", {"id": "shoebox-media-api-cache-apps"}).text
