@@ -46,7 +46,7 @@ cur_ver=`cat ${ARTIFACT_DIR_NAME}/${VERSION_FILE}`
 # Exit if no changing
 echo ">>> Previous version: ${pre_ver}"
 echo ">>> Current version:  ${cur_ver}"
-if [ ${pre_ver} == ${cur_ver} ]; then
+if [ ${pre_ver} = ${cur_ver} ]; then
   echo ">>> Exiting..."
   exit 0
 fi
@@ -69,7 +69,7 @@ fi
 # Check remote version
 rmt_ver=`cat ${REPO_NAME}/${VERSION_FILE}`
 echo ">>> Remote version:   ${cur_ver}"
-if [ ${rmt_ver} == ${cur_ver} ]; then
+if [ ${rmt_ver} = ${cur_ver} ]; then
   echo ">>> Exiting..."
   exit 0
 fi
