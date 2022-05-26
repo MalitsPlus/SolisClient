@@ -23,12 +23,17 @@ jobs:
           key: client-cache
       - run:
           name: Run scenarios
-          command: python main.py --token ${REFRESH_TOKEN} --kvauth ${KV_AUTH} --kvurl ${KV_URL}
+          command: python main.py --token ${REFRESH_TOKEN} --kvauth ${KV_AUTH} --kvurl ${KV_URL} -f
+      - run:
+          name: Run git diff
+          command: sh git_push.sh ${KEY_URL}
       - save_cache:
           name: Saving client cache
           key: client-cache
           paths: 
             - cache
+            - masterdata
+            - ipr-master-diff
 
 workflows:
   run-scenarios:
