@@ -89,6 +89,7 @@ echo ">>> Pushing to remote..."
 # git -c core.sshCommand="ssh -i ${KEY_CACHE}" -C ${REPO_NAME} push
 
 ssh-add -D
+ssh-add ~/.ssh/id_rsa_b9bb68b85a5390e2c4d102fb972bdf7a
 GIT_SSH_COMMAND="ssh -o IdentitiesOnly=yes -i ~/.ssh/id_rsa_b9bb68b85a5390e2c4d102fb972bdf7a"
 git config core.sshCommand "ssh -o IdentitiesOnly=yes -i ~/.ssh/id_rsa_b9bb68b85a5390e2c4d102fb972bdf7a"
 
