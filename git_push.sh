@@ -84,5 +84,6 @@ git -C ${REPO_NAME} add .
 echo ">>> git committing..."
 git -C ${REPO_NAME} commit -m "version: ${cur_ver}"
 echo ">>> Pushing to remote..."
-git -c core.sshCommand="ssh -i ${KEY_CACHE}" -C ${REPO_NAME} push
+# git -c core.sshCommand="ssh -i ${KEY_CACHE}" -C ${REPO_NAME} push
+git -C ${REPO_NAME} push
 echo ">>> Done."
