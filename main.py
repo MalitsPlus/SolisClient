@@ -63,8 +63,9 @@ def main():
             upload.set_config(kvtoken=args.kvauth, kvurl=args.kvurl)
             # Update masterdata if new version is found
             client.update_master(notify_kv=args.kv, force=args.force)
-            # Update notices inconditionaly
-            client.put_notice()
+            # Update notices 
+            if args.kv:
+                client.put_notice()
         # Update octo if new revision is found
         # client.update_octo()
     console.info("Tasks all done.")
