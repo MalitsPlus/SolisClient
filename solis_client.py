@@ -112,11 +112,12 @@ class SolisClient(ClientBase):
         with open("cache/notice.json", "w", encoding="utf8") as fp:
             json.dump(notice_dict, fp, ensure_ascii=False, indent=2)
 
-    def update_master(self, notify_kv: bool=False):
-        if master.has_new(self.master_tag):
+    def update_master(self, notify_kv: bool=False, force: bool=False):
+        if master.has_new(self.master_tag) or force:
             master.generate_data(self.master_tag)
             if notify_kv:
                 upload.main()
+            master.write_version(self.master_tag.version)
             set_cache("masterVersion", self.master_tag.version)
     
     def put_notice(self):
