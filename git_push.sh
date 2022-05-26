@@ -28,6 +28,8 @@ checkKeyCache() {
   fi
 }
 
+# git config core.sshCommand "ssh -o IdentitiesOnly=yes -i private_key_file"
+
 # Check repo directory
 if [ ! -d ${REPO_NAME} ]; then
   checkKeyCache
