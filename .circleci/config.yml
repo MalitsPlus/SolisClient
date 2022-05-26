@@ -20,7 +20,7 @@ jobs:
           pip-dependency-file: requirements.txt
       - restore_cache:
           name: Restoring client cache
-          key: client-cache
+          key: client-cache-v2
       # - add_ssh_keys:
       #     fingerprints:
       #       - "9f:07:09:04:ed:32:36:9b:70:8d:c9:9f:2f:e0:30:d1"
@@ -33,7 +33,7 @@ jobs:
           command: sh git_push.sh ${KEY_URL}
       - save_cache:
           name: Saving client cache
-          key: client-cache
+          key: client-cache-v2
           paths: 
             - cache
             - masterdata
