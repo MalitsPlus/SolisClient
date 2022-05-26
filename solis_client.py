@@ -200,15 +200,22 @@ class SolisClient(ClientBase):
         r = requests.get(self._app_store_url)
         if r.status_code != 200:
             console.error(r.text)
-            console.error(f"Error while getting app version, status code: {r.status_code}.")
-            exit(-1)
-        parsed = BeautifulSoup(r.text, features="lxml")
-        outter_json = parsed.find(
-            "script", {"id": "shoebox-media-api-cache-apps"}).text
-        outter_dict = json.loads(outter_json)
-        inner_json = list(outter_dict.items())[0][1]
-        inner_dict = json.loads(inner_json)
-        version = inner_dict["d"][0]["attributes"]["platformAttributes"]["ios"]["versionHistory"][0]["versionDisplay"]
+            console.error(
+                f"Error while getting app version, status code: {r.status_code}.")
+            version = get_cache("appVersion")
+            if version != "":
+                console.info("Use previous app version instead.")
+            else:
+                console.error("No previous app version cache found, stopping process.")
+                return -1
+        else:
+            parsed = BeautifulSoup(r.text, features="lxml")
+            outter_json = parsed.find(
+                "script", {"id": "shoebox-media-api-cache-apps"}).text
+            outter_dict = json.loads(outter_json)
+            inner_json = list(outter_dict.items())[0][1]
+            inner_dict = json.loads(inner_json)
+            version = inner_dict["d"][0]["attributes"]["platformAttributes"]["ios"]["versionHistory"][0]["versionDisplay"]
         self.app_version = version
         self._metadata_dict["x-app-version"] = version
         self._config["qseed"]["X-AppVersion"] = version
