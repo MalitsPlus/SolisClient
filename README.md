@@ -2,19 +2,23 @@
 
 # Solis Client 
 
+[![CircleCI](https://dl.circleci.com/insights-snapshot/gh/MalitsPlus/SolisClient/master/run-scenarios/badge.svg?window=30d&circle-token=1f1381e10da0c144f199e402339c6fd48308db43)](https://app.circleci.com/insights/github/MalitsPlus/SolisClient/workflows/run-scenarios/overview?branch=master&reporting-window=last-30-days&insights-snapshot=true)
+
 ## Usage
 ```
-> python main.py [-h] [-t TOKEN] [--kvauth KVAUTH] [--kvurl KVURL]
+usage: main.py [-h] [-t TOKEN] [-f] [-k] [--kvauth KVAUTH] [--kvurl KVURL]
 
 optional arguments:
   -h, --help            show this help message and exit
   -t TOKEN, --token TOKEN
                         Your firebase refreshToken.
+  -f, --force           Update databases without checking version.
+  -k, --kv              Notify KV server.
   --kvauth KVAUTH       KV server auth token.
   --kvurl KVURL         KV server endpoint.
 ```
 - `--token`: **Must be given at first running**, can be omitted if `refreshToken` in `cache/client_cache.json` it not empty. If they both exist, the one in `client_cache.json` will be used first. 
-- `--kvauth, --kvurl`: Both of them **must be present at the same time**, otherwise they will be ignored. 
+- `-k, --kvauth, --kvurl`: All of them **must be present at the same time**, otherwise they will be ignored. 
 
 ## Updating
 If API has been updated, take the following steps to keep the client proto schema up-to-date with server. 
