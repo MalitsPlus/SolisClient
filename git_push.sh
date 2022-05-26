@@ -4,7 +4,7 @@
 KEY_URL=$1
 REPO_NAME="ipr-master-diff"
 ARTIFACT_DIR_NAME="masterdata"
-VERSION_FILE="_version.txt"
+VERSION_FILE='!version.txt'
 REPO_SSH="git@github.com:Stilamcat/ipr-master-diff.git"
 KEY_CACHE=`pwd`/cache/id_ed25519
 
@@ -28,7 +28,8 @@ checkKeyCache() {
   fi
 }
 
-GIT_SSH_COMMAND="ssh -i ~/.ssh/id_rsa_b9bb68b85a5390e2c4d102fb972bdf7a -o IdentitiesOnly=yes"
+ssh-add -D
+GIT_SSH_COMMAND="ssh -o IdentitiesOnly=yes -i ~/.ssh/id_rsa_b9bb68b85a5390e2c4d102fb972bdf7a"
 git config core.sshCommand "ssh -o IdentitiesOnly=yes -i ~/.ssh/id_rsa_b9bb68b85a5390e2c4d102fb972bdf7a"
 
 # Check repo directory

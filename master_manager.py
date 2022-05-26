@@ -67,7 +67,7 @@ def generate_data(master_tag: transp.MasterTag):
     console.succeed(f"Master databases have been successfully decrypted.")
 
 def write_version(version: str):
-    Path("masterdata/_version.txt").write_text(version)
+    Path("masterdata/!version.txt").write_text(version)
 
 if __name__ == "__main__":
     for file in Path("cache").glob("master_*.json"):
