@@ -27,7 +27,7 @@ jobs:
             - "44:a9:3a:83:bb:6d:9b:0a:66:3a:76:89:e7:1f:45:cc"
       - run:
           name: Run scenarios
-          command: python main.py --token ${REFRESH_TOKEN} --kvauth ${KV_AUTH} --kvurl ${KV_URL}
+          command: python main.py --token ${REFRESH_TOKEN} --kvauth ${KV_AUTH} --kvurl ${KV_URL} -k
       - run:
           name: Run git diff
           command: sh git_push.sh ${KEY_URL}
