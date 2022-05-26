@@ -29,11 +29,11 @@ jobs:
       - restore_cache:
           name: Restoring artifact cache
           keys: 
-            - masterdata-
+            - masterdata-v2-
       # - restore_cache:
       #     name: Restoring diff repo cache
       #     keys: 
-      #       - diff-
+      #       - diff-v2-
       - run:
           name: Run scenarios
           command: python main.py --token ${REFRESH_TOKEN} --kvauth ${KV_AUTH} --kvurl ${KV_URL}
@@ -47,12 +47,12 @@ jobs:
             - cache
       - save_cache:
           name: Saving artifact cache
-          key: masterdata-{{ checksum "masterdata/_version.txt" }}
+          key: masterdata-v2-{{ checksum "masterdata/!version.txt" }}
           paths:
             - masterdata
       - save_cache:
           name: Saving diff repo cache
-          key: diff-{{ checksum "ipr-master-diff/_version.txt" }}
+          key: diff-v2-{{ checksum "ipr-master-diff/!version.txt" }}
           paths:
             - ipr-master-diff
 
