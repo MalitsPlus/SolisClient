@@ -40,6 +40,7 @@ def main():
     parser.add_argument("-t", "--token", type=str, default="", help="Your firebase refreshToken.")
     parser.add_argument("--kvauth", type=str, default="", help="KV server auth token.")
     parser.add_argument("--kvurl", type=str, default="", help="KV server endpoint.")
+    parser.add_argument("-k", "--kv", action="store_true", help="Notify KV server.")
     parser.add_argument("-f", "--force", action="store_true", help="Update databases without checking version.")
     args = parser.parse_args()
 
@@ -61,7 +62,7 @@ def main():
             # Set secret args
             upload.set_config(kvtoken=args.kvauth, kvurl=args.kvurl)
             # Update masterdata if new version is found
-            client.update_master(notify_kv=True, force=args.force)
+            client.update_master(notify_kv=args.kv, force=args.force)
             # Update notices inconditionaly
             client.put_notice()
         # Update octo if new revision is found
