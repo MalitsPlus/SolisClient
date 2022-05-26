@@ -35,6 +35,7 @@ def send_request(name: str, data: str, err_count: int = 0):
             console.print(f"[bold green]>>> [Succeed][/bold green] Put '{name}' completed.")
         else:
             err_count += 1
+            console.print(f"[bold yellow]>>> [Warning][/bold yellow] {r.text}")
             console.print(
                 f"[bold yellow]>>> [Warning][/bold yellow] Put '{name}' failed, status code: {r.status_code}. Retrying({err_count}/{MAX_RETRY_TIMES})...")
             sleep(1)

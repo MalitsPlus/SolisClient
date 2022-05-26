@@ -112,13 +112,18 @@ class SolisClient(ClientBase):
         with open("cache/notice.json", "w", encoding="utf8") as fp:
             json.dump(notice_dict, fp, ensure_ascii=False, indent=2)
 
-    def update_master(self, notify_kv: bool=False, force: bool=False):
+    def update_master(self, force: bool=False):
         if master.has_new(self.master_tag) or force:
             master.generate_data(self.master_tag)
-            if notify_kv:
-                upload.main()
             master.write_version(self.master_tag.version)
             set_cache("masterVersion", self.master_tag.version)
+
+    def put_master(self):
+        if get_cache("kvMasterVersion") == self.master_tag.version:
+            console.info("Kv master version is already up-to-date, put operation will not be performed.")
+            return
+        upload.main()
+        set_cache("kvMasterVersion", self.master_tag.version)
     
     def put_notice(self):
         notice_dict = MessageToDict(self._notice_list, use_integers_for_enums=True)
@@ -179,9 +184,9 @@ class SolisClient(ClientBase):
 
         if err == 0:
             console.succeed("Login succeeded.")
-        elif err in [penum.ErrorCode.ErrorCode_OutdatedMasterData.value,
-                     penum.ErrorCode.ErrorCode_DateChanged.value,
-                     penum.ErrorCode.ErrorCode_OutdatedApp.value]:
+        elif err in [penum.ErrorCode.ErrorCode_OutdatedMasterData,
+                     penum.ErrorCode.ErrorCode_DateChanged,
+                     penum.ErrorCode.ErrorCode_OutdatedApp]:
             # 重跑即可
             console.info(f"ErrCode: {err}. Re-running login scenarios.")
             self.run_login_scenarios(retries + 1)
@@ -223,6 +228,8 @@ class SolisClient(ClientBase):
         })
         response = requests.post(self._firebase_endpoint, request, headers=headers)
         if response.status_code != 200:
+            console.error(f"Status code: {response.status_code}.")
+            console.error(response.text)
             return -1
         r_dict = dict(json.loads(response.text))
         set_cache("idToken", r_dict["id_token"])

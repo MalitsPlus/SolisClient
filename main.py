@@ -22,6 +22,7 @@ def restore_cache(refresh_token: str):
         cache_json = json.dumps({
             "appVersion": "",
             "masterVersion": "",
+            "kvMasterVersion": "",
             "octoCacheRevision": 1772,
             "refreshToken": refresh_token,
             "idToken": "",
@@ -38,10 +39,10 @@ def main():
     # Parse args
     parser = argparse.ArgumentParser()
     parser.add_argument("-t", "--token", type=str, default="", help="Your firebase refreshToken.")
+    parser.add_argument("-f", "--force", action="store_true", help="Update databases without checking version.")
+    parser.add_argument("-k", "--kv", action="store_true", help="Notify KV server.")
     parser.add_argument("--kvauth", type=str, default="", help="KV server auth token.")
     parser.add_argument("--kvurl", type=str, default="", help="KV server endpoint.")
-    parser.add_argument("-k", "--kv", action="store_true", help="Notify KV server.")
-    parser.add_argument("-f", "--force", action="store_true", help="Update databases without checking version.")
     args = parser.parse_args()
 
     # Restore caches
@@ -56,18 +57,22 @@ def main():
 
     with SolisClient() as client:
         # Run login scenarios to emulate login
+        console.info("Running login scenarios...")
         client.run_login_scenarios()
         # Generate notice list json
+        console.info("Generating notice json...")
         client.generate_notice_json()
-        # If kvauth and kvurl are given, notify the server to update data
-        if args.kvauth != "" and args.kvurl != "":
+        # Update masterdata if new version is found
+        console.info("Decrypting master data...")
+        client.update_master(force=args.force)
+        # If kv, kvauth and kvurl are given, notify the server to update data
+        if args.kv and args.kvauth != "" and args.kvurl != "":
+            console.info("Notifing KV server...")
             # Set secret args
             upload.set_config(kvtoken=args.kvauth, kvurl=args.kvurl)
-            # Update masterdata if new version is found
-            client.update_master(notify_kv=args.kv, force=args.force)
             # Update notices 
-            if args.kv:
-                client.put_notice()
+            client.put_master()
+            client.put_notice()
         # Update octo if new revision is found
         # client.update_octo()
     console.info("Tasks all done.")
