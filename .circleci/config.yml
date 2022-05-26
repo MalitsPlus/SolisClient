@@ -20,11 +20,19 @@ jobs:
           pip-dependency-file: requirements.txt
       - restore_cache:
           name: Restoring client cache
-          key: client-cache-v2
-      # - add_ssh_keys:
-      #     fingerprints:
-      #       - "9f:07:09:04:ed:32:36:9b:70:8d:c9:9f:2f:e0:30:d1"
-      #       - "44:a9:3a:83:bb:6d:9b:0a:66:3a:76:89:e7:1f:45:cc"
+          keys: 
+            - client-cache-{{ epoch }}
+            - client-cache-
+      - restore_cache:
+          name: Restoring artifact cache
+          keys: 
+            - masterdata-{{ checksum "masterdata/_version.txt" }}
+            - masterdata-
+      - restore_cache:
+          name: Restoring diff repo cache
+          keys: 
+            - diff-{{ checksum "ipr-master-diff/_version.txt" }}
+            - diff-
       - run:
           name: Run scenarios
           command: python main.py --token ${REFRESH_TOKEN} --kvauth ${KV_AUTH} --kvurl ${KV_URL}
@@ -33,10 +41,18 @@ jobs:
           command: sh git_push.sh ${KEY_URL}
       - save_cache:
           name: Saving client cache
-          key: client-cache-v2
+          key: client-cache-{{ epoch }}
           paths: 
             - cache
+      - save_cache:
+          name: Saving artifact cache
+          key: masterdata-{{ checksum "masterdata/_version.txt" }}
+          paths:
             - masterdata
+      - save_cache:
+          name: Saving diff repo cache
+          key: diff-{{ checksum "ipr-master-diff/_version.txt" }}
+          paths:
             - ipr-master-diff
 
 workflows:
