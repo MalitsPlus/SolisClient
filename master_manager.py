@@ -19,9 +19,12 @@ _SEPARATORS = (',', ':')
 def has_new(master_tag: transp.MasterTag, pre_version: str = None) -> bool:
     if pre_version is None:
         pre_version = get_cache("masterVersion")
+    console.info(
+        f"Previous master version: '{pre_version}'.")
     if master_tag.version != pre_version:
         console.info(f"New masterdata version '{master_tag.version}' detected.")
         return True
+    console.info(f"Server masterdata version '{master_tag.version}'.")
     return False
 
 def one_task(name: str, key: str, url: str):

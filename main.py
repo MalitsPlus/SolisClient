@@ -47,8 +47,6 @@ def main():
 
     # Restore caches
     restore_cache(args.token)
-    console.info(
-        f"Previous master version: {cache_manager.get_cache('masterVersion')}.")
 
     # For network testing
     r = requests.get("https://google.co.jp")
@@ -63,7 +61,7 @@ def main():
         console.info("Generating notice json...")
         client.generate_notice_json()
         # Update masterdata if new version is found
-        console.info("Decrypting master data...")
+        console.info("Updating master data...")
         client.update_master(force=args.force)
         # If kv, kvauth and kvurl are given, notify the server to update data
         if args.kv and args.kvauth != "" and args.kvurl != "":
