@@ -30,16 +30,16 @@ jobs:
           name: Restoring artifact cache
           keys: 
             - masterdata-v2-
-      # - restore_cache:
-      #     name: Restoring diff repo cache
-      #     keys: 
-      #       - diff-v2-
+      - restore_cache:
+          name: Restoring diff repo cache
+          keys: 
+            - diff-v2-
       - run:
           name: Run scenarios
-          command: python main.py --token ${REFRESH_TOKEN} --kvauth ${KV_AUTH} --kvurl ${KV_URL} -f
+          command: python main.py --token ${REFRESH_TOKEN} --kvauth ${KV_AUTH} --kvurl ${KV_URL} -k
       - run:
           name: Run git diff
-          command: sh git_push.sh ${KEY_URL}
+          command: sh git_push.sh
       - save_cache:
           name: Saving client cache
           key: client-cache-{{ epoch }}

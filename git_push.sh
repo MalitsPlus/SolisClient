@@ -30,7 +30,7 @@ checkKeyCache() {
 
 # Check repo directory
 if [ ! -d ${REPO_NAME} ]; then
-  checkKeyCache
+  # checkKeyCache
   echo ">>> Cloning repo from remote..."
   # git -c core.sshCommand="ssh -i ${KEY_CACHE}" clone ${REPO_SSH}
   git clone ${REPO_SSH}
@@ -53,10 +53,10 @@ if [ "${pre_ver}" = "${cur_ver}" ]; then
 fi
 
 # Check ssh key
-checkKeyCache
+# checkKeyCache
 
 # Set git configurations
-git -C ${REPO_NAME} config user.name "server-acc"
+git -C ${REPO_NAME} config user.name "ServerAccount"
 git -C ${REPO_NAME} config user.email "anonymous@e.mail"
 
 echo ">>> Pulling from remote..."
