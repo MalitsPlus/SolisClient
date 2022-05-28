@@ -1,11 +1,9 @@
-import logging
 import json
 import grpc
 import jwt
 import time
 import requests
 import upload
-from pathlib import Path
 from bs4 import BeautifulSoup
 import master_manager as master
 import octo_manager as octo
@@ -149,15 +147,15 @@ class SolisClient(ClientBase):
         if not metadata.__contains__("x-error-code"):
             return 0
         err_code = metadata["x-error-code"]
-        if err_code == penum.ErrorCode.ErrorCode_OutdatedApp.value:
+        if err_code == penum.ErrorCode.ErrorCode_OutdatedApp:
             console.warning("OutdatedApp error. ")
-        elif err_code == penum.ErrorCode.ErrorCode_OutdatedMasterData.value:
+        elif err_code == penum.ErrorCode.ErrorCode_OutdatedMasterData:
             console.warning("OutdatedMasterData error.")
-        elif err_code == penum.ErrorCode.ErrorCode_DateChanged.value:
+        elif err_code == penum.ErrorCode.ErrorCode_DateChanged:
             console.warning("DateChanged error.")
-        elif err_code == penum.ErrorCode.ErrorCode_InMaintenance.value:
+        elif err_code == penum.ErrorCode.ErrorCode_InMaintenance:
             console.warning("InMaintenance error.")
-        elif err_code == penum.ErrorCode.ErrorCode_InFunctionMaintenance.value:
+        elif err_code == penum.ErrorCode.ErrorCode_InFunctionMaintenance:
             console.warning("InFunctionMaintenance error.")
         else:
             console.error(f"Unexpected error {err_code}.")
@@ -199,11 +197,17 @@ class SolisClient(ClientBase):
             exit(-1)
 
     def get_app_version(self) -> int:
-        r = requests.get(self._app_store_url)
-        if r.status_code != 200:
-            console.error(r.text)
-            console.error(
-                f"Error while getting app version, status code: {r.status_code}.")
+        try:
+            r = requests.get(self._app_store_url, timeout=10)
+        except:
+            r = None
+        if r is None or r.status_code != 200:
+            if r is None:
+                console.error("Cannot connect to app store or connecting timeout.")
+            else:
+                console.error(r.text)
+                console.error(
+                    f"Error while getting app version, status code: {r.status_code}.")
             version = get_cache("appVersion")
             if version != "":
                 console.info("Use previous app version instead.")
