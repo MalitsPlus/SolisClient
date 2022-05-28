@@ -1,5 +1,3 @@
-from doctest import master
-import sys
 import json
 import requests
 from pathlib import Path
