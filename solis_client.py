@@ -106,7 +106,8 @@ class SolisClient(ClientBase):
         return ticks
 
     def generate_notice_json(self):
-        notice_dict = MessageToDict(self._notice_list, use_integers_for_enums=True)
+        notice_dict = MessageToDict(
+            self._notice_list, use_integers_for_enums=True, including_default_value_fields=True)
         with open("cache/notice.json", "w", encoding="utf8") as fp:
             json.dump(notice_dict, fp, ensure_ascii=False, indent=2)
 
@@ -126,7 +127,8 @@ class SolisClient(ClientBase):
         set_cache("kvMasterVersion", self.master_tag.version)
     
     def put_notice(self):
-        notice_dict = MessageToDict(self._notice_list, use_integers_for_enums=True)
+        notice_dict = MessageToDict(
+            self._notice_list, use_integers_for_enums=True, including_default_value_fields=True)
         notice_json = json.dumps(notice_dict, ensure_ascii=False)
         upload.send_kv("Notice", notice_json)
 
