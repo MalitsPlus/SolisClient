@@ -134,6 +134,8 @@ class SolisClient(ClientBase):
         upload.send_kv("Notice", notice_json)
 
     def put_octo(self):
+        if not get_cache("octoManifestRevision") < self.octo_server_revision:
+            console.info("OctoManifestRevision is already up-to-date, octo won't be put to KV.")
         octo_json = Path("cache/OctoManifest.json").read_text()
         upload.send_kv("Octo", octo_json)
         set_cache("octoManifestRevision", self.octo_server_revision)
