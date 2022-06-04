@@ -1,6 +1,8 @@
-[![CircleCI](https://circleci.com/gh/MalitsPlus/SolisClient/tree/master.svg?style=shield&circle-token=cc6ec2eea021e431785d7d719d53afaf60747f83)](https://circleci.com/gh/MalitsPlus/SolisClient/tree/master) [![Conventional Commits](https://img.shields.io/badge/Conventional%20Commits-1.0.0-%23FE5196?logo=conventionalcommits&logoColor=white)](https://conventionalcommits.org)
+[![CircleCI](https://circleci.com/gh/MalitsPlus/SolisClient/tree/master.svg?style=shield&circle-token=cc6ec2eea021e431785d7d719d53afaf60747f83)](https://circleci.com/gh/MalitsPlus/SolisClient/tree/master) 
 
 # Solis Client 
+
+A component of [IDOLY-Backend](https://github.com/MalitsPlus/IDOLY-Backend), this repo takes responsibility to run CI independently against original repo. 
 
 [![CircleCI](https://dl.circleci.com/insights-snapshot/gh/MalitsPlus/SolisClient/master/run-scenarios/badge.svg?window=24h&circle-token=1f1381e10da0c144f199e402339c6fd48308db43)](https://app.circleci.com/insights/github/MalitsPlus/SolisClient/workflows/run-scenarios/overview?branch=master&reporting-window=last-24-hours&insights-snapshot=true)
 

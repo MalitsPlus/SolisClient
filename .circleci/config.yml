@@ -24,8 +24,8 @@ jobs:
       - restore_cache:
           name: Restoring client cache
           keys: 
-            - client-cache-{{ epoch }}
-            - client-cache-
+            - client-cache-v2-{{ epoch }}
+            - client-cache-v2-
       - restore_cache:
           name: Restoring artifact cache
           keys: 
@@ -42,7 +42,7 @@ jobs:
           command: sh git_push.sh
       - save_cache:
           name: Saving client cache
-          key: client-cache-{{ epoch }}
+          key: client-cache-v2-{{ epoch }}
           paths: 
             - cache
       - save_cache:
