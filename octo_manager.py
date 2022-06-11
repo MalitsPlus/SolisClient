@@ -9,7 +9,6 @@ from Crypto.Cipher import AES
 from Crypto.Util.Padding import unpad
 from request_base import send_request
 import rich_console as console
-from image_converter import convert_one
 from google.protobuf.json_format import MessageToDict
 from concurrent.futures import ThreadPoolExecutor, wait, ALL_COMPLETED
 
@@ -203,6 +202,7 @@ def update_octo(raw_cache: bytes):
 
 
 def scale_with_esrgan():
+    from image_converter import convert_one
     with open("cache/OctoDiff.json") as fp:
         octo_diff: dict = json.load(fp)
     for one_asset in octo_diff["assetBundleList"]:
