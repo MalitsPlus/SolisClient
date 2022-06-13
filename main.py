@@ -79,8 +79,8 @@ def main():
             client.put_octo()
         # Update octo if new revision is found
         if args.asset_mode:
-            client.update_octo(args.asset_mode == "all")
-            octo.scale_with_esrgan()
+            if client.update_octo(args.asset_mode == "all"):
+                octo.scale_with_esrgan()
     console.info("Tasks all done.")
 
 if __name__ == "__main__":

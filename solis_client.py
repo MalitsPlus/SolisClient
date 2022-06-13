@@ -152,11 +152,13 @@ class SolisClient(ClientBase):
         else:
             console.info(f"Octo manifest is already up-to-date, thus won't be download this time.")
             
-    def update_octo(self, dl_all: bool=False):
+    def update_octo(self, dl_all: bool=False) -> bool:
         revision, content = self.get_octo(dl_all)
         if dl_all or get_cache("octoCacheRevision") < revision:
             octo.update_octo(content)
             set_cache("octoCacheRevision", revision)
+            return True
+        return False
 
     def _call_rpc(self, func, req_msg, metadata=None):
         if metadata is None:
