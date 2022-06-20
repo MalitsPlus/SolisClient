@@ -194,6 +194,7 @@ enum DokanTargetType {
   DokanTargetType_Marathon = 5;
   DokanTargetType_PhotoContest = 6;
   DokanTargetType_Race = 7;
+  DokanTargetType_Ladder = 8;
 }
 enum DokanType {
   DokanType_Unknown = 0;
@@ -494,6 +495,7 @@ enum HelpDisplayTargetType {
   HelpDisplayTargetType_RaceLiveDeckSelect = 139;
   HelpDisplayTargetType_RaceVenusLiveDeckSelect = 140;
   HelpDisplayTargetType_PremiumGacha = 141;
+  HelpDisplayTargetType_LadderTop = 142;
 }
 enum HelpType {
   HelpType_Unknown = 0;
@@ -551,6 +553,7 @@ enum ItemType {
   ItemType_QuestDailyPhotoTicketTicket = 2003;
   ItemType_QuestContestTicket = 2004;
   ItemType_PvpTicket = 2005;
+  ItemType_QuestDailySpecialTicket = 2006;
   ItemType_EventMedal = 3001;
   ItemType_BoxGachaPoint = 4001;
   ItemType_MarathonStaminaRecovery = 5001;
@@ -559,11 +562,17 @@ enum ItemType {
   ItemType_PhotoContestCreating = 6002;
   ItemType_RacePoint = 7001;
   ItemType_RaceLiveBonusReset = 7002;
+  ItemType_LadderPoint = 8001;
 }
 enum JoinedGuildType {
   JoinedGuildType_Unknown = 0;
   JoinedGuildType_Join = 1;
   JoinedGuildType_NotJoin = 2;
+}
+enum LadderPanelType {
+  LadderPanelType_Unknown = 0;
+  LadderPanelType_Reward = 1;
+  LadderPanelType_Message = 2;
 }
 enum LinkType {
   LinkType_Unknown = 0;
@@ -610,6 +619,7 @@ enum LinkType {
   LinkType_Marathon = 103;
   LinkType_PhotoContest = 104;
   LinkType_Race = 105;
+  LinkType_Ladder = 106;
   LinkType_WebView = 999;
   LinkType_ExternalWebPage = 1000;
 }
@@ -823,6 +833,9 @@ enum MissionType {
   MissionType_RacePanelClearCount = 1301;
   MissionType_RaceQuestClearCount = 1302;
   MissionType_RaceEnhanceLiveBonusAchievement = 1303;
+  MissionType_LadderPanelReachedCount = 1401;
+  MissionType_LadderConsumptionPointAmount = 1402;
+  MissionType_LadderReachedStep = 1403;
 }
 enum MoodType {
   MoodType_Unknown = 0;
@@ -1136,6 +1149,8 @@ enum RewardSortResourceType {
   RewardSortResourceType_ItemPhotoContestSubmitting = 53;
   RewardSortResourceType_ItemRacePoint = 54;
   RewardSortResourceType_ItemRaceLiveBonusReset = 55;
+  RewardSortResourceType_ItemQuestDailySpecialTicket = 56;
+  RewardSortResourceType_ItemLadderPoint = 57;
 }
 enum RewardSortTargetType {
   RewardSortTargetType_Unknown = 0;
@@ -1506,5 +1521,6 @@ enum TutorialType {
   TutorialType_Marathon = 25;
   TutorialType_AccessoryLimitBreak = 26;
   TutorialType_Race = 27;
+  TutorialType_Ladder = 28;
 }
 

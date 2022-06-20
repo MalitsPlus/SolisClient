@@ -100,6 +100,8 @@ message Area {
   string rewardAssetId = 11;
   string assetId = 12;
   string colorCode = 13;
+  string dailySpecialTicketItemId = 14;
+  string dailyRewardName = 15;
   repeated string questIds = 100;
 }
 message AreaGroup {

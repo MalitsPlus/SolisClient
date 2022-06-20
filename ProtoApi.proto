@@ -1,13 +1,11 @@
 syntax = "proto3";
-
 package api;
 option go_package = "solis/pkg/proto/api";
 option csharp_namespace = "Solis.Common.Proto.Api";
-
-import "google/protobuf/empty.proto";
 import "ProtoEnum.proto";
 import "ProtoMaster.proto";
 import "ProtoTransaction.proto";
+import "google/protobuf/empty.proto";
 
 service System {
   rpc Check(SystemCheckRequest) returns (SystemCheckResponse);
@@ -538,6 +536,20 @@ message HomeEventMissionInfo {
   string id = 1;
   bool unlocked = 2;
 }
+message HomeLadderInfo {
+  string id = 1;
+  string name = 2;
+  int64 startTime = 3;
+  int64 endTime = 4;
+  string assetId = 5;
+  string bannerAssetId = 6;
+  int32 order = 7;
+  string unlockConditionId = 8;
+  bool isUnlocked = 9;
+  string eventMissionId = 10;
+  string messageGroupId = 11;
+  bool hasReachablePanel = 12;
+}
 message HomeMarathonInfo {
   string id = 1;
   string name = 2;
@@ -594,6 +606,30 @@ message HomeTourInfo {
   string unlockConditionId = 10;
   bool isUnlocked = 11;
   string eventMissionId = 12;
+}
+message LadderInfo {
+  string id = 1;
+  string name = 2;
+  int64 startTime = 3;
+  int64 endTime = 4;
+  api.EventMissionInfo eventMissionInfo = 5;
+  string messageGroupId = 6;
+  repeated string costumeIds = 7;
+  string ladderPointItemId = 8;
+  string assetId = 10;
+  string topColorCode = 11;
+  string bottomColorCode = 12;
+  string bgmAssetId = 13;
+}
+message LadderPanel {
+  ProtoEnum.LadderPanelType type = 1;
+  string messageId = 2;
+  string rewardId = 3;
+  int32 requiredPointItemAmount = 4;
+  string unlockConditionId = 5;
+  bool unlocked = 6;
+  bool reached = 7;
+  bool reachable = 8;
 }
 message LastCardInfo {
   int32 position = 1;
@@ -681,6 +717,7 @@ message LiveDeckCardSkill {
   ProtoEnum.SkillPossessionType possessionType = 4;
   string liveAbilityId = 5;
   int32 liveAbilityLevel = 6;
+  repeated string rewrittenEfficacyIds = 1001;
 }
 message LiveRankingInfo {
   string userId = 1;
@@ -2030,6 +2067,7 @@ message HomeEventInfo {
   repeated api.HomeMarathonInfo marathonInfos = 4;
   repeated api.HomePhotoContestInfo photoContestInfos = 5;
   repeated api.HomeRaceInfo raceInfos = 6;
+  repeated api.HomeLadderInfo ladderInfos = 7;
 }
 message QuestReward {
   repeated transaction.RewardResult clearRewards = 1;
@@ -2750,6 +2788,34 @@ message ItemSellRequest {
 message ItemSellResponse {
   api.CommonResponse commonResponse = 9999;
 }
+message LadderTopRequest {
+  string ladderId = 1;
+}
+message LadderTopResponse {
+  api.LadderInfo ladderInfo = 1;
+  api.LadderProgressInfo progressInfo = 2;
+  repeated api.DokanInfo dokanInfos = 3;
+  api.CommonResponse commonResponse = 9999;
+}
+message LadderPanelReachRequest {
+  string ladderId = 1;
+  int32 step = 2;
+  int32 lane = 3;
+}
+message LadderPanelReachResponse {
+  repeated transaction.RewardResult rewardResults = 1;
+  api.LadderProgressInfo progressInfo = 2;
+  api.CommonResponse commonResponse = 9999;
+}
+message LadderProgressInfo {
+  repeated api.LadderStep steps = 1;
+}
+message LadderStep {
+  int32 step = 1;
+  api.LadderPanel lane1Panel = 2;
+  api.LadderPanel lane2Panel = 3;
+  api.LadderPanel lane3Panel = 4;
+}
 message LoginBonusListResponse {
   repeated api.LoginBonusInfo infos = 1;
   api.CommonResponse commonResponse = 9999;
@@ -3458,10 +3524,11 @@ message RaceTopResponse {
   api.RaceInfo raceInfo = 1;
   api.UserRaceInfo userRaceInfo = 2;
   repeated api.RaceLiveQuestInfo liveQuestInfos = 3;
-  bool isLoggedForFirstTimeToday = 4;
   bool isInitialLogin = 5;
   repeated api.DokanInfo dokanInfos = 6;
   repeated api.RaceOpponentProgressInfo opponentProgressInfos = 7;
+  bool isFirstLoginInDailyAggregationPeriod = 8;
+  int64 nextDailyAggregationTime = 9;
   api.CommonResponse commonResponse = 9999;
 }
 message RaceMovePanelRequest {
