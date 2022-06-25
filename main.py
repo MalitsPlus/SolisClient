@@ -43,7 +43,7 @@ def main():
     parser.add_argument("-t", "--token", type=str, default="", help="Your firebase refreshToken.")
     parser.add_argument("-f", "--force", action="store_true", help="Update databases without checking version.")
     parser.add_argument("-k", "--kv", action="store_true", help="Notify KV server.")
-    parser.add_argument("-a", "--asset-mode", type=str, default="", help="How to download assets. Can be 'all' or 'diff'.")
+    parser.add_argument("-a", "--asset-mode", type=str, default="", help="Enable asset decryption mode. Can be either (all | diff).")
     parser.add_argument("--kvauth", type=str, default="", help="KV server auth token.")
     parser.add_argument("--kvurl", type=str, default="", help="KV server endpoint.")
     args = parser.parse_args()
