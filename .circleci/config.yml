@@ -8,8 +8,7 @@ orbs:
   python: circleci/python@2.0.3
 
 jobs:
-  job-run-scenarios: 
-  
+  job-run-scenarios:
     docker:
       - image: cimg/python:3.10.2
 
@@ -23,16 +22,16 @@ jobs:
             - "b9:bb:68:b8:5a:53:90:e2:c4:d1:02:fb:97:2b:df:7a"
       - restore_cache:
           name: Restoring client cache
-          keys: 
+          keys:
             - client-cache-v2-{{ epoch }}
             - client-cache-v2-
       - restore_cache:
           name: Restoring artifact cache
-          keys: 
+          keys:
             - masterdata-v2-
       - restore_cache:
           name: Restoring diff repo cache
-          keys: 
+          keys:
             - diff-v2-
       - run:
           name: Run scenarios
@@ -43,7 +42,7 @@ jobs:
       - save_cache:
           name: Saving client cache
           key: client-cache-v2-{{ epoch }}
-          paths: 
+          paths:
             - cache
       - save_cache:
           name: Saving artifact cache
@@ -55,8 +54,33 @@ jobs:
           key: diff-v2-{{ checksum "ipr-master-diff/!version.txt" }}
           paths:
             - ipr-master-diff
+      - persist_to_workspace:
+          root: masterdata
+          paths:
+            - Skill.json
+
+    job-run-skillx:
+      docker:
+        - image: cimg/node:18.4.0
+
+      steps:
+        - attach_workspace:
+            at: masterdata
+        - run: git clone https://github.com/MalitsPlus/IDOLY-Backend.git backend
+        - run: cd backend
+        - run: npx pnpm install
+        - run: 
+            name: Generate and upload Skillx
+            command: bash scripts/uploadSkillx.sh $(realpath ../masterdata/Skill.json)
+            environment:
+              WRITE_API_ENDPOINT: ${KV_URL}
+              ADMIN_TOKEN: ${KV_AUTH}
+              DATA_PREFIX: "HSM_"
 
 workflows:
   run-scenarios:
     jobs:
       - job-run-scenarios
+      - job-run-skillx:
+          requires:
+            - job-run-scenarios
