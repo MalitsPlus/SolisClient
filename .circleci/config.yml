@@ -59,23 +59,23 @@ jobs:
           paths:
             - Skill.json
 
-    job-run-skillx:
-      docker:
-        - image: cimg/node:18.4.0
+  job-run-skillx:
+    docker:
+      - image: cimg/node:18.4.0
 
-      steps:
-        - attach_workspace:
-            at: masterdata
-        - run: git clone https://github.com/MalitsPlus/IDOLY-Backend.git backend
-        - run: cd backend
-        - run: npx pnpm install
-        - run: 
-            name: Generate and upload Skillx
-            command: bash scripts/uploadSkillx.sh $(realpath ../masterdata/Skill.json)
-            environment:
-              WRITE_API_ENDPOINT: ${KV_URL}
-              ADMIN_TOKEN: ${KV_AUTH}
-              DATA_PREFIX: "HSM_"
+    steps:
+      - attach_workspace:
+          at: masterdata
+      - run: git clone https://github.com/MalitsPlus/IDOLY-Backend.git backend
+      - run: cd backend
+      - run: npx pnpm install
+      - run: 
+          name: Generate and upload Skillx
+          command: bash scripts/uploadSkillx.sh $(realpath ../masterdata/Skill.json)
+          environment:
+            WRITE_API_ENDPOINT: ${KV_URL}
+            ADMIN_TOKEN: ${KV_AUTH}
+            DATA_PREFIX: "HSM_"
 
 workflows:
   run-scenarios:
