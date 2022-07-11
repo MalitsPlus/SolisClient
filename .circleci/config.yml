@@ -84,6 +84,6 @@ workflows:
   run-scenarios:
     jobs:
       - job-run-scenarios
-      - job-run-skillx:
-          requires:
-            - job-run-scenarios
+      #- job-run-skillx:
+      #    requires:
+      #      - job-run-scenarios
