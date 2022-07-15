@@ -78,7 +78,7 @@ jobs:
             export WRITE_API_ENDPOINT=${KV_URL}
             export ADMIN_TOKEN=${KV_AUTH}
             export DATA_PREFIX="HSM_"
-            bash backend/scripts/uploadSkillx.sh $(realpath masterdata/Skill.json)
+            bash backend/scripts/uploadSkillx.sh $(realpath masterdata/Skill.json) || true
 
 workflows:
   run-scenarios:
