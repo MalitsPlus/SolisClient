@@ -37,6 +37,11 @@ jobs:
           name: Run scenarios
           command: python main.py --token ${REFRESH_TOKEN} --kvauth ${KV_AUTH} --kvurl ${KV_URL} -k
       - run:
+          name: Install git lfs
+          command: |
+            curl -s https://packagecloud.io/install/repositories/github/git-lfs/script.deb.sh | sudo bash
+            sudo apt-get install git-lfs
+      - run:
           name: Run git diff
           command: sh git_push.sh
       - save_cache:
