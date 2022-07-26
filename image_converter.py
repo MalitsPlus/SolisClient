@@ -76,7 +76,7 @@ def _do_convert(inputs: str, output: str, scale: str, tile: str, extension: str,
 
     console.succeed("Conversion completed.")
 
-def convert_one(input: str, output: str, scale: str = "2", tile: str = "256", extension: str = "png", suffix: str = "esrgan", to_size: bool = False, c_size: tuple = (0, 0)):
+def convert_one(input: str, output: str, scale: str = "2", tile: str = "512", extension: str = "png", suffix: str = "esrgan", to_size: bool = False, c_size: tuple = (0, 0)):
     try:
         console.info(f"Start converting {input}.")
         _convert_with_esrgan(inputs=input, output=output, suffix=suffix,
