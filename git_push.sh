@@ -90,6 +90,9 @@ for file in masterdata/*; do
   cp ${file} "${REPO_NAME}/${file##*/}"
 done
 
+git lfs track "Reward.json"
+git add .gitattributes
+
 echo ">>> git adding..."
 git -C ${REPO_NAME} add .
 echo ">>> git committing..."
