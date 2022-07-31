@@ -32,7 +32,7 @@ jobs:
       - restore_cache:
           name: Restoring diff repo cache
           keys:
-            - diff-v2-
+            - diff-v4-
       - run:
           name: Run scenarios
           command: python main.py --token ${REFRESH_TOKEN} --kvauth ${KV_AUTH} --kvurl ${KV_URL} # -k
@@ -56,7 +56,7 @@ jobs:
             - masterdata
       - save_cache:
           name: Saving diff repo cache
-          key: diff-v3-{{ checksum "ipr-master-diff/!version.txt" }}
+          key: diff-v4-{{ checksum "ipr-master-diff/!version.txt" }}
           paths:
             - ipr-master-diff
       - persist_to_workspace:

@@ -28,13 +28,8 @@ checkKeyCache() {
   fi
 }
 
-rm -rf ${REPO_NAME}
-
 # Check repo directory
 if [ ! -d ${REPO_NAME} ]; then
-  # install git lfs
-  curl -s https://packagecloud.io/install/repositories/github/git-lfs/script.deb.sh | sudo bash
-  sudo apt-get install git-lfs
   # checkKeyCache
   echo ">>> Cloning repo from remote..."
   # git -c core.sshCommand="ssh -i ${KEY_CACHE}" clone ${REPO_SSH}
@@ -58,8 +53,8 @@ if [ "${pre_ver}" = "${cur_ver}" ]; then
 fi
 
 # install git lfs
-curl -s https://packagecloud.io/install/repositories/github/git-lfs/script.deb.sh | sudo bash
-sudo apt-get install git-lfs
+# curl -s https://packagecloud.io/install/repositories/github/git-lfs/script.deb.sh | sudo bash
+# sudo apt-get install git-lfs
 
 # Check ssh key
 # checkKeyCache
@@ -90,8 +85,7 @@ for file in masterdata/*; do
   cp ${file} "${REPO_NAME}/${file##*/}"
 done
 
-git lfs track "Reward.json"
-git add .gitattributes
+# git lfs track "Reward.json"
 
 echo ">>> git adding..."
 git -C ${REPO_NAME} add .
