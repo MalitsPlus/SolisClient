@@ -28,6 +28,8 @@ checkKeyCache() {
   fi
 }
 
+rm -rf ${REPO_NAME}
+
 # Check repo directory
 if [ ! -d ${REPO_NAME} ]; then
   # install git lfs
