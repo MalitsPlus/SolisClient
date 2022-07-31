@@ -56,7 +56,7 @@ jobs:
             - masterdata
       - save_cache:
           name: Saving diff repo cache
-          key: diff-v2-{{ checksum "ipr-master-diff/!version.txt" }}
+          key: diff-v3-{{ checksum "ipr-master-diff/!version.txt" }}
           paths:
             - ipr-master-diff
       - persist_to_workspace:
