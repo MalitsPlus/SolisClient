@@ -28,8 +28,13 @@ checkKeyCache() {
   fi
 }
 
+rm -rf ${REPO_NAME}
+
 # Check repo directory
 if [ ! -d ${REPO_NAME} ]; then
+  # install git lfs
+  curl -s https://packagecloud.io/install/repositories/github/git-lfs/script.deb.sh | sudo bash
+  sudo apt-get install git-lfs
   # checkKeyCache
   echo ">>> Cloning repo from remote..."
   # git -c core.sshCommand="ssh -i ${KEY_CACHE}" clone ${REPO_SSH}
