@@ -10,7 +10,7 @@ from rich.console import Console
 from requests.exceptions import SSLError
 from concurrent.futures import ThreadPoolExecutor, wait, ALL_COMPLETED
 
-DATA_PREFIX = "HSM_"
+DATA_PREFIX = "" # "HSM_" deprecated at 220803
 MAX_RETRY_TIMES = 5
 MAX_WORK_THREAD = 20
 
