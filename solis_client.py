@@ -119,10 +119,10 @@ class SolisClient(ClientBase):
             master.write_version(self.master_tag.version)
             set_cache("masterVersion", self.master_tag.version)
 
-    def put_master(self):
+    def put_master(self, force: bool=False):
         kv_master_version = get_cache("kvMasterVersion")
         console.info(f"KV master version: '{kv_master_version}'.")
-        if kv_master_version == self.master_tag.version:
+        if not force and kv_master_version == self.master_tag.version:
             console.info("Kv master version is already up-to-date, put operation will not be performed.")
             return
         upload.main()

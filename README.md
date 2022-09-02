@@ -8,16 +8,18 @@ A component of [IDOLY-Backend](https://github.com/MalitsPlus/IDOLY-Backend). Thi
 
 ## Usage
 ```
-usage: main.py [-h] [-t TOKEN] [-f] [-k] [-a ASSET_MODE] [--kvauth KVAUTH] [--kvurl KVURL]
+usage: main.py [-h] [-t TOKEN] [-f] [-fk] [-k] [-a ASSET_MODE] [-o] [--kvauth KVAUTH] [--kvurl KVURL]
 
 optional arguments:
   -h, --help            show this help message and exit
   -t TOKEN, --token TOKEN
                         Your firebase refreshToken.
   -f, --force           Update databases without checking version.
+  -fk, --force-kv       Put databases without checking version.
   -k, --kv              Notify KV server.
   -a ASSET_MODE, --asset-mode ASSET_MODE
                         Enable asset decryption mode. Can be either (all | diff).
+  -o, --overwrite       Overwrite cached token. If '--token' does not exist, this argument takes no effect.
   --kvauth KVAUTH       KV server auth token.
   --kvurl KVURL         KV server endpoint.
 ```

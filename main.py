@@ -45,6 +45,7 @@ def main():
     parser = argparse.ArgumentParser()
     parser.add_argument("-t", "--token", type=str, default="", help="Your firebase refreshToken.")
     parser.add_argument("-f", "--force", action="store_true", help="Update databases without checking version.")
+    parser.add_argument("-fk", "--force-kv", action="store_true", help="Put databases without checking version.")
     parser.add_argument("-k", "--kv", action="store_true", help="Notify KV server.")
     parser.add_argument("-a", "--asset-mode", type=str, default="", help="Enable asset decryption mode. Can be either (all | diff).")
     parser.add_argument("-o", "--overwrite", action="store_true", help="Overwrite cached token. If '--token' does not exist, this argument takes no effect.")
@@ -76,7 +77,7 @@ def main():
             # Set secret args
             upload.set_config(kvtoken=args.kvauth, kvurl=args.kvurl)
             # Update notices 
-            client.put_master()
+            client.put_master(force=args.force_kv)
             client.put_notice()
             # Update octo
             client.update_octo_manifest()
