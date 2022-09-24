@@ -30,18 +30,6 @@ service Notice {
   rpc List(google.protobuf.Empty) returns (NoticeListResponse);
 }
 
-message GachaContinuousInfo {
-  int32 totalDrawCount = 1;
-  repeated string cardIds = 2;
-  bool isFinished = 3;
-  api.ExternalRewardInfo externalRewardInfo = 4;
-}
-message GachaContinuousResult {
-  int32 totalDrawCount = 1;
-  repeated string cardIds = 2;
-  ProtoEnum.GachaContinuousResultType resultType = 3;
-  api.ExternalRewardInfo externalRewardInfo = 4;
-}
 message ActiveFanEvent {
   repeated string characterIds = 1;
   string name = 2;
@@ -243,6 +231,9 @@ message DokanInfo {
   string name = 8;
   ProtoEnum.ShopType shopType = 9;
   string storyId = 10;
+  string linkTitle = 11;
+  ProtoEnum.LinkType linkType = 12;
+  string linkDetail = 13;
 }
 message EventButtonDisplayInfo {
   string conditionId = 1;
@@ -295,6 +286,28 @@ message ExchangeItem {
   int32 order = 12;
   string viewConditionId = 13;
   string unlockConditionId = 14;
+}
+message ExerciseDeckPosition {
+  int32 position = 1;
+  string cardId = 2;
+  string part1AccessoryId = 3;
+  string part2AccessoryId = 4;
+  repeated string photoAllInOneIds = 5;
+}
+message ExerciseInfo {
+  string exerciseId = 1;
+  bool unlocked = 2;
+  repeated api.ExerciseDeckPosition positions = 3;
+  api.QuestOpponentInfo opponentInfo = 4;
+}
+message ExerciseStartResponse {
+  string questId = 1;
+  api.LiveResult result = 2;
+  ProtoEnum.ResultRankType rankType = 3;
+  int32 rankPlus = 4;
+  repeated api.QuestRankPattern rankPatterns = 5;
+  repeated transaction.RewardResult clearRewards = 6;
+  api.CommonResponse commonResponse = 9999;
 }
 message ExternalRewardInfo {
   string externalRewardId = 1;
@@ -374,6 +387,18 @@ message GachaButtonInfo {
   int32 todayCount = 2;
   int32 totalCount = 3;
   int64 drawTime = 4;
+}
+message GachaContinuousInfo {
+  int32 totalDrawCount = 1;
+  repeated string cardIds = 2;
+  bool isFinished = 3;
+  api.ExternalRewardInfo externalRewardInfo = 4;
+}
+message GachaContinuousResult {
+  int32 totalDrawCount = 1;
+  repeated string cardIds = 2;
+  ProtoEnum.GachaContinuousResultType resultType = 3;
+  api.ExternalRewardInfo externalRewardInfo = 4;
 }
 message GachaExchangeInfo {
   string id = 1;
@@ -561,6 +586,7 @@ message HomeEnterResponse {
   api.LessonInfo lessonInfo = 29;
   repeated api.EventButtonDisplayInfo eventButtonDisplayInfos = 30;
   bool hasCanReceiveInviteHostRewards = 31;
+  bool existsUnclearedExercise = 32;
   api.PvpRewardResultInfo pvpRewardResultInfo = 100;
   api.GvgRewardResultInfo gvgRewardResultInfo = 101;
   repeated api.TourRewardResultInfo tourRewardResultInfos = 102;
@@ -588,6 +614,7 @@ message HomeLadderInfo {
   string eventMissionId = 10;
   string messageGroupId = 11;
   bool hasReachablePanel = 12;
+  int32 reachablePanelCount = 13;
 }
 message HomeMarathonInfo {
   string id = 1;
@@ -1599,6 +1626,8 @@ message AuthLoginResponse {
   transaction.UserPublic userPublic = 2;
   bool requiredFirebaseReauthenticate = 3;
 }
+message AuthDeleteResponse {
+}
 message BacksideTopRequest {
   string backsideId = 1;
 }
@@ -1681,28 +1710,12 @@ message BacksideStageSurpriseFinishResponse {
 message BacksideStageDeckPositionChangeRequest {
   string backsideId = 1;
   repeated api.BacksideDeckPositionInfo deckPositionInfos = 2;
-  int32 pieceNumber = 3;
-  int32 radiusNumber = 4;
-  int32 panelNumber = 5;
 }
 message BacksideStageDeckPositionChangeResponse {
-  repeated api.BacksideDeckCardDetailInfo deckCardDetailInfos = 1;
-  repeated api.BacksideDeckCardStaminaInfo deckCardStaminaInfos = 2;
-  repeated transaction.UserCharacter deckUserCharacters = 3;
-  int64 baseDeckOverallValue = 4;
-  api.CommonResponse commonResponse = 9999;
-}
-message BacksideStageDeckGetRequest {
-  string backsideId = 1;
-  int32 pieceNumber = 2;
-  int32 radiusNumber = 3;
-  int32 panelNumber = 4;
-}
-message BacksideStageDeckGetResponse {
-  repeated api.BacksideDeckCardDetailInfo deckCardDetailInfos = 1;
-  repeated api.BacksideDeckCardStaminaInfo deckCardStaminaInfos = 2;
-  repeated transaction.UserCharacter deckUserCharacters = 3;
-  int64 baseDeckOverallValue = 4;
+  repeated transaction.UserCharacter deckUserCharacters = 1;
+  api.BacksideStageDeckDetailInfo deckDetailInfo = 2;
+  api.BacksideStageDeckDetailInfo scoreLiveDeckDetailInfo = 3;
+  api.BacksideStageDeckDetailInfo battleLiveDeckDetailInfo = 4;
   api.CommonResponse commonResponse = 9999;
 }
 message BacksideInfo {
@@ -1732,10 +1745,10 @@ message BacksideAreaInfo {
   string name = 2;
   ProtoEnum.BacksideAreaType type = 3;
   string assetId = 4;
-  repeated api.BacksideDifficultyInfo backsideDifficultyInfos = 10;
-  int32 currentDifficultyNumber = 11;
-  int32 lastChallengeDifficultyNumber = 12;
-  ProtoEnum.BacksideDifficultyType difficultyType = 13;
+  repeated api.BacksideDifficultyInfo backsideDifficultyInfos = 5;
+  int32 currentDifficultyNumber = 6;
+  int32 lastChallengeDifficultyNumber = 7;
+  ProtoEnum.BacksideDifficultyType difficultyType = 8;
 }
 message BacksidePracticeStageTotalResultInfo {
   ProtoEnum.BacksidePracticeRankType practiceRankType = 1;
@@ -1780,29 +1793,36 @@ message BacksideLiveBonusInfo {
   string stageName = 3;
   repeated api.BacksideLiveBonus liveBonuses = 4;
 }
+message BacksideStageDeckDetailInfo {
+  repeated api.BacksideDeckCardDetailInfo deckCardDetailInfos = 1;
+  repeated api.BacksideDeckCardStaminaInfo deckCardStaminaInfos = 2;
+  int64 baseDeckOverallValue = 3;
+}
 message BacksideStageInfo {
   repeated api.BacksidePanelInfo panelInfos = 1;
   repeated api.BacksideScheduleInfo scheduleInfos = 2;
   int64 nextActionCount = 3;
   int64 practiceScore = 4;
-  repeated api.BacksideDeckCardDetailInfo deckCardDetailInfos = 5;
-  repeated api.BacksideDeckCardStaminaInfo deckCardStaminaInfos = 6;
-  repeated api.BacksideLiveBonus liveBonuses = 7;
-  repeated api.BacksideLiveBonusInfo allLiveBonusInfos = 8;
-  repeated api.BacksideCardLiveAbilityInfo cardLiveAbilityInfos = 9;
-  int64 totalPracticeScore = 10;
-  repeated transaction.UserCharacter deckUserCharacters = 11;
-  int64 baseDeckOverallValue = 12;
+  repeated api.BacksideLiveBonus liveBonuses = 5;
+  repeated api.BacksideLiveBonusInfo allLiveBonusInfos = 6;
+  repeated api.BacksideCardLiveAbilityInfo cardLiveAbilityInfos = 7;
+  int64 totalPracticeScore = 8;
+  repeated transaction.UserCharacter deckUserCharacters = 9;
+  api.BacksideStageDeckDetailInfo deckDetailInfo = 10;
+  api.BacksideStageDeckDetailInfo scoreLiveDeckDetailInfo = 11;
+  api.BacksideStageDeckDetailInfo battleLiveDeckDetailInfo = 12;
 }
 message BacksideStageProgressInfo {
   repeated api.BacksidePanelInfo panelInfos = 1;
   int64 nextActionCount = 2;
   int64 practiceScore = 3;
-  repeated api.BacksideDeckCardStaminaInfo deckCardStaminaInfos = 4;
-  repeated api.BacksideLiveBonus liveBonuses = 5;
-  api.BacksideExecPanelLocationInfo execPanelLocationInfo = 6;
-  int64 totalPracticeScore = 7;
-  repeated api.BacksideDeckCardDetailInfo deckCardDetailInfos = 8;
+  repeated api.BacksideLiveBonus liveBonuses = 4;
+  api.BacksideExecPanelLocationInfo execPanelLocationInfo = 5;
+  int64 totalPracticeScore = 6;
+  repeated transaction.UserCharacter deckUserCharacters = 7;
+  api.BacksideStageDeckDetailInfo deckDetailInfo = 8;
+  api.BacksideStageDeckDetailInfo scoreLiveDeckDetailInfo = 9;
+  api.BacksideStageDeckDetailInfo battleLiveDeckDetailInfo = 10;
 }
 message BacksidePanelInfo {
   int32 pieceNumber = 1;
@@ -2084,6 +2104,7 @@ message NoticeInfo {
   bool displayNotification = 6;
   int64 startTime = 7;
   string listTitle = 8;
+  int64 notificationRestartTime = 9;
 }
 message PaidJpy {
   int32 amount = 1;
@@ -2320,6 +2341,28 @@ message ExchangeExecuteResponse {
   api.ExchangeBooth booth = 3;
   api.CommonResponse commonResponse = 9999;
 }
+message ExerciseTopResponse {
+  repeated api.ExerciseInfo exercises = 1;
+  api.CommonResponse commonResponse = 9999;
+}
+message ExerciseSaveDeckRequest {
+  string exerciseId = 1;
+  repeated api.ExerciseDeckPosition positions = 2;
+}
+message ExerciseSaveDeckResponse {
+  api.CommonResponse commonResponse = 9999;
+}
+message ExerciseStartRequest {
+  string exerciseId = 1;
+  bool isSkip = 2;
+}
+message ExerciseListAssetRequest {
+  string exerciseId = 1;
+}
+message ExerciseListAssetResponse {
+  repeated api.LiveCharacterAssetInfo characterAssets = 1;
+  api.CommonResponse commonResponse = 9999;
+}
 message ForumListThreadReplyRequest {
   string threadId = 1;
   ProtoEnum.ForumListReplyRequestType requestType = 2;
@@ -2421,6 +2464,7 @@ message FriendApplyResponse {
   bool isAlreadyOffered = 4;
   bool isAccountBan = 5;
   bool applied = 6;
+  bool isAccountDeleted = 7;
   api.CommonResponse commonResponse = 9999;
 }
 message FriendApproveRequest {
@@ -2432,6 +2476,7 @@ message FriendApproveResponse {
   bool isOfferDeleted = 3;
   bool isAccountBan = 4;
   bool approved = 5;
+  bool isAccountDeleted = 6;
   api.CommonResponse commonResponse = 9999;
 }
 message FriendCancelRequest {
@@ -2917,6 +2962,7 @@ message LadderPanelReachRequest {
 message LadderPanelReachResponse {
   repeated transaction.RewardResult rewardResults = 1;
   api.LadderProgressInfo progressInfo = 2;
+  int32 reachablePanelCount = 3;
   api.CommonResponse commonResponse = 9999;
 }
 message LadderProgressInfo {
@@ -3087,6 +3133,12 @@ message MasterGetResponse {
 message MasterFaqResponse {
   repeated master.HelpCategory helpCategories = 1;
 }
+message MasterRuleRequest {
+  ProtoEnum.RuleType ruleType = 1;
+}
+message MasterRuleResponse {
+  string text = 1;
+}
 message MessageListGroupResponse {
   repeated api.MessageGroupInfo infos = 1;
   api.CommonResponse commonResponse = 9999;
@@ -3251,6 +3303,7 @@ message NoticeListResponse {
   bool noticeHasNext = 4;
   bool malfunctionNoticeHasNext = 5;
   bool prNoticeHasNext = 6;
+  string roootAssociateToken = 7;
   api.CommonResponse commonResponse = 9999;
 }
 message NoticeFetchRequest {
@@ -3260,6 +3313,7 @@ message NoticeFetchRequest {
 message NoticeFetchResponse {
   repeated api.NoticeInfo notices = 1;
   bool hasNext = 2;
+  string roootAssociateToken = 3;
   api.CommonResponse commonResponse = 9999;
 }
 message NoticeGetRequest {
@@ -3267,6 +3321,7 @@ message NoticeGetRequest {
 }
 message NoticeGetResponse {
   api.NoticeInfo notice = 1;
+  string roootAssociateToken = 2;
   api.CommonResponse commonResponse = 9999;
 }
 message PhotoSwitchLockRequest {

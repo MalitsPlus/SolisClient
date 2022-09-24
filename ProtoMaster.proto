@@ -86,6 +86,15 @@ message ActivityRefreshLevel {
   string viewConditionId = 4;
   string unlockConditionId = 5;
 }
+message AdvLiveMovie {
+  string id = 1;
+  string musicId = 2;
+  string stageId = 3;
+  repeated string costumeIds = 4;
+  int32 audiencePercent = 5;
+  int32 playStartMillisecond = 6;
+  int32 playEndMillisecond = 7;
+}
 message Area {
   string id = 1;
   ProtoEnum.AreaType type = 2;
@@ -243,7 +252,7 @@ message Character {
   repeated string costumeAdditionMotionAssetIds = 31;
   repeated string costumeVoiceAssetIds = 32;
   bool isLeftHanded = 33;
-  ProtoEnum.PsylliumColerType psylliumColerType = 34;
+  ProtoEnum.PsylliumColorType psylliumColorType = 34;
   string shortProfile = 35;
   string threeSize = 36;
   string catchphrase = 37;
@@ -257,6 +266,9 @@ message Character {
   float groupPositionY = 45;
   string catchphraseColor = 46;
   string unlockConditionId = 47;
+  bool isHomeDanceTarget = 48;
+  ProtoEnum.CharacterType type = 49;
+  string groupName = 50;
 }
 message CharacterCostumeGroup {
   string groupId = 1;
@@ -277,6 +289,8 @@ message CharacterGroup {
   bool isMemories = 8;
   string backgroundColor = 9;
   string textColor = 10;
+  string nameColor = 11;
+  ProtoEnum.CharacterType characterType = 12;
 }
 message CharacterGroupMapping {
   string characterId = 1;
@@ -448,6 +462,46 @@ message EventStoryEpisode {
   string unlockConditionId = 5;
   bool isAppeal = 6;
 }
+message Exercise {
+  string id = 1;
+  string name = 2;
+  string description = 3;
+  string unlockConditionId = 4;
+  string rewardId = 5;
+  string questId = 6;
+  string exerciseUserId = 7;
+  string exerciseDeckId = 8;
+  string exerciseCardGroupId = 9;
+  string exercisePhotoGroupId = 10;
+  string exerciseAccessoryGroupId = 11;
+  int32 order = 12;
+}
+message ExerciseAccessory {
+  string accessoryId = 1;
+  int32 amount = 2;
+}
+message ExerciseCardGroup {
+  string groupId = 1;
+  repeated string cardIds = 2;
+}
+message ExerciseCostume {
+  string characterId = 1;
+  string costumeId = 2;
+}
+message ExerciseDeckPosition {
+  int32 position = 1;
+  string cardId = 2;
+  int32 addVocal = 8;
+  int32 addDance = 9;
+  int32 addVisual = 10;
+  int32 addStamina = 11;
+  int32 addMental = 12;
+  int32 addTechnique = 13;
+}
+message ExercisePhoto {
+  string photoAllInOneId = 1;
+  int32 amount = 2;
+}
 message FunctionLock {
   ProtoEnum.FunctionLockType type = 1;
   int32 requiredManagerLevel = 2;
@@ -476,6 +530,7 @@ message Gacha {
   int32 selectPickupAmount = 20;
   repeated string selectCardIds = 21;
   string shopId = 22;
+  string bgmAssetId = 23;
   repeated string buttonIds = 100;
   repeated string exchangeIds = 101;
   repeated master.GachaCardReward cardRewards = 102;
@@ -859,6 +914,7 @@ message Music {
   repeated string originalCharacterIds = 25;
   repeated ProtoEnum.StageType notSelectableStageTypes = 26;
   string mvAssetId = 27;
+  repeated string selectableStageIds = 28;
 }
 message MusicMasteryReward {
   string musicId = 1;
@@ -909,6 +965,7 @@ message PhotoActivity {
   int32 order = 10;
   string viewConditionId = 11;
   string unlockConditionId = 12;
+  repeated string impossibleShootingCharacterIds = 13;
 }
 message PhotoAllInOne {
   string id = 1;
@@ -936,6 +993,7 @@ message PhotoContestActivity {
   int32 order = 10;
   string viewConditionId = 11;
   string unlockConditionId = 12;
+  repeated string impossibleShootingCharacterIds = 13;
 }
 message PhotoContestQuestMusic {
   string id = 1;
@@ -1290,6 +1348,8 @@ message Setting {
   int32 photoDefaultLimit = 112;
   int64 photoRecipeLimit = 113;
   int32 photoRecipeSaleAmountLimit = 114;
+  string exerciseFixedBannerNoticeId = 115;
+  string exerciseBannerId = 116;
   repeated ProtoEnum.StatusEffectType statusEffectTypeStrengthList = 1001;
   repeated ProtoEnum.StatusEffectType statusEffectTypeWeaknessDownList = 1002;
   repeated ProtoEnum.StatusEffectType statusEffectTypeWeaknessOtherList = 1003;
@@ -1354,6 +1414,8 @@ message Story {
   string name = 4;
   string description = 5;
   string rewardId = 6;
+  repeated ProtoEnum.StoryAdvPlayType advPlayTypes = 7;
+  repeated string advAssetIds = 8;
 }
 message StoryEpisode {
   int32 episode = 1;
@@ -1501,6 +1563,40 @@ message Division {
   string id = 1;
   int32 order = 2;
   string name = 3;
+}
+message ExerciseAccessoryGroup {
+  string groupId = 1;
+  repeated master.ExerciseAccessory accessories = 2;
+}
+message ExerciseDeck {
+  string id = 1;
+  repeated master.ExerciseDeckPosition positions = 2;
+}
+message ExerciseHint {
+  string exerciseId = 1;
+  repeated master.ExerciseHintContent contents = 2;
+}
+message ExercisePhotoGroup {
+  string groupId = 1;
+  repeated master.ExercisePhoto photos = 2;
+}
+message ExerciseUser {
+  string id = 1;
+  int32 managerLevel = 2;
+  int32 cardLevel = 3;
+  int32 cardRarity = 4;
+  int32 lightFanAmount = 5;
+  int32 middleFanAmount = 6;
+  int32 heavyFanAmount = 7;
+  int32 addVocal = 8;
+  int32 addDance = 9;
+  int32 addVisual = 10;
+  int32 addStamina = 11;
+  int32 addMental = 12;
+  int32 addTechnique = 13;
+  int32 skillLevel1 = 14;
+  int32 skillLevel2 = 15;
+  int32 skillLevel3 = 16;
 }
 message Guild {
   string id = 1;
@@ -1656,6 +1752,7 @@ message Stage {
   string description = 6;
   int32 order = 7;
   string timeDifference = 8;
+  bool isHideWithPhotoShooting = 9;
 }
 message StoreProduct {
   string productId = 1;
@@ -1917,6 +2014,13 @@ message ConsumptionResource {
   repeated string resourceIds = 2;
   repeated string subResourceIds = 3;
   int32 amount = 4;
+}
+message ExerciseHintContent {
+  int32 number = 1;
+  ProtoEnum.ExerciseHintType type = 2;
+  string title = 3;
+  string text = 4;
+  repeated string assetIds = 5;
 }
 message HelpContent {
   string helpContentId = 1;

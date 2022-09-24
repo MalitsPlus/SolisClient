@@ -58,6 +58,7 @@ enum AreaType {
   AreaType_Tower = 4;
   AreaType_SubTower = 5;
   AreaType_Tutorial = 101;
+  AreaType_Exercise = 102;
 }
 enum AssetDownloadType {
   AssetDownloadType_Unknown = 0;
@@ -160,6 +161,13 @@ enum CharacterSdPersonalityType {
   CharacterSdPersonalityType_Stylish = 4;
   CharacterSdPersonalityType_Carefree = 5;
 }
+enum CharacterType {
+  CharacterType_Unknown = 0;
+  CharacterType_Normal = 1;
+  CharacterType_Npc = 2;
+  CharacterType_Memories = 3;
+  CharacterType_Collaboration = 4;
+}
 enum DayOfWeekType {
   DayOfWeekType_Unknown = 0;
   DayOfWeekType_Sunday = 1;
@@ -205,6 +213,7 @@ enum DokanType {
   DokanType_VerticalMovie = 5;
   DokanType_HorizontalMovie = 6;
   DokanType_Story = 7;
+  DokanType_Free = 8;
 }
 enum ErrorCode {
   ErrorCode_Unknown = 0;
@@ -256,6 +265,11 @@ enum EventMissionType {
   EventMissionType_Event = 1;
   EventMissionType_Campaign = 2;
 }
+enum ExerciseHintType {
+  ExerciseHintType_Unknown = 0;
+  ExerciseHintType_Initial = 1;
+  ExerciseHintType_AfterFailed = 2;
+}
 enum ForumListReplyRequestType {
   ForumListReplyRequestType_Unknown = 0;
   ForumListReplyRequestType_Newest = 1;
@@ -290,6 +304,9 @@ enum FunctionLockType {
   FunctionLockType_PhotoRetouch = 22;
   FunctionLockType_InviteHost = 23;
   FunctionLockType_BuddyUse = 24;
+  FunctionLockType_AuthDelete = 25;
+  FunctionLockType_BuddyUseQuestContest = 26;
+  FunctionLockType_Exercise = 27;
 }
 enum FunctionMaintenanceType {
   FunctionMaintenanceType_Unknown = 0;
@@ -516,6 +533,13 @@ enum HelpDisplayTargetType {
   HelpDisplayTargetType_FriendSearch = 146;
   HelpDisplayTargetType_FriendTop = 147;
   HelpDisplayTargetType_FriendCode = 148;
+  HelpDisplayTargetType_ExerciseTop = 149;
+  HelpDisplayTargetType_ExerciseDeckEdit = 150;
+  HelpDisplayTargetType_ExerciseDeckPhotoEdit = 151;
+  HelpDisplayTargetType_ExerciseDeckAccessoryEdit = 152;
+  HelpDisplayTargetType_ExerciseLiveDeckSelect = 153;
+  HelpDisplayTargetType_ExerciseLiveBattleDeckSelect = 154;
+  HelpDisplayTargetType_ExerciseLiveResult = 155;
 }
 enum HelpType {
   HelpType_Unknown = 0;
@@ -1055,24 +1079,24 @@ enum ProviderType {
   ProviderType_Twitter = 4;
   ProviderType_Password = 99;
 }
-enum PsylliumColerType {
-  PsylliumColerType_Unknown = 0;
-  PsylliumColerType_Red = 1;
-  PsylliumColerType_Green = 2;
-  PsylliumColerType_Blue = 3;
-  PsylliumColerType_Pink = 4;
-  PsylliumColerType_Yellow = 5;
-  PsylliumColerType_Orange = 6;
-  PsylliumColerType_LightGreen = 7;
-  PsylliumColerType_Cyan = 8;
-  PsylliumColerType_SakuraPink = 9;
-  PsylliumColerType_Emerald = 10;
-  PsylliumColerType_Purple = 11;
-  PsylliumColerType_Violet = 12;
-  PsylliumColerType_AquaBlue = 13;
-  PsylliumColerType_LightBlue = 14;
-  PsylliumColerType_LightYellow = 15;
-  PsylliumColerType_White = 16;
+enum PsylliumColorType {
+  PsylliumColorType_Unknown = 0;
+  PsylliumColorType_Red = 1;
+  PsylliumColorType_Green = 2;
+  PsylliumColorType_Blue = 3;
+  PsylliumColorType_Pink = 4;
+  PsylliumColorType_Yellow = 5;
+  PsylliumColorType_Orange = 6;
+  PsylliumColorType_LightGreen = 7;
+  PsylliumColorType_Cyan = 8;
+  PsylliumColorType_SakuraPink = 9;
+  PsylliumColorType_Emerald = 10;
+  PsylliumColorType_Purple = 11;
+  PsylliumColorType_Violet = 12;
+  PsylliumColorType_AquaBlue = 13;
+  PsylliumColorType_LightBlue = 14;
+  PsylliumColorType_LightYellow = 15;
+  PsylliumColorType_White = 16;
 }
 enum RaceActivityLessonRewardType {
   RaceActivityLessonRewardType_Unknown = 0;
@@ -1221,6 +1245,7 @@ enum RuleType {
   RuleType_FundSettlement = 3;
   RuleType_CommercialTransaction = 4;
   RuleType_ServiceGuideline = 5;
+  RuleType_Licence = 6;
 }
 enum SalaryDetailType {
   SalaryDetailType_Unknown = 0;
@@ -1512,6 +1537,11 @@ enum StatusEffectType {
   StatusEffectType_AudienceAmountReduction = 1006;
   StatusEffectType_StaminaContinuousConsumption = 1007;
 }
+enum StoryAdvPlayType {
+  StoryAdvPlayType_Unknown = 0;
+  StoryAdvPlayType_Adv = 1;
+  StoryAdvPlayType_LiveMovie = 2;
+}
 enum StoryPartType {
   StoryPartType_Unknown = 0;
   StoryPartType_Main = 1;
@@ -1607,5 +1637,6 @@ enum TutorialType {
   TutorialType_Race = 27;
   TutorialType_Ladder = 28;
   TutorialType_PhotoRetouch = 29;
+  TutorialType_Collaboration = 30;
 }
 
