@@ -1,10 +1,10 @@
 beautifulsoup4==4.11.1
-grpcio==1.43.0
+grpcio==1.49.1
 pycryptodome==3.14.1
 PyJWT==2.4.0
 requests==2.26.0
 rich==12.4.4
 UnityPy==1.9.6
-protobuf==4.21.1
+protobuf==4.21.6
 lxml
 sqlcipher3-binary

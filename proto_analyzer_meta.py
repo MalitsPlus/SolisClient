@@ -155,6 +155,8 @@ def add_packages():
     kv_ptn = r"\w+(?= \w+ \= \d+;)"
 
     n_txt = re.sub(kv_ptn, rplc_func, master_txt)
+    # deals special cases
+    n_txt = n_txt.replace("api.ExerciseDeckPosition", "master.ExerciseDeckPosition")
     Path(out_file_master).write_text(n_txt)
 
     n_txt = re.sub(kv_ptn, rplc_func, api_txt)

@@ -54,8 +54,9 @@ def one_task(name: str, key: str, url: str):
             with open(f"masterdata/{name}.json", "w", encoding="utf8", errors="ignore") as fp:
                 json.dump(msg_list, fp, ensure_ascii=False, indent=2)
         # Clean temp file
-    except:
+    except Exception as e:
         console.error(f"Failed to decipher database '{name}'.")
+        console.error(str(e))
     finally:
         conn.close()
         temp_db_file.unlink(missing_ok=True)
