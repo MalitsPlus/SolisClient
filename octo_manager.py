@@ -16,6 +16,7 @@ _API_KEY = bytes.fromhex(
     "aa8a30926db9d49410360d0a99aa735d035638dfc09ef99fb575d9c91a8f6cdc")
 _API_IV = bytes.fromhex("9ce1286f5481bb3d92eb8529bc35962c")
 _FILE_KEY = bytes.fromhex("db3cf044ca27e0fbe672bc4c507bda5b")
+_KR_FILE_KEY = bytes.fromhex("62ec03eb7971f85cffda333e123155a7")
 _FILE_IV = bytes.fromhex("1c6e6f9255c0e5412712f4010225e378")
 _SIGNATURE = b"\x55\x6e\x69\x74\x79"
 
@@ -42,6 +43,18 @@ def decrypt_api_database(cache: bytes, key: bytes = _API_KEY, iv: bytes = _API_I
     # database.FromString(dec_data)
     return database
 
+
+def _decrypt_file(enc_data: bytes, key: bytes, iv: bytes, offset: int) -> bytes:
+    cipher = AES.new(key, AES.MODE_CBC, iv)
+    dec_data = unpad(cipher.decrypt(
+        enc_data[1:]), block_size=16, style="pkcs7")
+    return dec_data
+
+
+def _decrypt_file_database(cache: bytes, key: bytes = _FILE_KEY, iv: bytes = _FILE_IV, offset: int = 0) -> octop.Database:
+    dec_data = _decrypt_file(cache, key, iv, offset)
+    database = octop.Database.FromString(dec_data[16:])
+    return database
 
 def string_to_mask_bytes(mask_string: str, mask_string_length: int, bytes_length: int) -> bytes:
     mask_bytes = bytearray(bytes_length)
@@ -164,11 +177,14 @@ def update_octo_manifest(raw_cache: bytes):
         json.dump(octo_dict, fp, ensure_ascii=False, indent=2)
 
 
-def update_octo(raw_cache: bytes):
+def update_octo(raw_cache: bytes, is_file: bool = False):
     global _asset_count
     global _resouce_count
     global _current_count
-    database = decrypt_api_database(raw_cache)
+    if is_file:
+        database = _decrypt_file_database(raw_cache)
+    else:
+        database = decrypt_api_database(raw_cache)
     octo_dict = MessageToDict(
         database, use_integers_for_enums=True, including_default_value_fields=True)
     with open("cache/OctoDiff.json", "w", encoding="utf8") as fp:
@@ -213,4 +229,4 @@ def scale_with_esrgan():
             convert_one(file, _image_out_path, to_size=True, c_size=(2560, 1440))
 
 if __name__ == "__main__":
-    scale_with_esrgan()
+    update_octo()
