@@ -235,7 +235,6 @@ message Character {
   string favorite = 14;
   string unfavorite = 15;
   string profile = 16;
-  bool isNpc = 17;
   repeated string costumeIds = 18;
   repeated master.CharacterDuplicate altCharacters = 19;
   string defaultCostumeId = 20;
@@ -258,7 +257,6 @@ message Character {
   string catchphrase = 37;
   string firstName = 38;
   string idiom = 39;
-  bool isMemories = 40;
   string defaultLiveCostumeId = 41;
   float facePositionX = 42;
   float facePositionY = 43;
@@ -286,7 +284,6 @@ message CharacterGroup {
   string viewConditionId = 5;
   string color = 6;
   repeated master.CharacterGroupMapping mappings = 7;
-  bool isMemories = 8;
   string backgroundColor = 9;
   string textColor = 10;
   string nameColor = 11;
@@ -382,6 +379,9 @@ message ConditionObtainCostume {
 message ConditionObtainEmblem {
   string emblemId = 1;
 }
+message ConditionObtainHair {
+  string hairId = 1;
+}
 message ConditionObtainItem {
   string itemId = 1;
 }
@@ -401,13 +401,17 @@ message ConditionSatisfyCondition {
 message ConditionWearCostume {
   string costumeId = 1;
 }
+message ConditionWearHair {
+  string hairId = 1;
+}
 message ConditionWearLiveCostume {
   string costumeId = 1;
 }
+message ConditionWearLiveHair {
+  string hairId = 1;
+}
 message Costume {
   string id = 1;
-  string hairAssetId = 2;
-  string faceAssetId = 3;
   string bodyAssetId = 4;
   string characterId = 5;
   int32 order = 6;
@@ -417,6 +421,7 @@ message Costume {
   string sdAssetId = 10;
   string motifAssetId = 11;
   bool isUserUnavailable = 12;
+  string defaultHairId = 13;
 }
 message Decoration {
   string id = 1;
@@ -551,6 +556,7 @@ message GachaButton {
   int32 bonusCount = 13;
   int32 order = 14;
   string gachaId = 15;
+  string gachaStampSheetGroupId = 16;
 }
 message GachaCardReward {
   string cardId = 1;
@@ -564,11 +570,39 @@ message GachaExchange {
   int32 order = 5;
   string gachaId = 6;
 }
+message GachaStamp {
+  string groupId = 1;
+  int32 sheetNumber = 2;
+  int32 stampNumber = 3;
+  string rewardId = 4;
+  string rewardGachaButtonId = 5;
+  string assetId = 6;
+  string description = 7;
+  bool isFeatured = 8;
+}
+message GachaStampSheet {
+  string groupId = 1;
+  int32 sheetNumber = 2;
+  repeated string costumeIds = 3;
+}
 message GuildTopMovie {
   string assetId = 1;
   string musicAssetId = 2;
   string conditionId = 3;
   int32 order = 4;
+}
+message Hair {
+  string id = 1;
+  string hairAssetId = 2;
+  string faceAssetId = 3;
+  string sdHairAssetId = 4;
+  string characterId = 5;
+  repeated string wearableCostumeIds = 6;
+  repeated string notWearableCostumeIds = 7;
+  string fittingCostumeId = 8;
+  int32 order = 9;
+  string name = 10;
+  int64 releaseTime = 11;
 }
 message HierarchyDetailGrade {
   string id = 1;
@@ -1150,6 +1184,7 @@ message Quest {
   int32 ticketAmount = 42;
   repeated master.QuestAchievedRankReward achievedRankRewards = 43;
   string liveBonusGroupId = 44;
+  ProtoEnum.LiveSkipType liveSkipType = 101;
 }
 message QuestAchievedRankReward {
   int32 highRank = 1;
@@ -1216,6 +1251,7 @@ message RaceQuest {
   string questAudienceAdvantageId = 23;
   ProtoEnum.MoodType moodType = 24;
   ProtoEnum.RaceActivityLessonRewardType activityLessonRewardType = 25;
+  ProtoEnum.LiveSkipType liveSkipType = 101;
 }
 message RaceQuestDifficulty {
   string raceQuestId = 1;
@@ -1289,9 +1325,6 @@ message Setting {
   int32 activityLessonPromoteEffectHours = 52;
   int32 activityLessonPromoteFreeLimitCount = 53;
   string functionMaintenanceMessage = 54;
-  bool pvpLiveSkipAvailable = 55;
-  bool gvgLiveSkipAvailable = 56;
-  bool tourLiveSkipAvailable = 57;
   int32 gvgChallengeStoneAmount = 58;
   repeated string trainingCostumeIds = 59;
   int32 tutorialActivityLessonPromoteMinutes = 60;
@@ -1349,7 +1382,6 @@ message Setting {
   int64 photoRecipeLimit = 113;
   int32 photoRecipeSaleAmountLimit = 114;
   string exerciseFixedBannerNoticeId = 115;
-  string exerciseBannerId = 116;
   repeated ProtoEnum.StatusEffectType statusEffectTypeStrengthList = 1001;
   repeated ProtoEnum.StatusEffectType statusEffectTypeWeaknessDownList = 1002;
   repeated ProtoEnum.StatusEffectType statusEffectTypeWeaknessOtherList = 1003;
@@ -1359,7 +1391,6 @@ message Setting {
   repeated ProtoEnum.SkillEfficacyType skillEfficacyTypeWeaknessDownList = 1104;
   repeated ProtoEnum.SkillEfficacyType skillEfficacyTypeWeaknessOtherList = 1105;
   int32 backsideRankingDisplayNum = 200;
-  bool backsideLiveSkipAvailable = 201;
   int32 photoContestRankingDisplayNum = 300;
   int32 raceRankingDisplayNum = 400;
   int32 raceDailyRankingDisplayNum = 401;
@@ -1409,7 +1440,6 @@ message StaffLevel {
 }
 message Story {
   string id = 1;
-  string advAssetId = 2;
   string sectionName = 3;
   string name = 4;
   string description = 5;
@@ -1597,6 +1627,10 @@ message ExerciseUser {
   int32 skillLevel1 = 14;
   int32 skillLevel2 = 15;
   int32 skillLevel3 = 16;
+}
+message GachaStampSheetGroup {
+  string groupId = 1;
+  string assetId = 2;
 }
 message Guild {
   string id = 1;
@@ -1872,6 +1906,9 @@ message ConditionSetting {
   master.ConditionContestQuestHighestRank contestQuestHighestRank = 69;
   master.ConditionComebackUser comebackUser = 70;
   master.ConditionGameStartTerm gameStartTerm = 71;
+  master.ConditionObtainHair obtainHair = 72;
+  master.ConditionWearHair wearHair = 73;
+  master.ConditionWearLiveHair wearLiveHair = 74;
 }
 message ConditionStartHours {
   int32 hoursLte = 1;

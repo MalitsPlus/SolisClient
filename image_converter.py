@@ -145,5 +145,5 @@ if __name__ == "__main__":
     #     output=r"D:\GitHub\RVS-Private\ipr\SolisClientAsset\cache\image",
     #     tile="256",
     # )
-    convert_one("cache/image/eff_cav_uv_atlas_mna-007.png",
+    convert_one("cache/img_card_full_1_mna-05-premk-00.png",
                 "cache/esrgan", to_size=True, c_size=(2560, 1440))

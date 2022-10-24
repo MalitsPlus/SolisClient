@@ -125,6 +125,8 @@ message UserCharacter {
   int64 liveHighestScore = 11;
   int32 characterOnlyPhotoAmount = 12;
   string liveCostumeId = 13;
+  string favoriteHairId = 14;
+  string liveHairId = 15;
   int32 activityLevel = 100;
   int32 audienceCandidateAmount = 101;
 }
@@ -144,6 +146,10 @@ message UserDecoration {
 }
 message UserEmblem {
   string emblemId = 1;
+}
+message UserHair {
+  string hairId = 1;
+  bool checked = 2;
 }
 message UserHierarchy {
   string bestDetailGradeId = 1;
@@ -318,6 +324,7 @@ message UserDeckPosition {
   string part2AccessoryId = 5;
   repeated string photoIds = 6;
   string costumeId = 7;
+  string hairId = 8;
 }
 message UserGachaButton {
   string gachaButtonId = 1;

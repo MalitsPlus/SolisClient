@@ -7,29 +7,6 @@ import "ProtoMaster.proto";
 import "ProtoTransaction.proto";
 import "google/protobuf/empty.proto";
 
-service System {
-  rpc Check(SystemCheckRequest) returns (SystemCheckResponse);
-}
-service Auth {
-  rpc Login(AuthLoginRequest) returns (AuthLoginResponse);
-}
-service Master {
-  rpc Get(google.protobuf.Empty) returns (MasterGetResponse);
-}
-service User {
-  rpc Get(google.protobuf.Empty) returns (UserGetResponse);
-}
-service Home {
-  rpc Login(HomeLoginRequest) returns (HomeLoginResponse);
-  rpc Enter(HomeEnterRequest) returns (HomeEnterResponse);
-}
-service Dokan {
-  rpc List(google.protobuf.Empty) returns (DokanListResponse);
-}
-service Notice {
-  rpc List(google.protobuf.Empty) returns (NoticeListResponse);
-}
-
 message ActiveFanEvent {
   repeated string characterIds = 1;
   string name = 2;
@@ -55,6 +32,7 @@ message ActiveRefresh {
 message ActivityCharacterInfo {
   string characterId = 1;
   string costumeId = 2;
+  string hairId = 3;
 }
 message ActivityLessonProgress {
   int32 stepRewardGold = 1;
@@ -97,6 +75,7 @@ message BacksideDeckCardDetailInfo {
   repeated transaction.UserPhoto photos = 19;
   int32 staminaPermil = 20;
   bool supported = 21;
+  string displayHairId = 22;
 }
 message BacksideDeckCardInfo {
   int32 position = 1;
@@ -146,6 +125,7 @@ message BacksidePanelGoalInfo {
   string stageId = 6;
   string backsideQuestSettingId = 7;
   int32 mentalThreshold = 8;
+  ProtoEnum.LiveSkipType liveSkipType = 9;
 }
 message BacksidePanelLiveInfo {
   string musicId = 1;
@@ -156,6 +136,7 @@ message BacksidePanelLiveInfo {
   string stageId = 6;
   string backsideQuestSettingId = 7;
   int32 mentalThreshold = 8;
+  ProtoEnum.LiveSkipType liveSkipType = 9;
 }
 message BacksidePanelPvpInfo {
   string musicId = 1;
@@ -167,6 +148,7 @@ message BacksidePanelPvpInfo {
   api.BacksideOpponentInfo opponentInfo = 7;
   string backsideQuestSettingId = 8;
   int32 mentalThreshold = 9;
+  ProtoEnum.LiveSkipType liveSkipType = 10;
 }
 message BacksidePracticeStageInfo {
   int32 number = 1;
@@ -348,6 +330,7 @@ message FanEventCharacterInfo {
   int32 activityPoint = 6;
   int32 maxStep = 7;
   int32 lastSavedActivityPoint = 8;
+  string hairId = 9;
 }
 message FanEventProgress {
   string activityFanEventId = 1;
@@ -423,6 +406,7 @@ message GachaInfo {
   repeated string selectedCardIds = 7;
   api.GachaPremiumInfo premiumInfo = 8;
   api.GachaContinuousInfo continuousInfo = 9;
+  api.GachaStampInfo stampInfo = 10;
 }
 message GachaPremiumInfo {
   int32 fixedPremiumRewardRequiredDrawCount = 1;
@@ -613,7 +597,6 @@ message HomeLadderInfo {
   bool isUnlocked = 9;
   string eventMissionId = 10;
   string messageGroupId = 11;
-  bool hasReachablePanel = 12;
   int32 reachablePanelCount = 13;
 }
 message HomeMarathonInfo {
@@ -629,6 +612,11 @@ message HomeMarathonInfo {
   bool isUnlocked = 10;
   string eventMissionId = 11;
   bool isMaxStamina = 12;
+  bool isRaidStaminaOverThreshold = 13;
+  bool hasFinishedRaidQuest = 14;
+  bool isRaidHostEnable = 15;
+  int32 reachableLadderPanelCount = 16;
+  ProtoEnum.MarathonType type = 17;
 }
 message HomePhotoContestInfo {
   string id = 1;
@@ -694,6 +682,7 @@ message LadderInfo {
   string topColorCode = 11;
   string bottomColorCode = 12;
   string bgmAssetId = 13;
+  string backgroundAssetId = 14;
 }
 message LadderPanel {
   ProtoEnum.LadderPanelType type = 1;
@@ -749,6 +738,7 @@ message LiveBattleQuestInfo {
   string questAudienceAdvantageId = 21;
   ProtoEnum.MoodType moodType = 22;
   string liveBonusGroupId = 23;
+  ProtoEnum.LiveSkipType liveSkipType = 24;
 }
 message LiveCardInfo {
   int32 position = 1;
@@ -763,6 +753,7 @@ message LiveCardResult {
 message LiveCharacterAssetInfo {
   string characterId = 1;
   string costumeId = 2;
+  string hairId = 3;
 }
 message LiveDeckCard {
   int32 index = 1;
@@ -785,6 +776,8 @@ message LiveDeckCard {
   repeated api.LiveDeckCardSkill skills = 18;
   bool isBuddy = 19;
   bool isFriendBuddy = 20;
+  string displayHairId = 21;
+  bool isTourScout = 22;
 }
 message LiveDeckCardSkill {
   int32 index = 1;
@@ -845,6 +838,14 @@ message MarathonInfo {
   api.NoticeInfo noticeInfo = 12;
   string staminaRecoveryItemId = 13;
   string questUnlockItemId = 14;
+  ProtoEnum.MarathonType type = 15;
+  string raidStaminaRecoveryItemId = 16;
+  int32 initialRaidStamina = 17;
+  int32 raidStaminaRecoveryMinutes = 18;
+  api.MarathonRaidQuest raidQuest = 19;
+  int32 raidRequiredPointFriendDiscountRatePermil = 22;
+  int32 raidLimitHours = 23;
+  api.LadderInfo ladderInfo = 24;
 }
 message MarathonLiveBonusInfo {
   string liveBonusId = 1;
@@ -875,7 +876,71 @@ message MarathonQuestStartResponse {
   ProtoEnum.ResultRankType highestClearRankType = 9;
   int64 highestScore = 10;
   int32 addMarathonPoint = 11;
+  api.FriendApplyToBuddyInfo friendApplyToBuddyInfo = 12;
   api.CommonResponse commonResponse = 9999;
+}
+message MarathonRaidHostUser {
+  string name = 1;
+  bool isFriend = 2;
+  api.FavoriteCardInfo favoriteCard = 3;
+  api.FavoritePhotoInfo favoritePhoto = 4;
+  string decorationId = 5;
+  string userId = 6;
+}
+message MarathonRaidQuest {
+  string id = 1;
+  string stageId = 2;
+  string name = 3;
+  string description = 4;
+  string unlockConditionId = 5;
+  string unlockDescription = 6;
+  string musicId = 8;
+  string musicChartPatternId = 9;
+  ProtoEnum.AttributeType position1AttributeType = 10;
+  ProtoEnum.AttributeType position2AttributeType = 11;
+  ProtoEnum.AttributeType position3AttributeType = 12;
+  ProtoEnum.AttributeType position4AttributeType = 13;
+  ProtoEnum.AttributeType position5AttributeType = 14;
+  int32 activeSkillWeightPermil = 15;
+  int32 specialSkillWeightPermil = 16;
+  int32 skillStaminaWeightPermil = 17;
+  int32 staminaRecoveryWeightPermil = 18;
+  int32 beatDanceWeightPermil = 19;
+  int32 beatVocalWeightPermil = 20;
+  int32 beatVisualWeightPermil = 21;
+  string questPressureId = 22;
+  string questCharacterAdvantageId = 23;
+  string questAudienceAdvantageId = 24;
+  ProtoEnum.MoodType moodType = 25;
+  int32 maxCapacity = 26;
+  string liveBonusGroupId = 27;
+  bool unlocked = 28;
+  repeated api.MarathonRaidQuestDifficulty difficulties = 100;
+}
+message MarathonRaidQuestDifficulty {
+  string raidQuestId = 1;
+  int32 difficultyNumber = 2;
+  int32 difficultyLevel = 3;
+  int32 mentalThreshold = 4;
+  int64 clearScore = 5;
+  int32 requiredRaidStamina = 6;
+  string hostRewardId = 7;
+  string joinRewardId = 8;
+  string mvpRewardId = 9;
+  string unlockConditionId = 10;
+  int32 rewardManagerExp = 11;
+  int32 rewardCardExp = 12;
+  bool cleared = 13;
+  bool unlocked = 14;
+  ProtoEnum.LiveSkipType liveSkipType = 15;
+}
+message MarathonRaidRankedUser {
+  int32 rank = 1;
+  string userName = 2;
+  int32 managerLevel = 3;
+  int64 score = 4;
+  string emblemId = 5;
+  string userId = 6;
 }
 message MarketItem {
   int32 number = 1;
@@ -1100,6 +1165,24 @@ message QuestAreaInfo {
   bool unlocked = 2;
   repeated api.QuestInfo quests = 3;
 }
+message QuestBulkDailyDeckPositionInfo {
+  int32 position = 1;
+  string cardId = 2;
+}
+message QuestBulkDailyInfo {
+  string questId = 1;
+  repeated api.QuestBulkDailyDeckPositionInfo deckPositions = 2;
+  ProtoEnum.ResultRankType rankType = 3;
+  int32 rankPlus = 4;
+}
+message QuestBulkDailyResultInfo {
+  string questId = 1;
+  int32 playCount = 2;
+  repeated api.QuestBulkDailyDeckPositionInfo deckPositions = 3;
+  api.QuestReward reward = 4;
+  ProtoEnum.ResultRankType rankType = 5;
+  int32 rankPlus = 6;
+}
 message QuestClearInfo {
   int64 score = 1;
   string userName = 2;
@@ -1171,6 +1254,7 @@ message QuestTopResponse {
   api.QuestAreaInfo towerArea = 10;
   api.QuestAreaInfo contestArea = 11;
   bool isTowerTopUnlocked = 12;
+  repeated api.QuestBulkDailyInfo bulkDailyInfos = 13;
   api.CommonResponse commonResponse = 9999;
 }
 message QuestTowerAreaInfo {
@@ -1375,6 +1459,7 @@ message TourEffectLive {
   string rewardId = 8;
   int32 difficultyLevel = 9;
   string tourQuestSettingId = 10;
+  ProtoEnum.LiveSkipType liveSkipType = 11;
 }
 message TourEffectPvp {
   string musicId = 1;
@@ -1388,6 +1473,7 @@ message TourEffectPvp {
   api.TourScoutInfo scoutInfo = 9;
   string rewardId = 10;
   string tourQuestSettingId = 11;
+  ProtoEnum.LiveSkipType liveSkipType = 12;
 }
 message TourEffectRefresh {
   int32 amountPermil = 1;
@@ -1444,6 +1530,7 @@ message ActivityStartFanEventRequest {
   repeated string characterIds = 2;
   repeated string costumeIds = 3;
   repeated string itemIds = 4;
+  repeated string hairIds = 5;
 }
 message ActivityStartFanEventResponse {
   api.FanEventProgress progress = 1;
@@ -1494,6 +1581,7 @@ message ActivityStartPromotionRequest {
   string activityPromotionId = 1;
   repeated string characterIds = 2;
   repeated string costumeIds = 3;
+  repeated string hairIds = 4;
 }
 message ActivityStartPromotionResponse {
   api.PromotionProgress progress = 1;
@@ -1543,6 +1631,7 @@ message ActivityStartRefreshRequest {
   int32 activityRefreshLevel = 2;
   repeated string characterIds = 3;
   repeated string costumeIds = 4;
+  repeated string hairIds = 5;
 }
 message ActivityStartRefreshResponse {
   api.RefreshProgress progress = 1;
@@ -2153,6 +2242,10 @@ message CurrentGvgInfo {
   api.GvgSeasonInfo gvgSeason = 1;
   bool isRemainingChallenge = 2;
 }
+message GachaStampInfo {
+  int32 currentSheetNumber = 1;
+  int32 currentStampNumber = 2;
+}
 message HomeEventInfo {
   repeated api.HomeEventMissionInfo eventMissionInfos = 1;
   repeated api.HomeTourInfo tourInfos = 2;
@@ -2189,6 +2282,20 @@ message UserDeckPosition {
   repeated string photoIds = 6;
   string costumeId = 7;
   string buddyUserId = 8;
+  string hairId = 9;
+}
+message LadderProgressInfo {
+  repeated api.LadderStep steps = 1;
+}
+message LadderStep {
+  int32 step = 1;
+  api.LadderPanel lane1Panel = 2;
+  api.LadderPanel lane2Panel = 3;
+  api.LadderPanel lane3Panel = 4;
+}
+message FriendApplyToBuddyInfo {
+  bool isActive = 1;
+  bool isAlreadyOffered = 2;
 }
 message CommonResponse {
   api.UpdatedData updatedData = 1;
@@ -2231,6 +2338,7 @@ message UpdatedData {
   repeated transaction.UserPhotoRecipe photoRecipes = 34;
   transaction.UserBuddy buddy = 35;
   transaction.UserInvite invite = 36;
+  repeated transaction.UserHair hairs = 37;
 }
 message DeletedData {
   repeated transaction.UserItem items = 1;
@@ -2245,12 +2353,14 @@ message DeletedData {
 }
 message CostumeSetRequest {
   string costumeId = 1;
+  string hairId = 2;
 }
 message CostumeSetResponse {
   api.CommonResponse commonResponse = 9999;
 }
 message CostumeLiveSetRequest {
   string costumeId = 1;
+  string hairId = 2;
 }
 message CostumeLiveSetResponse {
   api.CommonResponse commonResponse = 9999;
@@ -2339,6 +2449,14 @@ message ExchangeExecuteResponse {
   repeated transaction.RewardResult results = 1;
   api.ExchangeItem afterExchangeItem = 2;
   api.ExchangeBooth booth = 3;
+  api.CommonResponse commonResponse = 9999;
+}
+message ExchangeTryOnRequest {
+  string exchangeId = 1;
+  string costumeId = 2;
+  string hairId = 3;
+}
+message ExchangeTryOnResponse {
   api.CommonResponse commonResponse = 9999;
 }
 message ExerciseTopResponse {
@@ -2525,6 +2643,8 @@ message GachaDrawResponse {
   api.GachaMovie gachaMovie = 9;
   repeated transaction.Reward cardRewards = 10;
   api.GachaContinuousResult continuousResult = 11;
+  api.GachaStampInfo stampInfo = 12;
+  repeated transaction.Reward stampRewards = 13;
   api.CommonResponse commonResponse = 9999;
 }
 message GachaExchangeRequest {
@@ -2729,6 +2849,12 @@ message GvgListAssetResponse {
   repeated api.LiveCharacterAssetInfo opponentCharacterAssets = 2;
   api.CommonResponse commonResponse = 9999;
 }
+message HairCheckRequest {
+  string hairId = 1;
+}
+message HairCheckResponse {
+  api.CommonResponse commonResponse = 9999;
+}
 message HealthCheckRequest {
   string service = 1;
 }
@@ -2893,6 +3019,7 @@ message BannerInfo {
   repeated api.Banner boardBanners = 3;
   repeated api.Banner questBanners = 4;
   repeated api.Banner inviteBanners = 5;
+  repeated api.Banner exerciseBanners = 6;
 }
 message FanEventInfo {
   repeated api.FanEvent fanEvents = 1;
@@ -2965,15 +3092,6 @@ message LadderPanelReachResponse {
   int32 reachablePanelCount = 3;
   api.CommonResponse commonResponse = 9999;
 }
-message LadderProgressInfo {
-  repeated api.LadderStep steps = 1;
-}
-message LadderStep {
-  int32 step = 1;
-  api.LadderPanel lane1Panel = 2;
-  api.LadderPanel lane2Panel = 3;
-  api.LadderPanel lane3Panel = 4;
-}
 message LoginBonusListResponse {
   repeated api.LoginBonusInfo infos = 1;
   api.CommonResponse commonResponse = 9999;
@@ -3014,10 +3132,14 @@ message MarathonQuestStartRequest {
   int32 deckNumber = 3;
   bool isSkip = 4;
   int32 execCount = 5;
+  repeated transaction.UserDeckPosition userBuddyDeckPositions = 6;
+  string buddyDeckName = 7;
 }
 message MarathonQuestListAssetRequest {
-  string marathonQuestId = 1;
+  string marathonId = 1;
   int32 deckNumber = 2;
+  repeated transaction.UserDeckPosition userBuddyDeckPositions = 3;
+  string buddyDeckName = 4;
 }
 message MarathonQuestListAssetResponse {
   repeated api.LiveCharacterAssetInfo characterAssets = 1;
@@ -3035,9 +3157,12 @@ message MarathonListDeckRequest {
   string marathonId = 1;
   string marathonQuestId = 2;
   int32 marathonQuestDifficultyNumber = 3;
+  repeated api.MarathonBuddyDeck marathonBuddyDecks = 4;
 }
 message MarathonListDeckResponse {
   repeated api.MarathonDeckInfo deckInfos = 1;
+  repeated api.MarathonDeckInfo buddyDeckInfos = 2;
+  api.CommonResponse commonResponse = 9999;
 }
 message MarathonDeckSaveRequest {
   string marathonQuestId = 1;
@@ -3048,6 +3173,20 @@ message MarathonDeckSaveRequest {
 }
 message MarathonDeckSaveResponse {
   api.MarathonDeckInfo deckInfo = 1;
+  api.CommonResponse commonResponse = 9999;
+}
+message MarathonBuddyDeckRequest {
+  string marathonQuestId = 1;
+  int32 marathonQuestDifficultyNumber = 2;
+  repeated api.MarathonBuddyDeck marathonBuddyDecks = 3;
+}
+message MarathonBuddyDeck {
+  int32 deckNumber = 1;
+  string deckName = 2;
+  repeated transaction.UserDeckPosition userBuddyDeckPositions = 3;
+}
+message MarathonBuddyDeckResponse {
+  repeated api.MarathonDeckInfo buddyDeckInfos = 1;
   api.CommonResponse commonResponse = 9999;
 }
 message MarathonBoxGachaDrawRequest {
@@ -3067,10 +3206,135 @@ message MarathonBoxGachaResetResponse {
   api.MarathonBoxGachaInfo boxGachaInfo = 1;
   api.CommonResponse commonResponse = 9999;
 }
+message MarathonRaidListRequest {
+  string marathonId = 1;
+}
+message MarathonRaidListResponse {
+  repeated api.MarathonRaidQuestProgress joinableQuests = 1;
+  repeated api.MarathonRaidQuestProgress progressingQuests = 2;
+  repeated api.MarathonRaidQuestProgress finishedQuests = 3;
+  int64 updateEnableTime = 4;
+  api.CommonResponse commonResponse = 9999;
+}
+message MarathonRaidCheckProgressRequest {
+  string marathonId = 1;
+  string raidId = 2;
+}
+message MarathonRaidCheckProgressResponse {
+  bool finished = 1;
+  api.CommonResponse commonResponse = 9999;
+}
+message MarathonRaidListHistoryRequest {
+  string marathonId = 1;
+}
+message MarathonRaidListHistoryResponse {
+  repeated api.MarathonRaidQuestProgress quests = 1;
+  api.CommonResponse commonResponse = 9999;
+}
+message MarathonRaidGetHistoryDetailRequest {
+  string marathonId = 1;
+  string raidId = 2;
+}
+message MarathonRaidGetHistoryDetailResponse {
+  api.MarathonRaidResult raidResult = 1;
+  api.CommonResponse commonResponse = 9999;
+}
+message MarathonRaidListRankingRequest {
+  string marathonId = 1;
+  string raidId = 2;
+}
+message MarathonRaidListRankingResponse {
+  repeated api.MarathonRaidRankedUser rankedUsers = 1;
+  int64 selfScore = 2;
+  api.CommonResponse commonResponse = 9999;
+}
+message MarathonRaidStartRequest {
+  string marathonId = 1;
+  int32 difficultyNumber = 2;
+  int32 deckNumber = 3;
+  bool isSkip = 4;
+}
+message MarathonRaidStartResponse {
+  string marathonId = 1;
+  int32 difficultyNumber = 2;
+  int32 difficultyLevel = 3;
+  api.LiveResult result = 4;
+  api.QuestReward reward = 5;
+  repeated transaction.RewardResult hostRewards = 6;
+  int64 raidEndTime = 7;
+  api.MarathonRaidResult raidResult = 8;
+  int64 beforeScore = 9;
+  repeated api.QuestRankPattern rankPatterns = 10;
+  api.CommonResponse commonResponse = 9999;
+}
+message MarathonRaidJoinRequest {
+  string marathonId = 1;
+  string raidId = 2;
+  int32 deckNumber = 3;
+  bool isSkip = 4;
+  int32 difficultyNumber = 5;
+}
+message MarathonRaidJoinResponse {
+  string marathonId = 1;
+  int32 difficultyNumber = 2;
+  int32 difficultyLevel = 3;
+  api.LiveResult result = 4;
+  repeated transaction.RewardResult joinRewards = 5;
+  int64 raidEndTime = 6;
+  api.MarathonRaidResult raidResult = 7;
+  int64 beforeScore = 8;
+  repeated api.QuestRankPattern rankPatterns = 9;
+  api.CommonResponse commonResponse = 9999;
+}
+message MarathonRaidFinishRequest {
+  string marathonId = 1;
+  string raidId = 2;
+}
+message MarathonRaidFinishResponse {
+  api.MarathonRaidResult raidResult = 1;
+  api.CommonResponse commonResponse = 9999;
+}
+message MarathonUseRaidStaminaRecoveryItemRequest {
+  string marathonId = 1;
+  int32 amount = 2;
+}
+message MarathonUseRaidStaminaRecoveryItemResponse {
+  api.UserMarathonInfo userMarathonInfo = 1;
+  api.CommonResponse commonResponse = 9999;
+}
+message MarathonListRaidDeckRequest {
+  string marathonId = 1;
+  int32 difficultyNumber = 2;
+  string raidId = 3;
+}
+message MarathonListRaidDeckResponse {
+  repeated api.MarathonDeckInfo deckInfos = 1;
+  repeated api.MarathonRaidSimpleRankedUser rankedUsers = 2;
+  api.CommonResponse commonResponse = 9999;
+}
+message MarathonRaidDeckSaveRequest {
+  string marathonId = 1;
+  int32 number = 2;
+  string name = 3;
+  repeated transaction.UserDeckPosition userDeckPositions = 4;
+  int32 difficultyNumber = 5;
+}
+message MarathonRaidDeckSaveResponse {
+  api.MarathonDeckInfo deckInfo = 1;
+  api.CommonResponse commonResponse = 9999;
+}
 message UserMarathonInfo {
   int32 currentStamina = 1;
   int64 staminaUpdatedTime = 2;
   repeated api.MarathonLiveBonusInfo liveBonusInfos = 3;
+  int32 currentRaidStamina = 4;
+  int64 raidStaminaUpdatedTime = 5;
+  api.LadderProgressInfo ladderProgressInfo = 7;
+  int32 progressingRaidQuestCount = 8;
+  int32 finishedRaidQuestCount = 9;
+  int64 nextRaidHostEnableTime = 10;
+  bool isRaidHostEnable = 11;
+  int32 reachableLadderPanelCount = 12;
 }
 message MarathonQuestDifficultyLevelInfo {
   int32 marathonQuestDifficultyNumber = 1;
@@ -3080,6 +3344,7 @@ message MarathonQuestDifficultyLevelInfo {
   api.QuestOpponentInfo opponentInfo = 5;
   bool unlocked = 6;
   int64 highestScore = 7;
+  ProtoEnum.LiveSkipType liveSkipType = 8;
 }
 message MarathonDeckInfo {
   int32 number = 1;
@@ -3101,6 +3366,34 @@ message MarathonPhotoInfo {
   string photoId = 1;
   int32 level = 2;
   repeated api.MarathonPhotoAbilityInfo abilities = 3;
+}
+message MarathonRaidResult {
+  bool isClear = 1;
+  int64 score = 2;
+  int64 clearScore = 3;
+  int64 totalScore = 4;
+  int32 elapsedMilliSeconds = 5;
+  int32 rank = 6;
+  int32 joinedUserCount = 7;
+  repeated transaction.RewardResult mvpRewards = 8;
+  repeated api.MarathonRaidRankedUser rankedUsers = 9;
+}
+message MarathonRaidSimpleRankedUser {
+  int32 rank = 1;
+  string userName = 2;
+  string userId = 3;
+}
+message MarathonRaidQuestProgress {
+  string raidId = 1;
+  api.MarathonRaidHostUser hostUser = 2;
+  int64 raidEndTime = 3;
+  int32 joinedUserCount = 4;
+  int64 clearScore = 5;
+  int64 totalScore = 6;
+  int32 difficultyNumber = 7;
+  int32 difficultyLevel = 8;
+  ProtoEnum.MarathonRaidProgressType progressType = 9;
+  ProtoEnum.LiveSkipType liveSkipType = 10;
 }
 message MarketListItemResponse {
   repeated api.MarketItem marketItems = 1;
@@ -3387,6 +3680,7 @@ message PhotoCheckShootingRequest {
   string photoStageId = 4;
   repeated string characterIds = 5;
   repeated string costumeIds = 6;
+  repeated string hairIds = 7;
 }
 message PhotoCheckShootingResponse {
   api.CommonResponse commonResponse = 9999;
@@ -3401,6 +3695,7 @@ message PhotoCreateShootingRequest {
   repeated string characterIds = 7;
   repeated string costumeIds = 8;
   int32 manualCount = 9;
+  repeated string hairIds = 10;
 }
 message PhotoCreateShootingResponse {
   transaction.UserPhoto photo = 1;
@@ -3465,6 +3760,7 @@ message PhotoContestCheckShootingRequest {
   repeated string selectedCharacterIds = 6;
   repeated string selectedCostumeIds = 7;
   string sectionId = 8;
+  repeated string selectedHairIds = 9;
 }
 message PhotoContestCheckShootingResponse {
   string nextPhotoImageId = 1;
@@ -3490,6 +3786,8 @@ message PhotoContestSubmitShootingRequest {
   string shootingMotionId = 17;
   repeated string selectedCharacterIds = 18;
   repeated string selectedCostumeIds = 19;
+  repeated string hairIds = 20;
+  repeated string selectedHairIds = 21;
 }
 message PhotoContestCreateShootingRequest {
   string photoContestId = 1;
@@ -3636,6 +3934,7 @@ message QuestListMainResponse {
 }
 message QuestListDailyResponse {
   repeated api.QuestAreaInfo areas = 1;
+  repeated api.QuestBulkDailyInfo bulkDailyInfos = 2;
   api.CommonResponse commonResponse = 9999;
 }
 message QuestListContestResponse {
@@ -3654,6 +3953,10 @@ message QuestStartRequest {
   int32 playCount = 5;
   repeated transaction.UserDeckPosition userBuddyDeckPositions = 6;
   string buddyDeckName = 7;
+}
+message QuestStartBulkDailyResponse {
+  repeated api.QuestBulkDailyResultInfo results = 1;
+  api.CommonResponse commonResponse = 9999;
 }
 message QuestListTowerRankingRequest {
   string areaId = 1;
@@ -3711,10 +4014,6 @@ message QuestTopPvpInfo {
   int32 rank = 5;
   int32 remainingChallengeCount = 6;
   api.PvpSeasonInfo latestPvpSeason = 9;
-}
-message FriendApplyToBuddyInfo {
-  bool isActive = 1;
-  bool isAlreadyOffered = 2;
 }
 message RaceTopRequest {
   string raceId = 1;
@@ -4003,6 +4302,14 @@ message ShopReceiveConditionRewardRequest {
 }
 message ShopReceiveConditionRewardResponse {
   repeated transaction.RewardResult rewards = 1;
+  api.CommonResponse commonResponse = 9999;
+}
+message ShopTryOnRequest {
+  string shopItemId = 1;
+  string costumeId = 2;
+  string hairId = 3;
+}
+message ShopTryOnResponse {
   api.CommonResponse commonResponse = 9999;
 }
 message StaffTrainRequest {
@@ -4422,6 +4729,7 @@ message UserGetResponse {
   repeated transaction.UserPhotoRecipe photoRecipes = 34;
   transaction.UserBuddy buddy = 35;
   transaction.UserInvite invite = 36;
+  repeated transaction.UserHair hairs = 37;
   transaction.UserPublic userPublic = 999;
 }
 message UserUpdateRequest {

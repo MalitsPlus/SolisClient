@@ -229,4 +229,4 @@ def scale_with_esrgan():
             convert_one(file, _image_out_path, to_size=True, c_size=(2560, 1440))
 
 if __name__ == "__main__":
-    update_octo()
+    scale_with_esrgan()

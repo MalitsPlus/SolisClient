@@ -227,6 +227,7 @@ enum ErrorCode {
   ErrorCode_RequestLocked = 2003;
   ErrorCode_Unauthenticated = 2004;
   ErrorCode_LockFailed = 2005;
+  ErrorCode_UserDeleted = 2006;
   ErrorCode_ContainsNgword = 3001;
   ErrorCode_OpponentNotFound = 3002;
   ErrorCode_PasswordMigrationFailed = 3003;
@@ -259,6 +260,7 @@ enum ErrorCode {
   ErrorCode_InviteWrongCode = 3030;
   ErrorCode_InviteHostGuestLimit = 3031;
   ErrorCode_InviteEnterCodeNotAllowed = 3032;
+  ErrorCode_MarathonRaidFinished = 3033;
 }
 enum EventMissionType {
   EventMissionType_Unknown = 0;
@@ -307,6 +309,7 @@ enum FunctionLockType {
   FunctionLockType_AuthDelete = 25;
   FunctionLockType_BuddyUseQuestContest = 26;
   FunctionLockType_Exercise = 27;
+  FunctionLockType_BuddyUseMarathon = 28;
 }
 enum FunctionMaintenanceType {
   FunctionMaintenanceType_Unknown = 0;
@@ -349,6 +352,7 @@ enum GachaType {
   GachaType_Item = 2;
   GachaType_Premium = 3;
   GachaType_Continuous = 4;
+  GachaType_Stamp = 5;
 }
 enum GiftFilterType {
   GiftFilterType_Unknown = 0;
@@ -540,6 +544,11 @@ enum HelpDisplayTargetType {
   HelpDisplayTargetType_ExerciseLiveDeckSelect = 153;
   HelpDisplayTargetType_ExerciseLiveBattleDeckSelect = 154;
   HelpDisplayTargetType_ExerciseLiveResult = 155;
+  HelpDisplayTargetType_MarathonRaidList = 156;
+  HelpDisplayTargetType_MarathonRaidTop = 157;
+  HelpDisplayTargetType_MarathonRaidLiveQuestSelect = 158;
+  HelpDisplayTargetType_MarathonRaidLiveDeckSelect = 159;
+  HelpDisplayTargetType_MarathonRaidLiveBattleDeckSelect = 160;
 }
 enum HelpType {
   HelpType_Unknown = 0;
@@ -603,6 +612,7 @@ enum ItemType {
   ItemType_BoxGachaPoint = 4001;
   ItemType_MarathonStaminaRecovery = 5001;
   ItemType_MarathonQuestUnlock = 5002;
+  ItemType_MarathonRaidStaminaRecovery = 5003;
   ItemType_PhotoContestSubmitting = 6001;
   ItemType_PhotoContestCreating = 6002;
   ItemType_RacePoint = 7001;
@@ -714,6 +724,7 @@ enum LiveSkipType {
   LiveSkipType_None = 1;
   LiveSkipType_Always = 2;
   LiveSkipType_AfterPlay = 3;
+  LiveSkipType_AlwaysFullSkip = 4;
 }
 enum LiveTipType {
   LiveTipType_Unknown = 0;
@@ -775,6 +786,23 @@ enum LoginBonusType {
   LoginBonusType_Unknown = 0;
   LoginBonusType_Normal = 1;
   LoginBonusType_Event = 2;
+}
+enum MarathonRaidProgressType {
+  MarathonRaidProgressType_Unknown = 0;
+  MarathonRaidProgressType_Joinable = 1;
+  MarathonRaidProgressType_Progressing = 2;
+  MarathonRaidProgressType_Finished = 3;
+  MarathonRaidProgressType_History = 4;
+}
+enum MarathonRaidStatusType {
+  MarathonRaidStatusType_Unknown = 0;
+  MarathonRaidStatusType_Joined = 1;
+  MarathonRaidStatusType_Finished = 2;
+}
+enum MarathonType {
+  MarathonType_Unknown = 0;
+  MarathonType_Normal = 1;
+  MarathonType_Raid = 2;
 }
 enum MessageInstantType {
   MessageInstantType_Unknown = 0;
@@ -882,6 +910,9 @@ enum MissionType {
   MissionType_BacksideSurpriseCount = 1105;
   MissionType_MarathonQuestClearCount = 1201;
   MissionType_MarathonQuestClearDifficulty = 1202;
+  MissionType_MarathonRaidClearCount = 1203;
+  MissionType_MarathonRaidHostCount = 1204;
+  MissionType_MarathonRaidJoinCount = 1205;
   MissionType_RacePanelClearCount = 1301;
   MissionType_RaceQuestClearCount = 1302;
   MissionType_RaceEnhanceLiveBonusAchievement = 1303;
@@ -1151,6 +1182,7 @@ enum ResourceType {
   ResourceType_CardRarityExpLimitChange = 25;
   ResourceType_Decoration = 26;
   ResourceType_PhotoRecipe = 27;
+  ResourceType_Hair = 28;
   ResourceType_Set = 999;
 }
 enum ResultRankType {
@@ -1222,6 +1254,8 @@ enum RewardSortResourceType {
   RewardSortResourceType_ItemLadderPoint = 57;
   RewardSortResourceType_PhotoRecipe = 58;
   RewardSortResourceType_ItemPhotoInk = 59;
+  RewardSortResourceType_Hair = 60;
+  RewardSortResourceType_ItemMarathonRaidStaminaRecovery = 61;
 }
 enum RewardSortTargetType {
   RewardSortTargetType_Unknown = 0;
@@ -1237,6 +1271,7 @@ enum RewardSortTargetType {
   RewardSortTargetType_ActivityPromotionResult = 10;
   RewardSortTargetType_ActivityPromotionMainReward = 11;
   RewardSortTargetType_PremiumGachaProbability = 12;
+  RewardSortTargetType_MarathonRaidQuestReward = 13;
 }
 enum RuleType {
   RuleType_Unknown = 0;
@@ -1638,5 +1673,6 @@ enum TutorialType {
   TutorialType_Ladder = 28;
   TutorialType_PhotoRetouch = 29;
   TutorialType_Collaboration = 30;
+  TutorialType_MarathonRaid = 31;
 }
 
