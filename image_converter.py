@@ -77,6 +77,8 @@ def _do_convert(inputs: str, output: str, scale: str, tile: str, extension: str,
     console.succeed("Conversion completed.")
 
 def convert_one(input: str, output: str, scale: str = "2", tile: str = "512", extension: str = "png", suffix: str = "esrgan", to_size: bool = False, c_size: tuple = (0, 0)):
+    # input = str(Path(input).absolute())
+    # output = str(Path(output).absolute())
     try:
         console.info(f"Start converting {input}.")
         _convert_with_esrgan(inputs=input, output=output, suffix=suffix,
@@ -124,7 +126,7 @@ def _convert_with_esrgan(inputs: str, output: str, suffix: str, scale: str, tile
         "-i", inputs,
         "-o", output,
         "--ext", extension,
-        "-t", tile
+        "-t", tile,
     ]
     _redirect_argv(arg_list)
     inference_realesrgan.main()
@@ -145,5 +147,5 @@ if __name__ == "__main__":
     #     output=r"D:\GitHub\RVS-Private\ipr\SolisClientAsset\cache\image",
     #     tile="256",
     # )
-    convert_one("cache/img_card_full_1_mna-05-premk-00.png",
+    convert_one("cache/image/img_deco_thumb_sp-500day-22-1107.png",
                 "cache/esrgan", to_size=True, c_size=(2560, 1440))
