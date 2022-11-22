@@ -507,6 +507,36 @@ message ExercisePhoto {
   string photoAllInOneId = 1;
   int32 amount = 2;
 }
+message ExtraStory {
+  string id = 1;
+  string extraStoryPartId = 2;
+  string assetId = 3;
+  string name = 4;
+  string description = 5;
+  int32 order = 6;
+  string viewConditionId = 7;
+  string unlockConditionId = 8;
+  repeated master.ExtraStoryEpisode episodes = 9;
+}
+message ExtraStoryEpisode {
+  int32 episode = 1;
+  string assetId = 2;
+  string storyId = 3;
+  string viewConditionId = 4;
+  string unlockConditionId = 5;
+}
+message ExtraStoryPart {
+  string id = 1;
+  string assetId = 2;
+  string name = 3;
+  string subTitle = 4;
+  string noteText = 5;
+  int32 order = 6;
+  ProtoEnum.ExtraStoryPartType type = 7;
+  string viewConditionId = 8;
+  string unlockConditionId = 9;
+  repeated string extraStoryIds = 10;
+}
 message FunctionLock {
   ProtoEnum.FunctionLockType type = 1;
   int32 requiredManagerLevel = 2;
@@ -1148,7 +1178,6 @@ message Quest {
   string name = 6;
   string description = 7;
   int32 order = 8;
-  ProtoEnum.LiveSkipType skipType = 9;
   string musicChartPatternId = 10;
   ProtoEnum.AttributeType position1AttributeType = 11;
   ProtoEnum.AttributeType position2AttributeType = 12;
@@ -1382,6 +1411,8 @@ message Setting {
   int64 photoRecipeLimit = 113;
   int32 photoRecipeSaleAmountLimit = 114;
   string exerciseFixedBannerNoticeId = 115;
+  int32 deckEntrustCoolTimeLotteryCoefficientPermil = 117;
+  int32 deckEntrustMentalLotteryCoefficientPermil = 118;
   repeated ProtoEnum.StatusEffectType statusEffectTypeStrengthList = 1001;
   repeated ProtoEnum.StatusEffectType statusEffectTypeWeaknessDownList = 1002;
   repeated ProtoEnum.StatusEffectType statusEffectTypeWeaknessOtherList = 1003;

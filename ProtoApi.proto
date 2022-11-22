@@ -7,6 +7,29 @@ import "ProtoMaster.proto";
 import "ProtoTransaction.proto";
 import "google/protobuf/empty.proto";
 
+service System {
+  rpc Check(SystemCheckRequest) returns (SystemCheckResponse);
+}
+service Auth {
+  rpc Login(AuthLoginRequest) returns (AuthLoginResponse);
+}
+service Master {
+  rpc Get(google.protobuf.Empty) returns (MasterGetResponse);
+}
+service User {
+  rpc Get(google.protobuf.Empty) returns (UserGetResponse);
+}
+service Home {
+  rpc Login(HomeLoginRequest) returns (HomeLoginResponse);
+  rpc Enter(HomeEnterRequest) returns (HomeEnterResponse);
+}
+service Dokan {
+  rpc List(google.protobuf.Empty) returns (DokanListResponse);
+}
+service Notice {
+  rpc List(google.protobuf.Empty) returns (NoticeListResponse);
+}
+
 message ActiveFanEvent {
   repeated string characterIds = 1;
   string name = 2;
@@ -296,6 +319,16 @@ message ExternalRewardInfo {
   string rewardId = 2;
   bool isReceived = 3;
 }
+message ExtraStoryInfo {
+  string id = 1;
+  bool unlocked = 2;
+  repeated api.ExtraStoryEpisodeInfo episodes = 3;
+}
+message ExtraStoryPartInfo {
+  string id = 1;
+  bool unlocked = 2;
+  repeated api.ExtraStoryInfo stories = 3;
+}
 message FanEvent {
   string id = 1;
   string name = 2;
@@ -571,6 +604,7 @@ message HomeEnterResponse {
   repeated api.EventButtonDisplayInfo eventButtonDisplayInfos = 30;
   bool hasCanReceiveInviteHostRewards = 31;
   bool existsUnclearedExercise = 32;
+  repeated api.ExtraStoryPartInfo extraStoryPartInfos = 33;
   api.PvpRewardResultInfo pvpRewardResultInfo = 100;
   api.GvgRewardResultInfo gvgRewardResultInfo = 101;
   repeated api.TourRewardResultInfo tourRewardResultInfos = 102;
@@ -1663,6 +1697,7 @@ message ActivityReceiveLessonRewardResponse {
 }
 message ActivityPromoteLessonRequest {
   bool isFree = 1;
+  string useItemId = 2;
 }
 message ActivityPromoteLessonResponse {
   repeated transaction.Reward rewards = 1;
@@ -2219,6 +2254,10 @@ message ActivityCampaignEffect {
   int64 endTime = 3;
 }
 message EventStoryEpisodeInfo {
+  int32 episode = 1;
+  bool unlocked = 2;
+}
+message ExtraStoryEpisodeInfo {
   int32 episode = 1;
   bool unlocked = 2;
 }
@@ -2783,7 +2822,6 @@ message GvgTopInfo {
   repeated api.GvgGuildRankingRewardInfo guildRankingRewards = 5;
   api.LiveBattleQuestInfo gvgQuest = 6;
   api.UserGvgSeasonInfo userGvgSeason = 7;
-  bool isSkipAvailable = 8;
 }
 message UserGvgSeasonInfo {
   repeated int64 points = 1;
@@ -3702,6 +3740,27 @@ message PhotoCreateShootingResponse {
   bool isGift = 2;
   api.CommonResponse commonResponse = 9999;
 }
+message PhotoCreateShootingsRequest {
+  ProtoEnum.PhotoShootingActionType actionType = 1;
+  string photoActivityId = 2;
+  string photoMusicId = 3;
+  string photoStageId = 4;
+  repeated string characterIds = 5;
+  repeated string costumeIds = 6;
+  repeated string hairIds = 7;
+  repeated api.PhotoCreateShootingParam createShootingParams = 8;
+  int32 manualCount = 9;
+}
+message PhotoCreateShootingParam {
+  string photoImageId = 1;
+  string itemId = 2;
+  string mainCharacterId = 3;
+}
+message PhotoCreateShootingsResponse {
+  repeated transaction.UserPhoto photos = 1;
+  bool isGift = 2;
+  api.CommonResponse commonResponse = 9999;
+}
 message PhotoListShootingResponse {
   repeated api.PhotoActivity activities = 1;
   repeated api.PhotoMusic musics = 2;
@@ -3877,7 +3936,6 @@ message PvpTopResultInfo {
   api.LiveBattleQuestInfo pvpQuest = 3;
   api.UserPvpSeasonInfo userPvpSeason = 4;
   int64 rank = 5;
-  bool isSkipAvailable = 6;
   int32 pvpTicketAvailableAmount = 7;
 }
 message UserPvpSeasonInfo {
@@ -4348,6 +4406,19 @@ message StoryReadEventResponse {
   repeated transaction.RewardResult rewards = 1;
   api.CommonResponse commonResponse = 9999;
 }
+message StoryListExtraResponse {
+  repeated api.ExtraStoryPartInfo infos = 1;
+  api.CommonResponse commonResponse = 9999;
+}
+message StoryReadExtraRequest {
+  string extraStoryId = 1;
+  int32 episode = 2;
+  bool isLast = 3;
+}
+message StoryReadExtraResponse {
+  repeated transaction.RewardResult rewards = 1;
+  api.CommonResponse commonResponse = 9999;
+}
 message SystemCheckRequest {
   string firebaseIDToken = 1;
 }
@@ -4358,6 +4429,7 @@ message SystemCheckResponse {
   int32 keepAliveTimeoutMilliseconds = 4;
   bool enableCrashlyticsCollection = 5;
   bool enableUnityLogErrorToLogException = 6;
+  bool enableApiParallelExecutionSuppression = 7;
 }
 message MaintenanceInfo {
   bool inMaintenance = 1;
@@ -4683,6 +4755,7 @@ message TutorialActivityReceiveLessonRewardResponse {
 }
 message TutorialPhotoCreateShootingRequest {
   string mainCharacterId = 1;
+  string photoImageId = 2;
 }
 message TutorialPhotoCreateShootingResponse {
   transaction.UserPhoto photo = 1;

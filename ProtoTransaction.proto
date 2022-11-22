@@ -55,6 +55,7 @@ message User {
   int32 photoLimitExtendedCount = 22;
   string inviteHostUserId = 23;
   string buddyCardId = 24;
+  repeated string nextPhotoImageIds = 25;
   int32 managerLevel = 100;
   int32 cardSupportMaxNumber = 101;
 }

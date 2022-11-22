@@ -272,6 +272,11 @@ enum ExerciseHintType {
   ExerciseHintType_Initial = 1;
   ExerciseHintType_AfterFailed = 2;
 }
+enum ExtraStoryPartType {
+  ExtraStoryPartType_Unknown = 0;
+  ExtraStoryPartType_Normal = 1;
+  ExtraStoryPartType_Limited = 2;
+}
 enum ForumListReplyRequestType {
   ForumListReplyRequestType_Unknown = 0;
   ForumListReplyRequestType_Newest = 1;
@@ -602,6 +607,9 @@ enum ItemType {
   ItemType_ActivityFanEventSuperMode = 1003;
   ItemType_ActivityFanEventSpeedUp = 1004;
   ItemType_ActivityFanEventCheerPointUp = 1005;
+  ItemType_ActivityFanEventRewardUp = 1006;
+  ItemType_ActivityLessonPromote = 1007;
+  ItemType_ActivityPromotionSpecialShorten = 1008;
   ItemType_QuestDailyGoldTicket = 2001;
   ItemType_QuestDailyCardEnhanceTicket = 2002;
   ItemType_QuestDailyPhotoTicketTicket = 2003;
@@ -898,6 +906,17 @@ enum MissionType {
   MissionType_QuestSubTowerClearCount = 52;
   MissionType_PhotoRetouchCount = 53;
   MissionType_PhotoRetouchTotalCount = 54;
+  MissionType_AccessoryUsedAmount = 55;
+  MissionType_AnimeStoryPointUsedAmount = 56;
+  MissionType_GameStoryPointUsedAmount = 57;
+  MissionType_GroupStoryPointUsedAmount = 58;
+  MissionType_GoldUsedAmount = 59;
+  MissionType_GuildMedalUsedAmount = 60;
+  MissionType_PvpMedalUsedAmount = 61;
+  MissionType_ItemUsedAmount = 62;
+  MissionType_PhotoRecipeUsedAmount = 63;
+  MissionType_StoneUsedAmount = 64;
+  MissionType_PaidStoneUsedAmount = 65;
   MissionType_TourAreaClearCount = 1001;
   MissionType_TourRivalClearCount = 1002;
   MissionType_TourBossClearCountWithCharacter = 1003;
@@ -1256,6 +1275,9 @@ enum RewardSortResourceType {
   RewardSortResourceType_ItemPhotoInk = 59;
   RewardSortResourceType_Hair = 60;
   RewardSortResourceType_ItemMarathonRaidStaminaRecovery = 61;
+  RewardSortResourceType_ItemActivityFanEventRewardUp = 62;
+  RewardSortResourceType_ItemActivityLessonPromote = 63;
+  RewardSortResourceType_ItemActivityPromotionSpecialShorten = 65;
 }
 enum RewardSortTargetType {
   RewardSortTargetType_Unknown = 0;
@@ -1576,6 +1598,9 @@ enum StoryAdvPlayType {
   StoryAdvPlayType_Unknown = 0;
   StoryAdvPlayType_Adv = 1;
   StoryAdvPlayType_LiveMovie = 2;
+  StoryAdvPlayType_VerticalAdv = 3;
+  StoryAdvPlayType_VerticalMovie = 4;
+  StoryAdvPlayType_HorizontalMovie = 5;
 }
 enum StoryPartType {
   StoryPartType_Unknown = 0;
