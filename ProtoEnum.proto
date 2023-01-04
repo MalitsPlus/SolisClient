@@ -261,6 +261,9 @@ enum ErrorCode {
   ErrorCode_InviteHostGuestLimit = 3031;
   ErrorCode_InviteEnterCodeNotAllowed = 3032;
   ErrorCode_MarathonRaidFinished = 3033;
+  ErrorCode_LeagueSeasonNotOpened = 3034;
+  ErrorCode_LeagueInBattle = 3035;
+  ErrorCode_LeagueInBattleExtension = 3036;
 }
 enum EventMissionType {
   EventMissionType_Unknown = 0;
@@ -315,6 +318,8 @@ enum FunctionLockType {
   FunctionLockType_BuddyUseQuestContest = 26;
   FunctionLockType_Exercise = 27;
   FunctionLockType_BuddyUseMarathon = 28;
+  FunctionLockType_CardRankUp = 29;
+  FunctionLockType_League = 30;
 }
 enum FunctionMaintenanceType {
   FunctionMaintenanceType_Unknown = 0;
@@ -554,6 +559,10 @@ enum HelpDisplayTargetType {
   HelpDisplayTargetType_MarathonRaidLiveQuestSelect = 158;
   HelpDisplayTargetType_MarathonRaidLiveDeckSelect = 159;
   HelpDisplayTargetType_MarathonRaidLiveBattleDeckSelect = 160;
+  HelpDisplayTargetType_LeagueTop = 161;
+  HelpDisplayTargetType_LeagueLiveNews = 162;
+  HelpDisplayTargetType_LeagueLiveDeckSelect = 163;
+  HelpDisplayTargetType_LeagueLastSeasonRecord = 164;
 }
 enum HelpType {
   HelpType_Unknown = 0;
@@ -602,6 +611,7 @@ enum ItemType {
   ItemType_PhotoShootingLevelChange = 13;
   ItemType_AccessoryLimitBreak = 14;
   ItemType_PhotoInk = 15;
+  ItemType_CardRank = 16;
   ItemType_ActivityRefreshShorten = 1001;
   ItemType_ActivityPromotionShorten = 1002;
   ItemType_ActivityFanEventSuperMode = 1003;
@@ -636,6 +646,30 @@ enum LadderPanelType {
   LadderPanelType_Unknown = 0;
   LadderPanelType_Reward = 1;
   LadderPanelType_Message = 2;
+}
+enum LeagueDeckType {
+  LeagueDeckType_Unknown = 0;
+  LeagueDeckType_A = 1;
+  LeagueDeckType_B = 2;
+}
+enum LeagueSeasonCardResultType {
+  LeagueSeasonCardResultType_Unknown = 0;
+  LeagueSeasonCardResultType_HighestScore = 1;
+  LeagueSeasonCardResultType_SkillActivationRate = 2;
+  LeagueSeasonCardResultType_MvpCount = 3;
+}
+enum LeagueSeasonResultType {
+  LeagueSeasonResultType_Unknown = 0;
+  LeagueSeasonResultType_Upgrade = 1;
+  LeagueSeasonResultType_Stay = 2;
+  LeagueSeasonResultType_Downgrade = 3;
+}
+enum LeagueStatusType {
+  LeagueStatusType_Unknown = 0;
+  LeagueStatusType_Prepare = 1;
+  LeagueStatusType_Battle = 2;
+  LeagueStatusType_BattleExtension = 3;
+  LeagueStatusType_NotOpened = 4;
 }
 enum LinkType {
   LinkType_Unknown = 0;
@@ -1278,6 +1312,7 @@ enum RewardSortResourceType {
   RewardSortResourceType_ItemActivityFanEventRewardUp = 62;
   RewardSortResourceType_ItemActivityLessonPromote = 63;
   RewardSortResourceType_ItemActivityPromotionSpecialShorten = 65;
+  RewardSortResourceType_ItemCardRank = 66;
 }
 enum RewardSortTargetType {
   RewardSortTargetType_Unknown = 0;
@@ -1699,5 +1734,7 @@ enum TutorialType {
   TutorialType_PhotoRetouch = 29;
   TutorialType_Collaboration = 30;
   TutorialType_MarathonRaid = 31;
+  TutorialType_League = 32;
+  TutorialType_CardRank = 33;
 }
 

@@ -221,6 +221,13 @@ message BuddyCardInfo {
   int32 rarity = 2;
   int32 level = 3;
 }
+message DeckPositionCharacter {
+  transaction.UserDeckPosition userDeckPosition = 1;
+  string characterId = 2;
+  string displayCharacterId = 3;
+  string displayCostumeId = 4;
+  string displayHairId = 5;
+}
 message DivisionInfo {
   string id = 1;
   int32 levelAvg = 2;
@@ -605,6 +612,7 @@ message HomeEnterResponse {
   bool hasCanReceiveInviteHostRewards = 31;
   bool existsUnclearedExercise = 32;
   repeated api.ExtraStoryPartInfo extraStoryPartInfos = 33;
+  api.HomeLeagueInfo leagueInfo = 34;
   api.PvpRewardResultInfo pvpRewardResultInfo = 100;
   api.GvgRewardResultInfo gvgRewardResultInfo = 101;
   repeated api.TourRewardResultInfo tourRewardResultInfos = 102;
@@ -613,6 +621,7 @@ message HomeEnterResponse {
   repeated api.RaceRewardResultInfo raceRewardResultInfos = 105;
   repeated api.RaceDailyRewardResultInfo raceDailyRewardResultInfos = 106;
   api.BuddyUsedRewardResultInfo buddyUsedRewardResultInfo = 107;
+  api.LeagueRewardResultInfo leagueRewardResultInfo = 108;
   api.CommonResponse commonResponse = 9999;
 }
 message HomeEventMissionInfo {
@@ -733,6 +742,65 @@ message LastCardInfo {
   string cardId = 2;
   int32 level = 3;
   int32 rarity = 4;
+}
+message LeagueCardInfo {
+  string cardId = 1;
+  int32 level = 2;
+  int32 rarity = 3;
+}
+message LeagueCardRanking {
+  string userId = 1;
+  string name = 2;
+  api.LeagueCardInfo cardInfo = 3;
+  int64 value = 4;
+  int32 rank = 5;
+  string emblemId = 6;
+}
+message LeagueDailyResultInfo {
+  int64 date = 1;
+  int64 point = 2;
+  int32 rank = 3;
+  int32 winCount = 4;
+  int32 loseCount = 5;
+  string headline = 6;
+  string mvpCardId = 7;
+}
+message LeagueNewsInfo {
+  int64 date = 1;
+  repeated api.LiveCardInfo deckACards = 2;
+  int32 deckAWinCount = 3;
+  int32 deckALoseCount = 4;
+  repeated api.LiveCardInfo deckBCards = 5;
+  int32 deckBWinCount = 6;
+  int32 deckBLoseCount = 7;
+  int32 beforeRank = 8;
+  int64 beforePoint = 9;
+  string headline = 10;
+  string interview = 11;
+  string body = 12;
+  string thumbnailAssetId = 13;
+  int32 thumbnailShootMillisecond = 14;
+  repeated int32 thumbnailEffectShootMilliseconds = 15;
+  ProtoEnum.LeagueDeckType mvpDeckType = 16;
+  string mvpCardId = 17;
+  api.LeagueSeasonCardResultInfo mvpSeasonCardResultInfo = 18;
+  string mvpMusicId = 19;
+  string mvpStageId = 20;
+  repeated api.DeckPositionCharacter displayPositionCharacters = 21;
+}
+message LeaguePointRanking {
+  string userId = 1;
+  string name = 2;
+  int64 point = 3;
+  int32 rank = 4;
+  repeated api.LiveCardInfo deckACards = 5;
+  repeated api.LiveCardInfo deckBCards = 6;
+  string emblemId = 7;
+}
+message LeagueSeasonRewardInfo {
+  string upgradeRewardId = 1;
+  string stayRewardId = 2;
+  string downgradeRewardId = 3;
 }
 message LessonInfo {
   api.ActivityLessonProgress lessonProgress = 1;
@@ -2084,6 +2152,13 @@ message CardReleaseSupportRequest {
 message CardReleaseSupportResponse {
   api.CommonResponse commonResponse = 9999;
 }
+message CardRankUpRequest {
+  string cardId = 1;
+  int32 rank = 2;
+}
+message CardRankUpResponse {
+  api.CommonResponse commonResponse = 9999;
+}
 message LoginBonusPackageItem {
   api.ShopItem shopItem = 1;
   repeated api.ShopLoginBonus loginBonuses = 2;
@@ -2973,6 +3048,15 @@ message HomePvpInfo {
   int32 remainingChallengeCount = 2;
   api.PvpSeasonInfo latestPvpSeason = 4;
 }
+message HomeLeagueInfo {
+  int64 nextBattleStartTime = 1;
+  int64 battleEndTime = 2;
+  int64 nextSeasonStartTime = 3;
+  ProtoEnum.LeagueStatusType statusType = 4;
+  bool isNewsUnread = 5;
+  bool isNewSeasonNotJoined = 6;
+  bool isRemainingImperfectDeck = 7;
+}
 message PvpRewardResultInfo {
   string name = 1;
   int64 point = 2;
@@ -3082,6 +3166,17 @@ message PurchasedConditionRewardShopInfo {
   api.ShopInfo shopInfo = 1;
   api.ConditionRewardPackageItem conditionRewardPackageItem = 2;
 }
+message LeagueRewardResultInfo {
+  string leagueSeasonName = 1;
+  string leagueGradeName = 2;
+  ProtoEnum.LeagueSeasonResultType seasonResultType = 3;
+  int32 rank = 4;
+  int64 point = 5;
+  int32 winCount = 6;
+  int32 loseCount = 7;
+  repeated transaction.Reward rewards = 8;
+  string highestLeagueGradeName = 9;
+}
 message InviteTopResponse {
   string inviteCode = 1;
   repeated api.InviteGuestInfo guestInfos = 2;
@@ -3129,6 +3224,171 @@ message LadderPanelReachResponse {
   api.LadderProgressInfo progressInfo = 2;
   int32 reachablePanelCount = 3;
   api.CommonResponse commonResponse = 9999;
+}
+message LeagueTopResponse {
+  api.LeagueSeasonInfo seasonInfo = 1;
+  api.LeagueNewsInfo newsInfo = 2;
+  api.LeagueSeasonResultInfo seasonResultInfo = 3;
+  repeated api.LeagueDailyResultInfo dailyResultInfos = 4;
+  repeated api.LeagueSeasonCardResultInfo seasonCardResultInfos = 5;
+  repeated api.LeagueDeckInfo deckInfos = 6;
+  repeated api.LeagueDeckHistoryInfo deckHistoryInfos = 7;
+  api.LeagueRankExistInfo rankExistInfo = 8;
+  api.CommonResponse commonResponse = 9999;
+}
+message LeagueSeasonInfo {
+  string id = 1;
+  string name = 2;
+  int64 endTime = 3;
+  api.LiveBattleQuestInfo deckABattleQuestInfo = 4;
+  api.LiveBattleQuestInfo deckBBattleQuestInfo = 5;
+  api.LiveBattleQuestInfo nextSeasonDeckABattleQuestInfo = 6;
+  api.LiveBattleQuestInfo nextSeasonDeckBBattleQuestInfo = 7;
+  api.LeagueSeasonRewardInfo rewardInfo = 8;
+  int64 nextBattleStartTime = 9;
+  int32 skillActivationRateValidJoinCount = 10;
+  string nextId = 11;
+  string preId = 12;
+}
+message LeagueSeasonResultInfo {
+  string leagueGradeName = 1;
+  int64 point = 2;
+  int32 rank = 3;
+  int32 winCount = 4;
+  int32 loseCount = 5;
+  ProtoEnum.LeagueSeasonResultType seasonResultType = 6;
+  int64 upgradeRankThreshold = 7;
+  string upgradeLeagueGradeName = 8;
+  int64 downgradeRankThreshold = 9;
+  string downgradeLeagueGradeName = 10;
+  string highestLeagueGradeName = 11;
+  string lowestLeagueGradeName = 12;
+  int32 memberAmount = 13;
+}
+message LeagueSeasonCardResultInfo {
+  api.LeagueCardInfo cardInfo = 1;
+  int64 highestScore = 2;
+  int32 skillActivationRatePermil = 3;
+  int32 mvpCount = 4;
+  int32 highestScoreCardRank = 5;
+  int32 skillActivationRateCardRank = 6;
+  int32 mvpCountCardRank = 7;
+  int32 highestScoreLeagueRank = 8;
+  int32 skillActivationRateLeagueRank = 9;
+  int32 mvpCountLeagueRank = 10;
+  int32 joinCount = 11;
+}
+message LeagueGetDailyDetailRequest {
+  string seasonId = 1;
+  int64 date = 2;
+}
+message LeagueGetDailyDetailResponse {
+  repeated api.LiveCardInfo deckACards = 1;
+  repeated api.LiveCardInfo deckBCards = 2;
+  repeated api.LeagueBattleResultInfo battleResultInfos = 3;
+  int32 winCount = 4;
+  int32 loseCount = 5;
+  int64 point = 6;
+  int32 rank = 7;
+  api.CommonResponse commonResponse = 9999;
+}
+message LeagueBattleResultInfo {
+  string opponentUserId = 1;
+  string opponentUserName = 2;
+  repeated api.LiveCardInfo opponentDeckACards = 3;
+  int64 deckASelfScore = 4;
+  int64 deckAOpponentScore = 5;
+  repeated api.LiveCardInfo opponentDeckBCards = 6;
+  int64 deckBSelfScore = 7;
+  int64 deckBOpponentScore = 8;
+}
+message LeagueOpponentInfo {
+  string userId = 1;
+  string name = 2;
+  repeated api.LiveCardInfo deckACards = 3;
+  repeated api.LiveCardInfo deckBCards = 4;
+}
+message LeagueGetLiveResultRequest {
+  string seasonId = 1;
+  int64 date = 2;
+  string userId = 3;
+  ProtoEnum.LeagueDeckType deckType = 4;
+}
+message LeagueGetLiveResultResponse {
+  api.LiveResult result = 1;
+  api.CommonResponse commonResponse = 9999;
+}
+message LeagueSaveDeckRequest {
+  string seasonId = 1;
+  ProtoEnum.LeagueDeckType deckType = 2;
+  repeated transaction.UserDeckPosition deckPositions = 3;
+  ProtoEnum.DeckEditType deckEditType = 4;
+}
+message LeagueSaveDeckResponse {
+  repeated transaction.UserDeckPosition deckPositions = 1;
+  api.CommonResponse commonResponse = 9999;
+}
+message LeagueDeckInfo {
+  string seasonId = 1;
+  ProtoEnum.LeagueDeckType deckType = 2;
+  repeated transaction.UserDeckPosition deckPositions = 3;
+  int32 winCount = 4;
+  int32 loseCount = 5;
+  int32 consecutiveWinCount = 6;
+}
+message LeagueDeckHistoryInfo {
+  int64 date = 1;
+  repeated api.LiveCardInfo deckACards = 2;
+  int32 deckAWinCount = 3;
+  int32 deckALoseCount = 4;
+  repeated api.LiveCardInfo deckBCards = 5;
+  int32 deckBWinCount = 6;
+  int32 deckBLoseCount = 7;
+}
+message LeagueGetLastSeasonResultResponse {
+  string seasonName = 1;
+  api.LeagueSeasonResultInfo seasonResultInfo = 2;
+  repeated api.LeagueDailyResultInfo dailyResultInfos = 3;
+  repeated api.LeagueSeasonCardResultInfo seasonCardResultInfos = 4;
+  int32 skillActivationRateValidJoinCount = 5;
+  api.LeagueRankExistInfo rankExistInfo = 6;
+  api.CommonResponse commonResponse = 9999;
+}
+message LeagueListPointRankingRequest {
+  string seasonId = 1;
+}
+message LeagueListPointRankingResponse {
+  repeated api.LeaguePointRanking rankings = 1;
+  api.CommonResponse commonResponse = 9999;
+}
+message LeagueListCardHighestScoreRankingRequest {
+  string seasonId = 1;
+}
+message LeagueListCardHighestScoreRankingResponse {
+  repeated api.LeagueCardRanking rankings = 1;
+  api.CommonResponse commonResponse = 9999;
+}
+message LeagueListCardSkillRateRankingRequest {
+  string seasonId = 1;
+}
+message LeagueListCardSkillRateRankingResponse {
+  repeated api.LeagueCardRanking rankings = 1;
+  api.CommonResponse commonResponse = 9999;
+}
+message LeagueListCardMvpRankingRequest {
+  string seasonId = 1;
+}
+message LeagueListCardMvpRankingResponse {
+  repeated api.LeagueCardRanking rankings = 1;
+  api.CommonResponse commonResponse = 9999;
+}
+message LeagueRankExistInfo {
+  bool isPointExist = 1;
+  repeated api.LeagueCardRankExistInfo cardRankExistInfos = 2;
+}
+message LeagueCardRankExistInfo {
+  ProtoEnum.LeagueSeasonCardResultType resultType = 1;
+  bool isExist = 2;
 }
 message LoginBonusListResponse {
   repeated api.LoginBonusInfo infos = 1;

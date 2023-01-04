@@ -1428,6 +1428,7 @@ message Setting {
   int32 raceSecondsPerActivityLessonStep = 402;
   int32 tourRankingDisplayNum = 500;
   int32 buddyRentalDailyLimit = 600;
+  int32 leagueRankingDisplayRankLimit = 700;
 }
 message SkillDetail {
   string efficacyId = 1;
@@ -1580,6 +1581,12 @@ message CardParameter {
   int32 level = 2;
   int64 value = 3;
   int64 staminaValue = 4;
+}
+message CardRank {
+  int32 rank = 1;
+  int32 levelLimitUpAmount = 2;
+  int32 requiredExp = 3;
+  bool isDataExist = 4;
 }
 message CardRarity {
   int32 rarity = 1;

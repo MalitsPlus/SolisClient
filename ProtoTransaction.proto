@@ -81,6 +81,7 @@ message UserCard {
   int64 obtainedTime = 9;
   bool supported = 10;
   int64 lastEnhanceTime = 11;
+  int32 rankTotalExp = 12;
   int32 level = 100;
   int32 rarity = 101;
   int64 vocal = 102;
@@ -111,6 +112,7 @@ message UserCard {
   string baseLiveAbilityId = 127;
   string baseActivityAbilityId = 128;
   int32 basePhotoEquipableCount = 129;
+  int32 rank = 130;
 }
 message UserCharacter {
   string characterId = 1;
