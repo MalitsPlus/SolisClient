@@ -3,6 +3,7 @@ import argparse
 import requests
 import cache_manager
 from pathlib import Path
+from image_converter import convert_web_icons
 import rich_console as console
 import upload
 from solis_client import SolisClient
@@ -86,6 +87,7 @@ def main():
         if args.asset_mode:
             if client.update_octo(args.asset_mode == "all"):
                 octo.scale_with_esrgan()
+                convert_web_icons()
     console.info("Tasks all done.")
 
 if __name__ == "__main__":
