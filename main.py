@@ -3,7 +3,7 @@ import argparse
 import requests
 import cache_manager
 from pathlib import Path
-from image_converter import convert_web_icons
+# from image_converter import convert_web_icons
 import rich_console as console
 import upload
 from solis_client import SolisClient
@@ -91,7 +91,7 @@ def main():
         if args.asset_mode:
             if client.update_octo(args.asset_mode == "all"):
                 octo.scale_with_esrgan()
-                convert_web_icons()
+                # convert_web_icons()
         if args.venus and client.master_updated:
             need_update = venus.update_files()
             if need_update:
