@@ -8,6 +8,7 @@ import rich_console as console
 import upload
 from solis_client import SolisClient
 import octo_manager as octo
+import update_venus as venus
 
 _CACHE_DIR = "cache"
 _ARTIFACT_DIR = "masterdata"
@@ -52,6 +53,7 @@ def main():
     parser.add_argument("-o", "--overwrite", action="store_true", help="Overwrite cached token. If '--token' does not exist, this argument takes no effect.")
     parser.add_argument("--kvauth", type=str, default="", help="KV server auth token.")
     parser.add_argument("--kvurl", type=str, default="", help="KV server endpoint.")
+    parser.add_argument("--venus", action="store_true", help="Check and update(if needed) hoshimi-venus databases.")
     args = parser.parse_args()
 
     # Restore caches 
@@ -69,6 +71,8 @@ def main():
         # Generate notice list json
         console.info("Generating notice json...")
         client.generate_notice_json()
+        if args.venus:
+            venus.backup_old_files()
         # Update masterdata if new version is found
         console.info("Updating master data...")
         client.update_master(force=args.force)
@@ -88,6 +92,10 @@ def main():
             if client.update_octo(args.asset_mode == "all"):
                 octo.scale_with_esrgan()
                 convert_web_icons()
+        if args.venus and client.master_updated:
+            need_update = venus.update_files()
+            if need_update:
+                Path("cache/need_update.txt").write_text("1", encoding="ascii")
     console.info("Tasks all done.")
 
 if __name__ == "__main__":

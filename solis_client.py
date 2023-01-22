@@ -61,6 +61,7 @@ class SolisClient(ClientBase):
     octo_cache: bytes
     octo_server_revision: str
     _notice_list: apip.NoticeListResponse
+    master_updated = False
 
     def _get_metadata_pairs(self) -> list[tuple[str, str]]:
         return list(self._metadata_dict.items())
@@ -115,6 +116,7 @@ class SolisClient(ClientBase):
 
     def update_master(self, force: bool=False):
         if master.has_new(self.master_tag) or force:
+            self.master_updated = True
             master.generate_data(self.master_tag)
             master.write_version(self.master_tag.version)
             set_cache("masterVersion", self.master_tag.version)
