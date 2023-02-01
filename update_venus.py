@@ -58,7 +58,7 @@ def update_files() -> bool:
         if pth.exists():
             is_same = filecmp.cmp(pth, f"{_OUT_DIR}/{file}.json")
             # For test
-            is_same = False
+            # is_same = False
             if is_same:
                 continue
             else:

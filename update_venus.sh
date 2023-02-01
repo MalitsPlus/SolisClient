@@ -20,7 +20,7 @@ if [ ! -d ${REPO_NAME} ]; then
 fi
 
 # Set git configurations
-git -C ${REPO_NAME} config user.name "VibbitCI"
+git -C ${REPO_NAME} config user.name "SolisClient"
 git -C ${REPO_NAME} config user.email "anonymous@e.mail"
 
 echo ">>> Pulling venus from remote..."

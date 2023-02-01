@@ -9,9 +9,9 @@ A component of [IDOLY-Backend](https://github.com/MalitsPlus/IDOLY-Backend). Thi
 ## Usage
 
 ```text
-usage: main.py [-h] [-t TOKEN] [-f] [-fk] [-k] [-a ASSET_MODE] [-o] [--kvauth KVAUTH] [--kvurl KVURL]
+usage: main.py [-h] [-t TOKEN] [-f] [-fk] [-k] [-a ASSET_MODE] [-o] [--kvauth KVAUTH] [--kvurl KVURL] [--venus]
 
-optional arguments:
+options:
   -h, --help            show this help message and exit
   -t TOKEN, --token TOKEN
                         Your firebase refreshToken.
@@ -23,10 +23,11 @@ optional arguments:
   -o, --overwrite       Overwrite cached token. If '--token' does not exist, this argument takes no effect.
   --kvauth KVAUTH       KV server auth token.
   --kvurl KVURL         KV server endpoint.
+  --venus               Check and update(if needed) hoshimi-venus databases.
 ```
 
 - `--token`: **Must be given at first running**, can be omitted if `refreshToken` in `cache/client_cache.json` it not empty. If they both exist, the one in `client_cache.json` will be used first.
-- `-k, --kvauth, --kvurl`: All of them **must be present at the same time**, otherwise they will be ignored.
+- `-k, --kvauth, --kvurl`: All **must be present at the same time**, otherwise they will be ignored.
 
 ## Updating
 
