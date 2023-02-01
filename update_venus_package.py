@@ -1,13 +1,13 @@
-# Copy databases to VenusSysLib and update package version
+# Copy databases from "cache/update_master" to VenusSysLib and update package version
 
 import json
 from pathlib import Path
 import shutil
 
 REPO_NAME = "VenusSysLib"
-SOURCE_DIR = "cache"
+SOURCE_DIR = "cache/update_master"
 DEST_DIR = f"{REPO_NAME}/database"
-
+PACKAGE_FILE = f"{REPO_NAME}/package.json"
 
 used_files = [
     "Card",
@@ -20,30 +20,29 @@ used_files = [
     "LiveBonusGroup",
     "LiveBonus",
     "LiveAbility",
-    # "PvpQuest",
-    # "GvgQuest",
-    # "LeagueQuest",
+    "MarathonQuest",
     "Setting",
     "Skill",
     "SkillEfficacy",
     "SkillTarget",
     "SkillTrigger",
+    # "PvpQuest",
+    # "GvgQuest",
+    # "LeagueQuest",
 ]
-
 
 def main():
     try:
-        package_file = f"{REPO_NAME}/package.json"
         for file in used_files:
             pth = Path(f"{SOURCE_DIR}/{file}.json")
             if pth.exists():
                 shutil.copyfile(pth, f"{DEST_DIR}/{file}.json")
-        package_json = json.loads(Path(package_file).read_text())
+        package_json = json.loads(Path(PACKAGE_FILE).read_text())
         version_splits = str(package_json["version"]).split(".")
-        version_splits[-1] = int(version_splits[-1]) + 1
+        version_splits[-1] = str(int(version_splits[-1]) + 1)
         new_version = ".".join(version_splits)
         package_json["version"] = new_version
-        Path(package_file).write_text(json.dumps(package_json, indent=2))
+        Path(PACKAGE_FILE).write_text(json.dumps(package_json, indent=2))
         print("0")
     except:
         print("1")

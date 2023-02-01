@@ -46,9 +46,9 @@ git -C ${REPO_NAME} commit -m "feat: update databases"
 echo ">>> Pushing to remote..."
 
 ssh-add -D
-ssh-add ~/.ssh/id_rsa_b9bb68b85a5390e2c4d102fb972bdf7a
-GIT_SSH_COMMAND="ssh -o IdentitiesOnly=yes -i ~/.ssh/id_rsa_b9bb68b85a5390e2c4d102fb972bdf7a"
-git config core.sshCommand "ssh -o IdentitiesOnly=yes -i ~/.ssh/id_rsa_b9bb68b85a5390e2c4d102fb972bdf7a"
+ssh-add ~/.ssh/id_rsa_1215ff1d8f82d9e36c5ed9d719782b4d
+GIT_SSH_COMMAND="ssh -o IdentitiesOnly=yes -i ~/.ssh/id_rsa_1215ff1d8f82d9e36c5ed9d719782b4d"
+git config core.sshCommand "ssh -o IdentitiesOnly=yes -i ~/.ssh/id_rsa_1215ff1d8f82d9e36c5ed9d719782b4d"
 
 git -C ${REPO_NAME} push
 
@@ -56,5 +56,9 @@ if [ $? -ne 0 ]; then
   echo ">>> Failed to push to remote."
   exit 1
 fi
+
+# Clean files
+rm -f ${FLAG_FILE}
+rm -rf "cache/update_master"
 
 echo ">>> Done."

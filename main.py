@@ -95,6 +95,7 @@ def main():
         if args.venus and client.master_updated:
             need_update = venus.update_files()
             if need_update:
+                # only needed files are dumped to "cache/update_master"
                 Path("cache/need_update.txt").write_text("1", encoding="ascii")
     console.info("Tasks all done.")
 
