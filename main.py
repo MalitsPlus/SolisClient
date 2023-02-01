@@ -92,7 +92,7 @@ def main():
             if client.update_octo(args.asset_mode == "all"):
                 octo.scale_with_esrgan()
                 # convert_web_icons()
-        if args.venus and client.master_updated:
+        if args.venus and True : # client.master_updated
             need_update = venus.update_files()
             if need_update:
                 # only needed files are dumped to "cache/update_master"
