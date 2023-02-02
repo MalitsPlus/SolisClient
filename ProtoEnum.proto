@@ -119,6 +119,7 @@ enum BacksideType {
   BacksideType_Unknown = 0;
   BacksideType_Normal = 1;
   BacksideType_Mini = 2;
+  BacksideType_Simple = 3;
 }
 enum BoxGachaItemType {
   BoxGachaItemType_Unknown = 0;
@@ -260,7 +261,6 @@ enum ErrorCode {
   ErrorCode_InviteWrongCode = 3030;
   ErrorCode_InviteHostGuestLimit = 3031;
   ErrorCode_InviteEnterCodeNotAllowed = 3032;
-  ErrorCode_MarathonRaidFinished = 3033;
   ErrorCode_LeagueSeasonNotOpened = 3034;
   ErrorCode_LeagueInBattle = 3035;
   ErrorCode_LeagueInBattleExtension = 3036;
@@ -569,6 +569,7 @@ enum HelpType {
   HelpType_Help = 1;
   HelpType_Faq = 2;
   HelpType_Tips = 3;
+  HelpType_AccountRecovery = 4;
 }
 enum HierarchyRewardType {
   HierarchyRewardType_Unknown = 0;
@@ -593,6 +594,10 @@ enum HomePositionType {
   HomePositionType_Training = 2;
   HomePositionType_Activity = 3;
   HomePositionType_Idol = 4;
+}
+enum InquiryTemplateType {
+  InquiryTemplateType_Unknown = 0;
+  InquiryTemplateType_AccountRecovery = 1;
 }
 enum ItemType {
   ItemType_Unknown = 0;

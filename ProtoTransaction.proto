@@ -166,6 +166,8 @@ message UserHierarchy {
 message UserHomePosition {
   ProtoEnum.HomePositionType homePositionType = 1;
   string characterId = 2;
+  bool isCharacterRandom = 3;
+  bool isCostumeRandom = 4;
 }
 message UserHomeTalk {
   string homeTalkId = 1;
@@ -302,6 +304,10 @@ message RewardResult {
   bool isGift = 8;
   repeated transaction.RewardResult duplicateRewardResults = 9;
   repeated transaction.Reward additionalGifts = 10;
+}
+message UserActivityFanEventProgress {
+  ProtoEnum.ResultRankType bestScoreRankType = 1;
+  int64 bestScoreRankPlus = 2;
 }
 message UserBalance {
   int32 freeBalance = 1;

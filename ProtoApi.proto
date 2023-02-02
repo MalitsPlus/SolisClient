@@ -29,6 +29,18 @@ service Dokan {
 service Notice {
   rpc List(google.protobuf.Empty) returns (NoticeListResponse);
 }
+service League {
+  rpc Top(google.protobuf.Empty) returns (LeagueTopResponse);
+}
+service Pvp {
+  rpc Top(google.protobuf.Empty) returns (PvpTopResponse);
+}
+service Guild {
+  rpc Top(google.protobuf.Empty) returns (GvgTopResponse);
+}
+service Marathon {
+  rpc Top(MarathonTopRequest) returns (MarathonTopResponse);
+}
 
 message ActiveFanEvent {
   repeated string characterIds = 1;
@@ -660,6 +672,7 @@ message HomeMarathonInfo {
   bool isRaidHostEnable = 15;
   int32 reachableLadderPanelCount = 16;
   ProtoEnum.MarathonType type = 17;
+  string ladderId = 18;
 }
 message HomePhotoContestInfo {
   string id = 1;
@@ -989,6 +1002,20 @@ message MarathonRaidHostUser {
   string decorationId = 5;
   string userId = 6;
 }
+message MarathonRaidJoinResponse {
+  string marathonId = 1;
+  int32 difficultyNumber = 2;
+  int32 difficultyLevel = 3;
+  api.LiveResult result = 4;
+  repeated transaction.RewardResult joinRewards = 5;
+  int64 raidEndTime = 6;
+  api.MarathonRaidResult raidResult = 7;
+  int64 beforeScore = 8;
+  repeated api.QuestRankPattern rankPatterns = 9;
+  bool finished = 10;
+  string liveBonusId = 11;
+  api.CommonResponse commonResponse = 9999;
+}
 message MarathonRaidQuest {
   string id = 1;
   string stageId = 2;
@@ -1043,6 +1070,21 @@ message MarathonRaidRankedUser {
   int64 score = 4;
   string emblemId = 5;
   string userId = 6;
+  repeated api.LiveCardInfo cardInfos = 7;
+}
+message MarathonRaidStartResponse {
+  string marathonId = 1;
+  int32 difficultyNumber = 2;
+  int32 difficultyLevel = 3;
+  api.LiveResult result = 4;
+  api.QuestReward reward = 5;
+  repeated transaction.RewardResult hostRewards = 6;
+  int64 raidEndTime = 7;
+  api.MarathonRaidResult raidResult = 8;
+  int64 beforeScore = 9;
+  repeated api.QuestRankPattern rankPatterns = 10;
+  string liveBonusId = 11;
+  api.CommonResponse commonResponse = 9999;
 }
 message MarketItem {
   int32 number = 1;
@@ -2453,6 +2495,7 @@ message UpdatedData {
   transaction.UserBuddy buddy = 35;
   transaction.UserInvite invite = 36;
   repeated transaction.UserHair hairs = 37;
+  transaction.UserActivityFanEventProgress activityFanEventProgress = 38;
 }
 message DeletedData {
   repeated transaction.UserItem items = 1;
@@ -2931,7 +2974,6 @@ message GvgStartRequest {
   string gvgSeasonId = 1;
   string opponentId = 2;
   int32 deckNumber = 3;
-  bool useStone = 4;
   bool isSkip = 5;
   int32 matchNumber = 6;
   ProtoEnum.GvgChallengeConsumptionType challengeConsumptionType = 7;
@@ -3040,6 +3082,8 @@ message HomeSetCharacterPositionRequest {
 message HomeCharacterPosition {
   ProtoEnum.HomePositionType type = 1;
   string characterId = 2;
+  bool isCharacterRandom = 3;
+  bool isCostumeRandom = 4;
 }
 message HomeSetCharacterPositionResponse {
   api.CommonResponse commonResponse = 9999;
@@ -3544,6 +3588,7 @@ message MarathonRaidListRankingRequest {
 message MarathonRaidListRankingResponse {
   repeated api.MarathonRaidRankedUser rankedUsers = 1;
   int64 selfScore = 2;
+  string hostUserName = 3;
   api.CommonResponse commonResponse = 9999;
 }
 message MarathonRaidStartRequest {
@@ -3552,37 +3597,12 @@ message MarathonRaidStartRequest {
   int32 deckNumber = 3;
   bool isSkip = 4;
 }
-message MarathonRaidStartResponse {
-  string marathonId = 1;
-  int32 difficultyNumber = 2;
-  int32 difficultyLevel = 3;
-  api.LiveResult result = 4;
-  api.QuestReward reward = 5;
-  repeated transaction.RewardResult hostRewards = 6;
-  int64 raidEndTime = 7;
-  api.MarathonRaidResult raidResult = 8;
-  int64 beforeScore = 9;
-  repeated api.QuestRankPattern rankPatterns = 10;
-  api.CommonResponse commonResponse = 9999;
-}
 message MarathonRaidJoinRequest {
   string marathonId = 1;
   string raidId = 2;
   int32 deckNumber = 3;
   bool isSkip = 4;
   int32 difficultyNumber = 5;
-}
-message MarathonRaidJoinResponse {
-  string marathonId = 1;
-  int32 difficultyNumber = 2;
-  int32 difficultyLevel = 3;
-  api.LiveResult result = 4;
-  repeated transaction.RewardResult joinRewards = 5;
-  int64 raidEndTime = 6;
-  api.MarathonRaidResult raidResult = 7;
-  int64 beforeScore = 8;
-  repeated api.QuestRankPattern rankPatterns = 9;
-  api.CommonResponse commonResponse = 9999;
 }
 message MarathonRaidFinishRequest {
   string marathonId = 1;
@@ -3675,6 +3695,7 @@ message MarathonRaidResult {
   int32 joinedUserCount = 7;
   repeated transaction.RewardResult mvpRewards = 8;
   repeated api.MarathonRaidRankedUser rankedUsers = 9;
+  repeated transaction.RewardResult clearRewards = 10;
 }
 message MarathonRaidSimpleRankedUser {
   int32 rank = 1;
@@ -3729,6 +3750,18 @@ message MasterRuleRequest {
 }
 message MasterRuleResponse {
   string text = 1;
+}
+message MasterGetInquiryTemplateRequest {
+  ProtoEnum.InquiryTemplateType templateType = 1;
+}
+message MasterGetInquiryTemplateResponse {
+  string text = 1;
+}
+message MasterGetHelpCategoryRequest {
+  ProtoEnum.HelpType helpType = 1;
+}
+message MasterGetHelpCategoryResponse {
+  repeated master.HelpCategory helpCategories = 1;
 }
 message MessageListGroupResponse {
   repeated api.MessageGroupInfo infos = 1;
@@ -5063,6 +5096,7 @@ message UserGetResponse {
   transaction.UserBuddy buddy = 35;
   transaction.UserInvite invite = 36;
   repeated transaction.UserHair hairs = 37;
+  transaction.UserActivityFanEventProgress activityFanEventProgress = 38;
   transaction.UserPublic userPublic = 999;
 }
 message UserUpdateRequest {

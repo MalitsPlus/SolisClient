@@ -41,29 +41,41 @@ If API has been updated, take the following steps to keep the client proto schem
 
 3. Add `service`s to `ProtoApi.proto`. Currently, required services are listed as follows.
 
-    ```protobuf
-    service System {
-      rpc Check(SystemCheckRequest) returns (SystemCheckResponse);
-    }
-    service Auth {
-      rpc Login(AuthLoginRequest) returns (AuthLoginResponse);
-    }
-    service Master {
-      rpc Get(google.protobuf.Empty) returns (MasterGetResponse);
-    }
-    service User {
-      rpc Get(google.protobuf.Empty) returns (UserGetResponse);
-    }
-    service Home {
-      rpc Login(HomeLoginRequest) returns (HomeLoginResponse);
-      rpc Enter(HomeEnterRequest) returns (HomeEnterResponse);
-    }
-    service Dokan {
-      rpc List(google.protobuf.Empty) returns (DokanListResponse);
-    }
-    service Notice {
-      rpc List(google.protobuf.Empty) returns (NoticeListResponse);
-    }
-    ```
+```protobuf
+service System {
+  rpc Check(SystemCheckRequest) returns (SystemCheckResponse);
+}
+service Auth {
+  rpc Login(AuthLoginRequest) returns (AuthLoginResponse);
+}
+service Master {
+  rpc Get(google.protobuf.Empty) returns (MasterGetResponse);
+}
+service User {
+  rpc Get(google.protobuf.Empty) returns (UserGetResponse);
+}
+service Home {
+  rpc Login(HomeLoginRequest) returns (HomeLoginResponse);
+  rpc Enter(HomeEnterRequest) returns (HomeEnterResponse);
+}
+service Dokan {
+  rpc List(google.protobuf.Empty) returns (DokanListResponse);
+}
+service Notice {
+  rpc List(google.protobuf.Empty) returns (NoticeListResponse);
+}
+service League {
+  rpc Top(google.protobuf.Empty) returns (LeagueTopResponse);
+}
+service Pvp {
+  rpc Top(google.protobuf.Empty) returns (PvpTopResponse);
+}
+service Guild {
+  rpc Top(google.protobuf.Empty) returns (GvgTopResponse);
+}
+service Marathon {
+  rpc Top(MarathonTopRequest) returns (MarathonTopResponse);
+}
+```
 
 4. Run `gen_proto.bat` to generate python code.
