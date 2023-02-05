@@ -58,7 +58,7 @@ if [ $? -ne 0 ]; then
 fi
 
 # Clean files
-rm -f ${FLAG_FILE}
-rm -rf "cache/update_master"
+# rm -f ${FLAG_FILE}
+# rm -rf "cache/update_master"
 
 echo ">>> Done."

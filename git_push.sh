@@ -7,6 +7,7 @@ ARTIFACT_DIR_NAME="masterdata"
 VERSION_FILE='!version.txt'
 REPO_SSH="git@github.com:Stilamcat/ipr-master-diff.git"
 KEY_CACHE=`pwd`/cache/id_ed25519
+FLAG_FILE="cache/need_update.txt"
 
 # Check ssh key
 checkKeyCache() {
@@ -48,8 +49,10 @@ cur_ver=`cat ${ARTIFACT_DIR_NAME}/${VERSION_FILE}`
 echo ">>> Previous version: ${pre_ver}"
 echo ">>> Current version:  ${cur_ver}"
 if [ "${pre_ver}" = "${cur_ver}" ]; then
-  echo ">>> Exiting..."
-  exit 0
+  if [ ! -f ${FLAG_FILE} ]; then
+    echo "No need to update. Exiting."
+    exit 0
+  fi
 fi
 
 # install git lfs
@@ -76,8 +79,10 @@ fi
 rmt_ver=`cat ${REPO_NAME}/${VERSION_FILE}`
 echo ">>> Remote version:   ${cur_ver}"
 if [ "${rmt_ver}" = "${cur_ver}" ]; then
-  echo ">>> Exiting..."
-  exit 0
+  if [ ! -f ${FLAG_FILE} ]; then
+    echo "No need to update. Exiting."
+    exit 0
+  fi
 fi
 
 echo ">>> Copy artifacts to repo."

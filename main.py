@@ -68,6 +68,8 @@ def main():
         # Run login scenarios to emulate login
         console.info("Running login scenarios...")
         client.run_login_scenarios()
+        # Check and update battle data
+        # client.check_and_update_battle_data()
         # Generate notice list json
         console.info("Generating notice json...")
         client.generate_notice_json()
@@ -92,10 +94,15 @@ def main():
             if client.update_octo(args.asset_mode == "all"):
                 octo.scale_with_esrgan()
                 # convert_web_icons()
-        if args.venus and client.master_updated:
-            need_update = venus.update_files()
-            if need_update:
+        if args.venus:
+            need_update = False
+            # if client.battle_updated:
+            client.check_and_update_battle_data()
+            need_update |= client.battle_updated
+            if client.master_updated:
                 # only needed files are dumped to "cache/update_master"
+                need_update |= venus.update_master_jsons()
+            if need_update:
                 Path("cache/need_update.txt").write_text("1", encoding="ascii")
     console.info("Tasks all done.")
 

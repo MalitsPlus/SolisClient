@@ -466,6 +466,250 @@ class Notice(object):
             ProtoApi__pb2.NoticeListResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+
+class LeagueStub(object):
+    """Missing associated documentation comment in .proto file."""
+
+    def __init__(self, channel):
+        """Constructor.
+
+        Args:
+            channel: A grpc.Channel.
+        """
+        self.Top = channel.unary_unary(
+                '/api.League/Top',
+                request_serializer=Empty_serializer,
+                response_deserializer=LeagueTopResponse_deserializer,
+                )
+
+
+class LeagueServicer(object):
+    """Missing associated documentation comment in .proto file."""
+
+    def Top(self, request, context):
+        """Missing associated documentation comment in .proto file."""
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+
+def add_LeagueServicer_to_server(servicer, server):
+    rpc_method_handlers = {
+            'Top': grpc.unary_unary_rpc_method_handler(
+                    servicer.Top,
+                    request_deserializer=Empty_deserializer,
+                    response_serializer=LeagueTopResponse_serializer,
+            ),
+    }
+    generic_handler = grpc.method_handlers_generic_handler(
+            'api.League', rpc_method_handlers)
+    server.add_generic_rpc_handlers((generic_handler,))
+
+
+ # This class is part of an EXPERIMENTAL API.
+class League(object):
+    """Missing associated documentation comment in .proto file."""
+
+    @staticmethod
+    def Top(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/api.League/Top',
+            google_dot_protobuf_dot_empty__pb2.Empty.SerializeToString,
+            ProtoApi__pb2.LeagueTopResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+
+class PvpStub(object):
+    """Missing associated documentation comment in .proto file."""
+
+    def __init__(self, channel):
+        """Constructor.
+
+        Args:
+            channel: A grpc.Channel.
+        """
+        self.Top = channel.unary_unary(
+                '/api.Pvp/Top',
+                request_serializer=Empty_serializer,
+                response_deserializer=PvpTopResponse_deserializer,
+                )
+
+
+class PvpServicer(object):
+    """Missing associated documentation comment in .proto file."""
+
+    def Top(self, request, context):
+        """Missing associated documentation comment in .proto file."""
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+
+def add_PvpServicer_to_server(servicer, server):
+    rpc_method_handlers = {
+            'Top': grpc.unary_unary_rpc_method_handler(
+                    servicer.Top,
+                    request_deserializer=Empty_deserializer,
+                    response_serializer=PvpTopResponse_serializer,
+            ),
+    }
+    generic_handler = grpc.method_handlers_generic_handler(
+            'api.Pvp', rpc_method_handlers)
+    server.add_generic_rpc_handlers((generic_handler,))
+
+
+ # This class is part of an EXPERIMENTAL API.
+class Pvp(object):
+    """Missing associated documentation comment in .proto file."""
+
+    @staticmethod
+    def Top(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/api.Pvp/Top',
+            google_dot_protobuf_dot_empty__pb2.Empty.SerializeToString,
+            ProtoApi__pb2.PvpTopResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+
+class GuildStub(object):
+    """Missing associated documentation comment in .proto file."""
+
+    def __init__(self, channel):
+        """Constructor.
+
+        Args:
+            channel: A grpc.Channel.
+        """
+        self.Top = channel.unary_unary(
+                '/api.Guild/Top',
+                request_serializer=Empty_serializer,
+                response_deserializer=GvgTopResponse_deserializer,
+                )
+
+
+class GuildServicer(object):
+    """Missing associated documentation comment in .proto file."""
+
+    def Top(self, request, context):
+        """Missing associated documentation comment in .proto file."""
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+
+def add_GuildServicer_to_server(servicer, server):
+    rpc_method_handlers = {
+            'Top': grpc.unary_unary_rpc_method_handler(
+                    servicer.Top,
+                    request_deserializer=Empty_deserializer,
+                    response_serializer=GvgTopResponse_serializer,
+            ),
+    }
+    generic_handler = grpc.method_handlers_generic_handler(
+            'api.Guild', rpc_method_handlers)
+    server.add_generic_rpc_handlers((generic_handler,))
+
+
+ # This class is part of an EXPERIMENTAL API.
+class Guild(object):
+    """Missing associated documentation comment in .proto file."""
+
+    @staticmethod
+    def Top(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/api.Guild/Top',
+            google_dot_protobuf_dot_empty__pb2.Empty.SerializeToString,
+            ProtoApi__pb2.GvgTopResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+
+class MarathonStub(object):
+    """Missing associated documentation comment in .proto file."""
+
+    def __init__(self, channel):
+        """Constructor.
+
+        Args:
+            channel: A grpc.Channel.
+        """
+        self.Top = channel.unary_unary(
+                '/api.Marathon/Top',
+                request_serializer=MarathonTopRequest_serializer,
+                response_deserializer=MarathonTopResponse_deserializer,
+                )
+
+
+class MarathonServicer(object):
+    """Missing associated documentation comment in .proto file."""
+
+    def Top(self, request, context):
+        """Missing associated documentation comment in .proto file."""
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+
+def add_MarathonServicer_to_server(servicer, server):
+    rpc_method_handlers = {
+            'Top': grpc.unary_unary_rpc_method_handler(
+                    servicer.Top,
+                    request_deserializer=MarathonTopRequest_deserializer,
+                    response_serializer=MarathonTopResponse_serializer,
+            ),
+    }
+    generic_handler = grpc.method_handlers_generic_handler(
+            'api.Marathon', rpc_method_handlers)
+    server.add_generic_rpc_handlers((generic_handler,))
+
+
+ # This class is part of an EXPERIMENTAL API.
+class Marathon(object):
+    """Missing associated documentation comment in .proto file."""
+
+    @staticmethod
+    def Top(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/api.Marathon/Top',
+            ProtoApi__pb2.MarathonTopRequest.SerializeToString,
+            ProtoApi__pb2.MarathonTopResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 def SystemCheckRequest_serializer(message):
     origin = ProtoApi__pb2.SystemCheckRequest.SerializeToString(message)
     return serialize(origin)
@@ -513,6 +757,30 @@ def Empty_serializer(message):
     return serialize(origin)
 def NoticeListResponse_serializer(message):
     origin = ProtoApi__pb2.NoticeListResponse.SerializeToString(message)
+    return serialize(origin)
+def Empty_serializer(message):
+    origin = google_dot_protobuf_dot_empty__pb2.Empty.SerializeToString(message)
+    return serialize(origin)
+def LeagueTopResponse_serializer(message):
+    origin = ProtoApi__pb2.LeagueTopResponse.SerializeToString(message)
+    return serialize(origin)
+def Empty_serializer(message):
+    origin = google_dot_protobuf_dot_empty__pb2.Empty.SerializeToString(message)
+    return serialize(origin)
+def PvpTopResponse_serializer(message):
+    origin = ProtoApi__pb2.PvpTopResponse.SerializeToString(message)
+    return serialize(origin)
+def Empty_serializer(message):
+    origin = google_dot_protobuf_dot_empty__pb2.Empty.SerializeToString(message)
+    return serialize(origin)
+def GvgTopResponse_serializer(message):
+    origin = ProtoApi__pb2.GvgTopResponse.SerializeToString(message)
+    return serialize(origin)
+def MarathonTopRequest_serializer(message):
+    origin = ProtoApi__pb2.MarathonTopRequest.SerializeToString(message)
+    return serialize(origin)
+def MarathonTopResponse_serializer(message):
+    origin = ProtoApi__pb2.MarathonTopResponse.SerializeToString(message)
     return serialize(origin)
 def SystemCheckResponse_deserializer(raw):
     data = deserialize(raw)
@@ -562,3 +830,27 @@ def NoticeListResponse_deserializer(raw):
 def Empty_deserializer(raw):
     data = deserialize(raw)
     return google_dot_protobuf_dot_empty__pb2.Empty.FromString(data)
+def LeagueTopResponse_deserializer(raw):
+    data = deserialize(raw)
+    return ProtoApi__pb2.LeagueTopResponse.FromString(data)
+def Empty_deserializer(raw):
+    data = deserialize(raw)
+    return google_dot_protobuf_dot_empty__pb2.Empty.FromString(data)
+def PvpTopResponse_deserializer(raw):
+    data = deserialize(raw)
+    return ProtoApi__pb2.PvpTopResponse.FromString(data)
+def Empty_deserializer(raw):
+    data = deserialize(raw)
+    return google_dot_protobuf_dot_empty__pb2.Empty.FromString(data)
+def GvgTopResponse_deserializer(raw):
+    data = deserialize(raw)
+    return ProtoApi__pb2.GvgTopResponse.FromString(data)
+def Empty_deserializer(raw):
+    data = deserialize(raw)
+    return google_dot_protobuf_dot_empty__pb2.Empty.FromString(data)
+def MarathonTopResponse_deserializer(raw):
+    data = deserialize(raw)
+    return ProtoApi__pb2.MarathonTopResponse.FromString(data)
+def MarathonTopRequest_deserializer(raw):
+    data = deserialize(raw)
+    return ProtoApi__pb2.MarathonTopRequest.FromString(data)

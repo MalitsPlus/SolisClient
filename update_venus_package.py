@@ -26,9 +26,10 @@ used_files = [
     "SkillEfficacy",
     "SkillTarget",
     "SkillTrigger",
-    # "PvpQuest",
-    # "GvgQuest",
-    # "LeagueQuest",
+    "PvpQuest",
+    "GvgQuest",
+    "LeagueQuest",
+    "RaidQuest",
 ]
 
 def main():
