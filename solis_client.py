@@ -458,12 +458,18 @@ class SolisClient(ClientBase):
         if self.home_enter_res.HasField("gvgInfo"):
             self.gvg_top()
         if self.home_enter_res.HasField("leagueInfo"):
-            self.league_top()
+            if (
+                self.home_enter_res.leagueInfo.statusType
+                == penum.LeagueStatusType.LeagueStatusType_Prepare
+            ):
+                self.league_top()
         if self.home_enter_res.eventInfo.marathonInfos.__len__() > 0:
             for marathon in self.home_enter_res.eventInfo.marathonInfos:
                 if marathon.type == penum.MarathonType.MarathonType_Raid:
-                    self._marathon_id = marathon.id
-                    self.marathon_top()
+                    now = int(time.time() * 1000)
+                    if now < marathon.endTime:
+                        self._marathon_id = marathon.id
+                        self.marathon_top()
 
     def update_battle_data(self) -> bool:
         need_update = False
