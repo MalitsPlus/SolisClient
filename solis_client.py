@@ -417,6 +417,13 @@ class SolisClient(ClientBase):
         self._notice_list.commonResponse.Clear()
         return err
 
+    # def quest_top(self) -> int:
+    #     stub = apig.PvpStub(self._channel)
+    #     request = empty.Empty()
+    #     response, _, err = self._call_rpc(stub.Top.with_call, request)
+    #     self.pvp_top_res = response
+    #     return err
+
     def pvp_top(self) -> int:
         stub = apig.PvpStub(self._channel)
         request = empty.Empty()
@@ -425,11 +432,11 @@ class SolisClient(ClientBase):
         return err
 
     def gvg_top(self) -> int:
-        stub = apig.GuildStub(self._channel)
+        stub = apig.GvgStub(self._channel)
         request = empty.Empty()
-        metadata = self._get_metadata_pairs()
-        metadata.append(("x-app-request-id", str(self._get_ticks())))
-        response, _, err = self._call_rpc(stub.Top.with_call, request, metadata)
+        # metadata = self._get_metadata_pairs()
+        # metadata.append(("x-app-request-id", str(self._get_ticks())))
+        response, _, err = self._call_rpc(stub.Top.with_call, request)
         self.gvg_top_res = response
         return err
 

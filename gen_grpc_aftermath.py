@@ -1,8 +1,8 @@
 import re
 from pathlib import Path
 
-FILE_NAME = "ProtoApi_pb2_grpc.py"
-NEW_FILE_NAME = "ProtoApi_grpc.py"
+FILE_NAME = "cache/ProtoApi_pb2_grpc.py"
+NEW_FILE_NAME = "cache/ProtoApi_grpc.py"
 func_list = list[tuple[str, str, str]]()
 serializer_template = """def {new_func_name}(message):
     origin = {func_name}(message)

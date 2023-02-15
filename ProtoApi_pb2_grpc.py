@@ -527,6 +527,67 @@ class League(object):
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
 
+class QuestStub(object):
+    """Missing associated documentation comment in .proto file."""
+
+    def __init__(self, channel):
+        """Constructor.
+
+        Args:
+            channel: A grpc.Channel.
+        """
+        self.Top = channel.unary_unary(
+                '/api.Quest/Top',
+                request_serializer=google_dot_protobuf_dot_empty__pb2.Empty.SerializeToString,
+                response_deserializer=ProtoApi__pb2.QuestTopResponse.FromString,
+                )
+
+
+class QuestServicer(object):
+    """Missing associated documentation comment in .proto file."""
+
+    def Top(self, request, context):
+        """Missing associated documentation comment in .proto file."""
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+
+def add_QuestServicer_to_server(servicer, server):
+    rpc_method_handlers = {
+            'Top': grpc.unary_unary_rpc_method_handler(
+                    servicer.Top,
+                    request_deserializer=google_dot_protobuf_dot_empty__pb2.Empty.FromString,
+                    response_serializer=ProtoApi__pb2.QuestTopResponse.SerializeToString,
+            ),
+    }
+    generic_handler = grpc.method_handlers_generic_handler(
+            'api.Quest', rpc_method_handlers)
+    server.add_generic_rpc_handlers((generic_handler,))
+
+
+ # This class is part of an EXPERIMENTAL API.
+class Quest(object):
+    """Missing associated documentation comment in .proto file."""
+
+    @staticmethod
+    def Top(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/api.Quest/Top',
+            google_dot_protobuf_dot_empty__pb2.Empty.SerializeToString,
+            ProtoApi__pb2.QuestTopResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+
 class PvpStub(object):
     """Missing associated documentation comment in .proto file."""
 
@@ -600,7 +661,7 @@ class GuildStub(object):
         self.Top = channel.unary_unary(
                 '/api.Guild/Top',
                 request_serializer=google_dot_protobuf_dot_empty__pb2.Empty.SerializeToString,
-                response_deserializer=ProtoApi__pb2.GvgTopResponse.FromString,
+                response_deserializer=ProtoApi__pb2.GuildTopResponse.FromString,
                 )
 
 
@@ -619,7 +680,7 @@ def add_GuildServicer_to_server(servicer, server):
             'Top': grpc.unary_unary_rpc_method_handler(
                     servicer.Top,
                     request_deserializer=google_dot_protobuf_dot_empty__pb2.Empty.FromString,
-                    response_serializer=ProtoApi__pb2.GvgTopResponse.SerializeToString,
+                    response_serializer=ProtoApi__pb2.GuildTopResponse.SerializeToString,
             ),
     }
     generic_handler = grpc.method_handlers_generic_handler(
@@ -643,6 +704,67 @@ class Guild(object):
             timeout=None,
             metadata=None):
         return grpc.experimental.unary_unary(request, target, '/api.Guild/Top',
+            google_dot_protobuf_dot_empty__pb2.Empty.SerializeToString,
+            ProtoApi__pb2.GuildTopResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+
+class GvgStub(object):
+    """Missing associated documentation comment in .proto file."""
+
+    def __init__(self, channel):
+        """Constructor.
+
+        Args:
+            channel: A grpc.Channel.
+        """
+        self.Top = channel.unary_unary(
+                '/api.Gvg/Top',
+                request_serializer=google_dot_protobuf_dot_empty__pb2.Empty.SerializeToString,
+                response_deserializer=ProtoApi__pb2.GvgTopResponse.FromString,
+                )
+
+
+class GvgServicer(object):
+    """Missing associated documentation comment in .proto file."""
+
+    def Top(self, request, context):
+        """Missing associated documentation comment in .proto file."""
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+
+def add_GvgServicer_to_server(servicer, server):
+    rpc_method_handlers = {
+            'Top': grpc.unary_unary_rpc_method_handler(
+                    servicer.Top,
+                    request_deserializer=google_dot_protobuf_dot_empty__pb2.Empty.FromString,
+                    response_serializer=ProtoApi__pb2.GvgTopResponse.SerializeToString,
+            ),
+    }
+    generic_handler = grpc.method_handlers_generic_handler(
+            'api.Gvg', rpc_method_handlers)
+    server.add_generic_rpc_handlers((generic_handler,))
+
+
+ # This class is part of an EXPERIMENTAL API.
+class Gvg(object):
+    """Missing associated documentation comment in .proto file."""
+
+    @staticmethod
+    def Top(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/api.Gvg/Top',
             google_dot_protobuf_dot_empty__pb2.Empty.SerializeToString,
             ProtoApi__pb2.GvgTopResponse.FromString,
             options, channel_credentials,

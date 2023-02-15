@@ -67,10 +67,16 @@ service Notice {
 service League {
   rpc Top(google.protobuf.Empty) returns (LeagueTopResponse);
 }
+service Quest {
+  rpc Top(google.protobuf.Empty) returns (QuestTopResponse);
+}
 service Pvp {
   rpc Top(google.protobuf.Empty) returns (PvpTopResponse);
 }
 service Guild {
+  rpc Top(google.protobuf.Empty) returns (GuildTopResponse);
+}
+service Gvg {
   rpc Top(google.protobuf.Empty) returns (GvgTopResponse);
 }
 service Marathon {
