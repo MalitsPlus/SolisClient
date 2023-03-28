@@ -24,7 +24,11 @@ enum ActivityAbilityType {
   ActivityAbilityType_PromotionGoldUp = 2002;
   ActivityAbilityType_PromotionAccessoryMultiStepRewardUp = 2003;
   ActivityAbilityType_PromotionGachaTicketMultiStepRewardUp = 2004;
+  ActivityAbilityType_PromotionPhotoInkMultiStepRewardUp = 2005;
   ActivityAbilityType_RefreshStaminaUp = 3001;
+  ActivityAbilityType_LessonManagerExpUp = 4001;
+  ActivityAbilityType_LessonGoldUp = 4002;
+  ActivityAbilityType_LessonCardEnhanceItemUp = 4003;
 }
 enum ActivityCampaignEffectType {
   ActivityCampaignEffectType_Unknown = 0;
@@ -125,6 +129,11 @@ enum BoxGachaItemType {
   BoxGachaItemType_Unknown = 0;
   BoxGachaItemType_Reward = 1;
   BoxGachaItemType_MarathonLiveBonusGroup = 2;
+}
+enum CardDisplayType {
+  CardDisplayType_Unknown = 0;
+  CardDisplayType_BeforeLimitBreak = 1;
+  CardDisplayType_AfterLimitBreak = 2;
 }
 enum CardImageType {
   CardImageType_Unknown = 0;
@@ -246,7 +255,6 @@ enum ErrorCode {
   ErrorCode_PurchaseRecoverFailed = 3015;
   ErrorCode_DivisionMoveOutOfTerm = 3016;
   ErrorCode_GvgMatchMismatched = 3017;
-  ErrorCode_TwitterAccessTokenInvalid = 3018;
   ErrorCode_LiveResultNotFound = 3019;
   ErrorCode_PvpSeasonNotOpened = 3020;
   ErrorCode_GvgSeasonNotOpened = 3021;
@@ -254,8 +262,6 @@ enum ErrorCode {
   ErrorCode_ActivityStaminaAlreadyMax = 3023;
   ErrorCode_EventConditionInvalid = 3024;
   ErrorCode_RecoveryPurchaseTransactionNotFound = 3025;
-  ErrorCode_ReleaseDateIsFuture = 3026;
-  ErrorCode_TwitterDailyStatusUpdateLimit = 3027;
   ErrorCode_AlreadyMaximumStamina = 3028;
   ErrorCode_NotInCoolTime = 3029;
   ErrorCode_InviteWrongCode = 3030;
@@ -264,6 +270,7 @@ enum ErrorCode {
   ErrorCode_LeagueSeasonNotOpened = 3034;
   ErrorCode_LeagueInBattle = 3035;
   ErrorCode_LeagueInBattleExtension = 3036;
+  ErrorCode_SpecialPhotoShootingConditionInvalid = 3037;
 }
 enum EventMissionType {
   EventMissionType_Unknown = 0;
@@ -320,6 +327,7 @@ enum FunctionLockType {
   FunctionLockType_BuddyUseMarathon = 28;
   FunctionLockType_CardRankUp = 29;
   FunctionLockType_League = 30;
+  FunctionLockType_LiveResultDetail = 31;
 }
 enum FunctionMaintenanceType {
   FunctionMaintenanceType_Unknown = 0;
@@ -563,6 +571,11 @@ enum HelpDisplayTargetType {
   HelpDisplayTargetType_LeagueLiveNews = 162;
   HelpDisplayTargetType_LeagueLiveDeckSelect = 163;
   HelpDisplayTargetType_LeagueLastSeasonRecord = 164;
+  HelpDisplayTargetType_SpecialStory = 165;
+  HelpDisplayTargetType_ExtraStory = 166;
+  HelpDisplayTargetType_SpecialPhotographyTop = 167;
+  HelpDisplayTargetType_SpecialLivePhotography = 168;
+  HelpDisplayTargetType_SpecialActivityPhotography = 169;
 }
 enum HelpType {
   HelpType_Unknown = 0;
@@ -617,6 +630,7 @@ enum ItemType {
   ItemType_AccessoryLimitBreak = 14;
   ItemType_PhotoInk = 15;
   ItemType_CardRank = 16;
+  ItemType_SpecialPhotoShooting = 17;
   ItemType_ActivityRefreshShorten = 1001;
   ItemType_ActivityPromotionShorten = 1002;
   ItemType_ActivityFanEventSuperMode = 1003;
@@ -1484,6 +1498,15 @@ enum SkillEfficacyType {
   SkillEfficacyType_ActiveSkillChanceAssignment = 64;
   SkillEfficacyType_StrengthEffectErasingAll = 65;
   SkillEfficacyType_StrengthEffectAssignmentAll = 66;
+  SkillEfficacyType_ScoreGetByLessComboCount = 67;
+  SkillEfficacyType_ScoreGetByCharacterCount = 68;
+  SkillEfficacyType_ScoreGetByLessTotalScore = 69;
+  SkillEfficacyType_ScoreGetByScoreRatio = 70;
+  SkillEfficacyType_StrengthEffectGradeLimit = 71;
+  SkillEfficacyType_StatusEffectChange = 72;
+  SkillEfficacyType_PassiveSkillCoolTimeReset = 73;
+  SkillEfficacyType_PassiveSkillImpossible = 74;
+  SkillEfficacyType_CoverWeaknessEffect = 75;
 }
 enum SkillFailureType {
   SkillFailureType_Unknown = 0;
@@ -1569,6 +1592,10 @@ enum SkillTriggerType {
   SkillTriggerType_MoreThanPositionCardTypeCount = 35;
   SkillTriggerType_BeforeActiveSkill = 36;
   SkillTriggerType_BeforeSpecialSkill = 37;
+  SkillTriggerType_SkillFailureSelf = 38;
+  SkillTriggerType_StatusEffectGradeHigher = 39;
+  SkillTriggerType_StatusEffectGradeLower = 40;
+  SkillTriggerType_SomeoneStatusEffectGradeHigher = 41;
 }
 enum SpecialSkillCameraOrientationType {
   SpecialSkillCameraOrientationType_Unknown = 0;
@@ -1626,6 +1653,7 @@ enum StatusEffectType {
   StatusEffectType_PassiveScoreMultiplierAdd = 23;
   StatusEffectType_StaminaContinuousRecovery = 24;
   StatusEffectType_ActiveSkillChanceAssignment = 25;
+  StatusEffectType_CoverWeaknessEffect = 26;
   StatusEffectType_DanceDown = 1001;
   StatusEffectType_VocalDown = 1002;
   StatusEffectType_VisualDown = 1003;
@@ -1633,6 +1661,8 @@ enum StatusEffectType {
   StatusEffectType_StaminaConsumptionIncrease = 1005;
   StatusEffectType_AudienceAmountReduction = 1006;
   StatusEffectType_StaminaContinuousConsumption = 1007;
+  StatusEffectType_StrengthEffectGradeLimit = 1008;
+  StatusEffectType_PassiveSkillImpossible = 1009;
 }
 enum StoryAdvPlayType {
   StoryAdvPlayType_Unknown = 0;

@@ -104,11 +104,11 @@ class SolisClient(ClientBase):
         self._metadata_dict = self._config["grpc"]
         # self._metadata = list(self._config["grpc"].items())
         self._login_scenarios = [
-            self.get_app_version,
+            # self.get_app_version,
             self.first_system_check,
             self.get_qseed,
-            self.system_check,
             self.post_token,
+            self.system_check,
             self.auth_login,
             self.master_get,
             self.user_get,

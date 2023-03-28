@@ -422,6 +422,7 @@ message FanEventRankingInfo {
 message FavoriteCardInfo {
   string cardId = 1;
   int32 rarity = 2;
+  ProtoEnum.CardDisplayType displayType = 3;
 }
 message GachaButtonInfo {
   string id = 1;
@@ -631,6 +632,9 @@ message HomeEnterResponse {
   bool existsUnclearedExercise = 32;
   repeated api.ExtraStoryPartInfo extraStoryPartInfos = 33;
   api.HomeLeagueInfo leagueInfo = 34;
+  api.SpecialHomePositionInfo specialHomePositionInfo = 35;
+  repeated api.SpecialHomeActionInfo specialHomeActionInfos = 36;
+  api.SpecialPhotoShootingInfo specialPhotoShootingInfo = 37;
   api.PvpRewardResultInfo pvpRewardResultInfo = 100;
   api.GvgRewardResultInfo gvgRewardResultInfo = 101;
   repeated api.TourRewardResultInfo tourRewardResultInfos = 102;
@@ -1197,6 +1201,13 @@ message PhotoContestSubmitShootingResponse {
   int64 fixedCreatePhotoRarity = 12;
   api.CommonResponse commonResponse = 9999;
 }
+message PhotoListSpecialShootingResponse {
+  repeated api.SpecialPhotoActivityInfo activities = 1;
+  repeated api.SpecialPhotoQuestMusicInfo musics = 2;
+  string name = 4;
+  repeated string itemIds = 5;
+  api.CommonResponse commonResponse = 9999;
+}
 message PhotoMusic {
   string musicId = 1;
   bool isUnlocked = 2;
@@ -1575,6 +1586,61 @@ message ShopLoginBonus {
   string rewardId = 2;
   bool isReceived = 3;
 }
+message SpecialHomeActionInfo {
+  string characterId = 1;
+  repeated api.SpecialHomeActionDetail specialHomeActionDetails = 2;
+}
+message SpecialHomeMotionInfo {
+  string characterId = 1;
+  string idleMotionAssetId = 2;
+  string idleAdditionMotionAssetId = 3;
+}
+message SpecialHomePositionInfo {
+  repeated string homeCostumeIds = 1;
+  repeated string trainingCostumeIds = 2;
+  repeated string activityCostumeIds = 3;
+  repeated string idolCostumeIds = 4;
+  string specialHomePositionId = 5;
+  repeated api.SpecialHomeMotionInfo specialHomeMotionInfos = 6;
+}
+message SpecialPhotoActivityInfo {
+  bool isUnlocked = 1;
+  int32 order = 2;
+  string name = 3;
+  string thumbAssetId = 4;
+  string photoStageId = 5;
+  string photoShootingMotionSetId = 6;
+  bool isDeleteCharacter = 7;
+  repeated string costumeTypeIds = 8;
+  string forceCostumeTypeId = 9;
+  repeated string characterIds = 10;
+  string unlockConditionId = 11;
+  ProtoEnum.PhotoShootingActionType actionType = 12;
+  string viewConditionId = 13;
+}
+message SpecialPhotoQuestMusicInfo {
+  string musicId = 1;
+  bool isUnlocked = 2;
+  int32 order = 3;
+  repeated string costumeTypeIds = 4;
+  repeated string characterIds = 5;
+  repeated api.SpecialPhotoQuestStage photoStages = 6;
+  string unlockConditionId = 7;
+  string viewConditionId = 8;
+}
+message SpecialPhotoQuestStage {
+  string stageId = 1;
+  bool isUnlocked = 2;
+  int32 maxCapacity = 3;
+  string unlockConditionId = 4;
+  int32 order = 5;
+  string viewConditionId = 6;
+}
+message SpecialPhotoShootingInfo {
+  string specialPhotoShootingId = 1;
+  bool isUnlocked = 2;
+  string unlockConditionId = 3;
+}
 message TimelineInfo {
   string messageGroupId = 1;
   int64 timelineId = 2;
@@ -1664,6 +1730,7 @@ message AccessoryEnhanceResponse {
 message AccessoryLimitBreakRequest {
   string accessoryId = 1;
   bool isInUse = 2;
+  bool isInUseLeague = 3;
 }
 message AccessoryLimitBreakResponse {
   api.CommonResponse commonResponse = 9999;
@@ -2207,6 +2274,13 @@ message CardRankUpRequest {
 message CardRankUpResponse {
   api.CommonResponse commonResponse = 9999;
 }
+message CardUpdateDisplayTypeRequest {
+  string cardId = 1;
+  ProtoEnum.CardDisplayType displayType = 2;
+}
+message CardUpdateDisplayTypeResponse {
+  api.CommonResponse commonResponse = 9999;
+}
 message LoginBonusPackageItem {
   api.ShopItem shopItem = 1;
   repeated api.ShopLoginBonus loginBonuses = 2;
@@ -2223,6 +2297,8 @@ message LiveResult {
   repeated api.LiveChart charts = 3;
   int32 totalAudienceAmount = 4;
   bool cleared = 5;
+  bool isDisplayDetailAvailable = 6;
+  api.LiveChart preChart = 7;
 }
 message LiveUserDeck {
   string deckName = 1;
@@ -2244,6 +2320,7 @@ message LiveBeat {
   int32 cardIndex = 2;
   int64 score = 3;
   bool isCritical = 4;
+  api.LiveCardAppliedStatus cardAppliedStatus = 5;
 }
 message LiveSkill {
   int32 order = 1;
@@ -2256,6 +2333,7 @@ message LiveSkill {
   repeated api.LiveSkillDetail details = 8;
   repeated api.LiveSkillFailure failures = 9;
   bool isComboBreak = 10;
+  repeated api.LiveCardAppliedStatus cardAppliedStatuses = 11;
   repeated api.LiveLogDescription descriptions = 1001;
 }
 message LiveSkillFailure {
@@ -2294,6 +2372,21 @@ message LiveCardStatusEffect {
   int32 remainEffectedChartCount = 5;
   int32 maxGrade = 6;
   int64 value2 = 7;
+  repeated api.LiveStatusEffectReason statusReasons = 8;
+}
+message LiveCardAppliedStatus {
+  int32 cardIndex = 1;
+  repeated api.LiveCardAppliedStatusEffect statusEffects = 2;
+}
+message LiveCardAppliedStatusEffect {
+  ProtoEnum.StatusEffectType statusType = 1;
+  int32 grade = 2;
+  int32 maxGrade = 3;
+  repeated api.LiveStatusEffectReason statusReasons = 4;
+}
+message LiveStatusEffectReason {
+  int32 cardIndex = 1;
+  int32 skillIndex = 2;
 }
 message LiveSkillStatus {
   int32 skillIndex = 1;
@@ -3053,6 +3146,13 @@ message NotiShopItem {
   string shopId = 1;
   repeated string shopItemIds = 2;
 }
+message SpecialHomeActionDetail {
+  string motionAssetId = 1;
+  string additionMotionAssetId = 2;
+  string voiceAssetId = 3;
+  string text = 4;
+  int32 weight = 5;
+}
 message HomeLoginRequest {
   api.SettingInfo settingInfo = 1;
 }
@@ -3106,6 +3206,12 @@ message HomeLeagueInfo {
   bool isNewsUnread = 5;
   bool isNewSeasonNotJoined = 6;
   bool isRemainingImperfectDeck = 7;
+  repeated api.HomeLeagueDeckInfo deckInfos = 8;
+}
+message HomeLeagueDeckInfo {
+  string seasonId = 1;
+  ProtoEnum.LeagueDeckType deckType = 2;
+  repeated transaction.UserDeckPosition deckPositions = 3;
 }
 message PvpRewardResultInfo {
   string name = 1;
@@ -3192,6 +3298,8 @@ message BannerInfo {
   repeated api.Banner questBanners = 4;
   repeated api.Banner inviteBanners = 5;
   repeated api.Banner exerciseBanners = 6;
+  repeated api.Banner specialPhotoShootingQuestBanners = 7;
+  repeated api.Banner specialPhotoShootingActivityBanners = 8;
 }
 message FanEventInfo {
   repeated api.FanEvent fanEvents = 1;
@@ -4022,23 +4130,6 @@ message PhotoCheckShootingRequest {
 message PhotoCheckShootingResponse {
   api.CommonResponse commonResponse = 9999;
 }
-message PhotoCreateShootingRequest {
-  string itemId = 1;
-  ProtoEnum.PhotoShootingActionType actionType = 2;
-  string photoActivityId = 3;
-  string photoMusicId = 4;
-  string photoStageId = 5;
-  string mainCharacterId = 6;
-  repeated string characterIds = 7;
-  repeated string costumeIds = 8;
-  int32 manualCount = 9;
-  repeated string hairIds = 10;
-}
-message PhotoCreateShootingResponse {
-  transaction.UserPhoto photo = 1;
-  bool isGift = 2;
-  api.CommonResponse commonResponse = 9999;
-}
 message PhotoCreateShootingsRequest {
   ProtoEnum.PhotoShootingActionType actionType = 1;
   string photoActivityId = 2;
@@ -4074,6 +4165,38 @@ message PhotoSaleRecipeRequest {
 }
 message PhotoSaleRecipeResponse {
   repeated transaction.RewardResult rewardResults = 1;
+  api.CommonResponse commonResponse = 9999;
+}
+message PhotoListSpecialShootingRequest {
+  string specialPhotoShootingId = 1;
+}
+message PhotoCheckSpecialShootingRequest {
+  ProtoEnum.PhotoShootingActionType actionType = 1;
+  string specialPhotoShootingId = 2;
+  string musicId = 3;
+  string stageId = 4;
+  repeated string characterIds = 5;
+  repeated string costumeIds = 6;
+  repeated string hairIds = 7;
+}
+message PhotoCheckSpecialShootingResponse {
+  api.CommonResponse commonResponse = 9999;
+}
+message PhotoCreateSpecialShootingsRequest {
+  ProtoEnum.PhotoShootingActionType actionType = 1;
+  string specialPhotoShootingId = 2;
+  string musicId = 3;
+  string stageId = 4;
+  repeated string characterIds = 5;
+  repeated string costumeIds = 6;
+  repeated string hairIds = 7;
+  repeated api.PhotoCreateShootingParam createShootingParams = 8;
+  int32 manualCount = 9;
+}
+message PhotoCreateSpecialShootingsResponse {
+  repeated transaction.UserPhoto photos = 1;
+  bool isGift = 2;
+  string snsText = 3;
   api.CommonResponse commonResponse = 9999;
 }
 message PhotoContestTopRequest {
@@ -4185,6 +4308,7 @@ message ProfileUpdateBackgroundRequest {
   ProtoEnum.ProfileBackgroundType backgroundType = 1;
   string favoriteCardId = 2;
   string favoritePhotoId = 3;
+  ProtoEnum.CardDisplayType favoriteCardDisplayType = 4;
 }
 message ProfileUpdateBackgroundResponse {
   api.CommonResponse commonResponse = 9999;

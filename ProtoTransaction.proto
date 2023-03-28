@@ -82,6 +82,7 @@ message UserCard {
   bool supported = 10;
   int64 lastEnhanceTime = 11;
   int32 rankTotalExp = 12;
+  ProtoEnum.CardDisplayType displayType = 13;
   int32 level = 100;
   int32 rarity = 101;
   int64 vocal = 102;
@@ -245,6 +246,7 @@ message UserProfile {
   string decorationId = 10;
   ProtoEnum.ProfileInformationType informationType = 11;
   ProtoEnum.ProfileColorType colorType = 12;
+  ProtoEnum.CardDisplayType favoriteCardDisplayType = 13;
 }
 message UserQuest {
   string questId = 1;

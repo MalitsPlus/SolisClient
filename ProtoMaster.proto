@@ -1478,6 +1478,7 @@ message Story {
   string rewardId = 6;
   repeated ProtoEnum.StoryAdvPlayType advPlayTypes = 7;
   repeated string advAssetIds = 8;
+  repeated string additionalDisplayCharacterIds = 9;
 }
 message StoryEpisode {
   int32 episode = 1;
@@ -1825,6 +1826,10 @@ message Stage {
   int32 order = 7;
   string timeDifference = 8;
   bool isHideWithPhotoShooting = 9;
+}
+message StatusEffectName {
+  ProtoEnum.StatusEffectType statusEffectType = 1;
+  string name = 2;
 }
 message StoreProduct {
   string productId = 1;
