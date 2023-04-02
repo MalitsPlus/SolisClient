@@ -89,7 +89,7 @@ jobs:
           command: |
             git clone https://github.com/MalitsPlus/IDOLY-Backend.git backend
             cd backend
-            npx pnpm@7 install
+            npx pnpm@8 install
       - run:
           name: Generate and upload Skillx
           command: |
