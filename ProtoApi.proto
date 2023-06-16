@@ -87,6 +87,17 @@ message ActivityLessonProgress {
   int32 dailyPromoteCount = 9;
   string currentAreaId = 10;
 }
+message AnniversaryInfo {
+  bool isPrevious = 1;
+  string prologueStoryID = 2;
+  string beforeAssetId = 3;
+  string afterAssetId = 4;
+  string extraStoryId = 5;
+  bool isHideHomeCharacter = 6;
+  bool isStoryUnread = 7;
+  string anniversaryId = 8;
+  int64 endTime = 9;
+}
 message BacksideCardLiveAbilityInfo {
   string cardId = 1;
   int32 level = 2;
@@ -222,6 +233,11 @@ message Banner {
   string linkDetail = 5;
   int32 order = 6;
   string viewConditionId = 7;
+}
+message BirthdayInfo {
+  api.BirthdayAdvInfo birthdayAdvInfo = 1;
+  string text = 2;
+  string costumeId = 3;
 }
 message BoxGachaItem {
   int32 order = 1;
@@ -635,6 +651,9 @@ message HomeEnterResponse {
   api.SpecialHomePositionInfo specialHomePositionInfo = 35;
   repeated api.SpecialHomeActionInfo specialHomeActionInfos = 36;
   api.SpecialPhotoShootingInfo specialPhotoShootingInfo = 37;
+  api.HomeLoveInfo loveInfo = 38;
+  bool hasReceivableGift = 39;
+  api.AnniversaryInfo anniversaryInfo = 40;
   api.PvpRewardResultInfo pvpRewardResultInfo = 100;
   api.GvgRewardResultInfo gvgRewardResultInfo = 101;
   repeated api.TourRewardResultInfo tourRewardResultInfos = 102;
@@ -663,6 +682,30 @@ message HomeLadderInfo {
   string eventMissionId = 10;
   string messageGroupId = 11;
   int32 reachablePanelCount = 13;
+}
+message HomeLoveEventInfo {
+  string id = 1;
+  string name = 2;
+  int64 startTime = 3;
+  int64 endTime = 4;
+  string bannerAssetId = 5;
+  int32 order = 6;
+  string unlockConditionId = 7;
+  bool isUnlocked = 8;
+  repeated string eventMissionIds = 9;
+  repeated string limitedEventMissionIds = 10;
+  bool isLessonRewardMax = 11;
+  bool isUnplayed = 12;
+  bool hasHiddenFavorabilityObtainItem = 13;
+}
+message HomeLoveInfo {
+  bool isViewable = 1;
+  bool isUnlocked = 2;
+  string unlockConditionId = 3;
+  repeated string eventMissionIds = 4;
+  bool existsLessonRewardMaxLove = 5;
+  bool existsUnplayedLove = 6;
+  bool existsHasHiddenFavorabilityObtainItemLove = 7;
 }
 message HomeMarathonInfo {
   string id = 1;
@@ -931,6 +974,62 @@ message LiveUserInfo {
   api.LiveUserDeck userDeck = 5;
   api.LiveUserResult userResult = 6;
   bool isNpc = 7;
+}
+message LoveInfo {
+  string loveId = 1;
+  string description = 2;
+  string characterId = 3;
+  string costumeId = 4;
+  int64 lastPlayTime = 5;
+  repeated api.LoveStoryEndInfo storyEndInfos = 6;
+  ProtoEnum.LoveType type = 7;
+  int64 startTime = 8;
+  int64 endTime = 9;
+  string unlockConditionId = 10;
+  bool isUnlocked = 11;
+  string assetId = 12;
+  repeated string eventMissionIds = 13;
+  repeated string limitedEventMissionIds = 14;
+  bool isLessonRewardMax = 15;
+  bool isUnplayed = 16;
+  bool hasHiddenFavorabilityObtainItem = 17;
+}
+message LoveItemInfo {
+  string storyReadItemId = 1;
+  string hiddenFavorabilityObtainItemId = 2;
+  string lessonPromoteItemId = 3;
+}
+message LoveLoadResponse {
+  repeated string storyEpisodeIds = 1;
+  api.CommonResponse commonResponse = 9999;
+}
+message LoveResetResponse {
+  repeated string storyEpisodeIds = 1;
+  api.CommonResponse commonResponse = 9999;
+}
+message LoveSaveDataInfo {
+  int32 slotNumber = 1;
+  int64 saveTime = 2;
+  string latestStoryEpisodeId = 3;
+  string name = 4;
+}
+message LoveTopResponse {
+  string loveName = 1;
+  string playerName = 2;
+  int64 exp = 3;
+  api.LoveLessonProgress lessonProgress = 4;
+  repeated string storyEpisodeIds = 5;
+  api.LoveSaveInfo saveInfo = 6;
+  api.LoveItemInfo itemInfo = 7;
+  repeated api.EventMissionInfo eventMissionInfos = 8;
+  repeated api.EventMissionInfo limitedEventMissionInfos = 9;
+  int64 hiddenFavorability = 10;
+  repeated api.LoveStoryEndInfo storyEndInfos = 11;
+  repeated api.LoveLevelInfo loveLevelInfos = 12;
+  string bannerAssetId = 13;
+  api.NoticeInfo noticeInfo = 14;
+  string expAssetId = 15;
+  api.CommonResponse commonResponse = 9999;
 }
 message MarathonAccessoryInfo {
   string accessoryId = 1;
@@ -1353,6 +1452,7 @@ message QuestClearInfo {
   string userId = 6;
   ProtoEnum.ResultRankType rankType = 7;
   int32 plus = 8;
+  bool isLiveResultDetailAvailable = 9;
 }
 message QuestContestRankInfo {
   int32 rank = 1;
@@ -1363,6 +1463,7 @@ message QuestContestRankInfo {
   repeated api.LiveCardInfo cards = 6;
   string emblemId = 7;
   string userId = 8;
+  bool isLiveResultDetailAvailable = 9;
 }
 message QuestInfo {
   string questId = 1;
@@ -1641,6 +1742,11 @@ message SpecialPhotoShootingInfo {
   bool isUnlocked = 2;
   string unlockConditionId = 3;
 }
+message StoryReadAnniversaryStoryResponse {
+  repeated transaction.RewardResult rewards = 1;
+  string newTitleBackgroundId = 2;
+  api.CommonResponse commonResponse = 9999;
+}
 message TimelineInfo {
   string messageGroupId = 1;
   int64 timelineId = 2;
@@ -1918,6 +2024,13 @@ message FanEventStepResult {
 message PromotionStep {
   int32 step = 1;
   repeated api.ActivityPromotionReward rewards = 2;
+}
+message AnniversaryOutputTransitionLogRequest {
+  string anniversaryId = 1;
+  ProtoEnum.AnniversaryTransitionActionType actionType = 2;
+}
+message AnniversaryOutputTransitionLogResponse {
+  api.CommonResponse commonResponse = 9999;
 }
 message AuthCreateRequest {
   string firebaseUID = 1;
@@ -2205,6 +2318,34 @@ message BacksideDeckPositionInfo {
   string cardId = 1;
   int32 newPosition = 2;
 }
+message BirthdayTopResponse {
+  repeated api.BirthdayInfo birthdayInfos = 1;
+  repeated string unwatchedAdvBirthdayIds = 2;
+  repeated string receivableRewardBirthdayIds = 3;
+  api.CommonResponse commonResponse = 9999;
+}
+message BirthdaySetWatchedRequest {
+  string birthdayId = 1;
+}
+message BirthdaySetWatchedResponse {
+  repeated string unwatchAdvBirthdayIds = 1;
+  repeated string receivableRewardBirthdayIds = 2;
+  api.CommonResponse commonResponse = 9999;
+}
+message BirthdayReceiveRewardResponse {
+  repeated transaction.RewardResult rewards = 1;
+  api.CommonResponse commonResponse = 9999;
+}
+message BirthdayOutputWatchedLogRequest {
+  string birthdayId = 1;
+  bool isSkip = 2;
+}
+message BirthdayOutputWatchedLogResponse {
+  api.CommonResponse commonResponse = 9999;
+}
+message BirthdaySetWatchedRemindInfoResponse {
+  api.CommonResponse commonResponse = 9999;
+}
 message CardEnhanceRequest {
   string cardId = 1;
   int32 level = 2;
@@ -2299,6 +2440,7 @@ message LiveResult {
   bool cleared = 5;
   bool isDisplayDetailAvailable = 6;
   api.LiveChart preChart = 7;
+  string detailLogId = 8;
 }
 message LiveUserDeck {
   string deckName = 1;
@@ -2320,7 +2462,6 @@ message LiveBeat {
   int32 cardIndex = 2;
   int64 score = 3;
   bool isCritical = 4;
-  api.LiveCardAppliedStatus cardAppliedStatus = 5;
 }
 message LiveSkill {
   int32 order = 1;
@@ -2333,7 +2474,8 @@ message LiveSkill {
   repeated api.LiveSkillDetail details = 8;
   repeated api.LiveSkillFailure failures = 9;
   bool isComboBreak = 10;
-  repeated api.LiveCardAppliedStatus cardAppliedStatuses = 11;
+  repeated api.LiveCardStatus cardStatuses = 11;
+  repeated api.LiveUserStatus userStatuses = 12;
   repeated api.LiveLogDescription descriptions = 1001;
 }
 message LiveSkillFailure {
@@ -2346,6 +2488,12 @@ message LiveSkillDetail {
   int64 value = 2;
   ProtoEnum.StatusEffectType statusType = 3;
   repeated int32 targetCardIndexes = 4;
+  int32 effectiveChartCount = 5;
+  repeated api.LiveSkillDetailTargetCardInfo targetCardInfos = 6;
+}
+message LiveSkillDetailTargetCardInfo {
+  int32 targetCardIndex = 1;
+  int64 value = 2;
 }
 message LiveLogDescription {
   string message = 1;
@@ -2373,16 +2521,6 @@ message LiveCardStatusEffect {
   int32 maxGrade = 6;
   int64 value2 = 7;
   repeated api.LiveStatusEffectReason statusReasons = 8;
-}
-message LiveCardAppliedStatus {
-  int32 cardIndex = 1;
-  repeated api.LiveCardAppliedStatusEffect statusEffects = 2;
-}
-message LiveCardAppliedStatusEffect {
-  ProtoEnum.StatusEffectType statusType = 1;
-  int32 grade = 2;
-  int32 maxGrade = 3;
-  repeated api.LiveStatusEffectReason statusReasons = 4;
 }
 message LiveStatusEffectReason {
   int32 cardIndex = 1;
@@ -2509,6 +2647,14 @@ message HomeEventInfo {
   repeated api.HomePhotoContestInfo photoContestInfos = 5;
   repeated api.HomeRaceInfo raceInfos = 6;
   repeated api.HomeLadderInfo ladderInfos = 7;
+  repeated api.HomeLoveEventInfo loveEventInfos = 8;
+  api.HomeBirthdayInfo homeBirthdayInfo = 9;
+}
+message HomeBirthdayInfo {
+  string bannerAssetId = 1;
+  int32 order = 2;
+  bool isRemainingUnwatched = 3;
+  bool isRemainingReceivableReward = 4;
 }
 message QuestReward {
   repeated transaction.RewardResult clearRewards = 1;
@@ -2551,6 +2697,17 @@ message LadderStep {
 message FriendApplyToBuddyInfo {
   bool isActive = 1;
   bool isAlreadyOffered = 2;
+}
+message BirthdayAdvInfo {
+  string birthdayId = 1;
+  string advAssetId = 2;
+}
+message BirthdayRemindInfo {
+  string assetId = 1;
+  string description = 2;
+  string linkTitle = 3;
+  ProtoEnum.LinkType linkType = 4;
+  string linkDetail = 5;
 }
 message CommonResponse {
   api.UpdatedData updatedData = 1;
@@ -2595,6 +2752,7 @@ message UpdatedData {
   transaction.UserInvite invite = 36;
   repeated transaction.UserHair hairs = 37;
   transaction.UserActivityFanEventProgress activityFanEventProgress = 38;
+  repeated transaction.UserLove loves = 39;
 }
 message DeletedData {
   repeated transaction.UserItem items = 1;
@@ -2691,6 +2849,13 @@ message DokanSetWatchedRequest {
   repeated string skippedDokanIds = 2;
 }
 message DokanSetWathcedResponse {
+  api.CommonResponse commonResponse = 9999;
+}
+message DokanOutputWatchedLogRequest {
+  repeated string dokanIds = 1;
+  repeated string skippedDokanIds = 2;
+}
+message DokanOutputWatchedLogResponse {
   api.CommonResponse commonResponse = 9999;
 }
 message ExchangeListResponse {
@@ -3170,6 +3335,8 @@ message SettingInfo {
 message HomeLoginResponse {
   api.PaidJpy paidJpy = 1;
   repeated api.PurchasedLoginBonusShopInfo purchasedLoginBonusShopInfos = 2;
+  api.BirthdayAdvInfo birthdayAdvInfo = 3;
+  api.BirthdayRemindInfo birthdayRemindInfo = 4;
   api.CommonResponse commonResponse = 9999;
 }
 message HomeReadTalkRequest {
@@ -3459,6 +3626,7 @@ message LeagueBattleResultInfo {
   repeated api.LiveCardInfo opponentDeckBCards = 6;
   int64 deckBSelfScore = 7;
   int64 deckBOpponentScore = 8;
+  bool isLiveResultDetailAvailable = 9;
 }
 message LeagueOpponentInfo {
   string userId = 1;
@@ -3471,6 +3639,7 @@ message LeagueGetLiveResultRequest {
   int64 date = 2;
   string userId = 3;
   ProtoEnum.LeagueDeckType deckType = 4;
+  bool isDetail = 5;
 }
 message LeagueGetLiveResultResponse {
   api.LiveResult result = 1;
@@ -3563,6 +3732,150 @@ message LoginBonusReceiveResponse {
 message LoginBonusInfo {
   transaction.UserLoginBonus userLoginBonus = 1;
   api.NoticeInfo noticeInfo = 2;
+}
+message LoveTitleResponse {
+  repeated api.LoveInfo loveInfos = 1;
+  api.CommonResponse commonResponse = 9999;
+}
+message LoveStoryEndInfo {
+  string id = 1;
+  string name = 2;
+  bool unlocked = 3;
+}
+message LoveRegisterRequest {
+  string loveId = 1;
+  string name = 2;
+}
+message LoveRegisterResponse {
+  api.CommonResponse commonResponse = 9999;
+}
+message LoveTopRequest {
+  string loveId = 1;
+}
+message LoveSaveInfo {
+  bool unlocked = 1;
+  repeated api.LoveSaveDataInfo saveDataInfos = 2;
+}
+message LoveLessonProgress {
+  int64 lastReceiveTime = 1;
+  int64 maxRewardTime = 2;
+}
+message LoveLevelInfo {
+  int32 level = 1;
+  int32 unlockStoryEpisode = 2;
+  ProtoEnum.LoveHintType unlockLoveHintType = 3;
+  bool isTextViewable = 4;
+}
+message LoveStartRequest {
+  string storyEpisodeId = 1;
+  int32 hintLevel = 2;
+}
+message LoveStartResponse {
+  repeated api.LoveStoryChoiceGroupInfo storyChoiceGroupInfos = 1;
+  repeated api.LoveAdvBranchInfo advBranchInfos = 2;
+  api.CommonResponse commonResponse = 9999;
+}
+message LoveRestartRequest {
+  string storyEpisodeId = 1;
+  int32 hintLevel = 2;
+}
+message LoveRestartResponse {
+  repeated api.LoveStoryChoiceGroupInfo storyChoiceGroupInfos = 1;
+  repeated api.LoveAdvBranchInfo advBranchInfos = 2;
+  api.CommonResponse commonResponse = 9999;
+}
+message LoveStoryChoiceGroupInfo {
+  int32 groupIndex = 1;
+  repeated api.LoveStoryChoiceInfo storyChoiceInfos = 2;
+  bool existsObtainableFavorabilityDifference = 3;
+}
+message LoveStoryChoiceInfo {
+  int32 index = 1;
+  bool isBestObtainableFavorability = 2;
+  bool isPastSelected = 3;
+}
+message LoveAdvBranchInfo {
+  int32 groupIndex = 1;
+  int32 index = 2;
+}
+message LoveFinishRequest {
+  string storyEpisodeId = 1;
+  repeated api.LoveSelectStoryChoiceInfo selectStoryChoiceInfos = 2;
+  int32 hintLevel = 3;
+}
+message LoveSelectStoryChoiceInfo {
+  int32 groupIndex = 1;
+  int32 index = 2;
+  bool isValid = 3;
+}
+message LoveFinishResponse {
+  repeated transaction.RewardResult rewards = 1;
+  string storyEndName = 2;
+  bool unlockSave = 3;
+  string endRollAssetId = 4;
+  api.CommonResponse commonResponse = 9999;
+}
+message LoveResetReadingStoryStatusRequest {
+  string loveId = 1;
+}
+message LoveResetReadingStoryStatusResponse {
+  api.CommonResponse commonResponse = 9999;
+}
+message LovePresentRequest {
+  string loveId = 1;
+}
+message LovePresentResponse {
+  int64 hiddenFavorability = 1;
+  api.CommonResponse commonResponse = 9999;
+}
+message LoveSaveRequest {
+  string loveId = 1;
+  int32 slotNumber = 2;
+}
+message LoveSaveResponse {
+  api.CommonResponse commonResponse = 9999;
+}
+message LoveUpdateSaveNameRequest {
+  string loveId = 1;
+  int32 slotNumber = 2;
+  string name = 3;
+}
+message LoveUpdateSaveNameResponse {
+  api.CommonResponse commonResponse = 9999;
+}
+message LoveLoadRequest {
+  string loveId = 1;
+  int32 slotNumber = 2;
+}
+message LoveResetRequest {
+  string loveId = 1;
+}
+message LoveReceiveLessonRewardRequest {
+  string loveId = 1;
+}
+message LoveReceiveLessonRewardResponse {
+  repeated transaction.Reward rewards = 1;
+  int64 obtainExp = 2;
+  int64 totalExp = 3;
+  api.LoveLessonProgress lessonProgress = 4;
+  api.CommonResponse commonResponse = 9999;
+}
+message LovePromoteLessonRequest {
+  string loveId = 1;
+}
+message LovePromoteLessonResponse {
+  repeated transaction.Reward rewards = 1;
+  int64 obtainExp = 2;
+  int64 totalExp = 3;
+  api.LoveLessonProgress lessonProgress = 4;
+  api.CommonResponse commonResponse = 9999;
+}
+message LoveUpdateNameRequest {
+  string loveId = 1;
+  string name = 2;
+}
+message LoveUpdateNameResponse {
+  api.CommonResponse commonResponse = 9999;
 }
 message MarathonTopRequest {
   string marathonId = 1;
@@ -4348,6 +4661,15 @@ message ProfileUpdateBuddyCardRequest {
 message ProfileUpdateBuddyCardResponse {
   api.CommonResponse commonResponse = 9999;
 }
+message ProfileUpdateBirthdayRequest {
+  int32 month = 1;
+  int32 day = 2;
+}
+message ProfileUpdateBirthdayResponse {
+  api.BirthdayAdvInfo birthdayAdvInfo = 1;
+  api.BirthdayRemindInfo birthdayRemindInfo = 2;
+  api.CommonResponse commonResponse = 9999;
+}
 message PvpTopResponse {
   api.PvpTopResultInfo topResult = 1;
   repeated api.PvpOpponentInfo opponentInfos = 2;
@@ -4471,6 +4793,7 @@ message QuestListAssetResponse {
 message QuestGetLatestClearLiveResultRequest {
   string questId = 1;
   string userId = 2;
+  bool isDetail = 3;
 }
 message QuestGetLatestClearLiveResultResponse {
   api.LiveResult result = 1;
@@ -4480,6 +4803,7 @@ message QuestGetLatestClearLiveResultResponse {
 message QuestGetRankingLiveResultRequest {
   string questId = 1;
   string userId = 2;
+  bool isDetail = 3;
 }
 message QuestGetRankingLiveResultResponse {
   api.LiveResult result = 1;
@@ -4495,6 +4819,14 @@ message QuestTopPvpInfo {
   int32 rank = 5;
   int32 remainingChallengeCount = 6;
   api.PvpSeasonInfo latestPvpSeason = 9;
+}
+message OutputLiveResultDetailLogRequest {
+  string liveResultDetailLogId = 1;
+  bool cleared = 2;
+  int64 score = 3;
+}
+message OutputLiveResultDetailLogResponse {
+  api.CommonResponse commonResponse = 9999;
 }
 message RaceTopRequest {
   string raceId = 1;
@@ -4841,6 +5173,10 @@ message StoryReadExtraRequest {
 message StoryReadExtraResponse {
   repeated transaction.RewardResult rewards = 1;
   api.CommonResponse commonResponse = 9999;
+}
+message StoryReadAnniversaryStoryRequest {
+  string anniversaryId = 1;
+  int32 episode = 2;
 }
 message SystemCheckRequest {
   string firebaseIDToken = 1;
@@ -5227,6 +5563,7 @@ message UserGetResponse {
   transaction.UserInvite invite = 36;
   repeated transaction.UserHair hairs = 37;
   transaction.UserActivityFanEventProgress activityFanEventProgress = 38;
+  repeated transaction.UserLove loves = 39;
   transaction.UserPublic userPublic = 999;
 }
 message UserUpdateRequest {

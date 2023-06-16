@@ -54,6 +54,11 @@ enum ActivityFanEventType {
   ActivityFanEventType_Sign = 2;
   ActivityFanEventType_PhotoSession = 3;
 }
+enum AnniversaryTransitionActionType {
+  AnniversaryTransitionActionType_Unknown = 0;
+  AnniversaryTransitionActionType_Exit = 1;
+  AnniversaryTransitionActionType_Contents = 2;
+}
 enum AreaType {
   AreaType_Unknown = 0;
   AreaType_Main = 1;
@@ -213,6 +218,7 @@ enum DokanTargetType {
   DokanTargetType_PhotoContest = 6;
   DokanTargetType_Race = 7;
   DokanTargetType_Ladder = 8;
+  DokanTargetType_Love = 9;
 }
 enum DokanType {
   DokanType_Unknown = 0;
@@ -271,6 +277,7 @@ enum ErrorCode {
   ErrorCode_LeagueInBattle = 3035;
   ErrorCode_LeagueInBattleExtension = 3036;
   ErrorCode_SpecialPhotoShootingConditionInvalid = 3037;
+  ErrorCode_LoveSeasonNotOpened = 3038;
 }
 enum EventMissionType {
   EventMissionType_Unknown = 0;
@@ -286,6 +293,11 @@ enum ExtraStoryPartType {
   ExtraStoryPartType_Unknown = 0;
   ExtraStoryPartType_Normal = 1;
   ExtraStoryPartType_Limited = 2;
+}
+enum ExtraStoryType {
+  ExtraStoryType_Unknown = 0;
+  ExtraStoryType_Story = 1;
+  ExtraStoryType_Theater = 2;
 }
 enum ForumListReplyRequestType {
   ForumListReplyRequestType_Unknown = 0;
@@ -328,6 +340,9 @@ enum FunctionLockType {
   FunctionLockType_CardRankUp = 29;
   FunctionLockType_League = 30;
   FunctionLockType_LiveResultDetail = 31;
+  FunctionLockType_Birthday = 32;
+  FunctionLockType_StoryPointDisplayHide = 33;
+  FunctionLockType_HomeNewStoryButtonDisplayChange = 34;
 }
 enum FunctionMaintenanceType {
   FunctionMaintenanceType_Unknown = 0;
@@ -576,6 +591,15 @@ enum HelpDisplayTargetType {
   HelpDisplayTargetType_SpecialPhotographyTop = 167;
   HelpDisplayTargetType_SpecialLivePhotography = 168;
   HelpDisplayTargetType_SpecialActivityPhotography = 169;
+  HelpDisplayTargetType_LoveEpisodeList = 170;
+  HelpDisplayTargetType_LoveHome = 171;
+  HelpDisplayTargetType_LoveSave = 172;
+  HelpDisplayTargetType_LoveLoad = 173;
+  HelpDisplayTargetType_LoveMission = 174;
+  HelpDisplayTargetType_LoveSetting = 175;
+  HelpDisplayTargetType_LoveStatus = 176;
+  HelpDisplayTargetType_BirthdayTop = 177;
+  HelpDisplayTargetType_TheaterTop = 178;
 }
 enum HelpType {
   HelpType_Unknown = 0;
@@ -655,6 +679,9 @@ enum ItemType {
   ItemType_RacePoint = 7001;
   ItemType_RaceLiveBonusReset = 7002;
   ItemType_LadderPoint = 8001;
+  ItemType_LoveStoryRead = 9001;
+  ItemType_LoveHiddenFavorabilityObtain = 9002;
+  ItemType_LoveLessonPromote = 9003;
 }
 enum JoinedGuildType {
   JoinedGuildType_Unknown = 0;
@@ -736,6 +763,9 @@ enum LinkType {
   LinkType_PhotoContest = 104;
   LinkType_Race = 105;
   LinkType_Ladder = 106;
+  LinkType_Love = 107;
+  LinkType_Birthday = 108;
+  LinkType_ProfileFavoriteCharacter = 109;
   LinkType_WebView = 999;
   LinkType_ExternalWebPage = 1000;
 }
@@ -847,6 +877,22 @@ enum LoginBonusType {
   LoginBonusType_Unknown = 0;
   LoginBonusType_Normal = 1;
   LoginBonusType_Event = 2;
+}
+enum LoveHintType {
+  LoveHintType_Unknown = 0;
+  LoveHintType_ChoiceGroup = 1;
+  LoveHintType_Choice = 2;
+}
+enum LoveHomeActionType {
+  LoveHomeActionType_Unknown = 0;
+  LoveHomeActionType_Tap = 1;
+  LoveHomeActionType_NonTap = 2;
+  LoveHomeActionType_Present = 3;
+}
+enum LoveType {
+  LoveType_Unknown = 0;
+  LoveType_Normal = 1;
+  LoveType_Event = 2;
 }
 enum MarathonRaidProgressType {
   MarathonRaidProgressType_Unknown = 0;
@@ -970,6 +1016,12 @@ enum MissionType {
   MissionType_PhotoRecipeUsedAmount = 63;
   MissionType_StoneUsedAmount = 64;
   MissionType_PaidStoneUsedAmount = 65;
+  MissionType_CharacterQuestAllClearCount = 66;
+  MissionType_CharacterQuestPvpPlayCount = 67;
+  MissionType_CharacterPhotoShootCount = 68;
+  MissionType_CharacterStartActivityFanEventCount = 69;
+  MissionType_CharacterStartActivityPromotionCount = 70;
+  MissionType_CharacterStartActivityRefreshmentCount = 71;
   MissionType_TourAreaClearCount = 1001;
   MissionType_TourRivalClearCount = 1002;
   MissionType_TourBossClearCountWithCharacter = 1003;
@@ -991,6 +1043,8 @@ enum MissionType {
   MissionType_LadderPanelReachedCount = 1401;
   MissionType_LadderConsumptionPointAmount = 1402;
   MissionType_LadderReachedStep = 1403;
+  MissionType_LoveLevelAchievement = 1501;
+  MissionType_LoveStoryEndUnlockCount = 1502;
 }
 enum MoodType {
   MoodType_Unknown = 0;
@@ -1332,6 +1386,9 @@ enum RewardSortResourceType {
   RewardSortResourceType_ItemActivityLessonPromote = 63;
   RewardSortResourceType_ItemActivityPromotionSpecialShorten = 65;
   RewardSortResourceType_ItemCardRank = 66;
+  RewardSortResourceType_ItemLoveStoryRead = 67;
+  RewardSortResourceType_ItemLoveHiddenFavorabilityObtain = 68;
+  RewardSortResourceType_ItemLoveLessonPromote = 69;
 }
 enum RewardSortTargetType {
   RewardSortTargetType_Unknown = 0;
@@ -1771,5 +1828,7 @@ enum TutorialType {
   TutorialType_MarathonRaid = 31;
   TutorialType_League = 32;
   TutorialType_CardRank = 33;
+  TutorialType_Love = 34;
+  TutorialType_Anniversary = 35;
 }
 

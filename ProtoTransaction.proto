@@ -373,6 +373,12 @@ message UserInvite {
   string inviteCode = 1;
   int64 receivedHostRewardTotalAmount = 2;
 }
+message UserLove {
+  string loveId = 1;
+  repeated string unlockedLoveStoryEndIDs = 2;
+  int64 hiddenFavorability = 3;
+  bool isReadingStory = 4;
+}
 message UserNotification {
   ProtoEnum.NotificationType notificationType = 1;
   bool valid = 2;
