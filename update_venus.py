@@ -71,6 +71,10 @@ def update_master_jsons() -> bool:
                     continue
             minify_json(file)
             need_update = True
+        else:
+            out_ptn = Path(f"{_OUT_DIR}/{file}.json")
+            minify_json(file)
+            need_update = True
     return need_update
 
 
