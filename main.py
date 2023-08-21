@@ -103,7 +103,7 @@ def main():
                 # only needed files are dumped to "cache/update_master"
                 need_update |= venus.update_master_jsons()
             # use this line to force update venus if needed
-            Path("cache/need_update.txt").write_text("1", encoding="ascii")
+            # Path("cache/need_update.txt").write_text("1", encoding="ascii")
             if need_update:
                 Path("cache/need_update.txt").write_text("1", encoding="ascii")
     console.info("Tasks all done.")
