@@ -14,6 +14,7 @@ used_files = [
     "CardParameter",
     "CardRarity",
     "Character",
+    "CharacterGroup",
     "Quest",
     "Music",
     "MusicChartPattern",
