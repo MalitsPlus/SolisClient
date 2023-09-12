@@ -193,6 +193,7 @@ message Card {
   float highlightDisplayPositionY2 = 34;
   float highlightDisplayScale2 = 35;
   string obtainMessage = 36;
+  string rewardHairId = 37;
   repeated master.CardStory stories = 101;
   repeated master.CardMessage messages = 102;
   repeated master.CardHomeTalk homeTalks = 103;
@@ -1021,6 +1022,7 @@ message MusicMasteryRewardSet {
   string id = 1;
   int32 level = 2;
   string rewardId = 3;
+  int32 rewardStoneAmount = 4;
 }
 message PhotoAbility {
   string id = 1;
@@ -1463,6 +1465,10 @@ message Setting {
   int32 leagueRankingDisplayRankLimit = 700;
   int32 loveSaveSlotNum = 800;
   int32 secondsPerLoveLessonStep = 801;
+  int32 dreamQuestCharacterAdvantagePermil = 900;
+  int32 dreamGenerateAreaBasePhotoRequiredRarity = 901;
+  string dreamAreaName = 902;
+  int32 dreamGenerateAreaMaterialPhotoRequiredRarity = 903;
 }
 message SkillDetail {
   string efficacyId = 1;
@@ -1513,6 +1519,10 @@ message Story {
   repeated ProtoEnum.StoryAdvPlayType advPlayTypes = 7;
   repeated string advAssetIds = 8;
   repeated string additionalDisplayCharacterIds = 9;
+  string branchFirstText = 10;
+  string branchCautionText = 11;
+  string branchBgmAssetId = 12;
+  repeated master.StoryBranchChoice branchChoices = 13;
 }
 message StoryEpisode {
   int32 episode = 1;
@@ -1924,6 +1934,7 @@ message LoveCharacterInfo {
   string enName = 2;
   string cv = 3;
   string colorCode = 4;
+  string description = 5;
 }
 message ConditionSetting {
   master.ConditionSatisfyCondition satisfyCondition = 1;
@@ -2182,6 +2193,11 @@ message RewardResource {
   ProtoEnum.ResourceType resourceType = 1;
   string resourceId = 2;
   int32 amount = 3;
+}
+message StoryBranchChoice {
+  int32 index = 1;
+  string text = 2;
+  string advAssetId = 3;
 }
 message StoryChapter {
   int32 chapter = 1;

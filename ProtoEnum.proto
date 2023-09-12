@@ -6,6 +6,12 @@ enum AccessoryCategoryType {
   AccessoryCategoryType_Part1 = 1;
   AccessoryCategoryType_Part2 = 2;
 }
+enum AccessoryEnhanceMaterialType {
+  AccessoryEnhanceMaterialType_Unknown = 0;
+  AccessoryEnhanceMaterialType_ExcludeAllDeck = 1;
+  AccessoryEnhanceMaterialType_ExcludeLeagueDeck = 2;
+  AccessoryEnhanceMaterialType_AllUserAccessory = 3;
+}
 enum AccessoryParameterType {
   AccessoryParameterType_Unknown = 0;
   AccessoryParameterType_Dance = 1;
@@ -219,6 +225,7 @@ enum DokanTargetType {
   DokanTargetType_Race = 7;
   DokanTargetType_Ladder = 8;
   DokanTargetType_Love = 9;
+  DokanTargetType_Dream = 10;
 }
 enum DokanType {
   DokanType_Unknown = 0;
@@ -230,6 +237,15 @@ enum DokanType {
   DokanType_HorizontalMovie = 6;
   DokanType_Story = 7;
   DokanType_Free = 8;
+}
+enum DreamAreaRankType {
+  DreamAreaRankType_Unknown = 0;
+  DreamAreaRankType_D = 1;
+  DreamAreaRankType_C = 2;
+  DreamAreaRankType_B = 3;
+  DreamAreaRankType_A = 4;
+  DreamAreaRankType_S = 5;
+  DreamAreaRankType_Splus = 6;
 }
 enum ErrorCode {
   ErrorCode_Unknown = 0;
@@ -343,6 +359,7 @@ enum FunctionLockType {
   FunctionLockType_Birthday = 32;
   FunctionLockType_StoryPointDisplayHide = 33;
   FunctionLockType_HomeNewStoryButtonDisplayChange = 34;
+  FunctionLockType_PhotoListFilterDream = 35;
 }
 enum FunctionMaintenanceType {
   FunctionMaintenanceType_Unknown = 0;
@@ -600,6 +617,13 @@ enum HelpDisplayTargetType {
   HelpDisplayTargetType_LoveStatus = 176;
   HelpDisplayTargetType_BirthdayTop = 177;
   HelpDisplayTargetType_TheaterTop = 178;
+  HelpDisplayTargetType_DreamTop = 179;
+  HelpDisplayTargetType_DreamGeneratePhotoSelect = 180;
+  HelpDisplayTargetType_DreamGenerateMaterialSelect = 181;
+  HelpDisplayTargetType_DreamTrainingPhotoSelect = 182;
+  HelpDisplayTargetType_DreamLiveQuestSelect = 183;
+  HelpDisplayTargetType_DreamLiveDeckSelect = 184;
+  HelpDisplayTargetType_LoveCharacterSelect = 185;
 }
 enum HelpType {
   HelpType_Unknown = 0;
@@ -682,6 +706,7 @@ enum ItemType {
   ItemType_LoveStoryRead = 9001;
   ItemType_LoveHiddenFavorabilityObtain = 9002;
   ItemType_LoveLessonPromote = 9003;
+  ItemType_DreamGenerateArea = 10001;
 }
 enum JoinedGuildType {
   JoinedGuildType_Unknown = 0;
@@ -766,6 +791,7 @@ enum LinkType {
   LinkType_Love = 107;
   LinkType_Birthday = 108;
   LinkType_ProfileFavoriteCharacter = 109;
+  LinkType_Dream = 110;
   LinkType_WebView = 999;
   LinkType_ExternalWebPage = 1000;
 }
@@ -856,6 +882,7 @@ enum LoadingDisplayTargetType {
   LoadingDisplayTargetType_QuestGvgAfter = 210;
   LoadingDisplayTargetType_QuestDailyAreaBefore = 211;
   LoadingDisplayTargetType_QuestDailyAreaAfter = 212;
+  LoadingDisplayTargetType_DreamAreaBefore = 213;
   LoadingDisplayTargetType_PhotoModeBefore = 301;
   LoadingDisplayTargetType_PhotoModeAfter = 302;
   LoadingDisplayTargetType_Other = 999;
@@ -872,6 +899,7 @@ enum LoadingType {
   LoadingType_Text = 4;
   LoadingType_ImageText = 5;
   LoadingType_Comic = 6;
+  LoadingType_Dream = 7;
 }
 enum LoginBonusType {
   LoginBonusType_Unknown = 0;
@@ -1045,6 +1073,12 @@ enum MissionType {
   MissionType_LadderReachedStep = 1403;
   MissionType_LoveLevelAchievement = 1501;
   MissionType_LoveStoryEndUnlockCount = 1502;
+  MissionType_DreamAreaGenerateCount = 1601;
+  MissionType_DreamAreaGenerateTotalCount = 1602;
+  MissionType_DreamQuestClearCount = 1603;
+  MissionType_DreamQuestClearTotalCount = 1604;
+  MissionType_DreamQuestClearDifficultyLevelAchievement = 1605;
+  MissionType_DreamSeasonQuestClearDifficultyLevelAchievement = 1606;
 }
 enum MoodType {
   MoodType_Unknown = 0;
@@ -1389,6 +1423,7 @@ enum RewardSortResourceType {
   RewardSortResourceType_ItemLoveStoryRead = 67;
   RewardSortResourceType_ItemLoveHiddenFavorabilityObtain = 68;
   RewardSortResourceType_ItemLoveLessonPromote = 69;
+  RewardSortResourceType_ItemDreamGenerateArea = 70;
 }
 enum RewardSortTargetType {
   RewardSortTargetType_Unknown = 0;
@@ -1414,6 +1449,7 @@ enum RuleType {
   RuleType_CommercialTransaction = 4;
   RuleType_ServiceGuideline = 5;
   RuleType_Licence = 6;
+  RuleType_ExternalTransmission = 7;
 }
 enum SalaryDetailType {
   SalaryDetailType_Unknown = 0;
@@ -1728,6 +1764,7 @@ enum StoryAdvPlayType {
   StoryAdvPlayType_VerticalAdv = 3;
   StoryAdvPlayType_VerticalMovie = 4;
   StoryAdvPlayType_HorizontalMovie = 5;
+  StoryAdvPlayType_Branch = 6;
 }
 enum StoryPartType {
   StoryPartType_Unknown = 0;
@@ -1830,5 +1867,7 @@ enum TutorialType {
   TutorialType_CardRank = 33;
   TutorialType_Love = 34;
   TutorialType_Anniversary = 35;
+  TutorialType_DreamBasePhotoChoose = 36;
+  TutorialType_DreamGeneratedAreaPhotoChoose = 37;
 }
 

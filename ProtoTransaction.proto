@@ -221,6 +221,10 @@ message UserPhoto {
   int64 shootingTime = 13;
   string focusCharacterId = 14;
   string photoRecipeId = 15;
+  bool isDreamBase = 16;
+  int32 dreamMaterialPhotoRarity = 17;
+  int32 dreamMaterialPhotoLevel = 18;
+  string dreamMaterialPhotoRecipeId = 19;
 }
 message UserPhotoAbility {
   string photoAbilityId = 1;
@@ -275,7 +279,7 @@ message UserTelephone {
 message ConsumptionResult {
   ProtoEnum.ResourceType resourceType = 1;
   string resourceId = 2;
-  int32 amount = 3;
+  int64 amount = 3;
   int64 beforeAmount = 4;
   int64 afterAmount = 5;
 }
@@ -306,6 +310,7 @@ message RewardResult {
   bool isGift = 8;
   repeated transaction.RewardResult duplicateRewardResults = 9;
   repeated transaction.Reward additionalGifts = 10;
+  int64 amountI64 = 11;
 }
 message UserActivityFanEventProgress {
   ProtoEnum.ResultRankType bestScoreRankType = 1;
@@ -373,6 +378,17 @@ message UserInvite {
   string inviteCode = 1;
   int64 receivedHostRewardTotalAmount = 2;
 }
+message UserLeagueDeckPosition {
+  string leagueSeasonId = 1;
+  ProtoEnum.LeagueDeckType deckType = 2;
+  int32 position = 3;
+  string cardId = 4;
+  string part1AccessoryId = 5;
+  string part2AccessoryId = 6;
+  repeated string photoIds = 7;
+  string costumeId = 8;
+  string hairId = 9;
+}
 message UserLove {
   string loveId = 1;
   repeated string unlockedLoveStoryEndIDs = 2;
@@ -417,6 +433,7 @@ message UserTotalCount {
   int64 activityRefreshCount = 11;
   int64 guildCheckInCount = 12;
   int64 photoRetouchCount = 13;
+  int64 dreamAreaGenerateCount = 14;
 }
 message UserTutorial {
   ProtoEnum.TutorialType tutorialType = 1;

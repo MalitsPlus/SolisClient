@@ -281,6 +281,87 @@ message DokanInfo {
   ProtoEnum.LinkType linkType = 12;
   string linkDetail = 13;
 }
+message DreamAreaAttributeInfo {
+  int32 activeSkillWeightPermil = 1;
+  int32 specialSkillWeightPermil = 2;
+  int32 skillStaminaWeightPermil = 3;
+  int32 staminaRecoveryWeightPermil = 4;
+  int32 beatDanceWeightPermil = 5;
+  int32 beatVocalWeightPermil = 6;
+  int32 beatVisualWeightPermil = 7;
+  ProtoEnum.AttributeType attributeType = 8;
+  string questPressureId = 9;
+}
+message DreamBasePhotoEnhanceLevelEffectValueInfo {
+  string photoAbilityId = 1;
+  int64 effectValue = 2;
+}
+message DreamQuestInfo {
+  int32 questNumber = 1;
+  string stageId = 2;
+  string musicId = 3;
+  int32 difficultyLevel = 4;
+  string name = 5;
+  string musicChartPatternId = 6;
+  ProtoEnum.AttributeType position1AttributeType = 7;
+  ProtoEnum.AttributeType position2AttributeType = 8;
+  ProtoEnum.AttributeType position3AttributeType = 9;
+  ProtoEnum.AttributeType position4AttributeType = 10;
+  ProtoEnum.AttributeType position5AttributeType = 11;
+  int32 activeSkillWeightPermil = 12;
+  int32 specialSkillWeightPermil = 13;
+  int32 skillStaminaWeightPermil = 14;
+  int32 staminaRecoveryWeightPermil = 15;
+  int32 beatDanceWeightPermil = 16;
+  int32 beatVocalWeightPermil = 17;
+  int32 beatVisualWeightPermil = 18;
+  int32 maxCapacity = 19;
+  int32 mentalThreshold = 20;
+  string questPressureId = 21;
+  string questCharacterAdvantageId = 22;
+  string questAudienceAdvantageId = 23;
+  int64 clearScore = 24;
+  string liveBonusGroupId = 25;
+  ProtoEnum.LiveSkipType liveSkipType = 26;
+  bool cleared = 27;
+  bool isPlayable = 28;
+  bool isSkipAvailable = 29;
+  repeated api.DreamUserPhotoAbilityUpInfo userPhotoAbilityUpInfos = 30;
+}
+message DreamSeasonInfo {
+  string id = 1;
+  string name = 2;
+  int64 startTime = 3;
+  int64 endTime = 4;
+  string generateAreaItemId = 5;
+  string assetId = 6;
+  api.NoticeInfo noticeInfo = 7;
+  repeated api.DreamRankInfo rankInfos = 8;
+  api.EventMissionInfo eventMissionInfo = 9;
+}
+message DreamSkipMusicMasteryRewardInfo {
+  string musicId = 1;
+  int64 totalStoneAmount = 2;
+  repeated string characterIds = 3;
+}
+message DreamUserPhotoAbility {
+  string photoAbilityId = 1;
+  int64 maxEffectValue = 2;
+  int64 totalEnhancedEffectValue = 3;
+  int64 maxDisplayValue = 4;
+}
+message DreamUserPhotoAbilityChangeInfo {
+  string photoAbilityId = 1;
+  int64 maxEffectValue = 2;
+  int64 beforeEffectValue = 3;
+  int64 afterEffectValue = 4;
+  int64 maxDisplayValue = 5;
+}
+message DreamUserPhotoAbilityUpInfo {
+  string photoAbilityId = 1;
+  int64 afterEffectValue = 2;
+  int64 upEffectValue = 3;
+}
 message EventButtonDisplayInfo {
   string conditionId = 1;
   int32 priority = 2;
@@ -612,6 +693,19 @@ message HomeBacksideInfo {
   string unlockConditionId = 10;
   bool isUnlocked = 11;
   string eventMissionId = 12;
+}
+message HomeDreamInfo {
+  string name = 1;
+  int64 startTime = 2;
+  int64 endTime = 3;
+  string assetId = 4;
+  string bannerAssetId = 5;
+  int32 order = 6;
+  string unlockConditionId = 7;
+  bool isUnlocked = 8;
+  string generateAreaItemId = 9;
+  bool isReceivableLoginReward = 10;
+  string eventMissionId = 11;
 }
 message HomeEnterResponse {
   repeated api.GachaInfo gachaInfos = 1;
@@ -993,6 +1087,7 @@ message LoveInfo {
   bool isLessonRewardMax = 15;
   bool isUnplayed = 16;
   bool hasHiddenFavorabilityObtainItem = 17;
+  int32 order = 18;
 }
 message LoveItemInfo {
   string storyReadItemId = 1;
@@ -1829,8 +1924,10 @@ message UserHierarchyInfo {
 message AccessoryEnhanceRequest {
   string accessoryId = 1;
   int32 count = 2;
+  ProtoEnum.AccessoryEnhanceMaterialType materialType = 3;
 }
 message AccessoryEnhanceResponse {
+  bool isUnsetLeague = 2;
   api.CommonResponse commonResponse = 9999;
 }
 message AccessoryLimitBreakRequest {
@@ -2649,6 +2746,7 @@ message HomeEventInfo {
   repeated api.HomeLadderInfo ladderInfos = 7;
   repeated api.HomeLoveEventInfo loveEventInfos = 8;
   api.HomeBirthdayInfo homeBirthdayInfo = 9;
+  api.HomeDreamInfo dreamInfo = 10;
 }
 message HomeBirthdayInfo {
   string bannerAssetId = 1;
@@ -2753,6 +2851,7 @@ message UpdatedData {
   repeated transaction.UserHair hairs = 37;
   transaction.UserActivityFanEventProgress activityFanEventProgress = 38;
   repeated transaction.UserLove loves = 39;
+  repeated transaction.UserLeagueDeckPosition leagueDeckPositions = 40;
 }
 message DeletedData {
   repeated transaction.UserItem items = 1;
@@ -2764,6 +2863,7 @@ message DeletedData {
   repeated transaction.UserMessageSchedule messageSchedules = 7;
   repeated transaction.UserStory stories = 9;
   repeated transaction.UserPhotoRecipe photoRecipes = 10;
+  repeated transaction.UserLeagueDeckPosition leagueDeckPositions = 11;
 }
 message CostumeSetRequest {
   string costumeId = 1;
@@ -2856,6 +2956,103 @@ message DokanOutputWatchedLogRequest {
   repeated string skippedDokanIds = 2;
 }
 message DokanOutputWatchedLogResponse {
+  api.CommonResponse commonResponse = 9999;
+}
+message DreamTopResponse {
+  api.DreamSeasonInfo seasonInfo = 1;
+  repeated api.DreamUserPhoto dreamUserPhotos = 2;
+  repeated transaction.RewardResult loginRewardResults = 3;
+  repeated api.DokanInfo dokanInfos = 4;
+  api.CommonResponse commonResponse = 9999;
+}
+message DreamRankInfo {
+  ProtoEnum.DreamAreaRankType areaRankType = 1;
+  int64 areaRankPlus = 2;
+  string topColorCode = 3;
+  string bottomColorCode = 4;
+}
+message DreamUserPhoto {
+  string photoId = 1;
+  int64 generatedTime = 2;
+  int64 lastChallengedTime = 3;
+  ProtoEnum.DreamAreaRankType areaRankType = 4;
+  int64 areaRankPlus = 5;
+  int32 clearQuestNumber = 6;
+  int32 maxQuestNumber = 7;
+  repeated api.DreamUserPhotoAbility abilities = 8;
+  api.DreamAreaAttributeInfo attributeInfo = 9;
+  int64 rankPoint = 10;
+  bool isDisableGenerateArea = 11;
+}
+message DreamListMaterialPhotoRequest {
+  string basePhotoId = 1;
+}
+message DreamListMaterialPhotoResponse {
+  repeated api.DreamUserMaterialPhoto userMaterialPhotos = 1;
+  api.CommonResponse commonResponse = 9999;
+}
+message DreamUserMaterialPhoto {
+  string photoId = 1;
+  ProtoEnum.DreamAreaRankType areaRankType = 2;
+  int64 areaRankPlus = 3;
+  int32 maxQuestNumber = 4;
+  repeated api.DreamUserPhotoAbility enhancePlanAbilities = 5;
+  int32 generateAreaItemConsumptionAmount = 6;
+  api.DreamAreaAttributeInfo attributeInfo = 7;
+  int64 rankPoint = 8;
+}
+message DreamListQuestRequest {
+  string basePhotoId = 1;
+}
+message DreamListQuestResponse {
+  repeated api.DreamQuestInfo questInfos = 1;
+  int32 clearQuestNumber = 2;
+  int32 maxQuestNumber = 3;
+  api.CommonResponse commonResponse = 9999;
+}
+message DreamGenerateAreaRequest {
+  string basePhotoId = 1;
+  string materialPhotoId = 2;
+}
+message DreamGenerateAreaResponse {
+  api.DreamUserPhoto dreamUserPhoto = 1;
+  api.CommonResponse commonResponse = 9999;
+}
+message DreamStartQuestRequest {
+  string basePhotoId = 1;
+  int32 deckNumber = 2;
+  bool isSkip = 3;
+  repeated transaction.UserDeckPosition userBuddyDeckPositions = 4;
+  string buddyDeckName = 5;
+}
+message DreamStartQuestResponse {
+  api.LiveResult result = 1;
+  int32 clearedQuestNumber = 2;
+  int32 maxQuestNumber = 3;
+  repeated transaction.Reward musicMasteryRewards = 4;
+  repeated api.DreamUserPhotoAbilityChangeInfo abilityChangeInfos = 5;
+  api.FriendApplyToBuddyInfo friendApplyToBuddyInfo = 6;
+  repeated api.QuestRankPattern rankPatterns = 7;
+  api.DreamUserPhoto dreamUserPhoto = 8;
+  api.CommonResponse commonResponse = 9999;
+}
+message DreamSkipQuestRequest {
+  string basePhotoId = 1;
+  int32 deckNumber = 2;
+  int32 questNumber = 3;
+}
+message DreamSkipQuestResponse {
+  int32 clearedQuestNumber = 1;
+  int32 maxQuestNumber = 2;
+  repeated api.DreamSkipMusicMasteryRewardInfo skipMusicMasteryRewardInfos = 3;
+  repeated api.DreamUserPhotoAbilityChangeInfo abilityChangeInfos = 4;
+  api.DreamUserPhoto dreamUserPhoto = 5;
+  api.CommonResponse commonResponse = 9999;
+}
+message DreamResetAreaRequest {
+  string basePhotoId = 1;
+}
+message DreamResetAreaResponse {
   api.CommonResponse commonResponse = 9999;
 }
 message ExchangeListResponse {
@@ -3066,6 +3263,7 @@ message GachaDrawResponse {
   api.GachaContinuousResult continuousResult = 11;
   api.GachaStampInfo stampInfo = 12;
   repeated transaction.Reward stampRewards = 13;
+  repeated transaction.Reward pickupRewards = 14;
   api.CommonResponse commonResponse = 9999;
 }
 message GachaExchangeRequest {
@@ -3626,7 +3824,6 @@ message LeagueBattleResultInfo {
   repeated api.LiveCardInfo opponentDeckBCards = 6;
   int64 deckBSelfScore = 7;
   int64 deckBOpponentScore = 8;
-  bool isLiveResultDetailAvailable = 9;
 }
 message LeagueOpponentInfo {
   string userId = 1;
@@ -3965,6 +4162,7 @@ message MarathonBoxGachaDrawRequest {
 }
 message MarathonBoxGachaDrawResponse {
   repeated api.BoxGachaDrawResult drawResults = 1;
+  repeated api.BoxGachaDrawResult pickupResults = 2;
   api.CommonResponse commonResponse = 9999;
 }
 message MarathonBoxGachaResetRequest {
@@ -4511,6 +4709,17 @@ message PhotoCreateSpecialShootingsResponse {
   bool isGift = 2;
   string snsText = 3;
   api.CommonResponse commonResponse = 9999;
+}
+message GetDreamBasePhotoEnhanceLevelInfosRequest {
+  string basePhotoId = 1;
+}
+message GetDreamBasePhotoEnhanceLevelInfosResponse {
+  repeated api.DreamBasePhotoEnhanceLevelInfo levelInfos = 1;
+  api.CommonResponse commonResponse = 9999;
+}
+message DreamBasePhotoEnhanceLevelInfo {
+  int32 level = 1;
+  repeated api.DreamBasePhotoEnhanceLevelEffectValueInfo effectValueInfos = 2;
 }
 message PhotoContestTopRequest {
   string photoContestId = 1;
@@ -5564,6 +5773,7 @@ message UserGetResponse {
   repeated transaction.UserHair hairs = 37;
   transaction.UserActivityFanEventProgress activityFanEventProgress = 38;
   repeated transaction.UserLove loves = 39;
+  repeated transaction.UserLeagueDeckPosition leagueDeckPositions = 40;
   transaction.UserPublic userPublic = 999;
 }
 message UserUpdateRequest {
