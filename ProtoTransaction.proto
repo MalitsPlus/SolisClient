@@ -302,7 +302,6 @@ message Reward {
 message RewardResult {
   ProtoEnum.ResourceType resourceType = 1;
   string resourceId = 2;
-  int32 amount = 3;
   int64 beforeAmount = 4;
   int64 afterAmount = 5;
   bool isNew = 6;

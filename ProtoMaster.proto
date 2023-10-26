@@ -306,6 +306,24 @@ message ConditionActivityLevel {
   int32 levelGte = 2;
   int32 levelLte = 3;
 }
+message ConditionAllObtainCards {
+  repeated string cardIds = 1;
+}
+message ConditionAllObtainCostumes {
+  repeated string costumeIds = 1;
+}
+message ConditionAllObtainHairs {
+  repeated string hairIds = 1;
+}
+message ConditionAnyObtainCards {
+  repeated string cardIds = 1;
+}
+message ConditionAnyObtainCostumes {
+  repeated string costumeIds = 1;
+}
+message ConditionAnyObtainHairs {
+  repeated string hairIds = 1;
+}
 message ConditionCardLevel {
   string cardId = 1;
   int32 levelGte = 2;
@@ -362,6 +380,24 @@ message ConditionLiveCharacterHighestScore {
 message ConditionMaxQuestScoreRank {
   string questId = 1;
   int32 rankGte = 2;
+}
+message ConditionNotAllObtainCards {
+  repeated string cardIds = 1;
+}
+message ConditionNotAllObtainCostumes {
+  repeated string costumeIds = 1;
+}
+message ConditionNotAllObtainHairs {
+  repeated string hairIds = 1;
+}
+message ConditionNotAnyObtainCards {
+  repeated string cardIds = 1;
+}
+message ConditionNotAnyObtainCostumes {
+  repeated string costumeIds = 1;
+}
+message ConditionNotAnyObtainHairs {
+  repeated string hairIds = 1;
 }
 message ConditionNotSatisfyCondition {
   string conditionId = 1;
@@ -1469,6 +1505,8 @@ message Setting {
   int32 dreamGenerateAreaBasePhotoRequiredRarity = 901;
   string dreamAreaName = 902;
   int32 dreamGenerateAreaMaterialPhotoRequiredRarity = 903;
+  int32 diceMaxItemPossessionNum = 1200;
+  int32 diceRankingDisplayNum = 1201;
 }
 message SkillDetail {
   string efficacyId = 1;
@@ -2010,6 +2048,20 @@ message ConditionSetting {
   master.ConditionObtainHair obtainHair = 72;
   master.ConditionWearHair wearHair = 73;
   master.ConditionWearLiveHair wearLiveHair = 74;
+  master.ConditionSatisfyConditions satisfyConditions = 75;
+  master.ConditionNotSatisfyConditions notSatisfyConditions = 76;
+  master.ConditionAllObtainCostumes allObtainCostumes = 77;
+  master.ConditionAnyObtainCostumes anyObtainCostumes = 78;
+  master.ConditionNotAllObtainCostumes notAllObtainCostumes = 79;
+  master.ConditionNotAnyObtainCostumes notAnyObtainCostumes = 80;
+  master.ConditionAllObtainHairs allObtainHairs = 81;
+  master.ConditionAnyObtainHairs anyObtainHairs = 82;
+  master.ConditionNotAllObtainHairs notAllObtainHairs = 83;
+  master.ConditionNotAnyObtainHairs notAnyObtainHairs = 84;
+  master.ConditionAllObtainCards allObtainCards = 85;
+  master.ConditionAnyObtainCards anyObtainCards = 86;
+  master.ConditionNotAllObtainCards notAllObtainCards = 87;
+  master.ConditionNotAnyObtainCards notAnyObtainCards = 88;
 }
 message ConditionStartHours {
   int32 hoursLte = 1;
@@ -2146,6 +2198,12 @@ message ConditionPvpOpen {
 }
 message ConditionComebackUser {
   bool isComebackUser = 1;
+}
+message ConditionSatisfyConditions {
+  repeated master.ConditionSatisfyCondition conditions = 1;
+}
+message ConditionNotSatisfyConditions {
+  repeated master.ConditionNotSatisfyCondition conditions = 1;
 }
 message ConsumptionResource {
   ProtoEnum.ResourceType resourceType = 1;

@@ -206,6 +206,37 @@ enum DeckEditType {
   DeckEditType_ManualAuto = 3;
   DeckEditType_QuestAuto = 4;
 }
+enum DiceItemType {
+  DiceItemType_Unknown = 0;
+  DiceItemType_AdvancePanel = 1;
+  DiceItemType_WarpShopPanel = 2;
+  DiceItemType_ExchangeMoney = 3;
+}
+enum DiceMedalBonusType {
+  DiceMedalBonusType_Unknown = 0;
+  DiceMedalBonusType_Small = 1;
+  DiceMedalBonusType_Medium = 2;
+  DiceMedalBonusType_Large = 3;
+}
+enum DicePanelType {
+  DicePanelType_Unknown = 0;
+  DicePanelType_Start = 1;
+  DicePanelType_AdvancePanel = 2;
+  DicePanelType_ObtainMedal = 3;
+  DicePanelType_Shop = 4;
+  DicePanelType_Story = 5;
+  DicePanelType_Quest = 6;
+  DicePanelType_ObtainMoney = 7;
+  DicePanelType_ObtainLiveBonus = 8;
+}
+enum DiceQuestDifficultyType {
+  DiceQuestDifficultyType_Unknown = 0;
+  DiceQuestDifficultyType_VeryEasy = 1;
+  DiceQuestDifficultyType_Easy = 2;
+  DiceQuestDifficultyType_Normal = 3;
+  DiceQuestDifficultyType_Hard = 4;
+  DiceQuestDifficultyType_VeryHard = 5;
+}
 enum DivisionCannotMoveReasonType {
   DivisionCannotMoveReasonType_Unknown = 0;
   DivisionCannotMoveReasonType_NotAffiliate = 1;
@@ -226,6 +257,7 @@ enum DokanTargetType {
   DokanTargetType_Ladder = 8;
   DokanTargetType_Love = 9;
   DokanTargetType_Dream = 10;
+  DokanTargetType_Dice = 11;
 }
 enum DokanType {
   DokanType_Unknown = 0;
@@ -624,6 +656,15 @@ enum HelpDisplayTargetType {
   HelpDisplayTargetType_DreamLiveQuestSelect = 183;
   HelpDisplayTargetType_DreamLiveDeckSelect = 184;
   HelpDisplayTargetType_LoveCharacterSelect = 185;
+  HelpDisplayTargetType_Mosaic = 186;
+  HelpDisplayTargetType_DiceMain = 187;
+  HelpDisplayTargetType_DiceShop = 188;
+  HelpDisplayTargetType_DiceStory = 189;
+  HelpDisplayTargetType_DiceTop = 190;
+  HelpDisplayTargetType_DiceLiveDeckSelect = 191;
+  HelpDisplayTargetType_DiceLiveQuestSelect = 192;
+  HelpDisplayTargetType_DiceLiveBattleDeckSelect = 193;
+  HelpDisplayTargetType_DiceLiveBattleQuestSelect = 194;
 }
 enum HelpType {
   HelpType_Unknown = 0;
@@ -707,6 +748,8 @@ enum ItemType {
   ItemType_LoveHiddenFavorabilityObtain = 9002;
   ItemType_LoveLessonPromote = 9003;
   ItemType_DreamGenerateArea = 10001;
+  ItemType_DiceShopCurrency = 11001;
+  ItemType_DiceStaminaRecovery = 11002;
 }
 enum JoinedGuildType {
   JoinedGuildType_Unknown = 0;
@@ -792,6 +835,7 @@ enum LinkType {
   LinkType_Birthday = 108;
   LinkType_ProfileFavoriteCharacter = 109;
   LinkType_Dream = 110;
+  LinkType_Dice = 111;
   LinkType_WebView = 999;
   LinkType_ExternalWebPage = 1000;
 }
@@ -1079,6 +1123,9 @@ enum MissionType {
   MissionType_DreamQuestClearTotalCount = 1604;
   MissionType_DreamQuestClearDifficultyLevelAchievement = 1605;
   MissionType_DreamSeasonQuestClearDifficultyLevelAchievement = 1606;
+  MissionType_MosaicExchangedCount = 1701;
+  MissionType_DicePanelMoveCount = 1801;
+  MissionType_DiceAreaClearCount = 1802;
 }
 enum MoodType {
   MoodType_Unknown = 0;
