@@ -1,5 +1,5 @@
 beautifulsoup4==4.11.1
-grpcio==1.49.1
+grpcio==1.53.0
 pycryptodome==3.14.1
 PyJWT==2.4.0
 requests==2.26.0
