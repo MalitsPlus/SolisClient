@@ -13,7 +13,7 @@ jobs:
       - image: cimg/python:3.10.2
 
     steps:
-      - checkout
+      # - checkout
       - python/install-packages:
           pkg-manager: pip
           pip-dependency-file: requirements.txt
@@ -103,6 +103,7 @@ jobs:
       - image: cimg/node:18.4.0
 
     steps:
+      - checkout
       - restore_cache:
           name: Restoring client cache
           keys:
