@@ -98,10 +98,35 @@ jobs:
             export DATA_PREFIX="HSM_"
             bash backend/scripts/uploadSkillx.sh $(realpath masterdata/Skill.json) || true
 
+  job-run-check-googleplay-version:
+    docker:
+      - image: cimg/node:18.4.0
+
+    steps:
+      - restore_cache:
+          name: Restoring client cache
+          keys:
+            - client-cache-v3-{{ epoch }}
+            - client-cache-v3-
+      - run:
+          name: Init
+          command: npx pnpm install
+      - run:
+          name: Get GooglePlay App version
+          command: node main.js
+      - save_cache:
+          name: Saving client cache
+          key: client-cache-v3-{{ epoch }}
+          paths:
+            - cache
+
 workflows:
   run-scenarios:
     jobs:
+      - job-run-check-googleplay-version
       - job-run-scenarios
+          requires:
+            - job-run-check-googleplay-version
       - job-run-skillx:
           requires:
             - job-run-scenarios
