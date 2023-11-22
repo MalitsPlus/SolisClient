@@ -326,6 +326,7 @@ enum ErrorCode {
   ErrorCode_LeagueInBattleExtension = 3036;
   ErrorCode_SpecialPhotoShootingConditionInvalid = 3037;
   ErrorCode_LoveSeasonNotOpened = 3038;
+  ErrorCode_GppReceiveRewardFailed = 3039;
 }
 enum EventMissionType {
   EventMissionType_Unknown = 0;
@@ -392,6 +393,7 @@ enum FunctionLockType {
   FunctionLockType_StoryPointDisplayHide = 33;
   FunctionLockType_HomeNewStoryButtonDisplayChange = 34;
   FunctionLockType_PhotoListFilterDream = 35;
+  FunctionLockType_Roulette = 36;
 }
 enum FunctionMaintenanceType {
   FunctionMaintenanceType_Unknown = 0;
@@ -665,6 +667,10 @@ enum HelpDisplayTargetType {
   HelpDisplayTargetType_DiceLiveQuestSelect = 192;
   HelpDisplayTargetType_DiceLiveBattleDeckSelect = 193;
   HelpDisplayTargetType_DiceLiveBattleQuestSelect = 194;
+  HelpDisplayTargetType_RouletteTop = 195;
+  HelpDisplayTargetType_ShelfTop = 196;
+  HelpDisplayTargetType_ShelfAlbumSelect = 197;
+  HelpDisplayTargetType_ShelfHome = 198;
 }
 enum HelpType {
   HelpType_Unknown = 0;
@@ -750,6 +756,7 @@ enum ItemType {
   ItemType_DreamGenerateArea = 10001;
   ItemType_DiceShopCurrency = 11001;
   ItemType_DiceStaminaRecovery = 11002;
+  ItemType_EventPhotoCreating = 12001;
 }
 enum JoinedGuildType {
   JoinedGuildType_Unknown = 0;
@@ -836,6 +843,8 @@ enum LinkType {
   LinkType_ProfileFavoriteCharacter = 109;
   LinkType_Dream = 110;
   LinkType_Dice = 111;
+  LinkType_Shelf = 112;
+  LinkType_Roulette = 113;
   LinkType_WebView = 999;
   LinkType_ExternalWebPage = 1000;
 }
@@ -1126,6 +1135,11 @@ enum MissionType {
   MissionType_MosaicExchangedCount = 1701;
   MissionType_DicePanelMoveCount = 1801;
   MissionType_DiceAreaClearCount = 1802;
+  MissionType_ShelfPhotoSaveCount = 1901;
+  MissionType_ShelfPhotoCreatingCount = 1902;
+  MissionType_ShelfAlbumCompleteAchievement = 1903;
+  MissionType_ShelfAlbumPhotoCreatingCount = 1904;
+  MissionType_RouletteDrawCount = 2001;
 }
 enum MoodType {
   MoodType_Unknown = 0;
@@ -1471,6 +1485,7 @@ enum RewardSortResourceType {
   RewardSortResourceType_ItemLoveHiddenFavorabilityObtain = 68;
   RewardSortResourceType_ItemLoveLessonPromote = 69;
   RewardSortResourceType_ItemDreamGenerateArea = 70;
+  RewardSortResourceType_ItemShelfPhotoCreating = 71;
 }
 enum RewardSortTargetType {
   RewardSortTargetType_Unknown = 0;
@@ -1487,6 +1502,44 @@ enum RewardSortTargetType {
   RewardSortTargetType_ActivityPromotionMainReward = 11;
   RewardSortTargetType_PremiumGachaProbability = 12;
   RewardSortTargetType_MarathonRaidQuestReward = 13;
+}
+enum RouletteBackgroundColorType {
+  RouletteBackgroundColorType_Unknown = 0;
+  RouletteBackgroundColorType_Normal = 1;
+  RouletteBackgroundColorType_Rare = 2;
+  RouletteBackgroundColorType_Srare = 3;
+}
+enum RouletteButtonColorType {
+  RouletteButtonColorType_Unknown = 0;
+  RouletteButtonColorType_Normal = 1;
+  RouletteButtonColorType_Rare = 2;
+  RouletteButtonColorType_Srare = 3;
+}
+enum RouletteCharacterType {
+  RouletteCharacterType_Unknown = 0;
+  RouletteCharacterType_Normal = 1;
+  RouletteCharacterType_Rare = 2;
+  RouletteCharacterType_Srare = 3;
+}
+enum RouletteObtainEffectType {
+  RouletteObtainEffectType_Unknown = 0;
+  RouletteObtainEffectType_Normal = 1;
+  RouletteObtainEffectType_Rare = 2;
+  RouletteObtainEffectType_Srare = 3;
+}
+enum RouletteRarityType {
+  RouletteRarityType_Unknown = 0;
+  RouletteRarityType_D = 1;
+  RouletteRarityType_C = 2;
+  RouletteRarityType_B = 3;
+  RouletteRarityType_A = 4;
+  RouletteRarityType_S = 5;
+}
+enum RouletteSpecialEffectType {
+  RouletteSpecialEffectType_Unknown = 0;
+  RouletteSpecialEffectType_None = 1;
+  RouletteSpecialEffectType_Reversal = 2;
+  RouletteSpecialEffectType_Secret = 3;
 }
 enum RuleType {
   RuleType_Unknown = 0;
@@ -1527,6 +1580,19 @@ enum ScreenChangeVoiceType {
   ScreenChangeVoiceType_ProfileTop = 14;
   ScreenChangeVoiceType_GuildTop = 15;
   ScreenChangeVoiceType_TourTop = 16;
+}
+enum ShelfTemplateType {
+  ShelfTemplateType_Unknown = 0;
+  ShelfTemplateType_Template1 = 1;
+  ShelfTemplateType_Template2 = 2;
+  ShelfTemplateType_Template3 = 3;
+  ShelfTemplateType_Template4 = 4;
+  ShelfTemplateType_Template5 = 5;
+  ShelfTemplateType_Template6 = 6;
+  ShelfTemplateType_Template7 = 7;
+  ShelfTemplateType_Template8 = 8;
+  ShelfTemplateType_Template9 = 9;
+  ShelfTemplateType_Template10 = 10;
 }
 enum ShopConditionRewardStatusType {
   ShopConditionRewardStatusType_Unknown = 0;
@@ -1916,5 +1982,10 @@ enum TutorialType {
   TutorialType_Anniversary = 35;
   TutorialType_DreamBasePhotoChoose = 36;
   TutorialType_DreamGeneratedAreaPhotoChoose = 37;
+  TutorialType_Shelf = 38;
+}
+enum WatchAdvertisementType {
+  WatchAdvertisementType_Unknown = 0;
+  WatchAdvertisementType_Roulette = 1;
 }
 

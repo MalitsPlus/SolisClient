@@ -868,6 +868,7 @@ message HomeEnterResponse {
   api.HomeLoveInfo loveInfo = 38;
   bool hasReceivableGift = 39;
   api.AnniversaryInfo anniversaryInfo = 40;
+  api.RouletteInfo rouletteInfo = 41;
   api.PvpRewardResultInfo pvpRewardResultInfo = 100;
   api.GvgRewardResultInfo gvgRewardResultInfo = 101;
   repeated api.TourRewardResultInfo tourRewardResultInfos = 102;
@@ -985,6 +986,18 @@ message HomeRaceInfo {
   bool isUnlocked = 11;
   string eventMissionId = 12;
   bool isLessenRewardMax = 13;
+}
+message HomeShelfInfo {
+  string id = 1;
+  string name = 2;
+  int64 startTime = 3;
+  int64 endTime = 4;
+  string bannerAssetId = 5;
+  int32 order = 6;
+  string unlockConditionId = 7;
+  bool isUnlocked = 8;
+  repeated api.ShelfAlbumInfo albumInfos = 9;
+  string eventMissionId = 10;
 }
 message HomeTourInfo {
   string id = 1;
@@ -1900,6 +1913,40 @@ message RefreshProgress {
   string activityPerformanceId = 11;
   string subGenre = 12;
 }
+message ShelfAlbumEpisodeInfo {
+  int32 episode = 1;
+  string assetId = 2;
+  string storyId = 3;
+  string viewConditionId = 4;
+  string unlockConditionId = 5;
+  bool isUnlocked = 6;
+}
+message ShelfAlbumInfo {
+  string albumId = 1;
+  string assetId = 2;
+  string unlockConditionId = 3;
+  bool isUnlocked = 4;
+  string snsText = 5;
+  bool isNew = 6;
+  string name = 7;
+  string bgmAssetId = 8;
+}
+message ShelfInfo {
+  string name = 1;
+  int64 startTime = 2;
+  int64 endTime = 3;
+  string assetId = 4;
+  api.EventMissionInfo eventMissionInfo = 5;
+  api.NoticeInfo noticeInfo = 6;
+  string photoCreatingItemId = 7;
+  repeated api.ShelfAlbumInfo albumInfos = 8;
+}
+message ShelfPhotoInfo {
+  string assetId = 1;
+  int64 shootingTime = 2;
+  int32 episode = 3;
+  string mainCharacterId = 4;
+}
 message ShopConditionReward {
   int32 number = 1;
   string conditionId = 2;
@@ -2288,6 +2335,18 @@ message FanEventStepResult {
 message PromotionStep {
   int32 step = 1;
   repeated api.ActivityPromotionReward rewards = 2;
+}
+message AdvertisementStartRequest {
+  ProtoEnum.WatchAdvertisementType watchAdType = 1;
+}
+message AdvertisementStartResponse {
+  api.CommonResponse commonResponse = 9999;
+}
+message AdvertisementEndRequest {
+  ProtoEnum.WatchAdvertisementType watchAdType = 1;
+}
+message AdvertisementEndResponse {
+  api.CommonResponse commonResponse = 9999;
 }
 message AnniversaryOutputTransitionLogRequest {
   string anniversaryId = 1;
@@ -2916,6 +2975,7 @@ message HomeEventInfo {
   api.HomeDreamInfo dreamInfo = 10;
   repeated api.HomeMosaicInfo mosaicInfos = 11;
   api.HomeDiceInfo diceInfo = 12;
+  api.HomeShelfInfo shelfInfo = 13;
 }
 message HomeBirthdayInfo {
   string bannerAssetId = 1;
@@ -3346,6 +3406,7 @@ message DreamTopResponse {
   repeated api.DreamUserPhoto dreamUserPhotos = 2;
   repeated transaction.RewardResult loginRewardResults = 3;
   repeated api.DokanInfo dokanInfos = 4;
+  api.NoticeInfo growthPermilNoticeInfo = 5;
   api.CommonResponse commonResponse = 9999;
 }
 message DreamRankInfo {
@@ -3366,6 +3427,8 @@ message DreamUserPhoto {
   api.DreamAreaAttributeInfo attributeInfo = 9;
   int64 rankPoint = 10;
   bool isDisableGenerateArea = 11;
+  int32 maxGrowthPermil = 12;
+  int32 currentGrowthPermil = 13;
 }
 message DreamListMaterialPhotoRequest {
   string basePhotoId = 1;
@@ -3383,6 +3446,7 @@ message DreamUserMaterialPhoto {
   int32 generateAreaItemConsumptionAmount = 6;
   api.DreamAreaAttributeInfo attributeInfo = 7;
   int64 rankPoint = 8;
+  int32 maxGrowthPermil = 9;
 }
 message DreamListQuestRequest {
   string basePhotoId = 1;
@@ -3744,6 +3808,15 @@ message GiftHistoryListResponse {
   repeated transaction.UserGiftHistory gifts = 1;
   api.CommonResponse commonResponse = 9999;
 }
+message GppReceiveRewardRequest {
+  string productId = 1;
+  string receipt = 2;
+  string signature = 3;
+}
+message GppReceiveRewardResponse {
+  repeated transaction.Reward rewards = 1;
+  api.CommonResponse commonResponse = 9999;
+}
 message GuildListResponse {
   repeated api.GuildParam guilds = 1;
   api.CommonResponse commonResponse = 9999;
@@ -3898,6 +3971,9 @@ message SpecialHomeActionDetail {
   string voiceAssetId = 3;
   string text = 4;
   int32 weight = 5;
+}
+message RouletteInfo {
+  bool isRouletteFreeDraw = 1;
 }
 message HomeLoginRequest {
   api.SettingInfo settingInfo = 1;
@@ -5631,6 +5707,54 @@ message RacePhotoInfo {
   int32 level = 2;
   repeated api.RacePhotoAbilityInfo abilities = 3;
 }
+message RouletteTopResponse {
+  string id = 1;
+  int32 freeCountLimit = 2;
+  int32 adCountLimit = 3;
+  repeated api.RouletteReward displayRewardList = 4;
+  int32 currentDrawFreeCount = 5;
+  int32 currentDrawAdCount = 6;
+  string assetId = 7;
+  api.CommonResponse commonResponse = 9999;
+}
+message RouletteCheckRequest {
+  string rouletteId = 1;
+}
+message RouletteCheckResponse {
+  api.CommonResponse commonResponse = 9999;
+}
+message RouletteDrawRequest {
+  string rouletteId = 1;
+}
+message RouletteDrawResponse {
+  repeated transaction.RewardResult rewardResults = 1;
+  int32 number = 2;
+  ProtoEnum.RouletteRarityType rarityType = 3;
+  api.RouletteEffectInfo effectInfo = 4;
+  repeated api.RouletteReward rewardList = 5;
+  api.CommonResponse commonResponse = 9999;
+}
+message RouletteReward {
+  transaction.Reward reward = 1;
+  int32 number = 2;
+  ProtoEnum.RouletteRarityType rarityType = 3;
+}
+message RouletteEffectInfo {
+  ProtoEnum.RouletteSpecialEffectType specialEffectType = 1;
+  string reversalEffectAssetId = 2;
+  ProtoEnum.RouletteCharacterType characterType = 3;
+  string frameAssetId = 4;
+  string characterStoppingAssetId = 5;
+  string characterRotatingAssetId = 6;
+  string crowdAssetId = 7;
+  ProtoEnum.RouletteBackgroundColorType backgroundColorType = 8;
+  string buttonColorAssetId = 9;
+  ProtoEnum.RouletteButtonColorType buttonColorType = 10;
+  bool isMuteBgm = 11;
+  bool isVibration = 12;
+  bool isRotateDirectionLeft = 13;
+  ProtoEnum.RouletteObtainEffectType obtainEffectType = 14;
+}
 message SalaryGetPayslipRequest {
   repeated int32 yearMonths = 1;
 }
@@ -5645,6 +5769,100 @@ message SalaryPayRequest {
 message SalaryPayResponse {
   transaction.Payslip payslip = 1;
   api.CommonResponse commonResponse = 9999;
+}
+message ShelfTopResponse {
+  api.ShelfInfo shelfInfo = 1;
+  api.CommonResponse commonResponse = 9999;
+}
+message ShelfAlbumTopRequest {
+  string shelfAlbumId = 1;
+}
+message ShelfAlbumTopResponse {
+  repeated api.ShelfTemplateInfo templateInfos = 1;
+  repeated api.ShelfPhotoInfo photoInfos = 2;
+  repeated api.ShelfAlbumEpisodeInfo episodeInfos = 3;
+  string selectedTemplateId = 4;
+  api.CommonResponse commonResponse = 9999;
+}
+message ShelfCheckShootingRequest {
+  string shelfAlbumId = 1;
+  int32 episode = 2;
+}
+message ShelfCheckShootingResponse {
+  api.CommonResponse commonResponse = 9999;
+}
+message ShelfSavePhotoRequest {
+  string shelfAlbumId = 1;
+  int32 episode = 2;
+  repeated api.ShelfSavePhotoParam savePhotoParams = 3;
+}
+message ShelfSavePhotoResponse {
+  api.CommonResponse commonResponse = 9999;
+}
+message ShelfSetPhotoRequest {
+  string shelfAlbumId = 1;
+  int32 slotNumber = 2;
+  string assetId = 3;
+  int64 positionX = 4;
+}
+message ShelfSetPhotoResponse {
+  api.CommonResponse commonResponse = 9999;
+}
+message ShelfCreatePhotoRequest {
+  string shelfAlbumId = 1;
+  string assetId = 2;
+}
+message ShelfCreatePhotoResponse {
+  transaction.UserPhoto photo = 1;
+  bool isGift = 2;
+  api.CommonResponse commonResponse = 9999;
+}
+message ShelfCreateAlbumPhotoRequest {
+  string shelfAlbumId = 1;
+  string assetId = 2;
+}
+message ShelfCreateAlbumPhotoResponse {
+  transaction.UserPhoto photo = 1;
+  bool isGift = 2;
+  api.CommonResponse commonResponse = 9999;
+}
+message ShelfDeletePhotoRequest {
+  string shelfAlbumId = 1;
+  repeated string assetIds = 2;
+}
+message ShelfDeletePhotoResponse {
+  api.CommonResponse commonResponse = 9999;
+}
+message ShelfSwitchTemplateRequest {
+  string shelfAlbumId = 1;
+  string templateId = 2;
+}
+message ShelfSwitchTemplateResponse {
+  api.CommonResponse commonResponse = 9999;
+}
+message ShelfUnsetPhotoRequest {
+  string shelfAlbumId = 1;
+  int32 slotNumber = 2;
+}
+message ShelfUnsetPhotoResponse {
+  api.CommonResponse commonResponse = 9999;
+}
+message ShelfTemplateInfo {
+  string templateId = 1;
+  repeated api.ShelfAlbumSlotInfo slotInfos = 2;
+  ProtoEnum.ShelfTemplateType templateType = 3;
+  string backgroundAssetId = 4;
+}
+message ShelfAlbumSlotInfo {
+  int32 slotNumber = 1;
+  int32 episode = 2;
+  string assetId = 3;
+  int64 positionX = 4;
+}
+message ShelfSavePhotoParam {
+  string assetId = 1;
+  string mainCharacterId = 2;
+  repeated string characterIds = 3;
 }
 message ShopListResponse {
   repeated api.ShopInfo shops = 1;

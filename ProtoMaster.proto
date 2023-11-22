@@ -1507,6 +1507,7 @@ message Setting {
   int32 dreamGenerateAreaMaterialPhotoRequiredRarity = 903;
   int32 diceMaxItemPossessionNum = 1200;
   int32 diceRankingDisplayNum = 1201;
+  int32 shelfPerAlbumPhotoLimit = 1300;
 }
 message SkillDetail {
   string efficacyId = 1;
@@ -1919,6 +1920,10 @@ message Stage {
 message StatusEffectName {
   ProtoEnum.StatusEffectType statusEffectType = 1;
   string name = 2;
+}
+message StoreGppProduct {
+  string productId = 1;
+  int32 point = 2;
 }
 message StoreProduct {
   string productId = 1;
