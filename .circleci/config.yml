@@ -114,7 +114,7 @@ jobs:
           command: npx pnpm install
       - run:
           name: Get GooglePlay App version
-          command: node main.js
+          command: node checkGooglePlayVersion.js
       - save_cache:
           name: Saving client cache
           key: client-cache-v3-{{ epoch }}
