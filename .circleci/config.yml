@@ -124,7 +124,7 @@ workflows:
   run-scenarios:
     jobs:
       - job-run-check-googleplay-version
-      - job-run-scenarios
+      - job-run-scenarios:
           requires:
             - job-run-check-googleplay-version
       - job-run-skillx:
