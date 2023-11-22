@@ -253,40 +253,51 @@ class SolisClient(ClientBase):
             exit(-1)
 
     def get_app_version(self) -> int:
-        try:
-            r = requests.get(self._app_store_url, timeout=10)
-        except:
-            r = None
-        if r is None or r.status_code != 200:
-            if r is None:
-                console.error("Cannot connect to app store or connecting timeout.")
-            else:
-                console.error(r.text)
-                console.error(
-                    f"Error while getting app version, status code: {r.status_code}."
-                )
-            version = get_cache("appVersion")
-            if version != "":
-                console.info("Use previous app version instead.")
-            else:
-                console.error("No previous app version cache found, stopping process.")
-                return -1
-        else:
-            parsed = BeautifulSoup(r.text, features="lxml")
-            outter_json = parsed.find(
-                "script", {"id": "shoebox-media-api-cache-apps"}
-            ).text
-            outter_dict = json.loads(outter_json)
-            inner_json = list(outter_dict.items())[0][1]
-            inner_dict = json.loads(inner_json)
-            version = inner_dict["d"][0]["attributes"]["platformAttributes"]["ios"][
-                "versionHistory"
-            ][0]["versionDisplay"]
+        version = Path("cache/appversion").read_text()
+        cache_version = get_cache("appVersion")
+        if cache_version != "" and version < cache_version:
+            version = cache_version
         self.app_version = version
         self._metadata_dict["x-app-version"] = version
         self._config["qseed"]["X-AppVersion"] = version
         set_cache("appVersion", version)
         return 0
+
+    # def get_app_version(self) -> int:
+    #     try:
+    #         r = requests.get(self._app_store_url, timeout=10)
+    #     except:
+    #         r = None
+    #     if r is None or r.status_code != 200:
+    #         if r is None:
+    #             console.error("Cannot connect to app store or connecting timeout.")
+    #         else:
+    #             console.error(r.text)
+    #             console.error(
+    #                 f"Error while getting app version, status code: {r.status_code}."
+    #             )
+    #         version = get_cache("appVersion")
+    #         if version != "":
+    #             console.info("Use previous app version instead.")
+    #         else:
+    #             console.error("No previous app version cache found, stopping process.")
+    #             return -1
+    #     else:
+    #         parsed = BeautifulSoup(r.text, features="lxml")
+    #         outter_json = parsed.find(
+    #             "script", {"id": "shoebox-media-api-cache-apps"}
+    #         ).text
+    #         outter_dict = json.loads(outter_json)
+    #         inner_json = list(outter_dict.items())[0][1]
+    #         inner_dict = json.loads(inner_json)
+    #         version = inner_dict["d"][0]["attributes"]["platformAttributes"]["ios"][
+    #             "versionHistory"
+    #         ][0]["versionDisplay"]
+    #     self.app_version = version
+    #     self._metadata_dict["x-app-version"] = version
+    #     self._config["qseed"]["X-AppVersion"] = version
+    #     set_cache("appVersion", version)
+    #     return 0
 
     def get_qseed(self) -> int:
         headers = self._config["qseed"]
