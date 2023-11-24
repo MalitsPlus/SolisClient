@@ -77,27 +77,6 @@ jobs:
           paths:
             - Skill.json
 
-  job-run-skillx:
-    docker:
-      - image: cimg/node:18.4.0
-
-    steps:
-      - attach_workspace:
-          at: masterdata
-      - run:
-          name: Setup backend
-          command: |
-            git clone https://github.com/MalitsPlus/IDOLY-Backend.git backend
-            cd backend
-            npx pnpm@8 install
-      - run:
-          name: Generate and upload Skillx
-          command: |
-            export WRITE_API_ENDPOINT=${KV_URL}
-            export ADMIN_TOKEN=${KV_AUTH}
-            export DATA_PREFIX="HSM_"
-            bash backend/scripts/uploadSkillx.sh $(realpath masterdata/Skill.json) || true
-
   job-run-check-googleplay-version:
     docker:
       - image: cimg/node:18.4.0
@@ -128,6 +107,3 @@ workflows:
       - job-run-scenarios:
           requires:
             - job-run-check-googleplay-version
-      - job-run-skillx:
-          requires:
-            - job-run-scenarios
