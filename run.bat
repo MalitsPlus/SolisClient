@@ -1,2 +1,2 @@
-python main.py -a diff
+python main.py -a diff --gp
 pause

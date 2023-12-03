@@ -8,3 +8,4 @@ UnityPy==1.9.6
 protobuf==4.21.6
 lxml
 sqlcipher3-binary
+motor==3.3.2

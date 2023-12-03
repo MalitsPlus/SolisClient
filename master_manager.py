@@ -70,7 +70,7 @@ def generate_data(master_tag: transp.MasterTag):
     console.info(f"Start downloading master databases.")
     executor = ThreadPoolExecutor(max_workers=20)
     all_tasks = [executor.submit(one_task, pack.type, pack.cryptoKey, pack.downloadUrl)
-                 for pack in master_tag.masterTagPacks]
+                for pack in master_tag.masterTagPacks]
     wait(all_tasks, return_when=ALL_COMPLETED)
     console.succeed(f"Master databases have been successfully decrypted.")
 
