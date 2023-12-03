@@ -39,7 +39,7 @@ jobs:
       #       - diff-v4-
       - run:
           name: Run scenarios
-          command: python main.py --token ${REFRESH_TOKEN} --kvauth ${KV_AUTH} --kvurl ${KV_URL} -k --venus
+          command: python main.py --token ${REFRESH_TOKEN} --kvauth ${KV_AUTH} --kvurl ${KV_URL} -k --venus --pushmongo --mongouri ${MONGO_URI}
       # - run:
       #     name: Install git lfs
       #     command: |
