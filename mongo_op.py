@@ -56,7 +56,7 @@ async def check_version_and_push_to_mongodb(uri: str, client: SolisClient):
         doc_array = gather_master_to_doc_array(client.master_tag.version)
         await mongo_db.push_many_db(doc_array)
         await mongo_db.update_version(mongo_db.version, client.master_tag.version)
-        await mongo_db.delete_all_old_docs(mongo_db.version)
+        await mongo_db.delete_all_old_docs(mongo_db.version, client.master_tag.version)
         console.info("(Mongo) Masterdata updating completed.")
     if client.battle_updated:
         console.info("(Mongo) Battle data updating detected, pushing to Atlas...")

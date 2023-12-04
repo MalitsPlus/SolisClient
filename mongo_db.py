@@ -31,9 +31,9 @@ async def update_version(old_version: str, new_version: str):
         console.info(f"(Mongo) Updated count {result.modified_count}.")
 
 
-async def delete_all_old_docs(delete_version: str):
+async def delete_all_old_docs(delete_version: str, new_version: str):
     collection = db["masterdb"]
-    if version == delete_version:
+    if new_version == delete_version:
         console.warning(
             f"(Mongo) Requested deleting version is the same as the new incoming version."
         )
