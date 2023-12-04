@@ -38,6 +38,8 @@ def gather_master_to_doc_array(version: str) -> list[str]:
 def get_one_battle_doc(name: str) -> str:
     start_time = time.time_ns() // 1000000
     file = Path(MASTER_DIR + "/" + name + ".json")
+    if not file.exists():
+        return
     with file.open("r", encoding="utf8") as fp:
         json_obj = json.load(fp)
         json_str = json.dumps(json_obj, ensure_ascii=False, separators=(",", ":"))
