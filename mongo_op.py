@@ -35,7 +35,7 @@ def gather_master_to_doc_array(version: str) -> list[str]:
     return doc_array
 
 
-def get_one_battle_doc(name: str) -> str:
+def get_one_battle_doc(name: str) -> str | None:
     start_time = time.time_ns() // 1000000
     file = Path(MASTER_DIR + "/" + name + ".json")
     if not file.exists():
@@ -65,6 +65,8 @@ async def check_version_and_push_to_mongodb(uri: str, client: SolisClient):
         tasks = set()
         for name in battle_dbs:
             battle_doc = get_one_battle_doc(name)
+            if battle_doc is None:
+                continue
             task = asyncio.create_task(
                 mongo_db.replace_or_insert_one(sem, name, battle_doc)
             )
