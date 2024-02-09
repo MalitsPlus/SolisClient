@@ -2844,6 +2844,7 @@ message LiveCardStatusEffect {
   int32 maxGrade = 6;
   int64 value2 = 7;
   repeated api.LiveStatusEffectReason statusReasons = 8;
+  int32 limitBreakMaxGrade = 9;
 }
 message LiveStatusEffectReason {
   int32 cardIndex = 1;
@@ -5213,6 +5214,55 @@ message GetDreamBasePhotoEnhanceLevelInfosResponse {
 message DreamBasePhotoEnhanceLevelInfo {
   int32 level = 1;
   repeated api.DreamBasePhotoEnhanceLevelEffectValueInfo effectValueInfos = 2;
+}
+message PhotoActivateStoryEpisodeShootingRequest {
+  string storyPartId = 1;
+  int32 chapter = 2;
+  int32 route = 3;
+  int32 episode = 4;
+}
+message PhotoActivateStoryEpisodeShootingResponse {
+  api.CommonResponse commonResponse = 9999;
+}
+message PhotoCheckStoryEpisodeShootingRequest {
+  string storyPartId = 1;
+  int32 chapter = 2;
+  int32 route = 3;
+  int32 episode = 4;
+}
+message PhotoCheckStoryEpisodeShootingResponse {
+  api.CommonResponse commonResponse = 9999;
+}
+message PhotoCheckCardStoryShootingRequest {
+  string cardId = 1;
+  int32 number = 2;
+}
+message PhotoCheckCardStoryShootingResponse {
+  api.CommonResponse commonResponse = 9999;
+}
+message PhotoCreateStoryEpisodeShootingsRequest {
+  string storyPartId = 1;
+  int32 chapter = 2;
+  int32 route = 3;
+  int32 episode = 4;
+  repeated api.PhotoCreateShootingParam createShootingParams = 5;
+  int32 manualCount = 6;
+}
+message PhotoCreateStoryEpisodeShootingsResponse {
+  repeated transaction.UserPhoto photos = 1;
+  bool isGift = 2;
+  api.CommonResponse commonResponse = 9999;
+}
+message PhotoCreateCardStoryShootingsRequest {
+  string cardId = 1;
+  int32 number = 2;
+  repeated api.PhotoCreateShootingParam createShootingParams = 3;
+  int32 manualCount = 4;
+}
+message PhotoCreateCardStoryShootingsResponse {
+  repeated transaction.UserPhoto photos = 1;
+  bool isGift = 2;
+  api.CommonResponse commonResponse = 9999;
 }
 message PhotoContestTopRequest {
   string photoContestId = 1;

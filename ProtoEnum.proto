@@ -394,6 +394,7 @@ enum FunctionLockType {
   FunctionLockType_HomeNewStoryButtonDisplayChange = 34;
   FunctionLockType_PhotoListFilterDream = 35;
   FunctionLockType_Roulette = 36;
+  FunctionLockType_PhotoShootingStory = 37;
 }
 enum FunctionMaintenanceType {
   FunctionMaintenanceType_Unknown = 0;
@@ -671,6 +672,11 @@ enum HelpDisplayTargetType {
   HelpDisplayTargetType_ShelfTop = 196;
   HelpDisplayTargetType_ShelfAlbumSelect = 197;
   HelpDisplayTargetType_ShelfHome = 198;
+  HelpDisplayTargetType_StoryPhotography = 199;
+  HelpDisplayTargetType_GroupStoryPhotography = 200;
+  HelpDisplayTargetType_CardStoryPhotography = 201;
+  HelpDisplayTargetType_StoryPhotographySelect = 202;
+  HelpDisplayTargetType_StoryPhotographyResult = 203;
 }
 enum HelpType {
   HelpType_Unknown = 0;
@@ -831,6 +837,7 @@ enum LinkType {
   LinkType_Friend = 35;
   LinkType_Market = 36;
   LinkType_Forum = 37;
+  LinkType_PhotoStory = 38;
   LinkType_EventMission = 100;
   LinkType_Tour = 101;
   LinkType_Backside = 102;
@@ -1103,6 +1110,9 @@ enum MissionType {
   MissionType_CharacterStartActivityFanEventCount = 69;
   MissionType_CharacterStartActivityPromotionCount = 70;
   MissionType_CharacterStartActivityRefreshmentCount = 71;
+  MissionType_PhotoShootingStoryShootTotalCount = 72;
+  MissionType_PhotoActivateShootingStoryTicketUseTotalCount = 73;
+  MissionType_PhotoActivateShootingStoryTicketUseCount = 74;
   MissionType_TourAreaClearCount = 1001;
   MissionType_TourRivalClearCount = 1002;
   MissionType_TourBossClearCountWithCharacter = 1003;
@@ -1276,6 +1286,7 @@ enum PhotoShootingActionType {
   PhotoShootingActionType_ActivityPromotion = 1;
   PhotoShootingActionType_ActivityRefresh = 2;
   PhotoShootingActionType_Quest = 3;
+  PhotoShootingActionType_Story = 4;
 }
 enum PhotoShootingMotionType {
   PhotoShootingMotionType_Unknown = 0;
@@ -1295,6 +1306,7 @@ enum PointType {
   PointType_GroupStory = 4;
   PointType_GuildMedal = 5;
   PointType_PvpMedal = 6;
+  PointType_ActivatePhotoShootingStoryTicket = 7;
 }
 enum ProfileBackgroundType {
   ProfileBackgroundType_Unknown = 0;
@@ -1404,6 +1416,7 @@ enum ResourceType {
   ResourceType_Decoration = 26;
   ResourceType_PhotoRecipe = 27;
   ResourceType_Hair = 28;
+  ResourceType_ActivatePhotoShootingStoryTicket = 29;
   ResourceType_Set = 999;
 }
 enum ResultRankType {
@@ -1486,6 +1499,7 @@ enum RewardSortResourceType {
   RewardSortResourceType_ItemLoveLessonPromote = 69;
   RewardSortResourceType_ItemDreamGenerateArea = 70;
   RewardSortResourceType_ItemShelfPhotoCreating = 71;
+  RewardSortResourceType_ActivatePhotoShootingStoryTicket = 72;
 }
 enum RewardSortTargetType {
   RewardSortTargetType_Unknown = 0;
@@ -1713,6 +1727,23 @@ enum SkillEfficacyType {
   SkillEfficacyType_PassiveSkillCoolTimeReset = 73;
   SkillEfficacyType_PassiveSkillImpossible = 74;
   SkillEfficacyType_CoverWeaknessEffect = 75;
+  SkillEfficacyType_LimitBreakDanceUp = 76;
+  SkillEfficacyType_LimitBreakVocalUp = 77;
+  SkillEfficacyType_LimitBreakVisualUp = 78;
+  SkillEfficacyType_LimitBreakBeatScoreUp = 79;
+  SkillEfficacyType_LimitBreakActiveSkillScoreUp = 80;
+  SkillEfficacyType_LimitBreakCriticalBonusPermilUp = 81;
+  SkillEfficacyType_LimitBreakAudienceAmountIncrease = 82;
+  SkillEfficacyType_LimitBreakSpecialSkillScoreUp = 83;
+  SkillEfficacyType_LimitBreakSkillSuccessRateUp = 84;
+  SkillEfficacyType_LimitBreakTensionUp = 85;
+  SkillEfficacyType_LimitBreakComboScoreUp = 86;
+  SkillEfficacyType_LimitBreakPassiveSkillScoreUp = 87;
+  SkillEfficacyType_LimitBreakVocalBoost = 88;
+  SkillEfficacyType_LimitBreakDanceBoost = 89;
+  SkillEfficacyType_LimitBreakVisualBoost = 90;
+  SkillEfficacyType_LimitBreakAudienceAmountReduction = 91;
+  SkillEfficacyType_LimitBreakScoreUp = 92;
 }
 enum SkillFailureType {
   SkillFailureType_Unknown = 0;
@@ -1758,6 +1789,13 @@ enum SkillTargetType {
   SkillTargetType_OpponentCardType = 23;
   SkillTargetType_OpponentAll = 24;
   SkillTargetType_OpponentSamePosition = 25;
+  SkillTargetType_OpponentVocal = 26;
+  SkillTargetType_OpponentDance = 27;
+  SkillTargetType_OpponentVisual = 28;
+  SkillTargetType_OpponentStatus = 29;
+  SkillTargetType_OpponentPositionAttributeVocal = 30;
+  SkillTargetType_OpponentPositionAttributeDance = 31;
+  SkillTargetType_OpponentPositionAttributeVisual = 32;
 }
 enum SkillTriggerType {
   SkillTriggerType_Unknown = 0;
@@ -1860,6 +1898,23 @@ enum StatusEffectType {
   StatusEffectType_StaminaContinuousRecovery = 24;
   StatusEffectType_ActiveSkillChanceAssignment = 25;
   StatusEffectType_CoverWeaknessEffect = 26;
+  StatusEffectType_LimitBreakDanceUp = 27;
+  StatusEffectType_LimitBreakVocalUp = 28;
+  StatusEffectType_LimitBreakVisualUp = 29;
+  StatusEffectType_LimitBreakBeatScoreUp = 30;
+  StatusEffectType_LimitBreakActiveSkillScoreUp = 31;
+  StatusEffectType_LimitBreakCriticalBonusPermilUp = 32;
+  StatusEffectType_LimitBreakAudienceAmountIncrease = 33;
+  StatusEffectType_LimitBreakSpecialSkillScoreUp = 34;
+  StatusEffectType_LimitBreakSkillSuccessRateUp = 35;
+  StatusEffectType_LimitBreakTensionUp = 36;
+  StatusEffectType_LimitBreakComboScoreUp = 37;
+  StatusEffectType_LimitBreakPassiveSkillScoreUp = 38;
+  StatusEffectType_LimitBreakVocalBoost = 39;
+  StatusEffectType_LimitBreakDanceBoost = 40;
+  StatusEffectType_LimitBreakVisualBoost = 41;
+  StatusEffectType_LimitBreakAudienceAmountReduction = 42;
+  StatusEffectType_LimitBreakScoreUp = 43;
   StatusEffectType_DanceDown = 1001;
   StatusEffectType_VocalDown = 1002;
   StatusEffectType_VisualDown = 1003;

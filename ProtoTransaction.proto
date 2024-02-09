@@ -269,6 +269,8 @@ message UserStory {
   string storyId = 1;
   ProtoEnum.StoryStatusType statusType = 2;
   bool isInvalid = 3;
+  bool isUseActivatePhotoShootingStoryTicket = 4;
+  bool isPhotoShot = 5;
 }
 message UserTelephone {
   string telephoneId = 1;

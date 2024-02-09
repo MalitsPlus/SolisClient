@@ -301,6 +301,9 @@ message ConditionAccessoryAmount {
   string accessoryId = 1;
   int64 amountGte = 2;
 }
+message ConditionActivatePhotoShootingStory {
+  string storyId = 1;
+}
 message ConditionActivityLevel {
   string characterId = 1;
   int32 levelGte = 2;
@@ -435,6 +438,9 @@ message ConditionReliability {
 }
 message ConditionSatisfyCondition {
   string conditionId = 1;
+}
+message ConditionShootPhotoShootingStory {
+  string storyId = 1;
 }
 message ConditionWearCostume {
   string costumeId = 1;
@@ -1215,6 +1221,10 @@ message PhotoShootingCharacterMotion {
   float upperLimit = 10;
   float lowerLimit = 11;
 }
+message PhotoShootingReplaceCharacter {
+  string targetCharacterId = 1;
+  string replacedCharacterId = 2;
+}
 message PhotoShootingSimplePersonalityMotion {
   string id = 1;
   ProtoEnum.SimpleCharacterPersonalityType personalityType = 2;
@@ -1483,6 +1493,7 @@ message Setting {
   string exerciseFixedBannerNoticeId = 115;
   int32 deckEntrustCoolTimeLotteryCoefficientPermil = 117;
   int32 deckEntrustMentalLotteryCoefficientPermil = 118;
+  string storyPhotoShootingDefaultCharacterId = 119;
   repeated ProtoEnum.StatusEffectType statusEffectTypeStrengthList = 1001;
   repeated ProtoEnum.StatusEffectType statusEffectTypeWeaknessDownList = 1002;
   repeated ProtoEnum.StatusEffectType statusEffectTypeWeaknessOtherList = 1003;
@@ -1522,6 +1533,7 @@ message SkillEfficacy {
   int32 grade = 6;
   int32 maxGrade = 7;
   string skillTargetId = 8;
+  int32 limitBreakMaxGrade = 9;
 }
 message SkillLevel {
   int32 level = 1;
@@ -1800,6 +1812,7 @@ message Item {
   int32 value = 7;
   int32 order = 8;
   int32 salePrice = 9;
+  bool isPhotoShootingCharacterOnly = 12;
 }
 message LiveAbility {
   string id = 1;
@@ -2067,6 +2080,8 @@ message ConditionSetting {
   master.ConditionAnyObtainCards anyObtainCards = 86;
   master.ConditionNotAllObtainCards notAllObtainCards = 87;
   master.ConditionNotAnyObtainCards notAnyObtainCards = 88;
+  master.ConditionActivatePhotoShootingStory activatePhotoShootingStory = 89;
+  master.ConditionShootPhotoShootingStory shootPhotoShootingStory = 90;
 }
 message ConditionStartHours {
   int32 hoursLte = 1;
