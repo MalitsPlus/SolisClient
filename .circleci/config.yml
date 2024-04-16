@@ -79,7 +79,7 @@ jobs:
 
   job-run-check-googleplay-version:
     docker:
-      - image: cimg/node:18.4.0
+      - image: cimg/node:18.20
 
     steps:
       - checkout
