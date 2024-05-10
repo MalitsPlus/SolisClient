@@ -50,7 +50,7 @@ class SolisClient(ClientBase):
     _endpoint = "api.game-idolypride.jp"
     _app_store_url = "https://apps.apple.com/jp/app/id1535925293"
     _qseed_endpoint = "https://id.qseed.jp/getId"
-    _octo_endpoint = "https://api.octo-cloud.com/v2/pub/a/212/v/205001/list"
+    _octo_endpoint = "https://api.octo-cloud.com/v2/pub/a/212/v/205051/list"
     _firebase_endpoint = "https://securetoken.googleapis.com/v1/token?key=AIzaSyCabjC7_mOU21qkcNobnhN1khTi1-1F-kA"
     _credentials: grpc.ChannelCredentials
     _channel_options = [
