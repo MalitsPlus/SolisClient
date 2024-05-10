@@ -19,6 +19,7 @@ import rich_console as console
 from cache_manager import set_cache, get_cache
 from google.protobuf.json_format import MessageToDict
 from os import _exit as exit
+from pkg_resources import packaging
 
 
 class ClientBase:
@@ -255,7 +256,8 @@ class SolisClient(ClientBase):
     def get_app_version(self) -> int:
         version = Path("cache/appversion").read_text()
         cache_version = get_cache("appVersion")
-        if cache_version != "" and version < cache_version:
+        if cache_version != "" and packaging.version.parse(version) < packaging.version.parse(cache_version):
+        # if cache_version != "" and version < cache_version:
             version = cache_version
         self.app_version = version
         self._metadata_dict["x-app-version"] = version
