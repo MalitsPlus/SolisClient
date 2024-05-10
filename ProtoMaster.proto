@@ -1728,6 +1728,15 @@ message Division {
   int32 order = 2;
   string name = 3;
 }
+message DutyPoint {
+  string id = 1;
+  string name = 2;
+  string assetId = 3;
+  string description = 4;
+  int64 order = 5;
+  int64 expiredTime = 6;
+  string howToGet = 7;
+}
 message ExerciseAccessoryGroup {
   string groupId = 1;
   repeated master.ExerciseAccessory accessories = 2;
@@ -2082,6 +2091,9 @@ message ConditionSetting {
   master.ConditionNotAnyObtainCards notAnyObtainCards = 88;
   master.ConditionActivatePhotoShootingStory activatePhotoShootingStory = 89;
   master.ConditionShootPhotoShootingStory shootPhotoShootingStory = 90;
+  master.ConditionDutyExchangeReward dutyExchangeReward = 91;
+  master.ConditionDutyExchangeRewardCount dutyExchangeRewardCount = 92;
+  master.ConditionDutyTotalObtainPointCount dutyTotalObtainPointCount = 93;
 }
 message ConditionStartHours {
   int32 hoursLte = 1;
@@ -2224,6 +2236,18 @@ message ConditionSatisfyConditions {
 }
 message ConditionNotSatisfyConditions {
   repeated master.ConditionNotSatisfyCondition conditions = 1;
+}
+message ConditionDutyExchangeReward {
+  string dutyId = 1;
+  int64 dutyExchangeRewardNumber = 2;
+}
+message ConditionDutyExchangeRewardCount {
+  string dutyId = 1;
+  int64 countGte = 2;
+}
+message ConditionDutyTotalObtainPointCount {
+  string dutyId = 1;
+  int64 countGte = 2;
 }
 message ConsumptionResource {
   ProtoEnum.ResourceType resourceType = 1;

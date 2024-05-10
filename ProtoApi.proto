@@ -278,11 +278,11 @@ message DiceDailyRewardInfo {
 }
 message DiceDailyRewardResultInfo {
   int32 movedPanelCount = 1;
-  int32 medalBonusPermil = 2;
-  string medalItemId = 3;
-  repeated transaction.RewardResult rewardResults = 4;
-  repeated api.DiceLiveBonus liveBonuses = 5;
-  repeated api.DiceDailyRewardInfo dailyRewardInfos = 6;
+  string medalItemId = 2;
+  repeated transaction.RewardResult rewardResults = 3;
+  repeated api.DiceLiveBonus liveBonuses = 4;
+  repeated api.DiceDailyRewardInfo dailyRewardInfos = 5;
+  int32 rank = 6;
 }
 message DiceInfo {
   string id = 1;
@@ -299,20 +299,14 @@ message DiceInfo {
   int32 movePanelConsumptionStamina = 12;
   int32 staminaRecoveryMinutes = 13;
   api.DiceAreaInfo areaInfo = 14;
-  repeated api.DiceMedalBonusInfo medalBonusInfos = 15;
-  repeated api.DiceDailyRewardInfo dailyRewardInfos = 16;
-  repeated api.DiceRankingRewardInfo rankingRewardInfos = 17;
+  repeated api.DiceDailyRewardInfo dailyRewardInfos = 15;
+  repeated api.DiceRankingRewardInfo rankingRewardInfos = 16;
 }
 message DiceLiveBonus {
   string id = 1;
   string liveAbilityId = 2;
   int32 liveAbilityLevel = 3;
   int32 powerPermil = 4;
-}
-message DiceMedalBonusInfo {
-  ProtoEnum.DiceMedalBonusType type = 1;
-  int32 upPermil = 2;
-  repeated string cardIds = 3;
 }
 message DicePhotoAbilityInfo {
   string photoAbilityId = 1;
@@ -352,6 +346,11 @@ message DiceQuestInfo {
   string liveBonusGroupId = 31;
   int32 maxCapacity = 32;
   int32 mentalThreshold = 33;
+  int32 consumptionStamina = 34;
+  api.DiceItem obtainDiceItem = 35;
+  api.DiceLiveBonus obtainLiveBonus = 36;
+  int64 obtainMoneyAmount = 37;
+  ProtoEnum.LiveSkipType liveSkipType = 38;
 }
 message DiceRankingRewardInfo {
   int32 rankFrom = 1;
@@ -464,6 +463,57 @@ message DreamUserPhotoAbilityUpInfo {
   string photoAbilityId = 1;
   int64 afterEffectValue = 2;
   int64 upEffectValue = 3;
+}
+message DutyConsumptionPoint {
+  string dutyPointId = 1;
+  int64 amount = 2;
+}
+message DutyExchangeRewardInfo {
+  int64 number = 1;
+  string name = 2;
+  string description = 3;
+  repeated api.DutyConsumptionPoint consumptionPoints = 4;
+  string rewardId = 5;
+  string assetId = 6;
+  string mainColorCode = 7;
+  string subColorCode = 8;
+  string mainFontColorCode = 9;
+  string subFontColorCode = 10;
+  string unlockConditionId = 11;
+  bool isUnlocked = 12;
+  bool isExchanged = 13;
+}
+message DutyPointInfo {
+  string dutyPointId = 1;
+  int64 amount = 2;
+}
+message DutyTopResponse {
+  string id = 1;
+  int64 seasonNumber = 2;
+  string name = 3;
+  int64 startTime = 4;
+  int64 endTime = 5;
+  repeated api.DutyPointInfo pointInfos = 6;
+  api.EventMissionInfo eventMissionInfo = 7;
+  string costumeId = 8;
+  api.NoticeInfo noticeInfo = 9;
+  string assetId = 10;
+  string bgmAssetId = 11;
+  repeated api.DutyExchangeRewardInfo exchangeInfos = 12;
+  repeated api.DutyTotalObtainRewardInfo totalObtainRewardInfos = 13;
+  repeated api.DutyHomeActionInfo homeActionInfos = 14;
+  string backgroundAssetId = 15;
+  repeated api.DokanInfo dokanInfos = 16;
+  bool isLastSeason = 17;
+  string title = 18;
+  string tabName = 19;
+  api.CommonResponse commonResponse = 9999;
+}
+message DutyTotalObtainRewardInfo {
+  int64 number = 1;
+  string rewardId = 2;
+  int64 totalObtainAmount = 3;
+  bool isReceived = 4;
 }
 message EventButtonDisplayInfo {
   string conditionId = 1;
@@ -671,6 +721,8 @@ message GachaPremiumInfo {
   int32 fixedPremiumRewardRequiredDrawCount = 1;
   repeated string premiumRewardIds = 2;
   repeated transaction.Reward featuredRewards = 3;
+  string freeGachaTicketItemId = 4;
+  bool isFreeGachaTicketReceivable = 5;
 }
 message GuildGvgMatchRankInfo {
   string name = 1;
@@ -826,6 +878,21 @@ message HomeDreamInfo {
   string generateAreaItemId = 9;
   bool isReceivableLoginReward = 10;
   string eventMissionId = 11;
+}
+message HomeDutyInfo {
+  string id = 1;
+  int64 seasonNumber = 2;
+  string name = 3;
+  int64 startTime = 4;
+  int64 endTime = 5;
+  string assetId = 6;
+  string bannerAssetId = 7;
+  int32 order = 8;
+  string unlockConditionId = 9;
+  bool isUnlocked = 10;
+  string eventMissionId = 11;
+  bool isExchangeable = 12;
+  bool isTotalObtainRewardReceivable = 13;
 }
 message HomeEnterResponse {
   repeated api.GachaInfo gachaInfos = 1;
@@ -2977,6 +3044,7 @@ message HomeEventInfo {
   repeated api.HomeMosaicInfo mosaicInfos = 11;
   api.HomeDiceInfo diceInfo = 12;
   api.HomeShelfInfo shelfInfo = 13;
+  repeated api.HomeDutyInfo dutyInfos = 14;
 }
 message HomeBirthdayInfo {
   string bannerAssetId = 1;
@@ -3086,6 +3154,8 @@ message UpdatedData {
   transaction.UserActivityFanEventProgress activityFanEventProgress = 38;
   repeated transaction.UserLove loves = 39;
   repeated transaction.UserLeagueDeckPosition leagueDeckPositions = 40;
+  repeated transaction.UserDuty duties = 41;
+  repeated transaction.UserDutyPoint dutyPoints = 42;
 }
 message DeletedData {
   repeated transaction.UserItem items = 1;
@@ -3183,6 +3253,7 @@ message DicePanelInfo {
   ProtoEnum.DicePanelType type = 2;
   int32 value = 3;
   api.DiceLiveBonus liveBonus = 4;
+  api.DiceStoryCharacterInfo forceStoryCharacterInfo = 5;
 }
 message DiceUserInfo {
   int64 panelNumber = 1;
@@ -3190,18 +3261,22 @@ message DiceUserInfo {
   int64 todayMovedPanelCount = 3;
   int32 stamina = 4;
   int64 staminaUpdatedTime = 5;
-  int32 medalBonusPermil = 6;
-  repeated api.DiceItem diceItems = 7;
-  repeated api.DiceLiveBonusInfo liveBonusInfos = 8;
-  int64 highestScore = 9;
-  int64 currentRank = 10;
-  api.DicePanelProgressInfo panelProgressInfo = 11;
-  api.EventStoryInfo eventStoryInfo = 12;
+  repeated api.DiceItem diceItems = 6;
+  repeated api.DiceLiveBonusInfo liveBonusInfos = 7;
+  int64 highestScore = 8;
+  int64 currentRank = 9;
+  api.DicePanelProgressInfo panelProgressInfo = 10;
+  api.EventStoryInfo eventStoryInfo = 11;
+  string rankingColorCodeA = 12;
+  string rankingColorCodeB = 13;
+  int64 movedPanelCount = 14;
 }
 message DicePanelProgressInfo {
   repeated api.DiceShopItemInfo shopItemInfos = 1;
   api.DiceStoryInfo storyInfo = 2;
   repeated api.DiceLiveBonus liveBonuses = 3;
+  bool isRestartQuest = 4;
+  bool isChallengeQuest = 5;
 }
 message DiceItem {
   string id = 1;
@@ -3336,10 +3411,32 @@ message DiceStartQuestResponse {
   ProtoEnum.ResultRankType rankType = 2;
   int32 rankPlus = 3;
   repeated api.QuestRankPattern rankPatterns = 4;
+  repeated transaction.RewardResult rewardResults = 5;
+  int32 liveMedalBonusPermil = 6;
+  api.DiceUserInfo userInfo = 7;
+  api.DiceItem diceItem = 8;
+  api.DiceLiveBonus diceLiveBonus = 9;
+  int32 baseQuestObtainMedalAmount = 10;
+  bool isUpdateHighestScore = 11;
+  api.CommonResponse commonResponse = 9999;
+}
+message DiceStartGoalQuestRequest {
+  ProtoEnum.DiceQuestDifficultyType difficultyType = 1;
+  int32 deckNumber = 2;
+  bool isSkip = 3;
+}
+message DiceStartGoalQuestResponse {
+  api.LiveResult result = 1;
+  ProtoEnum.ResultRankType rankType = 2;
+  int32 rankPlus = 3;
+  repeated api.QuestRankPattern rankPatterns = 4;
   int32 afterRank = 5;
   repeated transaction.RewardResult rewardResults = 6;
   int32 liveMedalBonusPermil = 7;
   api.DiceUserInfo userInfo = 8;
+  int32 beforeRank = 9;
+  int32 baseQuestObtainMedalAmount = 10;
+  bool isUpdateHighestScore = 11;
   api.CommonResponse commonResponse = 9999;
 }
 message DiceListDeckRequest {
@@ -3502,6 +3599,27 @@ message DreamResetAreaRequest {
 }
 message DreamResetAreaResponse {
   api.CommonResponse commonResponse = 9999;
+}
+message DutyTopRequest {
+  string dutyId = 1;
+}
+message DutyExchangeRewardRequest {
+  string dutyId = 1;
+  int64 exchangeRewardNumber = 2;
+}
+message DutyExchangeRewardResponse {
+  repeated transaction.RewardResult rewardResults = 1;
+  api.CommonResponse commonResponse = 9999;
+}
+message DutyReceiveTotalObtainRewardRequest {
+  string dutyId = 1;
+}
+message DutyReceiveTotalObtainRewardResponse {
+  repeated transaction.RewardResult rewardResults = 1;
+  api.CommonResponse commonResponse = 9999;
+}
+message DutyHomeActionInfo {
+  string message = 1;
 }
 message ExchangeListResponse {
   repeated api.ExchangeBooth booths = 1;
@@ -3745,6 +3863,13 @@ message GachaSelectCardRequest {
   repeated string selectedCardIds = 2;
 }
 message GachaSelectCardResponse {
+  api.CommonResponse commonResponse = 9999;
+}
+message GachaReceiveFreePremiumGachaTicketRequest {
+  string gachaId = 1;
+}
+message GachaReceiveFreePremiumGachaTicketResponse {
+  repeated transaction.RewardResult rewardResults = 1;
   api.CommonResponse commonResponse = 9999;
 }
 message RarityProbabilityInfo {
@@ -6459,6 +6584,8 @@ message UserGetResponse {
   transaction.UserActivityFanEventProgress activityFanEventProgress = 38;
   repeated transaction.UserLove loves = 39;
   repeated transaction.UserLeagueDeckPosition leagueDeckPositions = 40;
+  repeated transaction.UserDuty duties = 41;
+  repeated transaction.UserDutyPoint dutyPoints = 42;
   transaction.UserPublic userPublic = 999;
 }
 message UserUpdateRequest {

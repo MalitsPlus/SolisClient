@@ -148,6 +148,10 @@ message UserCostume {
 message UserDecoration {
   string decorationId = 1;
 }
+message UserDutyPoint {
+  string dutyPointId = 1;
+  int64 amount = 2;
+}
 message UserEmblem {
   string emblemId = 1;
 }
@@ -342,6 +346,12 @@ message UserDeckPosition {
   repeated string photoIds = 6;
   string costumeId = 7;
   string hairId = 8;
+}
+message UserDuty {
+  string dutyId = 1;
+  int64 currentReceivedTotalObtainRewardNumber = 2;
+  int64 totalObtainPointAmount = 3;
+  repeated int64 currentExchangedRewardNumbers = 4;
 }
 message UserGachaButton {
   string gachaButtonId = 1;

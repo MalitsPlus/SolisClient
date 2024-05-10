@@ -212,12 +212,6 @@ enum DiceItemType {
   DiceItemType_WarpShopPanel = 2;
   DiceItemType_ExchangeMoney = 3;
 }
-enum DiceMedalBonusType {
-  DiceMedalBonusType_Unknown = 0;
-  DiceMedalBonusType_Small = 1;
-  DiceMedalBonusType_Medium = 2;
-  DiceMedalBonusType_Large = 3;
-}
 enum DicePanelType {
   DicePanelType_Unknown = 0;
   DicePanelType_Start = 1;
@@ -228,6 +222,9 @@ enum DicePanelType {
   DicePanelType_Quest = 6;
   DicePanelType_ObtainMoney = 7;
   DicePanelType_ObtainLiveBonus = 8;
+  DicePanelType_BattleQuest = 9;
+  DicePanelType_GoalQuest = 10;
+  DicePanelType_ForceStory = 11;
 }
 enum DiceQuestDifficultyType {
   DiceQuestDifficultyType_Unknown = 0;
@@ -258,6 +255,7 @@ enum DokanTargetType {
   DokanTargetType_Love = 9;
   DokanTargetType_Dream = 10;
   DokanTargetType_Dice = 11;
+  DokanTargetType_Duty = 12;
 }
 enum DokanType {
   DokanType_Unknown = 0;
@@ -677,6 +675,7 @@ enum HelpDisplayTargetType {
   HelpDisplayTargetType_CardStoryPhotography = 201;
   HelpDisplayTargetType_StoryPhotographySelect = 202;
   HelpDisplayTargetType_StoryPhotographyResult = 203;
+  HelpDisplayTargetType_DutyTop = 204;
 }
 enum HelpType {
   HelpType_Unknown = 0;
@@ -852,6 +851,7 @@ enum LinkType {
   LinkType_Dice = 111;
   LinkType_Shelf = 112;
   LinkType_Roulette = 113;
+  LinkType_Duty = 114;
   LinkType_WebView = 999;
   LinkType_ExternalWebPage = 1000;
 }
@@ -1150,6 +1150,9 @@ enum MissionType {
   MissionType_ShelfAlbumCompleteAchievement = 1903;
   MissionType_ShelfAlbumPhotoCreatingCount = 1904;
   MissionType_RouletteDrawCount = 2001;
+  MissionType_DutySpecifiedExchangedRewardCount = 2101;
+  MissionType_DutyExchangedRewardCount = 2102;
+  MissionType_DutyPointAmount = 2103;
 }
 enum MoodType {
   MoodType_Unknown = 0;
@@ -1417,6 +1420,7 @@ enum ResourceType {
   ResourceType_PhotoRecipe = 27;
   ResourceType_Hair = 28;
   ResourceType_ActivatePhotoShootingStoryTicket = 29;
+  ResourceType_DutyPoint = 30;
   ResourceType_Set = 999;
 }
 enum ResultRankType {
@@ -1500,6 +1504,7 @@ enum RewardSortResourceType {
   RewardSortResourceType_ItemDreamGenerateArea = 70;
   RewardSortResourceType_ItemShelfPhotoCreating = 71;
   RewardSortResourceType_ActivatePhotoShootingStoryTicket = 72;
+  RewardSortResourceType_DutyPoint = 73;
 }
 enum RewardSortTargetType {
   RewardSortTargetType_Unknown = 0;
@@ -1744,6 +1749,23 @@ enum SkillEfficacyType {
   SkillEfficacyType_LimitBreakVisualBoost = 90;
   SkillEfficacyType_LimitBreakAudienceAmountReduction = 91;
   SkillEfficacyType_LimitBreakScoreUp = 92;
+  SkillEfficacyType_AddEffectValueScoreUp = 93;
+  SkillEfficacyType_AddEffectValueDanceUp = 94;
+  SkillEfficacyType_AddEffectValueVocalUp = 95;
+  SkillEfficacyType_AddEffectValueVisualUp = 96;
+  SkillEfficacyType_AddEffectValueBeatScoreUp = 97;
+  SkillEfficacyType_AddEffectValueActiveSkillScoreUp = 98;
+  SkillEfficacyType_AddEffectValueCriticalBonusPermilUp = 99;
+  SkillEfficacyType_AddEffectValueAudienceAmountIncrease = 100;
+  SkillEfficacyType_AddEffectValueSpecialSkillScoreUp = 101;
+  SkillEfficacyType_AddEffectValueSkillSuccessRateUp = 102;
+  SkillEfficacyType_AddEffectValuePassiveSkillScoreUp = 103;
+  SkillEfficacyType_AddEffectValueAudienceAmountReduction = 104;
+  SkillEfficacyType_AddEffectValueDanceDown = 105;
+  SkillEfficacyType_AddEffectValueVocalDown = 106;
+  SkillEfficacyType_AddEffectValueVisualDown = 107;
+  SkillEfficacyType_WeaknessEffectReflection = 108;
+  SkillEfficacyType_BeatBoost = 109;
 }
 enum SkillFailureType {
   SkillFailureType_Unknown = 0;
@@ -1915,6 +1937,20 @@ enum StatusEffectType {
   StatusEffectType_LimitBreakVisualBoost = 41;
   StatusEffectType_LimitBreakAudienceAmountReduction = 42;
   StatusEffectType_LimitBreakScoreUp = 43;
+  StatusEffectType_AddEffectValueScoreUp = 44;
+  StatusEffectType_AddEffectValueDanceUp = 45;
+  StatusEffectType_AddEffectValueVocalUp = 46;
+  StatusEffectType_AddEffectValueVisualUp = 47;
+  StatusEffectType_AddEffectValueBeatScoreUp = 48;
+  StatusEffectType_AddEffectValueActiveSkillScoreUp = 49;
+  StatusEffectType_AddEffectValueCriticalBonusPermilUp = 50;
+  StatusEffectType_AddEffectValueAudienceAmountIncrease = 51;
+  StatusEffectType_AddEffectValueSpecialSkillScoreUp = 52;
+  StatusEffectType_AddEffectValueSkillSuccessRateUp = 53;
+  StatusEffectType_AddEffectValuePassiveSkillScoreUp = 54;
+  StatusEffectType_AddEffectValueAudienceAmountReduction = 55;
+  StatusEffectType_WeaknessEffectReflection = 56;
+  StatusEffectType_BeatBoost = 57;
   StatusEffectType_DanceDown = 1001;
   StatusEffectType_VocalDown = 1002;
   StatusEffectType_VisualDown = 1003;
@@ -1924,6 +1960,9 @@ enum StatusEffectType {
   StatusEffectType_StaminaContinuousConsumption = 1007;
   StatusEffectType_StrengthEffectGradeLimit = 1008;
   StatusEffectType_PassiveSkillImpossible = 1009;
+  StatusEffectType_AddEffectValueDanceDown = 1010;
+  StatusEffectType_AddEffectValueVocalDown = 1011;
+  StatusEffectType_AddEffectValueVisualDown = 1012;
 }
 enum StoryAdvPlayType {
   StoryAdvPlayType_Unknown = 0;
