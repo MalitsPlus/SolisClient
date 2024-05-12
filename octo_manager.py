@@ -14,6 +14,7 @@ from google.protobuf.json_format import MessageToDict
 from concurrent.futures import ThreadPoolExecutor, wait, ALL_COMPLETED
 
 UnityPy.config.FALLBACK_UNITY_VERSION = "2022.3.21f1"
+MAX_THREADS = 10
 
 _API_KEY = bytes.fromhex(
     "aa8a30926db9d49410360d0a99aa735d035638dfc09ef99fb575d9c91a8f6cdc"
@@ -216,7 +217,7 @@ def update_octo(raw_cache: bytes, is_file: bool = False):
     _asset_count = len(database.assetBundleList)
     _resouce_count = len(database.resourceList)
 
-    executor = ThreadPoolExecutor(max_workers=20)
+    executor = ThreadPoolExecutor(max_workers=MAX_THREADS)
     _current_count = 0
 
     # for single thread debug
