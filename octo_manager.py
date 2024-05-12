@@ -1,6 +1,7 @@
 import sys
 import json
 import UnityPy
+import UnityPy.config
 import requests
 import threading
 from pathlib import Path
@@ -11,6 +12,8 @@ from request_base import send_request
 import rich_console as console
 from google.protobuf.json_format import MessageToDict
 from concurrent.futures import ThreadPoolExecutor, wait, ALL_COMPLETED
+
+UnityPy.config.FALLBACK_UNITY_VERSION = "2022.3.21f1"
 
 _API_KEY = bytes.fromhex(
     "aa8a30926db9d49410360d0a99aa735d035638dfc09ef99fb575d9c91a8f6cdc"
