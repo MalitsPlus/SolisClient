@@ -241,7 +241,7 @@ if __name__ == "__main__":
     #     tile="256",
     # )
     convert_one(
-        "cache/image/img_deco_thumb_sp-500day-22-1107.png",
+        "cache/image/img_card_full_1_kkr-05-mizg-02.png",
         "cache/esrgan",
         to_size=True,
         c_size=(2560, 1440),

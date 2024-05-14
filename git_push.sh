@@ -26,7 +26,7 @@ git -C ${REPO_NAME} config core.sshCommand "ssh -o IdentitiesOnly=yes -o StrictH
 
 # Get master version
 pre_ver=`cat ${REPO_NAME}/${VERSION_FILE}`
-if [ -f ${VERSION_FILE} ]; then
+if [ -f "${ARTIFACT_DIR_NAME}/${VERSION_FILE}" ]; then
   cur_ver=`cat ${ARTIFACT_DIR_NAME}/${VERSION_FILE}`
 else
   cur_ver='0'
