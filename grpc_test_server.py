@@ -75,13 +75,13 @@ def serve():
     apig.add_DokanServicer_to_server(DokanServ(), server)
     apig.add_NoticeServicer_to_server(NoticeServ(), server)
 
-    with open("localhost.key", "rb") as fk:
-        private_key = fk.read()
-    with open("localhost.crt", "rb") as fc:
-        certificate_chain = fc.read()
+    # with open("localhost.key", "rb") as fk:
+    #     private_key = fk.read()
+    # with open("localhost.crt", "rb") as fc:
+    #     certificate_chain = fc.read()
 
-    server_credential = grpc.ssl_server_credentials(
-        [(private_key, certificate_chain)])
+    # server_credential = grpc.ssl_server_credentials(
+    #     [(private_key, certificate_chain)])
 
     # server.add_insecure_port('0.0.0.0:50051')
     server.add_insecure_port('0.0.0.0:50052')
