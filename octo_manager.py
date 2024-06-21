@@ -75,14 +75,14 @@ def string_to_mask_bytes(
             k = bytes_length - 1
             while mask_string_length != j:
                 char_j = mask_string[j]
-                # Must be casted as Int in python
+                # must be casted as Int in python
                 char_j = int.from_bytes(
                     char_j.encode("ascii"), byteorder="little", signed=False
                 )
                 j += 1
                 mask_bytes[i] = char_j
                 i += 2
-                # You must add &0xFF to get a unsigned integer in python or it will return the signed one
+                # must add &0xFF to get a unsigned integer in python or it will return the signed one
                 char_j = ~char_j & 0xFF
                 # .to_bytes(length=1, byteorder="little", signed=True)
                 mask_bytes[k] = char_j
