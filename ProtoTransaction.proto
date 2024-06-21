@@ -29,6 +29,8 @@ message Payslip {
   int32 hierarchyRank = 22;
   int32 year = 23;
   int32 month = 24;
+  int32 archiveCompanyPoint = 25;
+  int32 archiveCompanyPointCoefficientPermil = 26;
 }
 message User {
   string name = 1;
@@ -56,6 +58,7 @@ message User {
   string inviteHostUserId = 23;
   string buddyCardId = 24;
   repeated string nextPhotoImageIds = 25;
+  int64 lastHomeTalkDrawTime = 26;
   int32 managerLevel = 100;
   int32 cardSupportMaxNumber = 101;
 }
@@ -131,8 +134,11 @@ message UserCharacter {
   string liveCostumeId = 13;
   string favoriteHairId = 14;
   string liveHairId = 15;
+  int64 companyEnjoyPoint = 16;
+  int64 lastHomeTalkFirstReadTime = 17;
   int32 activityLevel = 100;
   int32 audienceCandidateAmount = 101;
+  repeated transaction.CompanyBonusParameterInfo companyBonusParameterInfos = 102;
 }
 message UserCharacterMusic {
   string characterId = 1;
@@ -269,6 +275,29 @@ message UserQuest {
   string currentRankingSeasonID = 10;
   ProtoEnum.ResultRankType highestScoreRank = 100;
 }
+message UserShowcase {
+  int32 number = 1;
+  string name = 2;
+  string comment = 3;
+  string musicId = 4;
+  repeated string hashTagIds = 5;
+  bool isOpen = 6;
+  string thumbnailAssetId = 8;
+  string showcaseFrameId = 9;
+}
+message UserShowcaseMusic {
+  string showcaseMusicId = 1;
+}
+message UserShowcaseMyset {
+  int32 number = 1;
+  string name = 2;
+  string showcaseFrameId = 4;
+  bool isSave = 5;
+}
+message UserShowcaseToy {
+  string showcaseToyId = 1;
+  int64 amount = 2;
+}
 message UserStory {
   string storyId = 1;
   ProtoEnum.StoryStatusType statusType = 2;
@@ -332,6 +361,16 @@ message UserCardSupport {
   int32 number = 1;
   string cardId = 2;
   int64 removableTime = 4;
+}
+message CompanyBonusParameterInfo {
+  ProtoEnum.ParameterType bonusParameterType = 1;
+  int64 bonusParameterUpPermil = 2;
+}
+message UserCompany {
+  int64 enjoyPoint = 1;
+  int64 trustPoint = 2;
+  int64 salaryPoint = 3;
+  bool isAlreadyTransitioned = 4;
 }
 message UserDeck {
   int32 number = 1;
@@ -427,9 +466,14 @@ message UserPublic {
   string serverUserId = 1;
   string publicUserId = 2;
 }
+message UserShowcaseLike {
+  int64 dailyLikeCount = 1;
+  int64 rewardLikeCount = 2;
+}
 message UserStaff {
   ProtoEnum.ParameterType parameterType = 1;
   int32 level = 2;
+  int32 levelLimitBreakRank = 3;
 }
 message UserTotalCount {
   int64 loginCount = 1;

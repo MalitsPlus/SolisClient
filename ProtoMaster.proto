@@ -269,6 +269,18 @@ message Character {
   ProtoEnum.CharacterType type = 49;
   string groupName = 50;
   master.LoveCharacterInfo loveInfo = 51;
+  repeated master.CharacterCompanyEnjoyStory companyEnjoyStories = 52;
+  string homeMainCharacterStayMotionAssetId = 53;
+  string homeMainCharacterStayAdditionMotionAssetId = 54;
+  string homeMainCharacterStayStartMotionAssetId = 55;
+  string homeMainCharacterStayPropAssetId = 56;
+}
+message CharacterCompanyEnjoyStory {
+  int32 number = 1;
+  string storyId = 2;
+  string viewConditionId = 3;
+  string unlockConditionId = 4;
+  string assetId = 5;
 }
 message CharacterCostumeGroup {
   string groupId = 1;
@@ -296,6 +308,46 @@ message CharacterGroupMapping {
   string description = 2;
   string assetId = 3;
   int32 order = 4;
+}
+message CompanyEnjoyCharacterLevelSetting {
+  string characterId = 1;
+  int32 levelKey = 2;
+  string achieveRewardId = 3;
+}
+message CompanyEnjoyHomeAction {
+  string id = 1;
+  string characterId = 2;
+  string motionAssetId = 3;
+  string additionMotionAssetId = 4;
+  string voiceAssetId = 5;
+  string text = 6;
+  int32 weight = 7;
+}
+message CompanyEnjoyObtainPointItemSetting {
+  string characterId = 1;
+  string itemId = 2;
+  int32 obtainPoint = 3;
+  ProtoEnum.CompanyEnjoyObtainPointItemGrowthType growthType = 4;
+}
+message CompanyGrade {
+  string id = 1;
+  string name = 2;
+  int64 requiredPoint = 3;
+  string achieveRewardId = 4;
+  string buttonAssetId = 5;
+  string backgroundAssetId = 6;
+}
+message CompanySalarySetting {
+  string id = 1;
+  int32 calcActivateYear = 2;
+  int32 calcActivateMonth = 3;
+  string functionUnlockConditionId = 4;
+  int32 pointCoefficientPermil = 5;
+}
+message CompanyTrustLevel {
+  int32 levelKey = 1;
+  int64 requiredPoint = 2;
+  string achieveRewardId = 3;
 }
 message ConditionAccessoryAmount {
   string accessoryId = 1;
@@ -349,6 +401,17 @@ message ConditionClearMission {
 }
 message ConditionClearQuest {
   string questId = 1;
+}
+message ConditionCompanyEnjoyCharacterLevelGte {
+  string characterId = 1;
+  int32 levelGte = 2;
+}
+message ConditionCompanyEnjoyCharacterPointGte {
+  string characterId = 1;
+  int64 pointGte = 2;
+}
+message ConditionCompanyGradeGte {
+  string companyGradeId = 1;
 }
 message ConditionContestQuestHighestRank {
   string questId = 1;
@@ -731,6 +794,9 @@ message HomeBackground {
   repeated float positions = 8;
   repeated float angles = 9;
   string characterCostumeGroupId = 10;
+  string homeBackgroundCategoryId = 11;
+  string bgmAssetId = 12;
+  ProtoEnum.HomeBackgroundVersionType versionType = 13;
 }
 message HomeDrama {
   string homeDramaId = 1;
@@ -764,6 +830,20 @@ message HomeDramaFree {
   string voiceAssetId = 8;
   int32 playStartMillisecond = 9;
 }
+message HomeMainCharacterStay {
+  string id = 1;
+  ProtoEnum.HomePositionType homePositionType = 2;
+  string homeBackgroundCategoryId = 3;
+  string viewConditionId = 4;
+  string fixedCharacterId = 5;
+  float positionX = 6;
+  float positionY = 7;
+  float positionZ = 8;
+  float angleX = 9;
+  float angleY = 10;
+  float angleZ = 11;
+  bool isHomeTalk = 12;
+}
 message HomeNavigation {
   string homeNavigationId = 1;
   string characterId = 2;
@@ -773,6 +853,13 @@ message HomeNavigation {
   string linkDetail = 6;
   string viewConditionId = 7;
   int32 order = 8;
+}
+message HomeSubCharacterStayGroup {
+  string groupId = 1;
+  string homeBackgroundCategoryId = 2;
+  string viewConditionId = 3;
+  int32 weight = 4;
+  repeated master.HomeSubCharacterStay stays = 5;
 }
 message HomeTalk {
   string homeTalkId = 1;
@@ -785,6 +872,10 @@ message HomeTalk {
   string choiceText = 8;
   string managerText = 9;
   int32 reliability = 10;
+  string title = 11;
+  string cardId = 12;
+  string displayConditionDescription = 13;
+  int32 order = 14;
   repeated master.CharacterTalk characterTalks = 100;
 }
 message HomeTalkCallPattern {
@@ -1023,6 +1114,9 @@ message Mission {
   string linkDetail = 11;
   repeated master.MissionProgress progresses = 12;
   string eventMissionId = 13;
+  string companyEnjoyCharacterId = 14;
+  ProtoEnum.CompanyEnjoyCharacterMissionCategoryType companyEnjoyCharacterMissionCategoryType = 15;
+  ProtoEnum.CompanyTrustMissionCategoryType companyTrustMissionCategoryType = 16;
 }
 message MissionProgress {
   int64 threshold = 1;
@@ -1494,6 +1588,7 @@ message Setting {
   int32 deckEntrustCoolTimeLotteryCoefficientPermil = 117;
   int32 deckEntrustMentalLotteryCoefficientPermil = 118;
   string storyPhotoShootingDefaultCharacterId = 119;
+  int32 homeTalkDrawTimesPerDay = 120;
   repeated ProtoEnum.StatusEffectType statusEffectTypeStrengthList = 1001;
   repeated ProtoEnum.StatusEffectType statusEffectTypeWeaknessDownList = 1002;
   repeated ProtoEnum.StatusEffectType statusEffectTypeWeaknessOtherList = 1003;
@@ -1519,6 +1614,50 @@ message Setting {
   int32 diceMaxItemPossessionNum = 1200;
   int32 diceRankingDisplayNum = 1201;
   int32 shelfPerAlbumPhotoLimit = 1300;
+  int32 companyRankingDisplayNum = 1400;
+  int32 companyEnjoyCharacterRankingDisplayNum = 1401;
+}
+message ShowcaseFrame {
+  string id = 1;
+  int32 order = 2;
+  string name = 3;
+  string description = 4;
+  string assetId = 5;
+  string unlockConditionId = 6;
+  int32 showcaseToyPutCountLimit = 7;
+}
+message ShowcaseMusic {
+  string musicId = 1;
+  int32 order = 2;
+  string showcaseMusicFilterId = 3;
+}
+message ShowcaseSetting {
+  string id = 1;
+  int32 rewardLikeObtainLimit = 2;
+  int32 likeCountLimit = 3;
+  int32 showcaseToyObtainLimit = 4;
+  int32 showcaseDetailNameLimit = 5;
+  int32 showcaseDetailDescriptionLimit = 6;
+  int32 showcaseMysetNameLimit = 7;
+  string showcaseFrameDefaultId = 8;
+  int32 rewardLikeDailyRecovery = 9;
+  int32 showcaseUndoCountLimit = 10;
+  string showcaseThumbnailDefaultAssetId = 11;
+  string rewardLikeUsedRewardId = 12;
+  string defaultShowcaseToyShopConsumptionItemId = 13;
+}
+message ShowcaseToy {
+  string id = 1;
+  repeated string filterIds = 2;
+  string categoryId = 3;
+  string name = 4;
+  string assetId = 5;
+  string description = 6;
+  repeated string hashTagIds = 7;
+  repeated ProtoEnum.ShowcaseToyPutType putTypes = 8;
+  int32 order = 9;
+  repeated string photoShootingCharacterIds = 10;
+  int32 angle = 11;
 }
 message SkillDetail {
   string efficacyId = 1;
@@ -1701,6 +1840,22 @@ message ComboAdvantage {
   int32 comboCount = 2;
   int32 advantagePermil = 3;
 }
+message CompanyEnjoyCharacterLevel {
+  int32 levelKey = 1;
+  int64 requiredPoint = 2;
+  ProtoEnum.ParameterType bonusParameterType = 3;
+  int32 bonusParameterUpPermil = 4;
+}
+message CompanyEnjoyLevel {
+  int32 levelKey = 1;
+  int64 requiredPoint = 2;
+}
+message CompanyPoint {
+  string id = 1;
+  string name = 2;
+  string description = 3;
+  string assetId = 4;
+}
 message Condition {
   string id = 1;
   repeated master.ConditionSetting settings = 3;
@@ -1793,6 +1948,10 @@ message HierarchyGrade {
   string id = 1;
   string name = 2;
   int32 order = 3;
+}
+message HomeBackgroundCategory {
+  string id = 1;
+  string name = 2;
 }
 message HomeDramaPosition {
   string homeDramaPositionId = 1;
@@ -1912,6 +2071,29 @@ message Salary {
   int64 threshold = 2;
   int32 amount = 3;
 }
+message ShowcaseHashtag {
+  string id = 1;
+  int32 number = 2;
+  string name = 3;
+  string assetId = 4;
+  ProtoEnum.ShowcaseHashtagCategoryType categoryType = 5;
+}
+message ShowcaseMusicFilter {
+  string id = 1;
+  string name = 2;
+  int32 order = 3;
+}
+message ShowcaseToyCategory {
+  string id = 1;
+  int32 order = 2;
+  string name = 3;
+}
+message ShowcaseToyShopFilter {
+  string id = 1;
+  string name = 2;
+  int32 order = 3;
+  string assetId = 4;
+}
 message Skill {
   string id = 1;
   string name = 2;
@@ -1923,6 +2105,13 @@ message SkillTarget {
   string id = 1;
   ProtoEnum.SkillTargetType type = 2;
   bool isOpponent = 101;
+}
+message StaffLevelLimitBreakRank {
+  ProtoEnum.ParameterType parameterType = 1;
+  int32 rank = 2;
+  int32 levelLimit = 3;
+  int64 consumptionItemAmount = 4;
+  int64 consumptionGoldAmount = 5;
 }
 message StaffTraining {
   ProtoEnum.ParameterType parameterType = 1;
@@ -2094,6 +2283,16 @@ message ConditionSetting {
   master.ConditionDutyExchangeReward dutyExchangeReward = 91;
   master.ConditionDutyExchangeRewardCount dutyExchangeRewardCount = 92;
   master.ConditionDutyTotalObtainPointCount dutyTotalObtainPointCount = 93;
+  master.ConditionCompanyGradeGte companyGradeGte = 94;
+  master.ConditionCompanyPointGte companyPointGte = 95;
+  master.ConditionCompanyEnjoyLevelGte companyEnjoyLevelGte = 96;
+  master.ConditionCompanyEnjoyPointGte companyEnjoyPointGte = 97;
+  master.ConditionCompanyEnjoyCharacterLevelGte companyEnjoyCharacterLevelGte = 98;
+  master.ConditionCompanyTrustLevelGte companyTrustLevelGte = 99;
+  master.ConditionCompanyTrustPointGte companyTrustPointGte = 100;
+  master.ConditionCompanySalaryPointGte companySalaryPointGte = 101;
+  master.ConditionStaffLevelGte staffLevelGte = 102;
+  master.ConditionCompanyEnjoyCharacterPointGte companyEnjoyCharacterPointGte = 103;
 }
 message ConditionStartHours {
   int32 hoursLte = 1;
@@ -2249,6 +2448,28 @@ message ConditionDutyTotalObtainPointCount {
   string dutyId = 1;
   int64 countGte = 2;
 }
+message ConditionCompanyPointGte {
+  int64 pointGte = 1;
+}
+message ConditionCompanyEnjoyLevelGte {
+  int32 levelGte = 1;
+}
+message ConditionCompanyEnjoyPointGte {
+  int64 pointGte = 1;
+}
+message ConditionCompanyTrustLevelGte {
+  int32 levelGte = 1;
+}
+message ConditionCompanyTrustPointGte {
+  int64 pointGte = 1;
+}
+message ConditionCompanySalaryPointGte {
+  int64 pointGte = 1;
+}
+message ConditionStaffLevelGte {
+  ProtoEnum.ParameterType parameterType = 1;
+  int32 levelGte = 2;
+}
 message ConsumptionResource {
   ProtoEnum.ResourceType resourceType = 1;
   repeated string resourceIds = 2;
@@ -2269,6 +2490,22 @@ message HelpContent {
   int32 order = 4;
   repeated ProtoEnum.HelpDisplayTargetType targetTypes = 5;
   repeated string assetIds = 6;
+}
+message HomeSubCharacterStay {
+  int32 position = 1;
+  ProtoEnum.SimpleCharacterPersonalityType simplePersonalityType = 2;
+  repeated ProtoEnum.HomePositionType homePositionTypes = 3;
+  string motionAssetId = 4;
+  string additiveMotionAssetId = 5;
+  string tapAssistMotionAssetId = 6;
+  float positionX = 7;
+  float positionY = 8;
+  float positionZ = 9;
+  float angleX = 10;
+  float angleY = 11;
+  float angleZ = 12;
+  repeated ProtoEnum.HomePositionType talkHomePositionTypes = 13;
+  string propAssetId = 14;
 }
 message CharacterTalk {
   string text = 1;

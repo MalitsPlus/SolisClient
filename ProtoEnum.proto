@@ -189,6 +189,31 @@ enum CharacterType {
   CharacterType_Memories = 3;
   CharacterType_Collaboration = 4;
 }
+enum CompanyEnjoyCharacterMissionCategoryType {
+  CompanyEnjoyCharacterMissionCategoryType_Unknown = 0;
+  CompanyEnjoyCharacterMissionCategoryType_Enjoy = 1;
+  CompanyEnjoyCharacterMissionCategoryType_Training = 2;
+  CompanyEnjoyCharacterMissionCategoryType_Action = 3;
+}
+enum CompanyEnjoyObtainPointItemGrowthType {
+  CompanyEnjoyObtainPointItemGrowthType_Unknown = 0;
+  CompanyEnjoyObtainPointItemGrowthType__1 = 1;
+  CompanyEnjoyObtainPointItemGrowthType__2 = 2;
+  CompanyEnjoyObtainPointItemGrowthType__3 = 3;
+}
+enum CompanyPointType {
+  CompanyPointType_Unknown = 0;
+  CompanyPointType_Enjoy = 1;
+  CompanyPointType_Trust = 2;
+  CompanyPointType_Salary = 3;
+}
+enum CompanyTrustMissionCategoryType {
+  CompanyTrustMissionCategoryType_Unknown = 0;
+  CompanyTrustMissionCategoryType_Area = 1;
+  CompanyTrustMissionCategoryType_TowerArea = 2;
+  CompanyTrustMissionCategoryType_PhotoShooting = 3;
+  CompanyTrustMissionCategoryType_Growth = 4;
+}
 enum DayOfWeekType {
   DayOfWeekType_Unknown = 0;
   DayOfWeekType_Sunday = 1;
@@ -256,6 +281,9 @@ enum DokanTargetType {
   DokanTargetType_Dream = 10;
   DokanTargetType_Dice = 11;
   DokanTargetType_Duty = 12;
+  DokanTargetType_ShowcaseToyShop = 13;
+  DokanTargetType_Company = 14;
+  DokanTargetType_ShowcaseTop = 15;
 }
 enum DokanType {
   DokanType_Unknown = 0;
@@ -393,6 +421,12 @@ enum FunctionLockType {
   FunctionLockType_PhotoListFilterDream = 35;
   FunctionLockType_Roulette = 36;
   FunctionLockType_PhotoShootingStory = 37;
+  FunctionLockType_HomeRenewal = 38;
+  FunctionLockType_Company = 39;
+  FunctionLockType_Showcase = 40;
+  FunctionLockType_ShowcaseGallery = 41;
+  FunctionLockType_StaffLevelLimitBreak = 42;
+  FunctionLockType_ShowcaseLike = 43;
 }
 enum FunctionMaintenanceType {
   FunctionMaintenanceType_Unknown = 0;
@@ -436,6 +470,7 @@ enum GachaType {
   GachaType_Premium = 3;
   GachaType_Continuous = 4;
   GachaType_Stamp = 5;
+  GachaType_ShowcaseToy = 6;
 }
 enum GiftFilterType {
   GiftFilterType_Unknown = 0;
@@ -676,6 +711,28 @@ enum HelpDisplayTargetType {
   HelpDisplayTargetType_StoryPhotographySelect = 202;
   HelpDisplayTargetType_StoryPhotographyResult = 203;
   HelpDisplayTargetType_DutyTop = 204;
+  HelpDisplayTargetType_CompanyReward = 205;
+  HelpDisplayTargetType_CompanyTop = 206;
+  HelpDisplayTargetType_CompanyEnjoyMemory = 207;
+  HelpDisplayTargetType_CompanyEnjoyMission = 208;
+  HelpDisplayTargetType_CompanyEnjoyPortal = 209;
+  HelpDisplayTargetType_CompanyEnjoyReward = 210;
+  HelpDisplayTargetType_CompanyEnjoyTop = 211;
+  HelpDisplayTargetType_CompanyTrustMissionList = 212;
+  HelpDisplayTargetType_CompanyTrustTop = 213;
+  HelpDisplayTargetType_CompanyRanking = 214;
+  HelpDisplayTargetType_CompanyTrustReward = 215;
+  HelpDisplayTargetType_ShowcaseTop = 216;
+  HelpDisplayTargetType_ShowcaseToyShopTop = 217;
+  HelpDisplayTargetType_ShowcaseToyCatalog = 218;
+  HelpDisplayTargetType_ShowcaseGallery = 220;
+  HelpDisplayTargetType_ShowcaseList = 221;
+  HelpDisplayTargetType_ShowcaseMain = 222;
+  HelpDisplayTargetType_ShowcaseEdit = 223;
+  HelpDisplayTargetType_ShowcaseToySelect = 224;
+  HelpDisplayTargetType_ShowcaseToyList = 225;
+  HelpDisplayTargetType_ShowcaseToyGacha = 229;
+  HelpDisplayTargetType_CompanyEnjoyRanking = 230;
 }
 enum HelpType {
   HelpType_Unknown = 0;
@@ -693,6 +750,11 @@ enum HomeActionType {
   HomeActionType_Unknown = 0;
   HomeActionType_Tap = 1;
   HomeActionType_NonTap = 2;
+}
+enum HomeBackgroundVersionType {
+  HomeBackgroundVersionType_Unknown = 0;
+  HomeBackgroundVersionType__1 = 1;
+  HomeBackgroundVersionType__2 = 2;
 }
 enum HomePlaceType {
   HomePlaceType_Unknown = 0;
@@ -731,6 +793,7 @@ enum ItemType {
   ItemType_PhotoInk = 15;
   ItemType_CardRank = 16;
   ItemType_SpecialPhotoShooting = 17;
+  ItemType_StaffLevelLimitBreak = 18;
   ItemType_ActivityRefreshShorten = 1001;
   ItemType_ActivityPromotionShorten = 1002;
   ItemType_ActivityFanEventSuperMode = 1003;
@@ -762,6 +825,7 @@ enum ItemType {
   ItemType_DiceShopCurrency = 11001;
   ItemType_DiceStaminaRecovery = 11002;
   ItemType_EventPhotoCreating = 12001;
+  ItemType_CompanyEnjoyObtainPoint = 13001;
 }
 enum JoinedGuildType {
   JoinedGuildType_Unknown = 0;
@@ -852,6 +916,9 @@ enum LinkType {
   LinkType_Shelf = 112;
   LinkType_Roulette = 113;
   LinkType_Duty = 114;
+  LinkType_Showcase = 115;
+  LinkType_ShowcaseToyShop = 116;
+  LinkType_ExtraStory = 117;
   LinkType_WebView = 999;
   LinkType_ExternalWebPage = 1000;
 }
@@ -1113,6 +1180,16 @@ enum MissionType {
   MissionType_PhotoShootingStoryShootTotalCount = 72;
   MissionType_PhotoActivateShootingStoryTicketUseTotalCount = 73;
   MissionType_PhotoActivateShootingStoryTicketUseCount = 74;
+  MissionType_QuestAllScoreAchievement = 75;
+  MissionType_CharacterHomeTalkReadAchievement = 76;
+  MissionType_CharacterTotalCardLevelAchievement = 77;
+  MissionType_CharacterTotalCardRarityAchievement = 78;
+  MissionType_CharacterTotalCardSkillLevelAchievement = 79;
+  MissionType_CharacterQuestContestScoreAchievement = 80;
+  MissionType_CharacterQuestPvpScoreAchievement = 81;
+  MissionType_AreaAllMainQuestClearCountAchievement = 82;
+  MissionType_AreaAllTowerQuestClearCountAchievement = 83;
+  MissionType_AreaSubTowerQuestClearCountAchievement = 84;
   MissionType_TourAreaClearCount = 1001;
   MissionType_TourRivalClearCount = 1002;
   MissionType_TourBossClearCountWithCharacter = 1003;
@@ -1153,6 +1230,13 @@ enum MissionType {
   MissionType_DutySpecifiedExchangedRewardCount = 2101;
   MissionType_DutyExchangedRewardCount = 2102;
   MissionType_DutyPointAmount = 2103;
+  MissionType_ShowcaseLikedTotalCount = 2201;
+  MissionType_ShowcaseLikeTotalCount = 2202;
+  MissionType_ShowcaseSaveAchievement = 2203;
+  MissionType_ShowcasePhotoShootingTotalCount = 2204;
+  MissionType_ShowcaseSpecifiedHashtagIdSaveCount = 2205;
+  MissionType_CompanyCharacterUseObtainEnjoyPointItemCount = 2301;
+  MissionType_CompanyUseObtainEnjoyPointItemTotalCount = 2302;
 }
 enum MoodType {
   MoodType_Unknown = 0;
@@ -1421,6 +1505,9 @@ enum ResourceType {
   ResourceType_Hair = 28;
   ResourceType_ActivatePhotoShootingStoryTicket = 29;
   ResourceType_DutyPoint = 30;
+  ResourceType_CompanyPoint = 31;
+  ResourceType_ShowcaseToy = 32;
+  ResourceType_ShowcaseMusic = 33;
   ResourceType_Set = 999;
 }
 enum ResultRankType {
@@ -1505,6 +1592,10 @@ enum RewardSortResourceType {
   RewardSortResourceType_ItemShelfPhotoCreating = 71;
   RewardSortResourceType_ActivatePhotoShootingStoryTicket = 72;
   RewardSortResourceType_DutyPoint = 73;
+  RewardSortResourceType_CompanyPoint = 74;
+  RewardSortResourceType_ItemCompanyEnjoyObtainPoint = 75;
+  RewardSortResourceType_ShowcaseToy = 76;
+  RewardSortResourceType_ShowcaseMusic = 77;
 }
 enum RewardSortTargetType {
   RewardSortTargetType_Unknown = 0;
@@ -1625,8 +1716,20 @@ enum ShopType {
   ShopType_NormalShop = 2;
   ShopType_LoginBonusShop = 3;
   ShopType_ConditionRewardShop = 4;
+  ShopType_ShowcaseToyShop = 5;
   ShopType_DefaultStoneShop = 1001;
   ShopType_DefaultNormalShop = 1002;
+  ShopType_DefaultShowcaseToyShop = 1003;
+}
+enum ShowcaseHashtagCategoryType {
+  ShowcaseHashtagCategoryType_Unknown = 0;
+  ShowcaseHashtagCategoryType_Group = 1;
+  ShowcaseHashtagCategoryType_Character = 2;
+}
+enum ShowcaseToyPutType {
+  ShowcaseToyPutType_Unknown = 0;
+  ShowcaseToyPutType_Floor = 1;
+  ShowcaseToyPutType_Wall = 2;
 }
 enum SimpleCharacterPersonalityType {
   SimpleCharacterPersonalityType_Unknown = 0;
@@ -2077,6 +2180,12 @@ enum TutorialType {
   TutorialType_DreamBasePhotoChoose = 36;
   TutorialType_DreamGeneratedAreaPhotoChoose = 37;
   TutorialType_Shelf = 38;
+  TutorialType_CompanyEnjoyBonusMemoriesCharacter = 39;
+  TutorialType_StaffLevelLimitBreak = 40;
+  TutorialType_Company = 41;
+  TutorialType_Showcase = 42;
+  TutorialType_ShowcaseGallery = 43;
+  TutorialType_CompanyEnjoy = 44;
 }
 enum WatchAdvertisementType {
   WatchAdvertisementType_Unknown = 0;

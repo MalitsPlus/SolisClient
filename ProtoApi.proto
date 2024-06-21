@@ -255,6 +255,49 @@ message BuddyCardInfo {
   int32 rarity = 2;
   int32 level = 3;
 }
+message CompanyEnjoyCharacterLevelInfo {
+  string characterId = 1;
+  int32 levelKey = 2;
+  bool isReceivable = 3;
+  bool isAlreadyReceived = 4;
+}
+message CompanyEnjoyCharacterRankingInfo {
+  string userId = 1;
+  int32 currentRank = 2;
+  string managerName = 3;
+  int64 currentEnjoyPoint = 4;
+  string emblemId = 5;
+}
+message CompanyGradeInfo {
+  string id = 1;
+  bool isReceivable = 2;
+  bool isAlreadyReceived = 3;
+}
+message CompanyRankingInfo {
+  string userId = 1;
+  int32 currentRank = 2;
+  string managerName = 3;
+  int64 currentPoint = 4;
+  string emblemId = 5;
+  int64 currentEnjoyPoint = 6;
+  int64 currentTrustPoint = 7;
+  int64 currentSalaryPoint = 8;
+}
+message CompanyTopResponse {
+  repeated api.CompanyGradeInfo companyGradeInfos = 1;
+  repeated api.CompanyTrustMissionInfo trustMissionInfos = 2;
+  repeated api.CompanyTrustLevelInfo trustLevelInfos = 3;
+  int32 currentRank = 4;
+  repeated string receivableLevelRewardEnjoyCharacterIds = 5;
+  int64 thisMonthSalaryPoint = 6;
+  repeated api.DokanInfo dokanInfos = 7;
+  api.CommonResponse commonResponse = 9999;
+}
+message CompanyTrustLevelInfo {
+  int32 levelKey = 1;
+  bool isReceivable = 2;
+  bool isAlreadyReceived = 3;
+}
 message DeckPositionCharacter {
   transaction.UserDeckPosition userDeckPosition = 1;
   string characterId = 2;
@@ -716,6 +759,7 @@ message GachaInfo {
   api.GachaPremiumInfo premiumInfo = 8;
   api.GachaContinuousInfo continuousInfo = 9;
   api.GachaStampInfo stampInfo = 10;
+  repeated transaction.Reward showcaseToyGachaRewards = 11;
 }
 message GachaPremiumInfo {
   int32 fixedPremiumRewardRequiredDrawCount = 1;
@@ -936,6 +980,11 @@ message HomeEnterResponse {
   bool hasReceivableGift = 39;
   api.AnniversaryInfo anniversaryInfo = 40;
   api.RouletteInfo rouletteInfo = 41;
+  api.CompanyInfo companyInfo = 42;
+  bool isDefaultNormalShopFreeItemStockExist = 43;
+  api.NotiShopItem notiShowcaseShopItem = 44;
+  repeated string showcaseToyShopIds = 45;
+  repeated int32 unlockedShowcaseNumbers = 46;
   api.PvpRewardResultInfo pvpRewardResultInfo = 100;
   api.GvgRewardResultInfo gvgRewardResultInfo = 101;
   repeated api.TourRewardResultInfo tourRewardResultInfos = 102;
@@ -947,11 +996,22 @@ message HomeEnterResponse {
   api.LeagueRewardResultInfo leagueRewardResultInfo = 108;
   api.DiceDailyRewardResultInfo diceDailyRewardResultInfo = 109;
   api.DiceRewardResultInfo diceRewardResultInfo = 110;
+  api.ShowcaseLikedRewardResultInfo showcaseLikedRewardResultInfo = 111;
   api.CommonResponse commonResponse = 9999;
 }
 message HomeEventMissionInfo {
   string id = 1;
   bool unlocked = 2;
+  int32 order = 3;
+}
+message HomeGeneralEventInfo {
+  string id = 1;
+  string assetId = 2;
+  string text = 3;
+  ProtoEnum.LinkType linkType = 4;
+  string linkDetail = 5;
+  int32 order = 6;
+  string viewConditionId = 7;
 }
 message HomeLadderInfo {
   string id = 1;
@@ -2063,6 +2123,22 @@ message ShopLoginBonus {
   string rewardId = 2;
   bool isReceived = 3;
 }
+message ShowcaseApplyMysetResponse {
+  string frameId = 2;
+  api.ShowcaseLayoutInfo layoutInfo = 3;
+  api.CommonResponse commonResponse = 9999;
+}
+message ShowcaseFrameInfo {
+  string id = 1;
+  bool isUnlocked = 2;
+}
+message ShowcaseSelfInfo {
+  int32 number = 1;
+  string defaultName = 2;
+  string unlockConditionId = 3;
+  bool isUnlocked = 4;
+  api.ShowcaseLayoutInfo layoutInfo = 5;
+}
 message SpecialHomeActionInfo {
   string characterId = 1;
   repeated api.SpecialHomeActionDetail specialHomeActionDetails = 2;
@@ -3045,6 +3121,7 @@ message HomeEventInfo {
   api.HomeDiceInfo diceInfo = 12;
   api.HomeShelfInfo shelfInfo = 13;
   repeated api.HomeDutyInfo dutyInfos = 14;
+  repeated api.HomeGeneralEventInfo generalEventInfos = 15;
 }
 message HomeBirthdayInfo {
   string bannerAssetId = 1;
@@ -3156,6 +3233,12 @@ message UpdatedData {
   repeated transaction.UserLeagueDeckPosition leagueDeckPositions = 40;
   repeated transaction.UserDuty duties = 41;
   repeated transaction.UserDutyPoint dutyPoints = 42;
+  transaction.UserCompany company = 43;
+  repeated transaction.UserShowcase showcases = 44;
+  transaction.UserShowcaseLike showcaseLike = 45;
+  repeated transaction.UserShowcaseMusic showcaseMusics = 46;
+  repeated transaction.UserShowcaseToy showcaseToys = 47;
+  repeated transaction.UserShowcaseMyset showcaseMysets = 48;
 }
 message DeletedData {
   repeated transaction.UserItem items = 1;
@@ -3168,6 +3251,71 @@ message DeletedData {
   repeated transaction.UserStory stories = 9;
   repeated transaction.UserPhotoRecipe photoRecipes = 10;
   repeated transaction.UserLeagueDeckPosition leagueDeckPositions = 11;
+  repeated transaction.UserShowcaseMyset showcaseMysets = 12;
+}
+message CompanyTopRequest {
+  bool isSkipReportMissions = 1;
+}
+message CompanyListRankingResponse {
+  repeated api.CompanyRankingInfo rankingInfos = 1;
+  int64 selfPoint = 2;
+  int32 selfRank = 3;
+  api.CommonResponse commonResponse = 9999;
+}
+message CompanyReceiveGradeRewardsRequest {
+  repeated string gradeIds = 1;
+}
+message CompanyReceiveGradeRewardsResponse {
+  repeated transaction.RewardResult results = 1;
+  api.CommonResponse commonResponse = 9999;
+}
+message CompanyEnjoyCharacterTopRequest {
+  string characterId = 1;
+}
+message CompanyEnjoyCharacterTopResponse {
+  repeated api.CompanyEnjoyCharacterLevelInfo enjoyLevelInfos = 1;
+  repeated api.CompanyEnjoyCharacterMissionInfo missionInfos = 2;
+  int32 currentRank = 3;
+  api.CommonResponse commonResponse = 9999;
+}
+message CompanyListEnjoyCharacterRankingRequest {
+  string characterId = 1;
+}
+message CompanyListEnjoyCharacterRankingResponse {
+  repeated api.CompanyEnjoyCharacterRankingInfo rankingInfos = 1;
+  int64 selfPoint = 2;
+  int32 selfRank = 3;
+  api.CommonResponse commonResponse = 9999;
+}
+message CompanyReceiveEnjoyCharacterLevelRewardsRequest {
+  string characterId = 1;
+  repeated int32 levelKeys = 2;
+}
+message CompanyReceiveEnjoyCharacterLevelRewardsResponse {
+  repeated transaction.RewardResult results = 1;
+  api.CommonResponse commonResponse = 9999;
+}
+message CompanyUseObtainEnjoyPointItemRequest {
+  string characterId = 1;
+  string itemId = 2;
+}
+message CompanyUseObtainEnjoyPointItemResponse {
+  api.CommonResponse commonResponse = 9999;
+}
+message CompanyReceiveTrustLevelRewardsRequest {
+  repeated int32 levelKeys = 1;
+}
+message CompanyReceiveTrustLevelRewardsResponse {
+  repeated transaction.RewardResult results = 1;
+  api.CommonResponse commonResponse = 9999;
+}
+message CompanyTrustMissionInfo {
+  ProtoEnum.CompanyTrustMissionCategoryType categoryType = 1;
+  repeated transaction.UserMission userMissions = 2;
+}
+message CompanyEnjoyCharacterMissionInfo {
+  ProtoEnum.CompanyEnjoyCharacterMissionCategoryType categoryType = 1;
+  repeated transaction.UserMission userMissions = 2;
 }
 message CostumeSetRequest {
   string costumeId = 1;
@@ -3187,6 +3335,13 @@ message CostumeCheckRequest {
   string costumeId = 1;
 }
 message CostumeCheckResponse {
+  api.CommonResponse commonResponse = 9999;
+}
+message CostumeCheckBulkRequest {
+  repeated string costumeIds = 1;
+  repeated string hairIds = 2;
+}
+message CostumeCheckBulkResponse {
   api.CommonResponse commonResponse = 9999;
 }
 message DeckSaveRequest {
@@ -4101,6 +4256,10 @@ message SpecialHomeActionDetail {
 message RouletteInfo {
   bool isRouletteFreeDraw = 1;
 }
+message CompanyInfo {
+  bool isReceivableRewards = 1;
+  bool isReceivableEnjoyRewards = 2;
+}
 message HomeLoginRequest {
   api.SettingInfo settingInfo = 1;
 }
@@ -4291,6 +4450,10 @@ message DiceRewardResultInfo {
   repeated transaction.Reward rewardResults = 3;
   int64 totalAreaCount = 4;
   int64 totalMovedPanelCount = 5;
+}
+message ShowcaseLikedRewardResultInfo {
+  int64 likedCount = 1;
+  repeated transaction.Reward rewards = 2;
 }
 message InviteTopResponse {
   string inviteCode = 1;
@@ -6144,10 +6307,188 @@ message ShopTryOnRequest {
 message ShopTryOnResponse {
   api.CommonResponse commonResponse = 9999;
 }
+message ShowcaseTopResponse {
+  repeated api.ShopInfo shops = 1;
+  repeated api.DokanInfo dokanInfos = 2;
+  repeated api.ShowcaseSelfInfo showcaseInfos = 3;
+  int64 totalLikedCount = 4;
+  repeated api.ShowcaseMysetInfo mysetInfos = 5;
+  repeated api.ShowcaseFrameInfo frameInfos = 6;
+  repeated api.DokanInfo topDokanInfos = 7;
+  api.CommonResponse commonResponse = 9999;
+}
+message ShowcaseSaveRequest {
+  int32 number = 1;
+  string frameId = 3;
+  string assetId = 5;
+  api.ShowcaseLayoutInfo layoutInfo = 6;
+}
+message ShowcaseSaveResponse {
+  api.CommonResponse commonResponse = 9999;
+}
+message ShowcaseSaveDetailRequest {
+  int32 number = 1;
+  string name = 2;
+  string comment = 3;
+  string musicId = 4;
+  bool isOpen = 5;
+}
+message ShowcaseSaveDetailResponse {
+  api.CommonResponse commonResponse = 9999;
+}
+message ShowcaseSaveMysetRequest {
+  int32 number = 1;
+  string frameId = 3;
+  api.ShowcaseLayoutInfo layoutInfo = 6;
+}
+message ShowcaseSaveMysetResponse {
+  api.CommonResponse commonResponse = 9999;
+}
+message ShowcaseDeleteMysetRequest {
+  int32 number = 1;
+}
+message ShowcaseDeleteMysetResponse {
+  api.CommonResponse commonResponse = 9999;
+}
+message ShowcaseApplyMysetRequest {
+  int32 number = 1;
+}
+message ShowcaseRenameMysetRequest {
+  int32 number = 1;
+  string name = 2;
+}
+message ShowcaseRenameMysetResponse {
+  api.CommonResponse commonResponse = 9999;
+}
+message ShowcaseCheckThumbnailShootingRequest {
+  int32 number = 1;
+}
+message ShowcaseCheckThumbnailShootingResponse {
+  api.CommonResponse commonResponse = 9999;
+}
+message ShowcaseSaveThumbnailRequest {
+  int32 number = 1;
+  string assetId = 2;
+}
+message ShowcaseSaveThumbnailResponse {
+  api.CommonResponse commonResponse = 9999;
+}
+message ShowcaseLikeRequest {
+  string userId = 1;
+  int32 number = 2;
+}
+message ShowcaseLikeResponse {
+  repeated transaction.Reward rewards = 1;
+  bool isAlreadyLike = 2;
+  api.CommonResponse commonResponse = 9999;
+}
+message ShowcaseGetRequest {
+  string userId = 1;
+}
+message ShowcaseGetResponse {
+  repeated api.ShowcaseInfo showcaseInfos = 1;
+  api.CommonResponse commonResponse = 9999;
+}
+message ShowcaseGalleryTopResponse {
+  repeated api.ShowcaseInfo showcaseInfos = 1;
+  api.ShowcaseTermInfo termInfo = 2;
+  api.CommonResponse commonResponse = 9999;
+}
+message ShowcaseSearchFriendRecommendListResponse {
+  repeated api.ShowcaseInfo showcaseInfos = 1;
+  api.ShowcaseTermInfo termInfo = 2;
+  bool isAlwaysEmpty = 3;
+  api.CommonResponse commonResponse = 9999;
+}
+message ShowcaseSearchHashtagListRequest {
+  string hashtagId = 1;
+  bool isHead = 2;
+}
+message ShowcaseSearchHashtagListResponse {
+  repeated api.ShowcaseInfo showcaseInfos = 1;
+  api.ShowcaseTermInfo termInfo = 2;
+  bool isEndHashtagSearchList = 3;
+  bool isAlwaysEmpty = 4;
+  api.CommonResponse commonResponse = 9999;
+}
+message ShowcaseDisplayRequest {
+  string userId = 1;
+  int32 number = 2;
+}
+message ShowcaseDisplayResponse {
+  api.ShowcaseInfo showcaseInfo = 1;
+  bool isViewable = 2;
+  api.ShowcaseLayoutInfo layoutInfo = 3;
+  api.CommonResponse commonResponse = 9999;
+}
+message ShowcaseCheckShootingRequest {
+  int32 number = 1;
+}
+message ShowcaseCheckShootingResponse {
+  api.CommonResponse commonResponse = 9999;
+}
+message ShowcaseCreatePhotoRequest {
+  int32 number = 1;
+  repeated api.ShowcaseCreatePhotoParam createPhotoParams = 2;
+  int32 manualCount = 3;
+}
+message ShowcaseCreatePhotoResponse {
+  repeated transaction.UserPhoto photos = 1;
+  bool isGift = 2;
+  api.CommonResponse commonResponse = 9999;
+}
+message ShowcaseToyInfo {
+  string id = 1;
+  int32 count = 2;
+}
+message ShowcaseMysetInfo {
+  int32 number = 1;
+  string defaultName = 2;
+}
+message ShowcaseInfo {
+  transaction.UserShowcase showcase = 1;
+  api.ProfileInfo profileInfo = 2;
+  bool isFriend = 3;
+  bool isLiked = 4;
+}
+message ShowcaseTermInfo {
+  int32 month = 1;
+  int32 day = 2;
+  int32 hour = 3;
+}
+message ShowcaseCreatePhotoParam {
+  string assetId = 1;
+  string itemId = 2;
+  string mainCharacterId = 3;
+}
+message ShowcaseLayoutInfo {
+  repeated api.ShowcaseToyAssetInfo showcaseToyAssetInfos = 1;
+  repeated api.ShowcaseToyArrangementInfo showcaseToyArrangementInfos = 2;
+}
+message ShowcaseToyAssetInfo {
+  int32 uniqueNumber = 1;
+  string showcaseToyId = 2;
+  int32 count = 3;
+}
+message ShowcaseToyArrangementInfo {
+  int32 uniqueNumber = 1;
+  int32 toyAssetInfoUniqueNumber = 2;
+  float positionX = 3;
+  float positionY = 4;
+  float rotation = 5;
+  int32 parentUniqueNumber = 6;
+  int32 showcaseFaceNumber = 7;
+}
 message StaffTrainRequest {
   ProtoEnum.ParameterType parameterType = 1;
 }
 message StaffTrainResponse {
+  api.CommonResponse commonResponse = 9999;
+}
+message StaffLevelLimitBreakRequest {
+  ProtoEnum.ParameterType parameterType = 1;
+}
+message StaffLevelLimitBreakResponse {
   api.CommonResponse commonResponse = 9999;
 }
 message StoryReadRequest {
@@ -6196,6 +6537,15 @@ message StoryReadExtraResponse {
 message StoryReadAnniversaryStoryRequest {
   string anniversaryId = 1;
   int32 episode = 2;
+}
+message StoryReadCharacterCompanyEnjoyStoryRequest {
+  string characterId = 1;
+  int32 number = 2;
+  bool isLast = 3;
+}
+message StoryReadCharacterCompanyEnjoyStoryResponse {
+  repeated transaction.RewardResult rewards = 1;
+  api.CommonResponse commonResponse = 9999;
 }
 message SystemCheckRequest {
   string firebaseIDToken = 1;
@@ -6586,6 +6936,12 @@ message UserGetResponse {
   repeated transaction.UserLeagueDeckPosition leagueDeckPositions = 40;
   repeated transaction.UserDuty duties = 41;
   repeated transaction.UserDutyPoint dutyPoints = 42;
+  transaction.UserCompany company = 43;
+  repeated transaction.UserShowcase showcases = 44;
+  transaction.UserShowcaseLike showcaseLike = 45;
+  repeated transaction.UserShowcaseMusic showcaseMusics = 46;
+  repeated transaction.UserShowcaseToy showcaseToys = 47;
+  repeated transaction.UserShowcaseMyset showcaseMysets = 48;
   transaction.UserPublic userPublic = 999;
 }
 message UserUpdateRequest {
