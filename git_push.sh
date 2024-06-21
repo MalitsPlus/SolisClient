@@ -1,5 +1,5 @@
 #!/bin/bash
-set -eu # o pipefail
+set -euo pipefail
 
 # init
 REPO_NAME="ipr-master-diff"

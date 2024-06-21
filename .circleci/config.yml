@@ -51,7 +51,7 @@ jobs:
       #     command: sh update_venus.sh
       - run:
           name: Run git diff
-          command: sh git_push.sh
+          command: sh git_push_ci.sh
       - run:
           name: Clean temp files
           command: |
