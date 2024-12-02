@@ -194,6 +194,9 @@ message Card {
   float highlightDisplayScale2 = 35;
   string obtainMessage = 36;
   string rewardHairId = 37;
+  string cardEvolutionLevelReleaseGroupId = 38;
+  string cardEvolutionLevelGroupId = 39;
+  string skillId4 = 40;
   repeated master.CardStory stories = 101;
   repeated master.CardMessage messages = 102;
   repeated master.CardHomeTalk homeTalks = 103;
@@ -203,8 +206,33 @@ message CardDuplicateReward {
   int32 currentRarity = 2;
   string rewardId = 3;
 }
+message CardEvolution {
+  string cardId = 1;
+  int32 evolutionLevel = 2;
+  string rewardCostumeId = 3;
+  string rewardHairId = 4;
+}
+message CardEvolutionMessage {
+  string cardId = 1;
+  int32 evolutionLevel = 2;
+  int32 number = 3;
+  string characterId = 4;
+  string evolveMessage = 5;
+  string voiceAssetId = 6;
+}
 message CardHomeTalk {
   string homeTalkId = 1;
+}
+message CardImage {
+  string cardId = 1;
+  ProtoEnum.CardDisplayType displayType = 2;
+  ProtoEnum.CardImageType imageType = 3;
+  float displayPositionX = 4;
+  float displayPositionY = 5;
+  float displayScale = 6;
+  float highlightDisplayPositionX = 7;
+  float highlightDisplayPositionY = 8;
+  float highlightDisplayScale = 9;
 }
 message CardMessage {
   string messageId = 1;
@@ -274,6 +302,7 @@ message Character {
   string homeMainCharacterStayAdditionMotionAssetId = 54;
   string homeMainCharacterStayStartMotionAssetId = 55;
   string homeMainCharacterStayPropAssetId = 56;
+  string gachaMovieName = 57;
 }
 message CharacterCompanyEnjoyStory {
   int32 number = 1;
@@ -378,6 +407,10 @@ message ConditionAnyObtainCostumes {
 }
 message ConditionAnyObtainHairs {
   repeated string hairIds = 1;
+}
+message ConditionCardEvolutionLevelGte {
+  string cardId = 1;
+  int32 evolutionLevelGte = 2;
 }
 message ConditionCardLevel {
   string cardId = 1;
@@ -876,6 +909,7 @@ message HomeTalk {
   string cardId = 12;
   string displayConditionDescription = 13;
   int32 order = 14;
+  int64 releaseDate = 15;
   repeated master.CharacterTalk characterTalks = 100;
 }
 message HomeTalkCallPattern {
@@ -1589,6 +1623,8 @@ message Setting {
   int32 deckEntrustMentalLotteryCoefficientPermil = 118;
   string storyPhotoShootingDefaultCharacterId = 119;
   int32 homeTalkDrawTimesPerDay = 120;
+  int32 questContestTicketLimitUseCount = 121;
+  int32 searchSkillNameCountLimit = 122;
   repeated ProtoEnum.StatusEffectType statusEffectTypeStrengthList = 1001;
   repeated ProtoEnum.StatusEffectType statusEffectTypeWeaknessDownList = 1002;
   repeated ProtoEnum.StatusEffectType statusEffectTypeWeaknessOtherList = 1003;
@@ -1616,6 +1652,7 @@ message Setting {
   int32 shelfPerAlbumPhotoLimit = 1300;
   int32 companyRankingDisplayNum = 1400;
   int32 companyEnjoyCharacterRankingDisplayNum = 1401;
+  int32 companyBulkReceiveMissionCountLimit = 1402;
 }
 message ShowcaseFrame {
   string id = 1;
@@ -1778,6 +1815,10 @@ message ActivityAbility {
   string description = 3;
   repeated master.ActivityAbilityLevel levels = 4;
 }
+message AppCapacityLimit {
+  int32 appCapacityLimitKey = 1;
+  bool isDataExist = 2;
+}
 message AssetDownload {
   string assetId = 1;
   ProtoEnum.AssetDownloadType type = 2;
@@ -1801,6 +1842,17 @@ message BoxGachaGroup {
 message CardDuplicateExp {
   int32 initialRarity = 1;
   int32 exp = 2;
+}
+message CardEvolutionLevel {
+  string groupId = 1;
+  int32 level = 2;
+  int32 exp = 3;
+  int32 duplicateObtainExp = 4;
+}
+message CardEvolutionLevelRelease {
+  string groupId = 1;
+  int32 level = 2;
+  repeated master.CardEvolutionLevelReleaseTarget targets = 3;
 }
 message CardLevel {
   int32 level = 1;
@@ -2160,6 +2212,7 @@ message TitleBackground {
 message TotalStaffEnhanceAdvantage {
   int32 enhanceCount = 1;
   int32 advantagePermil = 2;
+  bool isDataExist = 3;
 }
 message Wording {
   string key = 1;
@@ -2175,6 +2228,10 @@ message ActivityAbilityLevel {
   string targetId = 7;
   int32 value = 8;
 }
+message CardEvolutionLevelReleaseTarget {
+  ProtoEnum.CardLevelReleaseType type = 1;
+  int32 number = 2;
+}
 message CardLevelReleaseTarget {
   ProtoEnum.CardLevelReleaseType type = 1;
   int32 number = 2;
@@ -2189,6 +2246,7 @@ message LoveCharacterInfo {
   string cv = 3;
   string colorCode = 4;
   string description = 5;
+  string nameRegex = 6;
 }
 message ConditionSetting {
   master.ConditionSatisfyCondition satisfyCondition = 1;
@@ -2293,6 +2351,7 @@ message ConditionSetting {
   master.ConditionCompanySalaryPointGte companySalaryPointGte = 101;
   master.ConditionStaffLevelGte staffLevelGte = 102;
   master.ConditionCompanyEnjoyCharacterPointGte companyEnjoyCharacterPointGte = 103;
+  master.ConditionCardEvolutionLevelGte cardEvolutionLevelGte = 104;
 }
 message ConditionStartHours {
   int32 hoursLte = 1;

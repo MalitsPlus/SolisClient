@@ -145,6 +145,7 @@ enum CardDisplayType {
   CardDisplayType_Unknown = 0;
   CardDisplayType_BeforeLimitBreak = 1;
   CardDisplayType_AfterLimitBreak = 2;
+  CardDisplayType_AfterEvolution = 3;
 }
 enum CardImageType {
   CardImageType_Unknown = 0;
@@ -427,6 +428,9 @@ enum FunctionLockType {
   FunctionLockType_ShowcaseGallery = 41;
   FunctionLockType_StaffLevelLimitBreak = 42;
   FunctionLockType_ShowcaseLike = 43;
+  FunctionLockType_QuestContestMultipleTicketsPlay = 44;
+  FunctionLockType_CompanyBulkReceive = 45;
+  FunctionLockType_CardEvolution = 46;
 }
 enum FunctionMaintenanceType {
   FunctionMaintenanceType_Unknown = 0;
@@ -1720,6 +1724,7 @@ enum ShopType {
   ShopType_DefaultStoneShop = 1001;
   ShopType_DefaultNormalShop = 1002;
   ShopType_DefaultShowcaseToyShop = 1003;
+  ShopType_OnlyShowcaseShop = 2001;
 }
 enum ShowcaseHashtagCategoryType {
   ShowcaseHashtagCategoryType_Unknown = 0;
@@ -1879,6 +1884,7 @@ enum SkillFailureType {
   SkillFailureType_InSkillImpossibleEffect = 5;
   SkillFailureType_OpponentActivation = 6;
   SkillFailureType_Miss = 7;
+  SkillFailureType_AllSkillEfficacyTriggerFail = 8;
 }
 enum SkillPossessionType {
   SkillPossessionType_Unknown = 0;
@@ -2186,6 +2192,7 @@ enum TutorialType {
   TutorialType_Showcase = 42;
   TutorialType_ShowcaseGallery = 43;
   TutorialType_CompanyEnjoy = 44;
+  TutorialType_CardEvolution = 45;
 }
 enum WatchAdvertisementType {
   WatchAdvertisementType_Unknown = 0;

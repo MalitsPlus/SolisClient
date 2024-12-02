@@ -254,6 +254,12 @@ message BuddyCardInfo {
   string cardId = 1;
   int32 rarity = 2;
   int32 level = 3;
+  int32 evolutionLevel = 4;
+}
+message CompanyBulkReceiveEnjoyResult {
+  string characterId = 1;
+  int64 beforeCharacterEnjoyPoint = 2;
+  repeated transaction.RewardResult enjoyCharacterLevelRewardResults = 3;
 }
 message CompanyEnjoyCharacterLevelInfo {
   string characterId = 1;
@@ -716,6 +722,7 @@ message FavoriteCardInfo {
   string cardId = 1;
   int32 rarity = 2;
   ProtoEnum.CardDisplayType displayType = 3;
+  int32 evolutionLevel = 4;
 }
 message GachaButtonInfo {
   string id = 1;
@@ -985,6 +992,7 @@ message HomeEnterResponse {
   api.NotiShopItem notiShowcaseShopItem = 44;
   repeated string showcaseToyShopIds = 45;
   repeated int32 unlockedShowcaseNumbers = 46;
+  bool isUnclearedPlayableQuest = 47;
   api.PvpRewardResultInfo pvpRewardResultInfo = 100;
   api.GvgRewardResultInfo gvgRewardResultInfo = 101;
   repeated api.TourRewardResultInfo tourRewardResultInfos = 102;
@@ -1178,11 +1186,13 @@ message LastCardInfo {
   string cardId = 2;
   int32 level = 3;
   int32 rarity = 4;
+  int32 evolutionLevel = 5;
 }
 message LeagueCardInfo {
   string cardId = 1;
   int32 level = 2;
   int32 rarity = 3;
+  int32 evolutionLevel = 4;
 }
 message LeagueCardRanking {
   string userId = 1;
@@ -1251,6 +1261,7 @@ message LiveBattleCardInfo {
   int32 lightFanAmount = 5;
   int32 middleFanAmount = 6;
   int32 heavyFanAmount = 7;
+  int32 evolutionLevel = 8;
 }
 message LiveBattleQuestInfo {
   string id = 1;
@@ -1283,6 +1294,7 @@ message LiveCardInfo {
   string cardId = 2;
   int32 level = 3;
   int32 rarity = 4;
+  int32 evolutionLevel = 5;
 }
 message LiveCardResult {
   string cardId = 1;
@@ -1316,6 +1328,8 @@ message LiveDeckCard {
   bool isFriendBuddy = 20;
   string displayHairId = 21;
   bool isTourScout = 22;
+  int32 evolutionLevel = 23;
+  int32 skillLevel4 = 24;
 }
 message LiveDeckCardSkill {
   int32 index = 1;
@@ -2139,6 +2153,17 @@ message ShowcaseSelfInfo {
   bool isUnlocked = 4;
   api.ShowcaseLayoutInfo layoutInfo = 5;
 }
+message ShowcaseTopResponse {
+  repeated api.ShopInfo shops = 1;
+  repeated api.DokanInfo dokanInfos = 2;
+  repeated api.ShowcaseSelfInfo showcaseInfos = 3;
+  int64 totalLikedCount = 4;
+  repeated api.ShowcaseMysetInfo mysetInfos = 5;
+  repeated api.ShowcaseFrameInfo frameInfos = 6;
+  repeated api.DokanInfo topDokanInfos = 7;
+  repeated string showcaseMusicIds = 8;
+  api.CommonResponse commonResponse = 9999;
+}
 message SpecialHomeActionInfo {
   string characterId = 1;
   repeated api.SpecialHomeActionDetail specialHomeActionDetails = 2;
@@ -2513,6 +2538,12 @@ message AuthLoginResponse {
   bool requiredFirebaseReauthenticate = 3;
 }
 message AuthDeleteResponse {
+}
+message AuthRecreateRequest {
+  string firebaseIDToken = 1;
+}
+message AuthRecreateResponse {
+  string firebaseCustomToken = 1;
 }
 message BacksideTopRequest {
   string backsideId = 1;
@@ -3239,6 +3270,7 @@ message UpdatedData {
   repeated transaction.UserShowcaseMusic showcaseMusics = 46;
   repeated transaction.UserShowcaseToy showcaseToys = 47;
   repeated transaction.UserShowcaseMyset showcaseMysets = 48;
+  repeated transaction.UserTourArea tourAreas = 49;
 }
 message DeletedData {
   repeated transaction.UserItem items = 1;
@@ -3252,6 +3284,7 @@ message DeletedData {
   repeated transaction.UserPhotoRecipe photoRecipes = 10;
   repeated transaction.UserLeagueDeckPosition leagueDeckPositions = 11;
   repeated transaction.UserShowcaseMyset showcaseMysets = 12;
+  repeated transaction.UserTourArea tourAreas = 13;
 }
 message CompanyTopRequest {
   bool isSkipReportMissions = 1;
@@ -3266,6 +3299,13 @@ message CompanyReceiveGradeRewardsRequest {
   repeated string gradeIds = 1;
 }
 message CompanyReceiveGradeRewardsResponse {
+  repeated transaction.RewardResult results = 1;
+  api.CommonResponse commonResponse = 9999;
+}
+message CompanyBulkReceiveMissionRequest {
+  repeated string missionIds = 1;
+}
+message CompanyBulkReceiveMissionResponse {
   repeated transaction.RewardResult results = 1;
   api.CommonResponse commonResponse = 9999;
 }
@@ -3300,6 +3340,17 @@ message CompanyUseObtainEnjoyPointItemRequest {
   string itemId = 2;
 }
 message CompanyUseObtainEnjoyPointItemResponse {
+  api.CommonResponse commonResponse = 9999;
+}
+message CompanyBulkReceiveEnjoyRequest {
+  repeated string missionIds = 1;
+}
+message CompanyBulkReceiveEnjoyResponse {
+  repeated api.CompanyBulkReceiveEnjoyResult results = 1;
+  api.CommonResponse commonResponse = 9999;
+}
+message CompanyBulkReceiveEnjoyCharacterLevelRewardsResponse {
+  repeated api.CompanyBulkReceiveEnjoyResult results = 1;
   api.CommonResponse commonResponse = 9999;
 }
 message CompanyReceiveTrustLevelRewardsRequest {
@@ -4273,6 +4324,7 @@ message SettingInfo {
   bool messageNotification = 7;
   bool nightMode = 8;
   bool notLoginNotification = 9;
+  int32 appCapacityLimit = 10;
 }
 message HomeLoginResponse {
   api.PaidJpy paidJpy = 1;
@@ -6307,16 +6359,6 @@ message ShopTryOnRequest {
 message ShopTryOnResponse {
   api.CommonResponse commonResponse = 9999;
 }
-message ShowcaseTopResponse {
-  repeated api.ShopInfo shops = 1;
-  repeated api.DokanInfo dokanInfos = 2;
-  repeated api.ShowcaseSelfInfo showcaseInfos = 3;
-  int64 totalLikedCount = 4;
-  repeated api.ShowcaseMysetInfo mysetInfos = 5;
-  repeated api.ShowcaseFrameInfo frameInfos = 6;
-  repeated api.DokanInfo topDokanInfos = 7;
-  api.CommonResponse commonResponse = 9999;
-}
 message ShowcaseSaveRequest {
   int32 number = 1;
   string frameId = 3;
@@ -6366,13 +6408,6 @@ message ShowcaseCheckThumbnailShootingRequest {
 message ShowcaseCheckThumbnailShootingResponse {
   api.CommonResponse commonResponse = 9999;
 }
-message ShowcaseSaveThumbnailRequest {
-  int32 number = 1;
-  string assetId = 2;
-}
-message ShowcaseSaveThumbnailResponse {
-  api.CommonResponse commonResponse = 9999;
-}
 message ShowcaseLikeRequest {
   string userId = 1;
   int32 number = 2;
@@ -6397,7 +6432,6 @@ message ShowcaseGalleryTopResponse {
 message ShowcaseSearchFriendRecommendListResponse {
   repeated api.ShowcaseInfo showcaseInfos = 1;
   api.ShowcaseTermInfo termInfo = 2;
-  bool isAlwaysEmpty = 3;
   api.CommonResponse commonResponse = 9999;
 }
 message ShowcaseSearchHashtagListRequest {
@@ -6942,6 +6976,7 @@ message UserGetResponse {
   repeated transaction.UserShowcaseMusic showcaseMusics = 46;
   repeated transaction.UserShowcaseToy showcaseToys = 47;
   repeated transaction.UserShowcaseMyset showcaseMysets = 48;
+  repeated transaction.UserTourArea tourAreas = 49;
   transaction.UserPublic userPublic = 999;
 }
 message UserUpdateRequest {

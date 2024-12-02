@@ -86,6 +86,8 @@ message UserCard {
   int64 lastEnhanceTime = 11;
   int32 rankTotalExp = 12;
   ProtoEnum.CardDisplayType displayType = 13;
+  int32 skillLevel4 = 14;
+  int64 evolutionLevelTotalExp = 15;
   int32 level = 100;
   int32 rarity = 101;
   int64 vocal = 102;
@@ -117,6 +119,10 @@ message UserCard {
   string baseActivityAbilityId = 128;
   int32 basePhotoEquipableCount = 129;
   int32 rank = 130;
+  int32 evolutionLevel = 131;
+  string skillId4 = 132;
+  int32 baseSkillLevel4 = 133;
+  string baseSkillId4 = 134;
 }
 message UserCharacter {
   string characterId = 1;
@@ -345,6 +351,7 @@ message RewardResult {
   repeated transaction.RewardResult duplicateRewardResults = 9;
   repeated transaction.Reward additionalGifts = 10;
   int64 amountI64 = 11;
+  int32 increasedAfterEvolutionLevel = 12;
 }
 message UserActivityFanEventProgress {
   ProtoEnum.ResultRankType bestScoreRankType = 1;
@@ -489,6 +496,15 @@ message UserTotalCount {
   int64 guildCheckInCount = 12;
   int64 photoRetouchCount = 13;
   int64 dreamAreaGenerateCount = 14;
+}
+message UserTourArea {
+  string tourId = 1;
+  repeated transaction.UserTourDeck decks = 2;
+  bool isRetired = 3;
+}
+message UserTourDeck {
+  int32 position = 1;
+  string cardId = 2;
 }
 message UserTutorial {
   ProtoEnum.TutorialType tutorialType = 1;
