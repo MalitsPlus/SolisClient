@@ -178,20 +178,6 @@ message Card {
   int32 order = 19;
   int64 releaseDate = 20;
   string rewardCostumeId = 21;
-  ProtoEnum.CardImageType imageType1 = 22;
-  float displayPositionX1 = 23;
-  float displayPositionY1 = 24;
-  float displayScale1 = 25;
-  float highlightDisplayPositionX1 = 26;
-  float highlightDisplayPositionY1 = 27;
-  float highlightDisplayScale1 = 28;
-  ProtoEnum.CardImageType imageType2 = 29;
-  float displayPositionX2 = 30;
-  float displayPositionY2 = 31;
-  float displayScale2 = 32;
-  float highlightDisplayPositionX2 = 33;
-  float highlightDisplayPositionY2 = 34;
-  float highlightDisplayScale2 = 35;
   string obtainMessage = 36;
   string rewardHairId = 37;
   string cardEvolutionLevelReleaseGroupId = 38;
@@ -562,6 +548,7 @@ message Costume {
   string motifAssetId = 11;
   bool isUserUnavailable = 12;
   string defaultHairId = 13;
+  repeated ProtoEnum.PhotoPoseType impossiblePhotoPoseTypes = 14;
 }
 message Decoration {
   string id = 1;
@@ -780,6 +767,7 @@ message Hair {
   int32 order = 9;
   string name = 10;
   int64 releaseTime = 11;
+  repeated ProtoEnum.PhotoPoseType impossiblePhotoPoseTypes = 12;
 }
 message HierarchyDetailGrade {
   string id = 1;
@@ -1292,6 +1280,55 @@ message PhotoContestSectionReward {
   string id = 1;
   int32 requiredEvaluationPoint = 2;
   string rewardId = 3;
+}
+message PhotoExpression {
+  string id = 1;
+  string name = 2;
+  string thumbnailAssetId = 3;
+  string stageId = 4;
+  repeated string costumeTypeIds = 5;
+  string forceCostumeTypeId = 6;
+  int32 order = 7;
+  string viewConditionId = 8;
+  string unlockConditionId = 9;
+  repeated string impossibleShootingCharacterIds = 10;
+  repeated string impossiblePhotoPoseIds = 11;
+}
+message PhotoExpressionStagePosition {
+  string stageId = 1;
+  int32 number = 2;
+  string name = 3;
+  ProtoEnum.PhotoPoseType possiblePhotoPoseType = 4;
+  string initialPhotoPoseId = 5;
+  repeated float characterPositions = 6;
+  repeated float characterAngles = 7;
+  repeated float cameraPositions = 8;
+  repeated float cameraAngles = 9;
+  float upperLimit = 10;
+  float lowerLimit = 11;
+  repeated float previewCameraPositions = 12;
+  repeated float previewCameraAngles = 13;
+  float previewUpperLimit = 14;
+  float previewLowerLimit = 15;
+  string lookEffectAssetId = 16;
+}
+message PhotoFacial {
+  string id = 1;
+  string name = 2;
+  int32 order = 3;
+  string unlockConditionId = 4;
+}
+message PhotoFacialMotion {
+  string photoFacialId = 1;
+  string characterId = 2;
+  string motionAssetId = 3;
+  string voiceAssetId = 4;
+}
+message PhotoPoseMotion {
+  string photoPoseId = 1;
+  string characterId = 2;
+  string motionAssetId = 3;
+  repeated string propAssetIds = 4;
 }
 message PhotoQuestMusic {
   string id = 1;
@@ -2075,6 +2112,17 @@ message PhotoAbilityTarget {
   ProtoEnum.PhotoAbilityTargetType type = 2;
   string targetId = 3;
 }
+message PhotoPose {
+  string id = 1;
+  string name = 2;
+  string description = 3;
+  string thumbAssetId = 4;
+  ProtoEnum.PhotoPoseType poseType = 5;
+  ProtoEnum.PhotoPoseMotionType poseMotionType = 6;
+  ProtoEnum.PhotoLookingType lookingType = 7;
+  int32 order = 8;
+  int64 releaseDatetime = 9;
+}
 message PhotoRarityLevel {
   int32 rarity = 1;
   int32 level = 2;
@@ -2179,6 +2227,7 @@ message Stage {
   int32 order = 7;
   string timeDifference = 8;
   bool isHideWithPhotoShooting = 9;
+  string overrideAssetVariationId = 10;
 }
 message StatusEffectName {
   ProtoEnum.StatusEffectType statusEffectType = 1;

@@ -993,6 +993,7 @@ message HomeEnterResponse {
   repeated string showcaseToyShopIds = 45;
   repeated int32 unlockedShowcaseNumbers = 46;
   bool isUnclearedPlayableQuest = 47;
+  repeated api.PhotoExpression photoExpressions = 48;
   api.PvpRewardResultInfo pvpRewardResultInfo = 100;
   api.GvgRewardResultInfo gvgRewardResultInfo = 101;
   repeated api.TourRewardResultInfo tourRewardResultInfos = 102;
@@ -1715,6 +1716,10 @@ message PhotoContestSubmitShootingResponse {
   repeated api.PhotoContestSectionAdvanceGuideInfo advanceGuideInfos = 11;
   int64 fixedCreatePhotoRarity = 12;
   api.CommonResponse commonResponse = 9999;
+}
+message PhotoExpression {
+  string photoExpressionId = 1;
+  bool isUnlocked = 2;
 }
 message PhotoListSpecialShootingResponse {
   repeated api.SpecialPhotoActivityInfo activities = 1;
@@ -3271,6 +3276,7 @@ message UpdatedData {
   repeated transaction.UserShowcaseToy showcaseToys = 47;
   repeated transaction.UserShowcaseMyset showcaseMysets = 48;
   repeated transaction.UserTourArea tourAreas = 49;
+  repeated transaction.UserPhotoPose photoPoses = 50;
 }
 message DeletedData {
   repeated transaction.UserItem items = 1;
@@ -5500,6 +5506,8 @@ message PhotoListShootingResponse {
   repeated api.PhotoActivity activities = 1;
   repeated api.PhotoMusic musics = 2;
   repeated api.PhotoStage stages = 3;
+  repeated api.PhotoExpression expressions = 4;
+  api.PhotoDokanInfo dokanInfo = 100;
   api.CommonResponse commonResponse = 9999;
 }
 message PhotoExtendLimitResponse {
@@ -5603,6 +5611,39 @@ message PhotoCreateCardStoryShootingsResponse {
   repeated transaction.UserPhoto photos = 1;
   bool isGift = 2;
   api.CommonResponse commonResponse = 9999;
+}
+message PhotoCheckExpressionShootingRequest {
+  string photoExpressionId = 1;
+  string characterId = 2;
+  string costumeId = 3;
+  string hairId = 4;
+}
+message PhotoCheckExpressionShootingResponse {
+  api.CommonResponse commonResponse = 9999;
+}
+message PhotoCreateExpressionShootingsRequest {
+  string photoExpressionId = 1;
+  string characterId = 2;
+  string costumeId = 3;
+  string hairId = 4;
+  repeated api.PhotoCreateExpressionShootingParam createExpressionShootingParams = 7;
+  int32 manualCount = 8;
+}
+message PhotoCreateExpressionShootingsResponse {
+  repeated transaction.UserPhoto photos = 1;
+  bool isGift = 2;
+  api.CommonResponse commonResponse = 9999;
+}
+message PhotoCreateExpressionShootingParam {
+  string photoImageId = 1;
+  string itemId = 2;
+  int32 stagePositionNumber = 3;
+  string photoPoseId = 4;
+  string photoFacialId = 5;
+  ProtoEnum.PhotoLookingType photoLookingType = 6;
+}
+message PhotoDokanInfo {
+  repeated api.DokanInfo expressions = 1;
 }
 message PhotoContestTopRequest {
   string photoContestId = 1;
@@ -6977,6 +7018,7 @@ message UserGetResponse {
   repeated transaction.UserShowcaseToy showcaseToys = 47;
   repeated transaction.UserShowcaseMyset showcaseMysets = 48;
   repeated transaction.UserTourArea tourAreas = 49;
+  repeated transaction.UserPhotoPose photoPoses = 50;
   transaction.UserPublic userPublic = 999;
 }
 message UserUpdateRequest {

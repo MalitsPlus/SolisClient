@@ -249,6 +249,9 @@ message UserPhotoAbility {
   int32 grade = 4;
   bool isAvailable = 5;
 }
+message UserPhotoPose {
+  string photoPoseId = 1;
+}
 message UserPhotoRecipe {
   string photoRecipeId = 1;
   int64 amount = 2;

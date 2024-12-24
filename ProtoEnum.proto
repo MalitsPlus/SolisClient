@@ -285,6 +285,7 @@ enum DokanTargetType {
   DokanTargetType_ShowcaseToyShop = 13;
   DokanTargetType_Company = 14;
   DokanTargetType_ShowcaseTop = 15;
+  DokanTargetType_PhotoExpression = 16;
 }
 enum DokanType {
   DokanType_Unknown = 0;
@@ -431,6 +432,7 @@ enum FunctionLockType {
   FunctionLockType_QuestContestMultipleTicketsPlay = 44;
   FunctionLockType_CompanyBulkReceive = 45;
   FunctionLockType_CardEvolution = 46;
+  FunctionLockType_PhotoExpressionShooting = 47;
 }
 enum FunctionMaintenanceType {
   FunctionMaintenanceType_Unknown = 0;
@@ -737,6 +739,7 @@ enum HelpDisplayTargetType {
   HelpDisplayTargetType_ShowcaseToyList = 225;
   HelpDisplayTargetType_ShowcaseToyGacha = 229;
   HelpDisplayTargetType_CompanyEnjoyRanking = 230;
+  HelpDisplayTargetType_ExpressionPhotography = 231;
 }
 enum HelpType {
   HelpType_Unknown = 0;
@@ -905,6 +908,7 @@ enum LinkType {
   LinkType_Market = 36;
   LinkType_Forum = 37;
   LinkType_PhotoStory = 38;
+  LinkType_PhotoExpression = 39;
   LinkType_EventMission = 100;
   LinkType_Tour = 101;
   LinkType_Backside = 102;
@@ -1194,6 +1198,9 @@ enum MissionType {
   MissionType_AreaAllMainQuestClearCountAchievement = 82;
   MissionType_AreaAllTowerQuestClearCountAchievement = 83;
   MissionType_AreaSubTowerQuestClearCountAchievement = 84;
+  MissionType_PhotoExpressionShootingCount = 86;
+  MissionType_PhotoExpressionShootingSpecifiedPoseShootCount = 87;
+  MissionType_PhotoExpressionShootingSpecifiedCharacterShootCount = 88;
   MissionType_TourAreaClearCount = 1001;
   MissionType_TourRivalClearCount = 1002;
   MissionType_TourBossClearCountWithCharacter = 1003;
@@ -1372,6 +1379,23 @@ enum PhotoImageType {
   PhotoImageType_User = 2;
   PhotoImageType_Generated = 3;
 }
+enum PhotoLookingType {
+  PhotoLookingType_Unknown = 0;
+  PhotoLookingType_None = 1;
+  PhotoLookingType_Eyes = 2;
+  PhotoLookingType_Body = 3;
+}
+enum PhotoPoseMotionType {
+  PhotoPoseMotionType_Unknown = 0;
+  PhotoPoseMotionType_Motion = 1;
+  PhotoPoseMotionType_OneFrame = 2;
+}
+enum PhotoPoseType {
+  PhotoPoseType_Unknown = 0;
+  PhotoPoseType_Standing = 1;
+  PhotoPoseType_Sitting = 2;
+  PhotoPoseType_Lying = 3;
+}
 enum PhotoShootingActionType {
   PhotoShootingActionType_Unknown = 0;
   PhotoShootingActionType_ActivityPromotion = 1;
@@ -1512,6 +1536,7 @@ enum ResourceType {
   ResourceType_CompanyPoint = 31;
   ResourceType_ShowcaseToy = 32;
   ResourceType_ShowcaseMusic = 33;
+  ResourceType_PhotoPose = 34;
   ResourceType_Set = 999;
 }
 enum ResultRankType {
@@ -1600,6 +1625,7 @@ enum RewardSortResourceType {
   RewardSortResourceType_ItemCompanyEnjoyObtainPoint = 75;
   RewardSortResourceType_ShowcaseToy = 76;
   RewardSortResourceType_ShowcaseMusic = 77;
+  RewardSortResourceType_PhotoPose = 78;
 }
 enum RewardSortTargetType {
   RewardSortTargetType_Unknown = 0;
@@ -2193,6 +2219,7 @@ enum TutorialType {
   TutorialType_ShowcaseGallery = 43;
   TutorialType_CompanyEnjoy = 44;
   TutorialType_CardEvolution = 45;
+  TutorialType_PhotoExpression = 46;
 }
 enum WatchAdvertisementType {
   WatchAdvertisementType_Unknown = 0;
