@@ -19,7 +19,7 @@ import rich_console as console
 from cache_manager import set_cache, get_cache
 from google.protobuf.json_format import MessageToDict
 from os import _exit as exit
-from pkg_resources import packaging
+import packaging.version
 
 
 class ClientBase:
