@@ -17,8 +17,8 @@ def find_version(html: str) -> str:
         return None
     target = target_items[0].decode_contents()
     js_data = target.replace("AF_initDataCallback(", "")[:-1]
-    # [[['3.5.3']], [[[33]], [[[24, '7.0']]]]],
-    match = re.search('\[\[\["([\d.]+)"\]\],\[\[\[\d+\]\]\,\[\[\[\d+,"', js_data)
+    # ,[[["4.7.0"]],[[[34]],[[[28,"9"]]]]],
+    match = re.search(r'\[\[\["([\d.]+)"\]\],\[\[\[\d+\]\]\,\[\[\[\d+,"', js_data)
     if match is None:
         return None
     return match.group(1)
