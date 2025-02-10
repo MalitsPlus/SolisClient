@@ -128,12 +128,15 @@ message BacksideDeckCardDetailInfo {
   int32 staminaPermil = 20;
   bool supported = 21;
   string displayHairId = 22;
+  int32 skillLevel4 = 23;
+  int32 evolutionLevel = 24;
 }
 message BacksideDeckCardInfo {
   int32 position = 1;
   string cardId = 2;
   int32 level = 3;
   int32 rarity = 4;
+  int32 evolutionLevel = 5;
 }
 message BacksideDeckCardStaminaInfo {
   string cardId = 1;
@@ -6718,6 +6721,7 @@ message TourAreaScoutRequest {
   int32 step = 2;
   int32 position = 3;
   string cardId = 4;
+  int32 evolutionLevel = 5;
 }
 message TourAreaScoutResponse {
   api.TourAreaInfo areaInfo = 1;
@@ -6831,6 +6835,7 @@ message TourDeckInfo {
   int32 position = 1;
   string cardId = 2;
   string scoutId = 3;
+  int32 evolutionLevel = 4;
 }
 message TourAreaInfo {
   int32 areaStamina = 1;
@@ -6884,6 +6889,7 @@ message TourOpponentInfo {
 message TourCardInfo {
   string cardId = 1;
   int32 staminaPermil = 2;
+  int32 evolutionLevel = 3;
 }
 message TourScoutInfo {
   string scoutId = 1;
@@ -6901,6 +6907,8 @@ message TourScoutInfo {
   int32 skillLevel1 = 13;
   int32 skillLevel2 = 14;
   int32 skillLevel3 = 15;
+  int32 skillLevel4 = 16;
+  int32 evolutionLevel = 17;
 }
 message TourLiveInfo {
   api.LiveResult result = 1;
