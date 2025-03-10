@@ -101,7 +101,7 @@ def check_and_dump_json(file: str, proto: any) -> bool:
         if quest["id"] == proto.id:
             return False
     proto_dict = MessageToDict(
-        proto, use_integers_for_enums=True, including_default_value_fields=True
+        proto, use_integers_for_enums=True, always_print_fields_with_no_presence=True
     )
     quest_json.insert(0, proto_dict)
     pth.write_text(

@@ -5,12 +5,12 @@ name = "pypi"
 
 [packages]
 beautifulsoup4 = '==4.12.3'
-grpcio = '*'
+grpcio = '==1.70.0'
 pycryptodome = '==3.20.0'
 PyJWT = '==2.8.0'
 requests = '==2.31.0'
 rich = '==12.6.0'
-UnityPy = '>=1.10.13'
+UnityPy = '>=1.20.18'
 protobuf = '==4.25.3'
 lxml = '*'
 motor = '>=3.6.0'

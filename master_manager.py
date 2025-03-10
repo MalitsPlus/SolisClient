@@ -43,7 +43,7 @@ def one_task(name: str, key: str, url: str):
             # one_data is a single element tuple 
             one_data = it[0]
             msg = cls.FromString(one_data)
-            jdict = MessageToDict(msg, use_integers_for_enums=True, including_default_value_fields=True)
+            jdict = MessageToDict(msg, use_integers_for_enums=True, always_print_fields_with_no_presence=True)
             msg_list.append(jdict)
         # Convert data to json
         if name == "Reward":
@@ -63,7 +63,7 @@ def one_task(name: str, key: str, url: str):
 
 def generate_data(master_tag: transp.MasterTag):
     tag_dict = MessageToDict(
-        master_tag, use_integers_for_enums=True, including_default_value_fields=True)
+        master_tag, use_integers_for_enums=True, always_print_fields_with_no_presence=True)
     with open("cache/mastertag.json", "w", encoding="utf8") as fp:
         json.dump(tag_dict, fp, indent=4)
 

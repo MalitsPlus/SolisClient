@@ -128,7 +128,7 @@ class SolisClient(ClientBase):
         notice_dict = MessageToDict(
             self._notice_list,
             use_integers_for_enums=True,
-            including_default_value_fields=True,
+            always_print_fields_with_no_presence=True,
         )
         with open("cache/notice.json", "w", encoding="utf8") as fp:
             json.dump(notice_dict, fp, ensure_ascii=False, indent=2)
@@ -155,7 +155,7 @@ class SolisClient(ClientBase):
         notice_dict = MessageToDict(
             self._notice_list,
             use_integers_for_enums=True,
-            including_default_value_fields=True,
+            always_print_fields_with_no_presence=True,
         )
         notice_json = json.dumps(notice_dict, ensure_ascii=False)
         upload.send_kv("Notice", notice_json)

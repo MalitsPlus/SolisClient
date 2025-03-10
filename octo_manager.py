@@ -128,12 +128,12 @@ def unpack_to_image(asset_bytes: bytes, dest: str):
         if obj.type.name == "Texture2D":
             try:
                 data = obj.read()
-                dest_path = Path(dest, data.name).with_suffix(".png")
+                dest_path = Path(dest, data.m_Name).with_suffix(".png")
                 dest_path.parent.mkdir(exist_ok=True)
                 img = data.image
                 img.save(dest_path)
             except:
-                console.error(f"Failed to convert '{data.name}' to image.")
+                console.error(f"Failed to convert '{data.m_Name}' to image.")
 
 
 def one_task(data: octop.Data, _type: str, revision: int, url_format: str):
@@ -171,7 +171,7 @@ def one_task(data: octop.Data, _type: str, revision: int, url_format: str):
             lock.acquire()
             _current_count += 1
             console.error(
-                f"{_current_count}/{_asset_count}) Failed to unobfuscate '{data.name}'."
+                f"({_current_count}/{_asset_count}) Failed to unobfuscate '{data.name}'."
             )
             console.error(sys.exc_info()[0])
             lock.release()
@@ -189,7 +189,7 @@ def one_task(data: octop.Data, _type: str, revision: int, url_format: str):
 def update_octo_manifest(raw_cache: bytes):
     database = decrypt_api_database(raw_cache)
     octo_dict = MessageToDict(
-        database, use_integers_for_enums=True, including_default_value_fields=True
+        database, use_integers_for_enums=True, always_print_fields_with_no_presence=True
     )
     with open("cache/OctoManifest.json", "w", encoding="utf8") as fp:
         json.dump(octo_dict, fp, ensure_ascii=False, indent=2)
@@ -204,7 +204,7 @@ def update_octo(raw_cache: bytes, is_file: bool = False):
     else:
         database = decrypt_api_database(raw_cache)
     octo_dict = MessageToDict(
-        database, use_integers_for_enums=True, including_default_value_fields=True
+        database, use_integers_for_enums=True, always_print_fields_with_no_presence=True
     )
     with open("cache/OctoDiff.json", "w", encoding="utf8") as fp:
         json.dump(octo_dict, fp, ensure_ascii=False, indent=2)
