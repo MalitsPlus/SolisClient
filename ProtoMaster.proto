@@ -178,6 +178,7 @@ message Card {
   int32 order = 19;
   int64 releaseDate = 20;
   string rewardCostumeId = 21;
+  repeated string rewardHairIds = 35;
   string obtainMessage = 36;
   string rewardHairId = 37;
   string cardEvolutionLevelReleaseGroupId = 38;
@@ -289,6 +290,7 @@ message Character {
   string homeMainCharacterStayStartMotionAssetId = 55;
   string homeMainCharacterStayPropAssetId = 56;
   string gachaMovieName = 57;
+  repeated master.LoveCharacterInfo loveInfos = 58;
 }
 message CharacterCompanyEnjoyStory {
   int32 number = 1;
@@ -1010,6 +1012,7 @@ message LoveHomeAction {
   repeated string unlockLoveStoryEndIds = 12;
   int32 weight = 13;
   ProtoEnum.LoveHomeActionType actionType = 14;
+  string costumeId = 15;
 }
 message LoveStoryEpisode {
   string id = 1;
@@ -1181,6 +1184,10 @@ message MusicMasteryRewardSet {
   int32 level = 2;
   string rewardId = 3;
   int32 rewardStoneAmount = 4;
+}
+message OrnamentHair {
+  string baseHairId = 1;
+  repeated string ornamentHairIds = 2;
 }
 message PhotoAbility {
   string id = 1;
@@ -1680,6 +1687,7 @@ message Setting {
   int32 leagueRankingDisplayRankLimit = 700;
   int32 loveSaveSlotNum = 800;
   int32 secondsPerLoveLessonStep = 801;
+  string loveTitleAssetId = 802;
   int32 dreamQuestCharacterAdvantagePermil = 900;
   int32 dreamGenerateAreaBasePhotoRequiredRarity = 901;
   string dreamAreaName = 902;
@@ -2083,6 +2091,31 @@ message LiveTip {
   string description = 3;
   int32 priority = 4;
 }
+message LoveColor {
+  string loveId = 1;
+  string executeButtonGradientStartColor = 2;
+  string executeButtonGradientEndColor = 3;
+  string homeButtonFrameColor = 4;
+  string storySelectMaskColor = 5;
+  string itemBackgroundColor = 6;
+  string loveLevelBackgroundColor = 7;
+  string mainColor = 8;
+  string noticeColor = 9;
+  string pickupTextColor = 10;
+  string overlayBackgroundColor = 11;
+  string screenBackgroundColor = 12;
+  string iconColor = 13;
+  string borderLineColor = 14;
+  string gaugeColor = 15;
+  string footerGradientStartColor = 16;
+  string footerGradientEndColor = 17;
+  string startButtonGradientColor1 = 18;
+  string startButtonGradientColor2 = 19;
+  string startButtonGradientColor3 = 20;
+  string startButtonTextColor = 21;
+  string loveLevelUpBackgroundColor = 22;
+  string advMainColor = 23;
+}
 message LoveLevel {
   string loveId = 1;
   int32 level = 2;
@@ -2228,6 +2261,7 @@ message Stage {
   string timeDifference = 8;
   bool isHideWithPhotoShooting = 9;
   string overrideAssetVariationId = 10;
+  repeated string additionalAssetIds = 11;
 }
 message StatusEffectName {
   ProtoEnum.StatusEffectType statusEffectType = 1;
@@ -2296,6 +2330,7 @@ message LoveCharacterInfo {
   string colorCode = 4;
   string description = 5;
   string nameRegex = 6;
+  string loveId = 7;
 }
 message ConditionSetting {
   master.ConditionSatisfyCondition satisfyCondition = 1;

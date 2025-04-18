@@ -433,6 +433,7 @@ enum FunctionLockType {
   FunctionLockType_CompanyBulkReceive = 45;
   FunctionLockType_CardEvolution = 46;
   FunctionLockType_PhotoExpressionShooting = 47;
+  FunctionLockType_Satellite = 50;
 }
 enum FunctionMaintenanceType {
   FunctionMaintenanceType_Unknown = 0;
@@ -740,6 +741,13 @@ enum HelpDisplayTargetType {
   HelpDisplayTargetType_ShowcaseToyGacha = 229;
   HelpDisplayTargetType_CompanyEnjoyRanking = 230;
   HelpDisplayTargetType_ExpressionPhotography = 231;
+  HelpDisplayTargetType_LoveExtraEpisodeList = 232;
+  HelpDisplayTargetType_LoveExtraHome = 233;
+  HelpDisplayTargetType_LoveExtraSave = 234;
+  HelpDisplayTargetType_LoveExtraLoad = 235;
+  HelpDisplayTargetType_LoveExtraMission = 236;
+  HelpDisplayTargetType_LoveExtraSetting = 237;
+  HelpDisplayTargetType_LoveExtraStatus = 238;
 }
 enum HelpType {
   HelpType_Unknown = 0;
@@ -1040,6 +1048,11 @@ enum LoginBonusType {
   LoginBonusType_Unknown = 0;
   LoginBonusType_Normal = 1;
   LoginBonusType_Event = 2;
+}
+enum LoveBaseType {
+  LoveBaseType_Unknown = 0;
+  LoveBaseType_Standard = 1;
+  LoveBaseType_Extra = 2;
 }
 enum LoveHintType {
   LoveHintType_Unknown = 0;
@@ -2220,6 +2233,7 @@ enum TutorialType {
   TutorialType_CompanyEnjoy = 44;
   TutorialType_CardEvolution = 45;
   TutorialType_PhotoExpression = 46;
+  TutorialType_Satellite = 47;
 }
 enum WatchAdvertisementType {
   WatchAdvertisementType_Unknown = 0;
