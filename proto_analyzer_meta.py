@@ -24,6 +24,11 @@ api_ptn = r"Solis.Common.Proto.Api\n(?P<content>[\s\S]+?)// Namespace:"
 # Transaction patterns
 transaction_ptn = r"Solis.Common.Proto.Transaction\n(?P<content>[\s\S]+?)// Namespace:"
 
+# Service patterns
+srv_cls_ptn = r"// Namespace: \npublic class \w+\.\w+Client : ClientBase\<[\s\S]+?\n}\n\n// Namespace"
+srv_srv_ptn = r"public class (?P<serviceName>\w+)\.\w+Client : ClientBase\<"
+srv_clm_ptn = r"public virtual (?P<responseName>\w+) (?P<methodName>\w+)\((?P<requestName>\w+) request,.+Metadata"
+
 # Pairs & Generations
 enum_pairs = "  {ename} = {v};\n"
 enum_text = """enum {name} {
@@ -101,7 +106,7 @@ def analyze_common(common_ptn: str) -> str:
                             "value": value, "type": type_, "name": name_})
             txt += gen_common(name, ppts)
     if common_ptn == api_ptn:
-        imports = 'package api;\noption go_package = "solis/pkg/proto/api";\noption csharp_namespace = "Solis.Common.Proto.Api";\nimport "ProtoEnum.proto";\nimport "ProtoMaster.proto";\nimport "ProtoTransaction.proto";\nimport "google/protobuf/empty.proto";\n'
+        imports = 'package api;\noption go_package = "solis/pkg/proto/api";\noption csharp_namespace = "Solis.Common.Proto.Api";\nimport "ProtoEnum.proto";\nimport "ProtoMaster.proto";\nimport "ProtoTransaction.proto";\n'
     elif common_ptn == master_ptn:
         imports = 'package master;\noption go_package = "solis/pkg/proto/master";\noption csharp_namespace = "Solis.Common.Proto.Master";\nimport "ProtoEnum.proto";\n'
     elif common_ptn == transaction_ptn:
@@ -165,6 +170,23 @@ def add_packages():
     n_txt = re.sub(kv_ptn, rplc_func, trans_txt)
     Path(out_file_transaction).write_text(n_txt)
     
+def get_services() -> str: 
+    txt = "message Empty {}\n"
+    m = re.findall(srv_cls_ptn, original_str)
+    for one_class in m:
+        srv_match = re.search(srv_srv_ptn, one_class)
+        if srv_match:
+            srv_name = srv_match.group("serviceName")
+            txt += "service " + srv_name + " {\n"
+            clm_matches = re.findall(srv_clm_ptn, one_class)
+            for clm in clm_matches:
+                resp_name = clm[0]
+                metd_name = clm[1]
+                req_name = clm[2]
+                txt += f"  rpc {metd_name}({req_name}) returns ({resp_name});\n"
+            txt += "}\n"
+    return txt
+
 
 if __name__ == "__main__":
     original_str = Path(cs_file).read_text(encoding="utf-8")
@@ -173,7 +195,8 @@ if __name__ == "__main__":
     master_txt = analyze_common(master_ptn)
     Path(out_file_master).write_text(master_txt, encoding="utf-8")
     api_txt = analyze_common(api_ptn)
-    Path(out_file_api).write_text(api_txt, encoding="utf-8")
+    service_txt = get_services()
+    Path(out_file_api).write_text(api_txt + service_txt, encoding="utf-8")
     transaction_txt = analyze_common(transaction_ptn)
     Path(out_file_transaction).write_text(transaction_txt, encoding="utf-8")
     add_packages()
