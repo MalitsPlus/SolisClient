@@ -2,10 +2,10 @@ import re
 from pathlib import Path
 
 cs_file = "cache/dump.cs"
-out_file_enum = "cache/ProtoEnum.proto"
-out_file_master = "cache/ProtoMaster.proto"
-out_file_api = "cache/ProtoApi.proto"
-out_file_transaction = "cache/ProtoTransaction.proto"
+out_file_enum = "cache/penum.proto"
+out_file_master = "cache/pmaster.proto"
+out_file_api = "cache/papi.proto"
+out_file_transaction = "cache/ptransaction.proto"
 original_str: str
 
 # Enum Patterns
@@ -76,7 +76,7 @@ def analyze_enum() -> str:
             name = m.group("name")
             properties = re.findall(enum_properties_ptn, it)
             txt += gen_enum(name, properties)
-    return outter_text.replace("{imports}", "package ProtoEnum;\n").replace("{contents}", txt)
+    return outter_text.replace("{imports}", "package penum;\noption go_package = \"vibbit/solis/proto/penum\";\n").replace("{contents}", txt)
 
 def gen_common(name: str, properties: list) -> str:
     pairs = ""
@@ -106,15 +106,12 @@ def analyze_common(common_ptn: str) -> str:
                             "value": value, "type": type_, "name": name_})
             txt += gen_common(name, ppts)
     if common_ptn == api_ptn:
-        imports = 'package api;\noption go_package = "solis/pkg/proto/api";\noption csharp_namespace = "Solis.Common.Proto.Api";\nimport "ProtoEnum.proto";\nimport "ProtoMaster.proto";\nimport "ProtoTransaction.proto";\n'
+        imports = 'package api;\noption go_package = "vibbit/solis/proto/papi";\nimport "penum.proto";\nimport "pmaster.proto";\nimport "ptransaction.proto";\n'
     elif common_ptn == master_ptn:
-        imports = 'package master;\noption go_package = "solis/pkg/proto/master";\noption csharp_namespace = "Solis.Common.Proto.Master";\nimport "ProtoEnum.proto";\n'
+        imports = 'package pmaster;\noption go_package = "vibbit/solis/proto/pmaster";\nimport "penum.proto";\n'
     elif common_ptn == transaction_ptn:
-        imports = 'package transaction;\noption go_package = "solis/pkg/proto/transaction";\noption csharp_namespace = "Solis.Common.Proto.Transaction";\nimport "ProtoEnum.proto";\n'
+        imports = 'package ptransaction;\noption go_package = "vibbit/solis/proto/ptransaction";\nimport "penum.proto";\n'
     return outter_text.replace("{imports}", imports).replace("{contents}", txt)
-
-def analyze_trans():
-    feature = "Solis.Common.Proto.Transaction\n"
 
 
 enum_lst: list[str]
@@ -127,13 +124,13 @@ def rplc_func(mobj: re.Match) -> str:
     if c_type in type_dict.values():
         return c_type
     if c_type in enum_lst:
-        return f"ProtoEnum.{c_type}"
+        return f"penum.{c_type}"
     elif c_type in trans_lst:
-        return f"transaction.{c_type}"
+        return f"ptransaction.{c_type}"
     elif c_type in api_lst:
         return f"api.{c_type}"
     elif c_type in master_lst:
-        return f"master.{c_type}"
+        return f"pmaster.{c_type}"
     else:
         raise
 
@@ -161,7 +158,7 @@ def add_packages():
 
     n_txt = re.sub(kv_ptn, rplc_func, master_txt)
     # deals special cases
-    n_txt = n_txt.replace("api.ExerciseDeckPosition", "master.ExerciseDeckPosition")
+    n_txt = n_txt.replace("api.ExerciseDeckPosition", "pmaster.ExerciseDeckPosition")
     Path(out_file_master).write_text(n_txt)
 
     n_txt = re.sub(kv_ptn, rplc_func, api_txt)

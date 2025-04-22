@@ -2,15 +2,15 @@ import re
 from pathlib import Path
 from typing import Tuple
 
-meta_enum = "cache/ProtoEnum.proto"
-meta_master = "cache/ProtoMaster.proto"
-meta_api = "cache/ProtoApi.proto"
-meta_transaction = "cache/ProtoTransaction.proto"
+meta_enum = "cache/penum.proto"
+meta_master = "cache/pmaster.proto"
+meta_api = "cache/papi.proto"
+meta_transaction = "cache/ptransaction.proto"
 
 pkg_mapping = {
-  "ProtoEnum": "proto_enum",
-  "master": "proto_master",
-  "transaction": "proto_transaction",
+  "penum": "proto_enum",
+  "pmaster": "proto_master",
+  "ptransaction": "proto_transaction",
   "api": "proto_api",
 }
 
@@ -77,19 +77,19 @@ export type {name} = {
   meta_txt = Path("cache").joinpath(file_name + ".proto").read_text()
   message_ptn = r"message (?P<name>\w+) \{(?P<contents>[\s\S]+?)\}"
   imports = {
-    "ProtoEnum": [],
-    "master": [],
-    "transaction": [],
+    "penum": [],
+    "pmaster": [],
+    "ptransaction": [],
     "api": [],
   }
 
   proto_pkg = ""
-  if file_name == "ProtoApi":
+  if file_name == "papi":
     proto_pkg = "api"
-  elif file_name == "ProtoMaster":
-    proto_pkg = "master"
-  elif file_name == "ProtoTransaction":
-    proto_pkg = "transaction"
+  elif file_name == "pmaster":
+    proto_pkg = "pmaster"
+  elif file_name == "ptransaction":
+    proto_pkg = "ptransaction"
 
   for matched in re.finditer(message_ptn, meta_txt):
     name = matched.group("name")
@@ -149,11 +149,11 @@ export type {name} = {
 def main():
   enum_txt = deals_enum()
   Path("cache/proto_enum.ts").write_text(enum_txt)
-  api_txt = deals_message("ProtoApi")
+  api_txt = deals_message("papi")
   Path("cache/proto_api.ts").write_text(api_txt)
-  master_txt = deals_message("ProtoMaster")
+  master_txt = deals_message("pmaster")
   Path("cache/proto_master.ts").write_text(master_txt)
-  transaction_txt = deals_message("ProtoTransaction")
+  transaction_txt = deals_message("ptransaction")
   Path("cache/proto_transaction.ts").write_text(transaction_txt)
 
 if __name__ == "__main__":

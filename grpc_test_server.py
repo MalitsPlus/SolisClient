@@ -3,9 +3,9 @@ import logging
 
 import grpc
 
-import ProtoApi_pb2 as apip
-import ProtoApi_grpc as apig
-import ProtoTransaction_pb2 as transp
+import papi_pb2 as apip
+import papi_grpc as apig
+import ptransaction_pb2 as transp
 
 class SystemServ(apig.SystemServicer):
     def Check(self, request, context):

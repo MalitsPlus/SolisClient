@@ -5,7 +5,7 @@ from marshaller import serialize, deserialize
 import grpc
 import warnings
 
-import ProtoApi_pb2 as ProtoApi__pb2
+import papi_pb2 as papi__pb2
 
 GRPC_GENERATED_VERSION = '1.70.0'
 GRPC_VERSION = grpc.__version__
@@ -20,7 +20,7 @@ except ImportError:
 if _version_not_supported:
     raise RuntimeError(
         f'The grpc package installed is at version {GRPC_VERSION},'
-        + f' but the generated code in ProtoApi_pb2_grpc.py depends on'
+        + f' but the generated code in papi_pb2_grpc.py depends on'
         + f' grpcio>={GRPC_GENERATED_VERSION}.'
         + f' Please upgrade your grpc module to grpcio>={GRPC_GENERATED_VERSION}'
         + f' or downgrade your generated code using grpcio-tools<={GRPC_VERSION}.'
@@ -118,8 +118,8 @@ class Accessory(object):
             request,
             target,
             '/api.Accessory/Enhance',
-            ProtoApi__pb2.AccessoryEnhanceRequest.SerializeToString,
-            ProtoApi__pb2.AccessoryEnhanceResponse.FromString,
+            papi__pb2.AccessoryEnhanceRequest.SerializeToString,
+            papi__pb2.AccessoryEnhanceResponse.FromString,
             options,
             channel_credentials,
             insecure,
@@ -145,8 +145,8 @@ class Accessory(object):
             request,
             target,
             '/api.Accessory/LimitBreak',
-            ProtoApi__pb2.AccessoryLimitBreakRequest.SerializeToString,
-            ProtoApi__pb2.AccessoryLimitBreakResponse.FromString,
+            papi__pb2.AccessoryLimitBreakRequest.SerializeToString,
+            papi__pb2.AccessoryLimitBreakResponse.FromString,
             options,
             channel_credentials,
             insecure,
@@ -172,8 +172,8 @@ class Accessory(object):
             request,
             target,
             '/api.Accessory/Sell',
-            ProtoApi__pb2.AccessorySellRequest.SerializeToString,
-            ProtoApi__pb2.AccessorySellResponse.FromString,
+            papi__pb2.AccessorySellRequest.SerializeToString,
+            papi__pb2.AccessorySellResponse.FromString,
             options,
             channel_credentials,
             insecure,
@@ -516,8 +516,8 @@ class Activity(object):
             request,
             target,
             '/api.Activity/StartFanEvent',
-            ProtoApi__pb2.ActivityStartFanEventRequest.SerializeToString,
-            ProtoApi__pb2.ActivityStartFanEventResponse.FromString,
+            papi__pb2.ActivityStartFanEventRequest.SerializeToString,
+            papi__pb2.ActivityStartFanEventResponse.FromString,
             options,
             channel_credentials,
             insecure,
@@ -543,8 +543,8 @@ class Activity(object):
             request,
             target,
             '/api.Activity/LoadFanEvent',
-            ProtoApi__pb2.Empty.SerializeToString,
-            ProtoApi__pb2.ActivityLoadFanEventResponse.FromString,
+            papi__pb2.Empty.SerializeToString,
+            papi__pb2.ActivityLoadFanEventResponse.FromString,
             options,
             channel_credentials,
             insecure,
@@ -570,8 +570,8 @@ class Activity(object):
             request,
             target,
             '/api.Activity/FetchFanEventSteps',
-            ProtoApi__pb2.ActivityFetchFanEventStepsRequest.SerializeToString,
-            ProtoApi__pb2.ActivityFetchFanEventStepsResponse.FromString,
+            papi__pb2.ActivityFetchFanEventStepsRequest.SerializeToString,
+            papi__pb2.ActivityFetchFanEventStepsResponse.FromString,
             options,
             channel_credentials,
             insecure,
@@ -597,8 +597,8 @@ class Activity(object):
             request,
             target,
             '/api.Activity/SaveFanEvent',
-            ProtoApi__pb2.ActivitySaveFanEventRequest.SerializeToString,
-            ProtoApi__pb2.ActivitySaveFanEventResponse.FromString,
+            papi__pb2.ActivitySaveFanEventRequest.SerializeToString,
+            papi__pb2.ActivitySaveFanEventResponse.FromString,
             options,
             channel_credentials,
             insecure,
@@ -624,8 +624,8 @@ class Activity(object):
             request,
             target,
             '/api.Activity/FinishFanEvent',
-            ProtoApi__pb2.Empty.SerializeToString,
-            ProtoApi__pb2.ActivityFinishFanEventResponse.FromString,
+            papi__pb2.Empty.SerializeToString,
+            papi__pb2.ActivityFinishFanEventResponse.FromString,
             options,
             channel_credentials,
             insecure,
@@ -651,8 +651,8 @@ class Activity(object):
             request,
             target,
             '/api.Activity/GetFanEventRanking',
-            ProtoApi__pb2.ActivityGetFanEventRankingRequest.SerializeToString,
-            ProtoApi__pb2.ActivityGetFanEventRankingResponse.FromString,
+            papi__pb2.ActivityGetFanEventRankingRequest.SerializeToString,
+            papi__pb2.ActivityGetFanEventRankingResponse.FromString,
             options,
             channel_credentials,
             insecure,
@@ -678,8 +678,8 @@ class Activity(object):
             request,
             target,
             '/api.Activity/StartPromotion',
-            ProtoApi__pb2.ActivityStartPromotionRequest.SerializeToString,
-            ProtoApi__pb2.ActivityStartPromotionResponse.FromString,
+            papi__pb2.ActivityStartPromotionRequest.SerializeToString,
+            papi__pb2.ActivityStartPromotionResponse.FromString,
             options,
             channel_credentials,
             insecure,
@@ -705,8 +705,8 @@ class Activity(object):
             request,
             target,
             '/api.Activity/LoadPromotion',
-            ProtoApi__pb2.Empty.SerializeToString,
-            ProtoApi__pb2.ActivityLoadPromotionResponse.FromString,
+            papi__pb2.Empty.SerializeToString,
+            papi__pb2.ActivityLoadPromotionResponse.FromString,
             options,
             channel_credentials,
             insecure,
@@ -732,8 +732,8 @@ class Activity(object):
             request,
             target,
             '/api.Activity/UsePromotionItem',
-            ProtoApi__pb2.ActivityUsePromotionItemRequest.SerializeToString,
-            ProtoApi__pb2.ActivityUsePromotionItemResponse.FromString,
+            papi__pb2.ActivityUsePromotionItemRequest.SerializeToString,
+            papi__pb2.ActivityUsePromotionItemResponse.FromString,
             options,
             channel_credentials,
             insecure,
@@ -759,8 +759,8 @@ class Activity(object):
             request,
             target,
             '/api.Activity/ReceivePromotionReward',
-            ProtoApi__pb2.Empty.SerializeToString,
-            ProtoApi__pb2.ActivityReceivePromotionRewardResponse.FromString,
+            papi__pb2.Empty.SerializeToString,
+            papi__pb2.ActivityReceivePromotionRewardResponse.FromString,
             options,
             channel_credentials,
             insecure,
@@ -786,8 +786,8 @@ class Activity(object):
             request,
             target,
             '/api.Activity/FetchPromotionSteps',
-            ProtoApi__pb2.ActivityFetchPromotionStepsRequest.SerializeToString,
-            ProtoApi__pb2.ActivityFetchPromotionStepsResponse.FromString,
+            papi__pb2.ActivityFetchPromotionStepsRequest.SerializeToString,
+            papi__pb2.ActivityFetchPromotionStepsResponse.FromString,
             options,
             channel_credentials,
             insecure,
@@ -813,8 +813,8 @@ class Activity(object):
             request,
             target,
             '/api.Activity/FinishPromotion',
-            ProtoApi__pb2.Empty.SerializeToString,
-            ProtoApi__pb2.ActivityFinishPromotionResponse.FromString,
+            papi__pb2.Empty.SerializeToString,
+            papi__pb2.ActivityFinishPromotionResponse.FromString,
             options,
             channel_credentials,
             insecure,
@@ -840,8 +840,8 @@ class Activity(object):
             request,
             target,
             '/api.Activity/StartRefresh',
-            ProtoApi__pb2.ActivityStartRefreshRequest.SerializeToString,
-            ProtoApi__pb2.ActivityStartRefreshResponse.FromString,
+            papi__pb2.ActivityStartRefreshRequest.SerializeToString,
+            papi__pb2.ActivityStartRefreshResponse.FromString,
             options,
             channel_credentials,
             insecure,
@@ -867,8 +867,8 @@ class Activity(object):
             request,
             target,
             '/api.Activity/LoadRefresh',
-            ProtoApi__pb2.Empty.SerializeToString,
-            ProtoApi__pb2.ActivityLoadRefreshResponse.FromString,
+            papi__pb2.Empty.SerializeToString,
+            papi__pb2.ActivityLoadRefreshResponse.FromString,
             options,
             channel_credentials,
             insecure,
@@ -894,8 +894,8 @@ class Activity(object):
             request,
             target,
             '/api.Activity/UseRefreshItem',
-            ProtoApi__pb2.ActivityUseRefreshItemRequest.SerializeToString,
-            ProtoApi__pb2.ActivityUseRefreshItemResponse.FromString,
+            papi__pb2.ActivityUseRefreshItemRequest.SerializeToString,
+            papi__pb2.ActivityUseRefreshItemResponse.FromString,
             options,
             channel_credentials,
             insecure,
@@ -921,8 +921,8 @@ class Activity(object):
             request,
             target,
             '/api.Activity/FinishRefresh',
-            ProtoApi__pb2.Empty.SerializeToString,
-            ProtoApi__pb2.ActivityFinishRefreshResponse.FromString,
+            papi__pb2.Empty.SerializeToString,
+            papi__pb2.ActivityFinishRefreshResponse.FromString,
             options,
             channel_credentials,
             insecure,
@@ -948,8 +948,8 @@ class Activity(object):
             request,
             target,
             '/api.Activity/ReceiveLessonReward',
-            ProtoApi__pb2.Empty.SerializeToString,
-            ProtoApi__pb2.ActivityReceiveLessonRewardResponse.FromString,
+            papi__pb2.Empty.SerializeToString,
+            papi__pb2.ActivityReceiveLessonRewardResponse.FromString,
             options,
             channel_credentials,
             insecure,
@@ -975,8 +975,8 @@ class Activity(object):
             request,
             target,
             '/api.Activity/PromoteLesson',
-            ProtoApi__pb2.ActivityPromoteLessonRequest.SerializeToString,
-            ProtoApi__pb2.ActivityPromoteLessonResponse.FromString,
+            papi__pb2.ActivityPromoteLessonRequest.SerializeToString,
+            papi__pb2.ActivityPromoteLessonResponse.FromString,
             options,
             channel_credentials,
             insecure,
@@ -1063,8 +1063,8 @@ class Advertisement(object):
             request,
             target,
             '/api.Advertisement/Start',
-            ProtoApi__pb2.AdvertisementStartRequest.SerializeToString,
-            ProtoApi__pb2.AdvertisementStartResponse.FromString,
+            papi__pb2.AdvertisementStartRequest.SerializeToString,
+            papi__pb2.AdvertisementStartResponse.FromString,
             options,
             channel_credentials,
             insecure,
@@ -1090,8 +1090,8 @@ class Advertisement(object):
             request,
             target,
             '/api.Advertisement/End',
-            ProtoApi__pb2.AdvertisementEndRequest.SerializeToString,
-            ProtoApi__pb2.AdvertisementEndResponse.FromString,
+            papi__pb2.AdvertisementEndRequest.SerializeToString,
+            papi__pb2.AdvertisementEndResponse.FromString,
             options,
             channel_credentials,
             insecure,
@@ -1162,8 +1162,8 @@ class Anniversary(object):
             request,
             target,
             '/api.Anniversary/OutputTransitionLog',
-            ProtoApi__pb2.AnniversaryOutputTransitionLogRequest.SerializeToString,
-            ProtoApi__pb2.AnniversaryOutputTransitionLogResponse.FromString,
+            papi__pb2.AnniversaryOutputTransitionLogRequest.SerializeToString,
+            papi__pb2.AnniversaryOutputTransitionLogResponse.FromString,
             options,
             channel_credentials,
             insecure,
@@ -1282,8 +1282,8 @@ class Auth(object):
             request,
             target,
             '/api.Auth/Create',
-            ProtoApi__pb2.AuthCreateRequest.SerializeToString,
-            ProtoApi__pb2.AuthCreateResponse.FromString,
+            papi__pb2.AuthCreateRequest.SerializeToString,
+            papi__pb2.AuthCreateResponse.FromString,
             options,
             channel_credentials,
             insecure,
@@ -1309,8 +1309,8 @@ class Auth(object):
             request,
             target,
             '/api.Auth/Login',
-            ProtoApi__pb2.AuthLoginRequest.SerializeToString,
-            ProtoApi__pb2.AuthLoginResponse.FromString,
+            papi__pb2.AuthLoginRequest.SerializeToString,
+            papi__pb2.AuthLoginResponse.FromString,
             options,
             channel_credentials,
             insecure,
@@ -1336,8 +1336,8 @@ class Auth(object):
             request,
             target,
             '/api.Auth/Delete',
-            ProtoApi__pb2.Empty.SerializeToString,
-            ProtoApi__pb2.AuthDeleteResponse.FromString,
+            papi__pb2.Empty.SerializeToString,
+            papi__pb2.AuthDeleteResponse.FromString,
             options,
             channel_credentials,
             insecure,
@@ -1363,8 +1363,8 @@ class Auth(object):
             request,
             target,
             '/api.Auth/Recreate',
-            ProtoApi__pb2.AuthRecreateRequest.SerializeToString,
-            ProtoApi__pb2.AuthRecreateResponse.FromString,
+            papi__pb2.AuthRecreateRequest.SerializeToString,
+            papi__pb2.AuthRecreateResponse.FromString,
             options,
             channel_credentials,
             insecure,
@@ -1563,8 +1563,8 @@ class Backside(object):
             request,
             target,
             '/api.Backside/Top',
-            ProtoApi__pb2.BacksideTopRequest.SerializeToString,
-            ProtoApi__pb2.BacksideTopResponse.FromString,
+            papi__pb2.BacksideTopRequest.SerializeToString,
+            papi__pb2.BacksideTopResponse.FromString,
             options,
             channel_credentials,
             insecure,
@@ -1590,8 +1590,8 @@ class Backside(object):
             request,
             target,
             '/api.Backside/Ranking',
-            ProtoApi__pb2.BacksideRankingRequest.SerializeToString,
-            ProtoApi__pb2.BacksideRankingResponse.FromString,
+            papi__pb2.BacksideRankingRequest.SerializeToString,
+            papi__pb2.BacksideRankingResponse.FromString,
             options,
             channel_credentials,
             insecure,
@@ -1617,8 +1617,8 @@ class Backside(object):
             request,
             target,
             '/api.Backside/StageStart',
-            ProtoApi__pb2.BacksideStageStartRequest.SerializeToString,
-            ProtoApi__pb2.BacksideStageStartResponse.FromString,
+            papi__pb2.BacksideStageStartRequest.SerializeToString,
+            papi__pb2.BacksideStageStartResponse.FromString,
             options,
             channel_credentials,
             insecure,
@@ -1644,8 +1644,8 @@ class Backside(object):
             request,
             target,
             '/api.Backside/StageAction',
-            ProtoApi__pb2.BacksideStageActionRequest.SerializeToString,
-            ProtoApi__pb2.BacksideStageActionResponse.FromString,
+            papi__pb2.BacksideStageActionRequest.SerializeToString,
+            papi__pb2.BacksideStageActionResponse.FromString,
             options,
             channel_credentials,
             insecure,
@@ -1671,8 +1671,8 @@ class Backside(object):
             request,
             target,
             '/api.Backside/StageLiveBonus',
-            ProtoApi__pb2.BacksideStageLiveBonusRequest.SerializeToString,
-            ProtoApi__pb2.BacksideStageLiveBonusResponse.FromString,
+            papi__pb2.BacksideStageLiveBonusRequest.SerializeToString,
+            papi__pb2.BacksideStageLiveBonusResponse.FromString,
             options,
             channel_credentials,
             insecure,
@@ -1698,8 +1698,8 @@ class Backside(object):
             request,
             target,
             '/api.Backside/StagePracticeUpdate',
-            ProtoApi__pb2.BacksideStagePracticeUpdateRequest.SerializeToString,
-            ProtoApi__pb2.BacksideStagePracticeUpdateResponse.FromString,
+            papi__pb2.BacksideStagePracticeUpdateRequest.SerializeToString,
+            papi__pb2.BacksideStagePracticeUpdateResponse.FromString,
             options,
             channel_credentials,
             insecure,
@@ -1725,8 +1725,8 @@ class Backside(object):
             request,
             target,
             '/api.Backside/StageReset',
-            ProtoApi__pb2.BacksideStageResetRequest.SerializeToString,
-            ProtoApi__pb2.BacksideStageResetResponse.FromString,
+            papi__pb2.BacksideStageResetRequest.SerializeToString,
+            papi__pb2.BacksideStageResetResponse.FromString,
             options,
             channel_credentials,
             insecure,
@@ -1752,8 +1752,8 @@ class Backside(object):
             request,
             target,
             '/api.Backside/StageSurpriseFinish',
-            ProtoApi__pb2.BacksideStageSurpriseFinishRequest.SerializeToString,
-            ProtoApi__pb2.BacksideStageSurpriseFinishResponse.FromString,
+            papi__pb2.BacksideStageSurpriseFinishRequest.SerializeToString,
+            papi__pb2.BacksideStageSurpriseFinishResponse.FromString,
             options,
             channel_credentials,
             insecure,
@@ -1779,8 +1779,8 @@ class Backside(object):
             request,
             target,
             '/api.Backside/StageDeckPositionChange',
-            ProtoApi__pb2.BacksideStageDeckPositionChangeRequest.SerializeToString,
-            ProtoApi__pb2.BacksideStageDeckPositionChangeResponse.FromString,
+            papi__pb2.BacksideStageDeckPositionChangeRequest.SerializeToString,
+            papi__pb2.BacksideStageDeckPositionChangeResponse.FromString,
             options,
             channel_credentials,
             insecure,
@@ -1915,8 +1915,8 @@ class Birthday(object):
             request,
             target,
             '/api.Birthday/Top',
-            ProtoApi__pb2.Empty.SerializeToString,
-            ProtoApi__pb2.BirthdayTopResponse.FromString,
+            papi__pb2.Empty.SerializeToString,
+            papi__pb2.BirthdayTopResponse.FromString,
             options,
             channel_credentials,
             insecure,
@@ -1942,8 +1942,8 @@ class Birthday(object):
             request,
             target,
             '/api.Birthday/SetWatched',
-            ProtoApi__pb2.BirthdaySetWatchedRequest.SerializeToString,
-            ProtoApi__pb2.BirthdaySetWatchedResponse.FromString,
+            papi__pb2.BirthdaySetWatchedRequest.SerializeToString,
+            papi__pb2.BirthdaySetWatchedResponse.FromString,
             options,
             channel_credentials,
             insecure,
@@ -1969,8 +1969,8 @@ class Birthday(object):
             request,
             target,
             '/api.Birthday/ReceiveReward',
-            ProtoApi__pb2.Empty.SerializeToString,
-            ProtoApi__pb2.BirthdayReceiveRewardResponse.FromString,
+            papi__pb2.Empty.SerializeToString,
+            papi__pb2.BirthdayReceiveRewardResponse.FromString,
             options,
             channel_credentials,
             insecure,
@@ -1996,8 +1996,8 @@ class Birthday(object):
             request,
             target,
             '/api.Birthday/OutputWatchedLog',
-            ProtoApi__pb2.BirthdayOutputWatchedLogRequest.SerializeToString,
-            ProtoApi__pb2.BirthdayOutputWatchedLogResponse.FromString,
+            papi__pb2.BirthdayOutputWatchedLogRequest.SerializeToString,
+            papi__pb2.BirthdayOutputWatchedLogResponse.FromString,
             options,
             channel_credentials,
             insecure,
@@ -2023,8 +2023,8 @@ class Birthday(object):
             request,
             target,
             '/api.Birthday/SetWatchedRemindInfo',
-            ProtoApi__pb2.Empty.SerializeToString,
-            ProtoApi__pb2.BirthdaySetWatchedRemindInfoResponse.FromString,
+            papi__pb2.Empty.SerializeToString,
+            papi__pb2.BirthdaySetWatchedRemindInfoResponse.FromString,
             options,
             channel_credentials,
             insecure,
@@ -2255,8 +2255,8 @@ class Card(object):
             request,
             target,
             '/api.Card/Enhance',
-            ProtoApi__pb2.CardEnhanceRequest.SerializeToString,
-            ProtoApi__pb2.CardEnhanceResponse.FromString,
+            papi__pb2.CardEnhanceRequest.SerializeToString,
+            papi__pb2.CardEnhanceResponse.FromString,
             options,
             channel_credentials,
             insecure,
@@ -2282,8 +2282,8 @@ class Card(object):
             request,
             target,
             '/api.Card/LimitBreak',
-            ProtoApi__pb2.CardLimitBreakRequest.SerializeToString,
-            ProtoApi__pb2.CardLimitBreakResponse.FromString,
+            papi__pb2.CardLimitBreakRequest.SerializeToString,
+            papi__pb2.CardLimitBreakResponse.FromString,
             options,
             channel_credentials,
             insecure,
@@ -2309,8 +2309,8 @@ class Card(object):
             request,
             target,
             '/api.Card/SkillEnhance',
-            ProtoApi__pb2.CardSkillEnhanceRequest.SerializeToString,
-            ProtoApi__pb2.CardSkillEnhanceResponse.FromString,
+            papi__pb2.CardSkillEnhanceRequest.SerializeToString,
+            papi__pb2.CardSkillEnhanceResponse.FromString,
             options,
             channel_credentials,
             insecure,
@@ -2336,8 +2336,8 @@ class Card(object):
             request,
             target,
             '/api.Card/LiveAbilityEnhance',
-            ProtoApi__pb2.CardLiveAbilityEnhanceRequest.SerializeToString,
-            ProtoApi__pb2.CardLiveAbilityEnhanceResponse.FromString,
+            papi__pb2.CardLiveAbilityEnhanceRequest.SerializeToString,
+            papi__pb2.CardLiveAbilityEnhanceResponse.FromString,
             options,
             channel_credentials,
             insecure,
@@ -2363,8 +2363,8 @@ class Card(object):
             request,
             target,
             '/api.Card/ActivityAbilityEnhance',
-            ProtoApi__pb2.CardActivityAbilityEnhanceRequest.SerializeToString,
-            ProtoApi__pb2.CardActivityAbilityEnhanceResponse.FromString,
+            papi__pb2.CardActivityAbilityEnhanceRequest.SerializeToString,
+            papi__pb2.CardActivityAbilityEnhanceResponse.FromString,
             options,
             channel_credentials,
             insecure,
@@ -2390,8 +2390,8 @@ class Card(object):
             request,
             target,
             '/api.Card/Reset',
-            ProtoApi__pb2.CardResetRequest.SerializeToString,
-            ProtoApi__pb2.CardResetResponse.FromString,
+            papi__pb2.CardResetRequest.SerializeToString,
+            papi__pb2.CardResetResponse.FromString,
             options,
             channel_credentials,
             insecure,
@@ -2417,8 +2417,8 @@ class Card(object):
             request,
             target,
             '/api.Card/SetSupport',
-            ProtoApi__pb2.CardSetSupportRequest.SerializeToString,
-            ProtoApi__pb2.CardSetSupportResponse.FromString,
+            papi__pb2.CardSetSupportRequest.SerializeToString,
+            papi__pb2.CardSetSupportResponse.FromString,
             options,
             channel_credentials,
             insecure,
@@ -2444,8 +2444,8 @@ class Card(object):
             request,
             target,
             '/api.Card/RemoveSupport',
-            ProtoApi__pb2.CardRemoveSupportRequest.SerializeToString,
-            ProtoApi__pb2.CardRemoveSupportResponse.FromString,
+            papi__pb2.CardRemoveSupportRequest.SerializeToString,
+            papi__pb2.CardRemoveSupportResponse.FromString,
             options,
             channel_credentials,
             insecure,
@@ -2471,8 +2471,8 @@ class Card(object):
             request,
             target,
             '/api.Card/ReleaseSupport',
-            ProtoApi__pb2.CardReleaseSupportRequest.SerializeToString,
-            ProtoApi__pb2.CardReleaseSupportResponse.FromString,
+            papi__pb2.CardReleaseSupportRequest.SerializeToString,
+            papi__pb2.CardReleaseSupportResponse.FromString,
             options,
             channel_credentials,
             insecure,
@@ -2498,8 +2498,8 @@ class Card(object):
             request,
             target,
             '/api.Card/RankUp',
-            ProtoApi__pb2.CardRankUpRequest.SerializeToString,
-            ProtoApi__pb2.CardRankUpResponse.FromString,
+            papi__pb2.CardRankUpRequest.SerializeToString,
+            papi__pb2.CardRankUpResponse.FromString,
             options,
             channel_credentials,
             insecure,
@@ -2525,8 +2525,8 @@ class Card(object):
             request,
             target,
             '/api.Card/UpdateDisplayType',
-            ProtoApi__pb2.CardUpdateDisplayTypeRequest.SerializeToString,
-            ProtoApi__pb2.CardUpdateDisplayTypeResponse.FromString,
+            papi__pb2.CardUpdateDisplayTypeRequest.SerializeToString,
+            papi__pb2.CardUpdateDisplayTypeResponse.FromString,
             options,
             channel_credentials,
             insecure,
@@ -2757,8 +2757,8 @@ class Company(object):
             request,
             target,
             '/api.Company/Top',
-            ProtoApi__pb2.CompanyTopRequest.SerializeToString,
-            ProtoApi__pb2.CompanyTopResponse.FromString,
+            papi__pb2.CompanyTopRequest.SerializeToString,
+            papi__pb2.CompanyTopResponse.FromString,
             options,
             channel_credentials,
             insecure,
@@ -2784,8 +2784,8 @@ class Company(object):
             request,
             target,
             '/api.Company/ListRanking',
-            ProtoApi__pb2.Empty.SerializeToString,
-            ProtoApi__pb2.CompanyListRankingResponse.FromString,
+            papi__pb2.Empty.SerializeToString,
+            papi__pb2.CompanyListRankingResponse.FromString,
             options,
             channel_credentials,
             insecure,
@@ -2811,8 +2811,8 @@ class Company(object):
             request,
             target,
             '/api.Company/ReceiveGradeRewards',
-            ProtoApi__pb2.CompanyReceiveGradeRewardsRequest.SerializeToString,
-            ProtoApi__pb2.CompanyReceiveGradeRewardsResponse.FromString,
+            papi__pb2.CompanyReceiveGradeRewardsRequest.SerializeToString,
+            papi__pb2.CompanyReceiveGradeRewardsResponse.FromString,
             options,
             channel_credentials,
             insecure,
@@ -2838,8 +2838,8 @@ class Company(object):
             request,
             target,
             '/api.Company/BulkReceiveMission',
-            ProtoApi__pb2.CompanyBulkReceiveMissionRequest.SerializeToString,
-            ProtoApi__pb2.CompanyBulkReceiveMissionResponse.FromString,
+            papi__pb2.CompanyBulkReceiveMissionRequest.SerializeToString,
+            papi__pb2.CompanyBulkReceiveMissionResponse.FromString,
             options,
             channel_credentials,
             insecure,
@@ -2865,8 +2865,8 @@ class Company(object):
             request,
             target,
             '/api.Company/EnjoyCharacterTop',
-            ProtoApi__pb2.CompanyEnjoyCharacterTopRequest.SerializeToString,
-            ProtoApi__pb2.CompanyEnjoyCharacterTopResponse.FromString,
+            papi__pb2.CompanyEnjoyCharacterTopRequest.SerializeToString,
+            papi__pb2.CompanyEnjoyCharacterTopResponse.FromString,
             options,
             channel_credentials,
             insecure,
@@ -2892,8 +2892,8 @@ class Company(object):
             request,
             target,
             '/api.Company/ListEnjoyCharacterRanking',
-            ProtoApi__pb2.CompanyListEnjoyCharacterRankingRequest.SerializeToString,
-            ProtoApi__pb2.CompanyListEnjoyCharacterRankingResponse.FromString,
+            papi__pb2.CompanyListEnjoyCharacterRankingRequest.SerializeToString,
+            papi__pb2.CompanyListEnjoyCharacterRankingResponse.FromString,
             options,
             channel_credentials,
             insecure,
@@ -2919,8 +2919,8 @@ class Company(object):
             request,
             target,
             '/api.Company/ReceiveEnjoyCharacterLevelRewards',
-            ProtoApi__pb2.CompanyReceiveEnjoyCharacterLevelRewardsRequest.SerializeToString,
-            ProtoApi__pb2.CompanyReceiveEnjoyCharacterLevelRewardsResponse.FromString,
+            papi__pb2.CompanyReceiveEnjoyCharacterLevelRewardsRequest.SerializeToString,
+            papi__pb2.CompanyReceiveEnjoyCharacterLevelRewardsResponse.FromString,
             options,
             channel_credentials,
             insecure,
@@ -2946,8 +2946,8 @@ class Company(object):
             request,
             target,
             '/api.Company/UseEnjoyObtainPointItem',
-            ProtoApi__pb2.CompanyUseObtainEnjoyPointItemRequest.SerializeToString,
-            ProtoApi__pb2.CompanyUseObtainEnjoyPointItemResponse.FromString,
+            papi__pb2.CompanyUseObtainEnjoyPointItemRequest.SerializeToString,
+            papi__pb2.CompanyUseObtainEnjoyPointItemResponse.FromString,
             options,
             channel_credentials,
             insecure,
@@ -2973,8 +2973,8 @@ class Company(object):
             request,
             target,
             '/api.Company/BulkReceiveEnjoy',
-            ProtoApi__pb2.CompanyBulkReceiveEnjoyRequest.SerializeToString,
-            ProtoApi__pb2.CompanyBulkReceiveEnjoyResponse.FromString,
+            papi__pb2.CompanyBulkReceiveEnjoyRequest.SerializeToString,
+            papi__pb2.CompanyBulkReceiveEnjoyResponse.FromString,
             options,
             channel_credentials,
             insecure,
@@ -3000,8 +3000,8 @@ class Company(object):
             request,
             target,
             '/api.Company/BulkReceiveEnjoyCharacterLevelRewards',
-            ProtoApi__pb2.Empty.SerializeToString,
-            ProtoApi__pb2.CompanyBulkReceiveEnjoyCharacterLevelRewardsResponse.FromString,
+            papi__pb2.Empty.SerializeToString,
+            papi__pb2.CompanyBulkReceiveEnjoyCharacterLevelRewardsResponse.FromString,
             options,
             channel_credentials,
             insecure,
@@ -3027,8 +3027,8 @@ class Company(object):
             request,
             target,
             '/api.Company/ReceiveTrustLevelRewards',
-            ProtoApi__pb2.CompanyReceiveTrustLevelRewardsRequest.SerializeToString,
-            ProtoApi__pb2.CompanyReceiveTrustLevelRewardsResponse.FromString,
+            papi__pb2.CompanyReceiveTrustLevelRewardsRequest.SerializeToString,
+            papi__pb2.CompanyReceiveTrustLevelRewardsResponse.FromString,
             options,
             channel_credentials,
             insecure,
@@ -3147,8 +3147,8 @@ class Costume(object):
             request,
             target,
             '/api.Costume/SetCostume',
-            ProtoApi__pb2.CostumeSetRequest.SerializeToString,
-            ProtoApi__pb2.CostumeSetResponse.FromString,
+            papi__pb2.CostumeSetRequest.SerializeToString,
+            papi__pb2.CostumeSetResponse.FromString,
             options,
             channel_credentials,
             insecure,
@@ -3174,8 +3174,8 @@ class Costume(object):
             request,
             target,
             '/api.Costume/SetLiveCostume',
-            ProtoApi__pb2.CostumeLiveSetRequest.SerializeToString,
-            ProtoApi__pb2.CostumeLiveSetResponse.FromString,
+            papi__pb2.CostumeLiveSetRequest.SerializeToString,
+            papi__pb2.CostumeLiveSetResponse.FromString,
             options,
             channel_credentials,
             insecure,
@@ -3201,8 +3201,8 @@ class Costume(object):
             request,
             target,
             '/api.Costume/CheckCostume',
-            ProtoApi__pb2.CostumeCheckRequest.SerializeToString,
-            ProtoApi__pb2.CostumeCheckResponse.FromString,
+            papi__pb2.CostumeCheckRequest.SerializeToString,
+            papi__pb2.CostumeCheckResponse.FromString,
             options,
             channel_credentials,
             insecure,
@@ -3228,8 +3228,8 @@ class Costume(object):
             request,
             target,
             '/api.Costume/CheckBulk',
-            ProtoApi__pb2.CostumeCheckBulkRequest.SerializeToString,
-            ProtoApi__pb2.CostumeCheckBulkResponse.FromString,
+            papi__pb2.CostumeCheckBulkRequest.SerializeToString,
+            papi__pb2.CostumeCheckBulkResponse.FromString,
             options,
             channel_credentials,
             insecure,
@@ -3332,8 +3332,8 @@ class Deck(object):
             request,
             target,
             '/api.Deck/Save',
-            ProtoApi__pb2.DeckSaveRequest.SerializeToString,
-            ProtoApi__pb2.DeckSaveResponse.FromString,
+            papi__pb2.DeckSaveRequest.SerializeToString,
+            papi__pb2.DeckSaveResponse.FromString,
             options,
             channel_credentials,
             insecure,
@@ -3359,8 +3359,8 @@ class Deck(object):
             request,
             target,
             '/api.Deck/Delete',
-            ProtoApi__pb2.DeckDeleteRequest.SerializeToString,
-            ProtoApi__pb2.DeckDeleteResponse.FromString,
+            papi__pb2.DeckDeleteRequest.SerializeToString,
+            papi__pb2.DeckDeleteResponse.FromString,
             options,
             channel_credentials,
             insecure,
@@ -3386,8 +3386,8 @@ class Deck(object):
             request,
             target,
             '/api.Deck/BuddyList',
-            ProtoApi__pb2.Empty.SerializeToString,
-            ProtoApi__pb2.DeckBuddyListResponse.FromString,
+            papi__pb2.Empty.SerializeToString,
+            papi__pb2.DeckBuddyListResponse.FromString,
             options,
             channel_credentials,
             insecure,
@@ -3474,8 +3474,8 @@ class Diary(object):
             request,
             target,
             '/api.Diary/GetInfos',
-            ProtoApi__pb2.Empty.SerializeToString,
-            ProtoApi__pb2.DiaryGetInfosResponse.FromString,
+            papi__pb2.Empty.SerializeToString,
+            papi__pb2.DiaryGetInfosResponse.FromString,
             options,
             channel_credentials,
             insecure,
@@ -3501,8 +3501,8 @@ class Diary(object):
             request,
             target,
             '/api.Diary/Read',
-            ProtoApi__pb2.DiaryReadRequest.SerializeToString,
-            ProtoApi__pb2.DiaryReadResponse.FromString,
+            papi__pb2.DiaryReadRequest.SerializeToString,
+            papi__pb2.DiaryReadResponse.FromString,
             options,
             channel_credentials,
             insecure,
@@ -3797,8 +3797,8 @@ class Dice(object):
             request,
             target,
             '/api.Dice/Top',
-            ProtoApi__pb2.Empty.SerializeToString,
-            ProtoApi__pb2.DiceTopResponse.FromString,
+            papi__pb2.Empty.SerializeToString,
+            papi__pb2.DiceTopResponse.FromString,
             options,
             channel_credentials,
             insecure,
@@ -3824,8 +3824,8 @@ class Dice(object):
             request,
             target,
             '/api.Dice/MovePanel',
-            ProtoApi__pb2.Empty.SerializeToString,
-            ProtoApi__pb2.DiceMovePanelResponse.FromString,
+            papi__pb2.Empty.SerializeToString,
+            papi__pb2.DiceMovePanelResponse.FromString,
             options,
             channel_credentials,
             insecure,
@@ -3851,8 +3851,8 @@ class Dice(object):
             request,
             target,
             '/api.Dice/UseItem',
-            ProtoApi__pb2.DiceUseItemRequest.SerializeToString,
-            ProtoApi__pb2.DiceUseItemResponse.FromString,
+            papi__pb2.DiceUseItemRequest.SerializeToString,
+            papi__pb2.DiceUseItemResponse.FromString,
             options,
             channel_credentials,
             insecure,
@@ -3878,8 +3878,8 @@ class Dice(object):
             request,
             target,
             '/api.Dice/DiscardItem',
-            ProtoApi__pb2.DiceDiscardItemRequest.SerializeToString,
-            ProtoApi__pb2.DiceDiscardItemResponse.FromString,
+            papi__pb2.DiceDiscardItemRequest.SerializeToString,
+            papi__pb2.DiceDiscardItemResponse.FromString,
             options,
             channel_credentials,
             insecure,
@@ -3905,8 +3905,8 @@ class Dice(object):
             request,
             target,
             '/api.Dice/PurchaseItem',
-            ProtoApi__pb2.DicePurchaseItemRequest.SerializeToString,
-            ProtoApi__pb2.DicePurchaseItemResponse.FromString,
+            papi__pb2.DicePurchaseItemRequest.SerializeToString,
+            papi__pb2.DicePurchaseItemResponse.FromString,
             options,
             channel_credentials,
             insecure,
@@ -3932,8 +3932,8 @@ class Dice(object):
             request,
             target,
             '/api.Dice/SellItem',
-            ProtoApi__pb2.DiceSellItemRequest.SerializeToString,
-            ProtoApi__pb2.DiceSellItemResponse.FromString,
+            papi__pb2.DiceSellItemRequest.SerializeToString,
+            papi__pb2.DiceSellItemResponse.FromString,
             options,
             channel_credentials,
             insecure,
@@ -3959,8 +3959,8 @@ class Dice(object):
             request,
             target,
             '/api.Dice/FinishShopPanel',
-            ProtoApi__pb2.Empty.SerializeToString,
-            ProtoApi__pb2.DiceFinishShopPanelResponse.FromString,
+            papi__pb2.Empty.SerializeToString,
+            papi__pb2.DiceFinishShopPanelResponse.FromString,
             options,
             channel_credentials,
             insecure,
@@ -3986,8 +3986,8 @@ class Dice(object):
             request,
             target,
             '/api.Dice/FinishStoryPanel',
-            ProtoApi__pb2.DiceFinishStoryPanelRequest.SerializeToString,
-            ProtoApi__pb2.DiceFinishStoryPanelResponse.FromString,
+            papi__pb2.DiceFinishStoryPanelRequest.SerializeToString,
+            papi__pb2.DiceFinishStoryPanelResponse.FromString,
             options,
             channel_credentials,
             insecure,
@@ -4013,8 +4013,8 @@ class Dice(object):
             request,
             target,
             '/api.Dice/UseStaminaRecoveryItem',
-            ProtoApi__pb2.DiceUseStaminaRecoveryItemRequest.SerializeToString,
-            ProtoApi__pb2.DiceUseStaminaRecoveryItemResponse.FromString,
+            papi__pb2.DiceUseStaminaRecoveryItemRequest.SerializeToString,
+            papi__pb2.DiceUseStaminaRecoveryItemResponse.FromString,
             options,
             channel_credentials,
             insecure,
@@ -4040,8 +4040,8 @@ class Dice(object):
             request,
             target,
             '/api.Dice/ListDeck',
-            ProtoApi__pb2.DiceListDeckRequest.SerializeToString,
-            ProtoApi__pb2.DiceListDeckResponse.FromString,
+            papi__pb2.DiceListDeckRequest.SerializeToString,
+            papi__pb2.DiceListDeckResponse.FromString,
             options,
             channel_credentials,
             insecure,
@@ -4067,8 +4067,8 @@ class Dice(object):
             request,
             target,
             '/api.Dice/StartQuest',
-            ProtoApi__pb2.DiceStartQuestRequest.SerializeToString,
-            ProtoApi__pb2.DiceStartQuestResponse.FromString,
+            papi__pb2.DiceStartQuestRequest.SerializeToString,
+            papi__pb2.DiceStartQuestResponse.FromString,
             options,
             channel_credentials,
             insecure,
@@ -4094,8 +4094,8 @@ class Dice(object):
             request,
             target,
             '/api.Dice/StartGoalQuest',
-            ProtoApi__pb2.DiceStartGoalQuestRequest.SerializeToString,
-            ProtoApi__pb2.DiceStartGoalQuestResponse.FromString,
+            papi__pb2.DiceStartGoalQuestRequest.SerializeToString,
+            papi__pb2.DiceStartGoalQuestResponse.FromString,
             options,
             channel_credentials,
             insecure,
@@ -4121,8 +4121,8 @@ class Dice(object):
             request,
             target,
             '/api.Dice/ChooseLiveBonus',
-            ProtoApi__pb2.DiceChooseLiveBonusRequest.SerializeToString,
-            ProtoApi__pb2.DiceChooseLiveBonusResponse.FromString,
+            papi__pb2.DiceChooseLiveBonusRequest.SerializeToString,
+            papi__pb2.DiceChooseLiveBonusResponse.FromString,
             options,
             channel_credentials,
             insecure,
@@ -4148,8 +4148,8 @@ class Dice(object):
             request,
             target,
             '/api.Dice/ListRanking',
-            ProtoApi__pb2.Empty.SerializeToString,
-            ProtoApi__pb2.DiceListRankingResponse.FromString,
+            papi__pb2.Empty.SerializeToString,
+            papi__pb2.DiceListRankingResponse.FromString,
             options,
             channel_credentials,
             insecure,
@@ -4175,8 +4175,8 @@ class Dice(object):
             request,
             target,
             '/api.Dice/SaveDeck',
-            ProtoApi__pb2.DiceSaveDeckRequest.SerializeToString,
-            ProtoApi__pb2.DiceSaveDeckResponse.FromString,
+            papi__pb2.DiceSaveDeckRequest.SerializeToString,
+            papi__pb2.DiceSaveDeckResponse.FromString,
             options,
             channel_credentials,
             insecure,
@@ -4263,8 +4263,8 @@ class Division(object):
             request,
             target,
             '/api.Division/List',
-            ProtoApi__pb2.Empty.SerializeToString,
-            ProtoApi__pb2.DivisionListResponse.FromString,
+            papi__pb2.Empty.SerializeToString,
+            papi__pb2.DivisionListResponse.FromString,
             options,
             channel_credentials,
             insecure,
@@ -4290,8 +4290,8 @@ class Division(object):
             request,
             target,
             '/api.Division/Move',
-            ProtoApi__pb2.DivisionMoveRequest.SerializeToString,
-            ProtoApi__pb2.DivisionMoveResponse.FromString,
+            papi__pb2.DivisionMoveRequest.SerializeToString,
+            papi__pb2.DivisionMoveResponse.FromString,
             options,
             channel_credentials,
             insecure,
@@ -4394,8 +4394,8 @@ class Dokan(object):
             request,
             target,
             '/api.Dokan/List',
-            ProtoApi__pb2.Empty.SerializeToString,
-            ProtoApi__pb2.DokanListResponse.FromString,
+            papi__pb2.Empty.SerializeToString,
+            papi__pb2.DokanListResponse.FromString,
             options,
             channel_credentials,
             insecure,
@@ -4421,8 +4421,8 @@ class Dokan(object):
             request,
             target,
             '/api.Dokan/SetWatched',
-            ProtoApi__pb2.DokanSetWatchedRequest.SerializeToString,
-            ProtoApi__pb2.DokanSetWathcedResponse.FromString,
+            papi__pb2.DokanSetWatchedRequest.SerializeToString,
+            papi__pb2.DokanSetWathcedResponse.FromString,
             options,
             channel_credentials,
             insecure,
@@ -4448,8 +4448,8 @@ class Dokan(object):
             request,
             target,
             '/api.Dokan/OutputWatchedLog',
-            ProtoApi__pb2.DokanOutputWatchedLogRequest.SerializeToString,
-            ProtoApi__pb2.DokanOutputWatchedLogResponse.FromString,
+            papi__pb2.DokanOutputWatchedLogRequest.SerializeToString,
+            papi__pb2.DokanOutputWatchedLogResponse.FromString,
             options,
             channel_credentials,
             insecure,
@@ -4616,8 +4616,8 @@ class Dream(object):
             request,
             target,
             '/api.Dream/Top',
-            ProtoApi__pb2.Empty.SerializeToString,
-            ProtoApi__pb2.DreamTopResponse.FromString,
+            papi__pb2.Empty.SerializeToString,
+            papi__pb2.DreamTopResponse.FromString,
             options,
             channel_credentials,
             insecure,
@@ -4643,8 +4643,8 @@ class Dream(object):
             request,
             target,
             '/api.Dream/ListMaterialPhoto',
-            ProtoApi__pb2.DreamListMaterialPhotoRequest.SerializeToString,
-            ProtoApi__pb2.DreamListMaterialPhotoResponse.FromString,
+            papi__pb2.DreamListMaterialPhotoRequest.SerializeToString,
+            papi__pb2.DreamListMaterialPhotoResponse.FromString,
             options,
             channel_credentials,
             insecure,
@@ -4670,8 +4670,8 @@ class Dream(object):
             request,
             target,
             '/api.Dream/ListQuest',
-            ProtoApi__pb2.DreamListQuestRequest.SerializeToString,
-            ProtoApi__pb2.DreamListQuestResponse.FromString,
+            papi__pb2.DreamListQuestRequest.SerializeToString,
+            papi__pb2.DreamListQuestResponse.FromString,
             options,
             channel_credentials,
             insecure,
@@ -4697,8 +4697,8 @@ class Dream(object):
             request,
             target,
             '/api.Dream/GenerateArea',
-            ProtoApi__pb2.DreamGenerateAreaRequest.SerializeToString,
-            ProtoApi__pb2.DreamGenerateAreaResponse.FromString,
+            papi__pb2.DreamGenerateAreaRequest.SerializeToString,
+            papi__pb2.DreamGenerateAreaResponse.FromString,
             options,
             channel_credentials,
             insecure,
@@ -4724,8 +4724,8 @@ class Dream(object):
             request,
             target,
             '/api.Dream/StartQuest',
-            ProtoApi__pb2.DreamStartQuestRequest.SerializeToString,
-            ProtoApi__pb2.DreamStartQuestResponse.FromString,
+            papi__pb2.DreamStartQuestRequest.SerializeToString,
+            papi__pb2.DreamStartQuestResponse.FromString,
             options,
             channel_credentials,
             insecure,
@@ -4751,8 +4751,8 @@ class Dream(object):
             request,
             target,
             '/api.Dream/SkipQuest',
-            ProtoApi__pb2.DreamSkipQuestRequest.SerializeToString,
-            ProtoApi__pb2.DreamSkipQuestResponse.FromString,
+            papi__pb2.DreamSkipQuestRequest.SerializeToString,
+            papi__pb2.DreamSkipQuestResponse.FromString,
             options,
             channel_credentials,
             insecure,
@@ -4778,8 +4778,8 @@ class Dream(object):
             request,
             target,
             '/api.Dream/ResetArea',
-            ProtoApi__pb2.DreamResetAreaRequest.SerializeToString,
-            ProtoApi__pb2.DreamResetAreaResponse.FromString,
+            papi__pb2.DreamResetAreaRequest.SerializeToString,
+            papi__pb2.DreamResetAreaResponse.FromString,
             options,
             channel_credentials,
             insecure,
@@ -4882,8 +4882,8 @@ class Duty(object):
             request,
             target,
             '/api.Duty/Top',
-            ProtoApi__pb2.DutyTopRequest.SerializeToString,
-            ProtoApi__pb2.DutyTopResponse.FromString,
+            papi__pb2.DutyTopRequest.SerializeToString,
+            papi__pb2.DutyTopResponse.FromString,
             options,
             channel_credentials,
             insecure,
@@ -4909,8 +4909,8 @@ class Duty(object):
             request,
             target,
             '/api.Duty/ExchangeReward',
-            ProtoApi__pb2.DutyExchangeRewardRequest.SerializeToString,
-            ProtoApi__pb2.DutyExchangeRewardResponse.FromString,
+            papi__pb2.DutyExchangeRewardRequest.SerializeToString,
+            papi__pb2.DutyExchangeRewardResponse.FromString,
             options,
             channel_credentials,
             insecure,
@@ -4936,8 +4936,8 @@ class Duty(object):
             request,
             target,
             '/api.Duty/ReceiveTotalObtainReward',
-            ProtoApi__pb2.DutyReceiveTotalObtainRewardRequest.SerializeToString,
-            ProtoApi__pb2.DutyReceiveTotalObtainRewardResponse.FromString,
+            papi__pb2.DutyReceiveTotalObtainRewardRequest.SerializeToString,
+            papi__pb2.DutyReceiveTotalObtainRewardResponse.FromString,
             options,
             channel_credentials,
             insecure,
@@ -5040,8 +5040,8 @@ class Exchange(object):
             request,
             target,
             '/api.Exchange/List',
-            ProtoApi__pb2.Empty.SerializeToString,
-            ProtoApi__pb2.ExchangeListResponse.FromString,
+            papi__pb2.Empty.SerializeToString,
+            papi__pb2.ExchangeListResponse.FromString,
             options,
             channel_credentials,
             insecure,
@@ -5067,8 +5067,8 @@ class Exchange(object):
             request,
             target,
             '/api.Exchange/Execute',
-            ProtoApi__pb2.ExchangeExecuteRequest.SerializeToString,
-            ProtoApi__pb2.ExchangeExecuteResponse.FromString,
+            papi__pb2.ExchangeExecuteRequest.SerializeToString,
+            papi__pb2.ExchangeExecuteResponse.FromString,
             options,
             channel_credentials,
             insecure,
@@ -5094,8 +5094,8 @@ class Exchange(object):
             request,
             target,
             '/api.Exchange/TryOn',
-            ProtoApi__pb2.ExchangeTryOnRequest.SerializeToString,
-            ProtoApi__pb2.ExchangeTryOnResponse.FromString,
+            papi__pb2.ExchangeTryOnRequest.SerializeToString,
+            papi__pb2.ExchangeTryOnResponse.FromString,
             options,
             channel_credentials,
             insecure,
@@ -5214,8 +5214,8 @@ class Exercise(object):
             request,
             target,
             '/api.Exercise/Top',
-            ProtoApi__pb2.Empty.SerializeToString,
-            ProtoApi__pb2.ExerciseTopResponse.FromString,
+            papi__pb2.Empty.SerializeToString,
+            papi__pb2.ExerciseTopResponse.FromString,
             options,
             channel_credentials,
             insecure,
@@ -5241,8 +5241,8 @@ class Exercise(object):
             request,
             target,
             '/api.Exercise/SaveDeck',
-            ProtoApi__pb2.ExerciseSaveDeckRequest.SerializeToString,
-            ProtoApi__pb2.ExerciseSaveDeckResponse.FromString,
+            papi__pb2.ExerciseSaveDeckRequest.SerializeToString,
+            papi__pb2.ExerciseSaveDeckResponse.FromString,
             options,
             channel_credentials,
             insecure,
@@ -5268,8 +5268,8 @@ class Exercise(object):
             request,
             target,
             '/api.Exercise/Start',
-            ProtoApi__pb2.ExerciseStartRequest.SerializeToString,
-            ProtoApi__pb2.ExerciseStartResponse.FromString,
+            papi__pb2.ExerciseStartRequest.SerializeToString,
+            papi__pb2.ExerciseStartResponse.FromString,
             options,
             channel_credentials,
             insecure,
@@ -5295,8 +5295,8 @@ class Exercise(object):
             request,
             target,
             '/api.Exercise/ListAsset',
-            ProtoApi__pb2.ExerciseListAssetRequest.SerializeToString,
-            ProtoApi__pb2.ExerciseListAssetResponse.FromString,
+            papi__pb2.ExerciseListAssetRequest.SerializeToString,
+            papi__pb2.ExerciseListAssetResponse.FromString,
             options,
             channel_credentials,
             insecure,
@@ -5495,8 +5495,8 @@ class Forum(object):
             request,
             target,
             '/api.Forum/ListThread',
-            ProtoApi__pb2.Empty.SerializeToString,
-            ProtoApi__pb2.ForumListThreadResponse.FromString,
+            papi__pb2.Empty.SerializeToString,
+            papi__pb2.ForumListThreadResponse.FromString,
             options,
             channel_credentials,
             insecure,
@@ -5522,8 +5522,8 @@ class Forum(object):
             request,
             target,
             '/api.Forum/ListThreadReply',
-            ProtoApi__pb2.ForumListThreadReplyRequest.SerializeToString,
-            ProtoApi__pb2.ForumListThreadReplyResponse.FromString,
+            papi__pb2.ForumListThreadReplyRequest.SerializeToString,
+            papi__pb2.ForumListThreadReplyResponse.FromString,
             options,
             channel_credentials,
             insecure,
@@ -5549,8 +5549,8 @@ class Forum(object):
             request,
             target,
             '/api.Forum/CreateThread',
-            ProtoApi__pb2.ForumCreateThreadRequest.SerializeToString,
-            ProtoApi__pb2.ForumCreateThreadResponse.FromString,
+            papi__pb2.ForumCreateThreadRequest.SerializeToString,
+            papi__pb2.ForumCreateThreadResponse.FromString,
             options,
             channel_credentials,
             insecure,
@@ -5576,8 +5576,8 @@ class Forum(object):
             request,
             target,
             '/api.Forum/SendThreadReply',
-            ProtoApi__pb2.ForumSendThreadReplyRequest.SerializeToString,
-            ProtoApi__pb2.ForumSendThreadReplyResponse.FromString,
+            papi__pb2.ForumSendThreadReplyRequest.SerializeToString,
+            papi__pb2.ForumSendThreadReplyResponse.FromString,
             options,
             channel_credentials,
             insecure,
@@ -5603,8 +5603,8 @@ class Forum(object):
             request,
             target,
             '/api.Forum/LikeReply',
-            ProtoApi__pb2.ForumLikeReplyRequest.SerializeToString,
-            ProtoApi__pb2.ForumLikeReplyResponse.FromString,
+            papi__pb2.ForumLikeReplyRequest.SerializeToString,
+            papi__pb2.ForumLikeReplyResponse.FromString,
             options,
             channel_credentials,
             insecure,
@@ -5630,8 +5630,8 @@ class Forum(object):
             request,
             target,
             '/api.Forum/DislikeReply',
-            ProtoApi__pb2.ForumDislikeReplyRequest.SerializeToString,
-            ProtoApi__pb2.ForumDislikeReplyResponse.FromString,
+            papi__pb2.ForumDislikeReplyRequest.SerializeToString,
+            papi__pb2.ForumDislikeReplyResponse.FromString,
             options,
             channel_credentials,
             insecure,
@@ -5657,8 +5657,8 @@ class Forum(object):
             request,
             target,
             '/api.Forum/BookmarkThread',
-            ProtoApi__pb2.ForumBookmarkThreadRequest.SerializeToString,
-            ProtoApi__pb2.ForumBookmarkThreadResponse.FromString,
+            papi__pb2.ForumBookmarkThreadRequest.SerializeToString,
+            papi__pb2.ForumBookmarkThreadResponse.FromString,
             options,
             channel_credentials,
             insecure,
@@ -5684,8 +5684,8 @@ class Forum(object):
             request,
             target,
             '/api.Forum/UnbookmarkThread',
-            ProtoApi__pb2.ForumUnbookmarkThreadRequest.SerializeToString,
-            ProtoApi__pb2.ForumUnbookmarkThreadResponse.FromString,
+            papi__pb2.ForumUnbookmarkThreadRequest.SerializeToString,
+            papi__pb2.ForumUnbookmarkThreadResponse.FromString,
             options,
             channel_credentials,
             insecure,
@@ -5711,8 +5711,8 @@ class Forum(object):
             request,
             target,
             '/api.Forum/BlockUser',
-            ProtoApi__pb2.ForumBlockUserRequest.SerializeToString,
-            ProtoApi__pb2.ForumBlockUserResponse.FromString,
+            papi__pb2.ForumBlockUserRequest.SerializeToString,
+            papi__pb2.ForumBlockUserResponse.FromString,
             options,
             channel_credentials,
             insecure,
@@ -5927,8 +5927,8 @@ class Friend(object):
             request,
             target,
             '/api.Friend/List',
-            ProtoApi__pb2.Empty.SerializeToString,
-            ProtoApi__pb2.FriendListResponse.FromString,
+            papi__pb2.Empty.SerializeToString,
+            papi__pb2.FriendListResponse.FromString,
             options,
             channel_credentials,
             insecure,
@@ -5954,8 +5954,8 @@ class Friend(object):
             request,
             target,
             '/api.Friend/Delete',
-            ProtoApi__pb2.FriendDeleteRequest.SerializeToString,
-            ProtoApi__pb2.FriendDeleteResponse.FromString,
+            papi__pb2.FriendDeleteRequest.SerializeToString,
+            papi__pb2.FriendDeleteResponse.FromString,
             options,
             channel_credentials,
             insecure,
@@ -5981,8 +5981,8 @@ class Friend(object):
             request,
             target,
             '/api.Friend/Apply',
-            ProtoApi__pb2.FriendApplyRequest.SerializeToString,
-            ProtoApi__pb2.FriendApplyResponse.FromString,
+            papi__pb2.FriendApplyRequest.SerializeToString,
+            papi__pb2.FriendApplyResponse.FromString,
             options,
             channel_credentials,
             insecure,
@@ -6008,8 +6008,8 @@ class Friend(object):
             request,
             target,
             '/api.Friend/Approve',
-            ProtoApi__pb2.FriendApproveRequest.SerializeToString,
-            ProtoApi__pb2.FriendApproveResponse.FromString,
+            papi__pb2.FriendApproveRequest.SerializeToString,
+            papi__pb2.FriendApproveResponse.FromString,
             options,
             channel_credentials,
             insecure,
@@ -6035,8 +6035,8 @@ class Friend(object):
             request,
             target,
             '/api.Friend/Cancel',
-            ProtoApi__pb2.FriendCancelRequest.SerializeToString,
-            ProtoApi__pb2.FriendCancelResponse.FromString,
+            papi__pb2.FriendCancelRequest.SerializeToString,
+            papi__pb2.FriendCancelResponse.FromString,
             options,
             channel_credentials,
             insecure,
@@ -6062,8 +6062,8 @@ class Friend(object):
             request,
             target,
             '/api.Friend/CancelAll',
-            ProtoApi__pb2.Empty.SerializeToString,
-            ProtoApi__pb2.FriendCancelAllResponse.FromString,
+            papi__pb2.Empty.SerializeToString,
+            papi__pb2.FriendCancelAllResponse.FromString,
             options,
             channel_credentials,
             insecure,
@@ -6089,8 +6089,8 @@ class Friend(object):
             request,
             target,
             '/api.Friend/Reject',
-            ProtoApi__pb2.FriendRejectRequest.SerializeToString,
-            ProtoApi__pb2.FriendRejectResponse.FromString,
+            papi__pb2.FriendRejectRequest.SerializeToString,
+            papi__pb2.FriendRejectResponse.FromString,
             options,
             channel_credentials,
             insecure,
@@ -6116,8 +6116,8 @@ class Friend(object):
             request,
             target,
             '/api.Friend/ListApplying',
-            ProtoApi__pb2.Empty.SerializeToString,
-            ProtoApi__pb2.FriendListApplyingResponse.FromString,
+            papi__pb2.Empty.SerializeToString,
+            papi__pb2.FriendListApplyingResponse.FromString,
             options,
             channel_credentials,
             insecure,
@@ -6143,8 +6143,8 @@ class Friend(object):
             request,
             target,
             '/api.Friend/ListApplied',
-            ProtoApi__pb2.Empty.SerializeToString,
-            ProtoApi__pb2.FriendListAppliedResponse.FromString,
+            papi__pb2.Empty.SerializeToString,
+            papi__pb2.FriendListAppliedResponse.FromString,
             options,
             channel_credentials,
             insecure,
@@ -6170,8 +6170,8 @@ class Friend(object):
             request,
             target,
             '/api.Friend/Search',
-            ProtoApi__pb2.Empty.SerializeToString,
-            ProtoApi__pb2.FriendSearchResponse.FromString,
+            papi__pb2.Empty.SerializeToString,
+            papi__pb2.FriendSearchResponse.FromString,
             options,
             channel_credentials,
             insecure,
@@ -6338,8 +6338,8 @@ class Gacha(object):
             request,
             target,
             '/api.Gacha/List',
-            ProtoApi__pb2.Empty.SerializeToString,
-            ProtoApi__pb2.GachaListResponse.FromString,
+            papi__pb2.Empty.SerializeToString,
+            papi__pb2.GachaListResponse.FromString,
             options,
             channel_credentials,
             insecure,
@@ -6365,8 +6365,8 @@ class Gacha(object):
             request,
             target,
             '/api.Gacha/Draw',
-            ProtoApi__pb2.GachaDrawRequest.SerializeToString,
-            ProtoApi__pb2.GachaDrawResponse.FromString,
+            papi__pb2.GachaDrawRequest.SerializeToString,
+            papi__pb2.GachaDrawResponse.FromString,
             options,
             channel_credentials,
             insecure,
@@ -6392,8 +6392,8 @@ class Gacha(object):
             request,
             target,
             '/api.Gacha/Exchange',
-            ProtoApi__pb2.GachaExchangeRequest.SerializeToString,
-            ProtoApi__pb2.GachaExchangeResponse.FromString,
+            papi__pb2.GachaExchangeRequest.SerializeToString,
+            papi__pb2.GachaExchangeResponse.FromString,
             options,
             channel_credentials,
             insecure,
@@ -6419,8 +6419,8 @@ class Gacha(object):
             request,
             target,
             '/api.Gacha/Probability',
-            ProtoApi__pb2.GachaProbabilityRequest.SerializeToString,
-            ProtoApi__pb2.GachaProbabilityResponse.FromString,
+            papi__pb2.GachaProbabilityRequest.SerializeToString,
+            papi__pb2.GachaProbabilityResponse.FromString,
             options,
             channel_credentials,
             insecure,
@@ -6446,8 +6446,8 @@ class Gacha(object):
             request,
             target,
             '/api.Gacha/History',
-            ProtoApi__pb2.GachaHistoryRequest.SerializeToString,
-            ProtoApi__pb2.GachaHistoryResponse.FromString,
+            papi__pb2.GachaHistoryRequest.SerializeToString,
+            papi__pb2.GachaHistoryResponse.FromString,
             options,
             channel_credentials,
             insecure,
@@ -6473,8 +6473,8 @@ class Gacha(object):
             request,
             target,
             '/api.Gacha/SelectCard',
-            ProtoApi__pb2.GachaSelectCardRequest.SerializeToString,
-            ProtoApi__pb2.GachaSelectCardResponse.FromString,
+            papi__pb2.GachaSelectCardRequest.SerializeToString,
+            papi__pb2.GachaSelectCardResponse.FromString,
             options,
             channel_credentials,
             insecure,
@@ -6500,8 +6500,8 @@ class Gacha(object):
             request,
             target,
             '/api.Gacha/ReceiveFreePremiumGachaTicket',
-            ProtoApi__pb2.GachaReceiveFreePremiumGachaTicketRequest.SerializeToString,
-            ProtoApi__pb2.GachaReceiveFreePremiumGachaTicketResponse.FromString,
+            papi__pb2.GachaReceiveFreePremiumGachaTicketRequest.SerializeToString,
+            papi__pb2.GachaReceiveFreePremiumGachaTicketResponse.FromString,
             options,
             channel_credentials,
             insecure,
@@ -6604,8 +6604,8 @@ class Gift(object):
             request,
             target,
             '/api.Gift/List',
-            ProtoApi__pb2.GiftListRequest.SerializeToString,
-            ProtoApi__pb2.GiftListResponse.FromString,
+            papi__pb2.GiftListRequest.SerializeToString,
+            papi__pb2.GiftListResponse.FromString,
             options,
             channel_credentials,
             insecure,
@@ -6631,8 +6631,8 @@ class Gift(object):
             request,
             target,
             '/api.Gift/Receive',
-            ProtoApi__pb2.GiftReceiveRequest.SerializeToString,
-            ProtoApi__pb2.GiftReceiveResponse.FromString,
+            papi__pb2.GiftReceiveRequest.SerializeToString,
+            papi__pb2.GiftReceiveResponse.FromString,
             options,
             channel_credentials,
             insecure,
@@ -6658,8 +6658,8 @@ class Gift(object):
             request,
             target,
             '/api.Gift/ListHistory',
-            ProtoApi__pb2.Empty.SerializeToString,
-            ProtoApi__pb2.GiftHistoryListResponse.FromString,
+            papi__pb2.Empty.SerializeToString,
+            papi__pb2.GiftHistoryListResponse.FromString,
             options,
             channel_credentials,
             insecure,
@@ -6730,8 +6730,8 @@ class Gpp(object):
             request,
             target,
             '/api.Gpp/ReceiveReward',
-            ProtoApi__pb2.GppReceiveRewardRequest.SerializeToString,
-            ProtoApi__pb2.GppReceiveRewardResponse.FromString,
+            papi__pb2.GppReceiveRewardRequest.SerializeToString,
+            papi__pb2.GppReceiveRewardResponse.FromString,
             options,
             channel_credentials,
             insecure,
@@ -6834,8 +6834,8 @@ class Guild(object):
             request,
             target,
             '/api.Guild/List',
-            ProtoApi__pb2.Empty.SerializeToString,
-            ProtoApi__pb2.GuildListResponse.FromString,
+            papi__pb2.Empty.SerializeToString,
+            papi__pb2.GuildListResponse.FromString,
             options,
             channel_credentials,
             insecure,
@@ -6861,8 +6861,8 @@ class Guild(object):
             request,
             target,
             '/api.Guild/Top',
-            ProtoApi__pb2.Empty.SerializeToString,
-            ProtoApi__pb2.GuildTopResponse.FromString,
+            papi__pb2.Empty.SerializeToString,
+            papi__pb2.GuildTopResponse.FromString,
             options,
             channel_credentials,
             insecure,
@@ -6888,8 +6888,8 @@ class Guild(object):
             request,
             target,
             '/api.Guild/Join',
-            ProtoApi__pb2.GuildJoinRequest.SerializeToString,
-            ProtoApi__pb2.GuildJoinResponse.FromString,
+            papi__pb2.GuildJoinRequest.SerializeToString,
+            papi__pb2.GuildJoinResponse.FromString,
             options,
             channel_credentials,
             insecure,
@@ -7024,8 +7024,8 @@ class Gvg(object):
             request,
             target,
             '/api.Gvg/Top',
-            ProtoApi__pb2.Empty.SerializeToString,
-            ProtoApi__pb2.GvgTopResponse.FromString,
+            papi__pb2.Empty.SerializeToString,
+            papi__pb2.GvgTopResponse.FromString,
             options,
             channel_credentials,
             insecure,
@@ -7051,8 +7051,8 @@ class Gvg(object):
             request,
             target,
             '/api.Gvg/ListOpponent',
-            ProtoApi__pb2.GvgListOpponentRequest.SerializeToString,
-            ProtoApi__pb2.GvgListOpponentResponse.FromString,
+            papi__pb2.GvgListOpponentRequest.SerializeToString,
+            papi__pb2.GvgListOpponentResponse.FromString,
             options,
             channel_credentials,
             insecure,
@@ -7078,8 +7078,8 @@ class Gvg(object):
             request,
             target,
             '/api.Gvg/ListRanking',
-            ProtoApi__pb2.GvgListRankingRequest.SerializeToString,
-            ProtoApi__pb2.GvgListRankingResponse.FromString,
+            papi__pb2.GvgListRankingRequest.SerializeToString,
+            papi__pb2.GvgListRankingResponse.FromString,
             options,
             channel_credentials,
             insecure,
@@ -7105,8 +7105,8 @@ class Gvg(object):
             request,
             target,
             '/api.Gvg/Start',
-            ProtoApi__pb2.GvgStartRequest.SerializeToString,
-            ProtoApi__pb2.GvgStartResponse.FromString,
+            papi__pb2.GvgStartRequest.SerializeToString,
+            papi__pb2.GvgStartResponse.FromString,
             options,
             channel_credentials,
             insecure,
@@ -7132,8 +7132,8 @@ class Gvg(object):
             request,
             target,
             '/api.Gvg/ListAsset',
-            ProtoApi__pb2.GvgListAssetRequest.SerializeToString,
-            ProtoApi__pb2.GvgListAssetResponse.FromString,
+            papi__pb2.GvgListAssetRequest.SerializeToString,
+            papi__pb2.GvgListAssetResponse.FromString,
             options,
             channel_credentials,
             insecure,
@@ -7204,8 +7204,8 @@ class Hair(object):
             request,
             target,
             '/api.Hair/CheckHair',
-            ProtoApi__pb2.HairCheckRequest.SerializeToString,
-            ProtoApi__pb2.HairCheckResponse.FromString,
+            papi__pb2.HairCheckRequest.SerializeToString,
+            papi__pb2.HairCheckResponse.FromString,
             options,
             channel_credentials,
             insecure,
@@ -7276,8 +7276,8 @@ class Health(object):
             request,
             target,
             '/api.Health/Check',
-            ProtoApi__pb2.HealthCheckRequest.SerializeToString,
-            ProtoApi__pb2.HealthCheckResponse.FromString,
+            papi__pb2.HealthCheckRequest.SerializeToString,
+            papi__pb2.HealthCheckResponse.FromString,
             options,
             channel_credentials,
             insecure,
@@ -7396,8 +7396,8 @@ class Hierarchy(object):
             request,
             target,
             '/api.Hierarchy/Top',
-            ProtoApi__pb2.Empty.SerializeToString,
-            ProtoApi__pb2.HierarchyTopResponse.FromString,
+            papi__pb2.Empty.SerializeToString,
+            papi__pb2.HierarchyTopResponse.FromString,
             options,
             channel_credentials,
             insecure,
@@ -7423,8 +7423,8 @@ class Hierarchy(object):
             request,
             target,
             '/api.Hierarchy/ListRanking',
-            ProtoApi__pb2.Empty.SerializeToString,
-            ProtoApi__pb2.HierarchyRankingResponse.FromString,
+            papi__pb2.Empty.SerializeToString,
+            papi__pb2.HierarchyRankingResponse.FromString,
             options,
             channel_credentials,
             insecure,
@@ -7450,8 +7450,8 @@ class Hierarchy(object):
             request,
             target,
             '/api.Hierarchy/ReceiveRewards',
-            ProtoApi__pb2.HierarchyRewardsReceiveRequest.SerializeToString,
-            ProtoApi__pb2.HierarchyRewardsReceiveResponse.FromString,
+            papi__pb2.HierarchyRewardsReceiveRequest.SerializeToString,
+            papi__pb2.HierarchyRewardsReceiveResponse.FromString,
             options,
             channel_credentials,
             insecure,
@@ -7477,8 +7477,8 @@ class Hierarchy(object):
             request,
             target,
             '/api.Hierarchy/ReceiveDivisionRewards',
-            ProtoApi__pb2.HierarchyDivisionRewardsReceiveRequest.SerializeToString,
-            ProtoApi__pb2.HierarchyDivisionRewardsReceiveResponse.FromString,
+            papi__pb2.HierarchyDivisionRewardsReceiveRequest.SerializeToString,
+            papi__pb2.HierarchyDivisionRewardsReceiveResponse.FromString,
             options,
             channel_credentials,
             insecure,
@@ -7613,8 +7613,8 @@ class Home(object):
             request,
             target,
             '/api.Home/Enter',
-            ProtoApi__pb2.HomeEnterRequest.SerializeToString,
-            ProtoApi__pb2.HomeEnterResponse.FromString,
+            papi__pb2.HomeEnterRequest.SerializeToString,
+            papi__pb2.HomeEnterResponse.FromString,
             options,
             channel_credentials,
             insecure,
@@ -7640,8 +7640,8 @@ class Home(object):
             request,
             target,
             '/api.Home/Login',
-            ProtoApi__pb2.HomeLoginRequest.SerializeToString,
-            ProtoApi__pb2.HomeLoginResponse.FromString,
+            papi__pb2.HomeLoginRequest.SerializeToString,
+            papi__pb2.HomeLoginResponse.FromString,
             options,
             channel_credentials,
             insecure,
@@ -7667,8 +7667,8 @@ class Home(object):
             request,
             target,
             '/api.Home/ReadTalk',
-            ProtoApi__pb2.HomeReadTalkRequest.SerializeToString,
-            ProtoApi__pb2.HomeReadTalkResponse.FromString,
+            papi__pb2.HomeReadTalkRequest.SerializeToString,
+            papi__pb2.HomeReadTalkResponse.FromString,
             options,
             channel_credentials,
             insecure,
@@ -7694,8 +7694,8 @@ class Home(object):
             request,
             target,
             '/api.Home/SetReview',
-            ProtoApi__pb2.Empty.SerializeToString,
-            ProtoApi__pb2.HomeSetReviewResponse.FromString,
+            papi__pb2.Empty.SerializeToString,
+            papi__pb2.HomeSetReviewResponse.FromString,
             options,
             channel_credentials,
             insecure,
@@ -7721,8 +7721,8 @@ class Home(object):
             request,
             target,
             '/api.Home/SetCharacterPosition',
-            ProtoApi__pb2.HomeSetCharacterPositionRequest.SerializeToString,
-            ProtoApi__pb2.HomeSetCharacterPositionResponse.FromString,
+            papi__pb2.HomeSetCharacterPositionRequest.SerializeToString,
+            papi__pb2.HomeSetCharacterPositionResponse.FromString,
             options,
             channel_credentials,
             insecure,
@@ -7825,8 +7825,8 @@ class Invite(object):
             request,
             target,
             '/api.Invite/Top',
-            ProtoApi__pb2.Empty.SerializeToString,
-            ProtoApi__pb2.InviteTopResponse.FromString,
+            papi__pb2.Empty.SerializeToString,
+            papi__pb2.InviteTopResponse.FromString,
             options,
             channel_credentials,
             insecure,
@@ -7852,8 +7852,8 @@ class Invite(object):
             request,
             target,
             '/api.Invite/ReceiveHostRewards',
-            ProtoApi__pb2.InviteReceiveHostRewardsRequest.SerializeToString,
-            ProtoApi__pb2.InviteReceiveHostRewardsResponse.FromString,
+            papi__pb2.InviteReceiveHostRewardsRequest.SerializeToString,
+            papi__pb2.InviteReceiveHostRewardsResponse.FromString,
             options,
             channel_credentials,
             insecure,
@@ -7879,8 +7879,8 @@ class Invite(object):
             request,
             target,
             '/api.Invite/EnterCode',
-            ProtoApi__pb2.InviteEnterCodeRequest.SerializeToString,
-            ProtoApi__pb2.InviteEnterCodeResponse.FromString,
+            papi__pb2.InviteEnterCodeRequest.SerializeToString,
+            papi__pb2.InviteEnterCodeResponse.FromString,
             options,
             channel_credentials,
             insecure,
@@ -7951,8 +7951,8 @@ class Item(object):
             request,
             target,
             '/api.Item/Sell',
-            ProtoApi__pb2.ItemSellRequest.SerializeToString,
-            ProtoApi__pb2.ItemSellResponse.FromString,
+            papi__pb2.ItemSellRequest.SerializeToString,
+            papi__pb2.ItemSellResponse.FromString,
             options,
             channel_credentials,
             insecure,
@@ -8039,8 +8039,8 @@ class Ladder(object):
             request,
             target,
             '/api.Ladder/Top',
-            ProtoApi__pb2.LadderTopRequest.SerializeToString,
-            ProtoApi__pb2.LadderTopResponse.FromString,
+            papi__pb2.LadderTopRequest.SerializeToString,
+            papi__pb2.LadderTopResponse.FromString,
             options,
             channel_credentials,
             insecure,
@@ -8066,8 +8066,8 @@ class Ladder(object):
             request,
             target,
             '/api.Ladder/ReachPanel',
-            ProtoApi__pb2.LadderPanelReachRequest.SerializeToString,
-            ProtoApi__pb2.LadderPanelReachResponse.FromString,
+            papi__pb2.LadderPanelReachRequest.SerializeToString,
+            papi__pb2.LadderPanelReachResponse.FromString,
             options,
             channel_credentials,
             insecure,
@@ -8266,8 +8266,8 @@ class League(object):
             request,
             target,
             '/api.League/Top',
-            ProtoApi__pb2.Empty.SerializeToString,
-            ProtoApi__pb2.LeagueTopResponse.FromString,
+            papi__pb2.Empty.SerializeToString,
+            papi__pb2.LeagueTopResponse.FromString,
             options,
             channel_credentials,
             insecure,
@@ -8293,8 +8293,8 @@ class League(object):
             request,
             target,
             '/api.League/GetLiveResult',
-            ProtoApi__pb2.LeagueGetLiveResultRequest.SerializeToString,
-            ProtoApi__pb2.LeagueGetLiveResultResponse.FromString,
+            papi__pb2.LeagueGetLiveResultRequest.SerializeToString,
+            papi__pb2.LeagueGetLiveResultResponse.FromString,
             options,
             channel_credentials,
             insecure,
@@ -8320,8 +8320,8 @@ class League(object):
             request,
             target,
             '/api.League/SaveDeck',
-            ProtoApi__pb2.LeagueSaveDeckRequest.SerializeToString,
-            ProtoApi__pb2.LeagueSaveDeckResponse.FromString,
+            papi__pb2.LeagueSaveDeckRequest.SerializeToString,
+            papi__pb2.LeagueSaveDeckResponse.FromString,
             options,
             channel_credentials,
             insecure,
@@ -8347,8 +8347,8 @@ class League(object):
             request,
             target,
             '/api.League/GetLastSeasonResult',
-            ProtoApi__pb2.Empty.SerializeToString,
-            ProtoApi__pb2.LeagueGetLastSeasonResultResponse.FromString,
+            papi__pb2.Empty.SerializeToString,
+            papi__pb2.LeagueGetLastSeasonResultResponse.FromString,
             options,
             channel_credentials,
             insecure,
@@ -8374,8 +8374,8 @@ class League(object):
             request,
             target,
             '/api.League/ListPointRanking',
-            ProtoApi__pb2.LeagueListPointRankingRequest.SerializeToString,
-            ProtoApi__pb2.LeagueListPointRankingResponse.FromString,
+            papi__pb2.LeagueListPointRankingRequest.SerializeToString,
+            papi__pb2.LeagueListPointRankingResponse.FromString,
             options,
             channel_credentials,
             insecure,
@@ -8401,8 +8401,8 @@ class League(object):
             request,
             target,
             '/api.League/ListCardHighestScoreRanking',
-            ProtoApi__pb2.LeagueListCardHighestScoreRankingRequest.SerializeToString,
-            ProtoApi__pb2.LeagueListCardHighestScoreRankingResponse.FromString,
+            papi__pb2.LeagueListCardHighestScoreRankingRequest.SerializeToString,
+            papi__pb2.LeagueListCardHighestScoreRankingResponse.FromString,
             options,
             channel_credentials,
             insecure,
@@ -8428,8 +8428,8 @@ class League(object):
             request,
             target,
             '/api.League/ListCardSkillRateRanking',
-            ProtoApi__pb2.LeagueListCardSkillRateRankingRequest.SerializeToString,
-            ProtoApi__pb2.LeagueListCardSkillRateRankingResponse.FromString,
+            papi__pb2.LeagueListCardSkillRateRankingRequest.SerializeToString,
+            papi__pb2.LeagueListCardSkillRateRankingResponse.FromString,
             options,
             channel_credentials,
             insecure,
@@ -8455,8 +8455,8 @@ class League(object):
             request,
             target,
             '/api.League/ListCardMvpRanking',
-            ProtoApi__pb2.LeagueListCardMvpRankingRequest.SerializeToString,
-            ProtoApi__pb2.LeagueListCardMvpRankingResponse.FromString,
+            papi__pb2.LeagueListCardMvpRankingRequest.SerializeToString,
+            papi__pb2.LeagueListCardMvpRankingResponse.FromString,
             options,
             channel_credentials,
             insecure,
@@ -8482,8 +8482,8 @@ class League(object):
             request,
             target,
             '/api.League/GetDailyDetail',
-            ProtoApi__pb2.LeagueGetDailyDetailRequest.SerializeToString,
-            ProtoApi__pb2.LeagueGetDailyDetailResponse.FromString,
+            papi__pb2.LeagueGetDailyDetailRequest.SerializeToString,
+            papi__pb2.LeagueGetDailyDetailResponse.FromString,
             options,
             channel_credentials,
             insecure,
@@ -8570,8 +8570,8 @@ class LoginBonus(object):
             request,
             target,
             '/api.LoginBonus/List',
-            ProtoApi__pb2.Empty.SerializeToString,
-            ProtoApi__pb2.LoginBonusListResponse.FromString,
+            papi__pb2.Empty.SerializeToString,
+            papi__pb2.LoginBonusListResponse.FromString,
             options,
             channel_credentials,
             insecure,
@@ -8597,8 +8597,8 @@ class LoginBonus(object):
             request,
             target,
             '/api.LoginBonus/Receive',
-            ProtoApi__pb2.LoginBonusReceiveRequest.SerializeToString,
-            ProtoApi__pb2.LoginBonusReceiveResponse.FromString,
+            papi__pb2.LoginBonusReceiveRequest.SerializeToString,
+            papi__pb2.LoginBonusReceiveResponse.FromString,
             options,
             channel_credentials,
             insecure,
@@ -8925,8 +8925,8 @@ class Love(object):
             request,
             target,
             '/api.Love/Title',
-            ProtoApi__pb2.Empty.SerializeToString,
-            ProtoApi__pb2.LoveTitleResponse.FromString,
+            papi__pb2.Empty.SerializeToString,
+            papi__pb2.LoveTitleResponse.FromString,
             options,
             channel_credentials,
             insecure,
@@ -8952,8 +8952,8 @@ class Love(object):
             request,
             target,
             '/api.Love/TitleExtra',
-            ProtoApi__pb2.LoveTitleExtraRequest.SerializeToString,
-            ProtoApi__pb2.LoveTitleExtraResponse.FromString,
+            papi__pb2.LoveTitleExtraRequest.SerializeToString,
+            papi__pb2.LoveTitleExtraResponse.FromString,
             options,
             channel_credentials,
             insecure,
@@ -8979,8 +8979,8 @@ class Love(object):
             request,
             target,
             '/api.Love/Register',
-            ProtoApi__pb2.LoveRegisterRequest.SerializeToString,
-            ProtoApi__pb2.LoveRegisterResponse.FromString,
+            papi__pb2.LoveRegisterRequest.SerializeToString,
+            papi__pb2.LoveRegisterResponse.FromString,
             options,
             channel_credentials,
             insecure,
@@ -9006,8 +9006,8 @@ class Love(object):
             request,
             target,
             '/api.Love/Top',
-            ProtoApi__pb2.LoveTopRequest.SerializeToString,
-            ProtoApi__pb2.LoveTopResponse.FromString,
+            papi__pb2.LoveTopRequest.SerializeToString,
+            papi__pb2.LoveTopResponse.FromString,
             options,
             channel_credentials,
             insecure,
@@ -9033,8 +9033,8 @@ class Love(object):
             request,
             target,
             '/api.Love/Start',
-            ProtoApi__pb2.LoveStartRequest.SerializeToString,
-            ProtoApi__pb2.LoveStartResponse.FromString,
+            papi__pb2.LoveStartRequest.SerializeToString,
+            papi__pb2.LoveStartResponse.FromString,
             options,
             channel_credentials,
             insecure,
@@ -9060,8 +9060,8 @@ class Love(object):
             request,
             target,
             '/api.Love/Restart',
-            ProtoApi__pb2.LoveRestartRequest.SerializeToString,
-            ProtoApi__pb2.LoveRestartResponse.FromString,
+            papi__pb2.LoveRestartRequest.SerializeToString,
+            papi__pb2.LoveRestartResponse.FromString,
             options,
             channel_credentials,
             insecure,
@@ -9087,8 +9087,8 @@ class Love(object):
             request,
             target,
             '/api.Love/Finish',
-            ProtoApi__pb2.LoveFinishRequest.SerializeToString,
-            ProtoApi__pb2.LoveFinishResponse.FromString,
+            papi__pb2.LoveFinishRequest.SerializeToString,
+            papi__pb2.LoveFinishResponse.FromString,
             options,
             channel_credentials,
             insecure,
@@ -9114,8 +9114,8 @@ class Love(object):
             request,
             target,
             '/api.Love/ResetReadingStoryStatus',
-            ProtoApi__pb2.LoveResetReadingStoryStatusRequest.SerializeToString,
-            ProtoApi__pb2.LoveResetReadingStoryStatusResponse.FromString,
+            papi__pb2.LoveResetReadingStoryStatusRequest.SerializeToString,
+            papi__pb2.LoveResetReadingStoryStatusResponse.FromString,
             options,
             channel_credentials,
             insecure,
@@ -9141,8 +9141,8 @@ class Love(object):
             request,
             target,
             '/api.Love/Present',
-            ProtoApi__pb2.LovePresentRequest.SerializeToString,
-            ProtoApi__pb2.LovePresentResponse.FromString,
+            papi__pb2.LovePresentRequest.SerializeToString,
+            papi__pb2.LovePresentResponse.FromString,
             options,
             channel_credentials,
             insecure,
@@ -9168,8 +9168,8 @@ class Love(object):
             request,
             target,
             '/api.Love/Save',
-            ProtoApi__pb2.LoveSaveRequest.SerializeToString,
-            ProtoApi__pb2.LoveSaveResponse.FromString,
+            papi__pb2.LoveSaveRequest.SerializeToString,
+            papi__pb2.LoveSaveResponse.FromString,
             options,
             channel_credentials,
             insecure,
@@ -9195,8 +9195,8 @@ class Love(object):
             request,
             target,
             '/api.Love/UpdateSaveName',
-            ProtoApi__pb2.LoveUpdateSaveNameRequest.SerializeToString,
-            ProtoApi__pb2.LoveUpdateSaveNameResponse.FromString,
+            papi__pb2.LoveUpdateSaveNameRequest.SerializeToString,
+            papi__pb2.LoveUpdateSaveNameResponse.FromString,
             options,
             channel_credentials,
             insecure,
@@ -9222,8 +9222,8 @@ class Love(object):
             request,
             target,
             '/api.Love/Load',
-            ProtoApi__pb2.LoveLoadRequest.SerializeToString,
-            ProtoApi__pb2.LoveLoadResponse.FromString,
+            papi__pb2.LoveLoadRequest.SerializeToString,
+            papi__pb2.LoveLoadResponse.FromString,
             options,
             channel_credentials,
             insecure,
@@ -9249,8 +9249,8 @@ class Love(object):
             request,
             target,
             '/api.Love/Reset',
-            ProtoApi__pb2.LoveResetRequest.SerializeToString,
-            ProtoApi__pb2.LoveResetResponse.FromString,
+            papi__pb2.LoveResetRequest.SerializeToString,
+            papi__pb2.LoveResetResponse.FromString,
             options,
             channel_credentials,
             insecure,
@@ -9276,8 +9276,8 @@ class Love(object):
             request,
             target,
             '/api.Love/ReceiveLessonReward',
-            ProtoApi__pb2.LoveReceiveLessonRewardRequest.SerializeToString,
-            ProtoApi__pb2.LoveReceiveLessonRewardResponse.FromString,
+            papi__pb2.LoveReceiveLessonRewardRequest.SerializeToString,
+            papi__pb2.LoveReceiveLessonRewardResponse.FromString,
             options,
             channel_credentials,
             insecure,
@@ -9303,8 +9303,8 @@ class Love(object):
             request,
             target,
             '/api.Love/PromoteLesson',
-            ProtoApi__pb2.LovePromoteLessonRequest.SerializeToString,
-            ProtoApi__pb2.LovePromoteLessonResponse.FromString,
+            papi__pb2.LovePromoteLessonRequest.SerializeToString,
+            papi__pb2.LovePromoteLessonResponse.FromString,
             options,
             channel_credentials,
             insecure,
@@ -9330,8 +9330,8 @@ class Love(object):
             request,
             target,
             '/api.Love/UpdateName',
-            ProtoApi__pb2.LoveUpdateNameRequest.SerializeToString,
-            ProtoApi__pb2.LoveUpdateNameResponse.FromString,
+            papi__pb2.LoveUpdateNameRequest.SerializeToString,
+            papi__pb2.LoveUpdateNameResponse.FromString,
             options,
             channel_credentials,
             insecure,
@@ -9357,8 +9357,8 @@ class Love(object):
             request,
             target,
             '/api.Love/GetMainCharacter',
-            ProtoApi__pb2.LoveGetMainCharacterRequest.SerializeToString,
-            ProtoApi__pb2.LoveGetMainCharacterResponse.FromString,
+            papi__pb2.LoveGetMainCharacterRequest.SerializeToString,
+            papi__pb2.LoveGetMainCharacterResponse.FromString,
             options,
             channel_credentials,
             insecure,
@@ -9749,8 +9749,8 @@ class Marathon(object):
             request,
             target,
             '/api.Marathon/Top',
-            ProtoApi__pb2.MarathonTopRequest.SerializeToString,
-            ProtoApi__pb2.MarathonTopResponse.FromString,
+            papi__pb2.MarathonTopRequest.SerializeToString,
+            papi__pb2.MarathonTopResponse.FromString,
             options,
             channel_credentials,
             insecure,
@@ -9776,8 +9776,8 @@ class Marathon(object):
             request,
             target,
             '/api.Marathon/UnlockQuest',
-            ProtoApi__pb2.MarathonQuestUnlockRequest.SerializeToString,
-            ProtoApi__pb2.MarathonQuestUnlockResponse.FromString,
+            papi__pb2.MarathonQuestUnlockRequest.SerializeToString,
+            papi__pb2.MarathonQuestUnlockResponse.FromString,
             options,
             channel_credentials,
             insecure,
@@ -9803,8 +9803,8 @@ class Marathon(object):
             request,
             target,
             '/api.Marathon/StartQuest',
-            ProtoApi__pb2.MarathonQuestStartRequest.SerializeToString,
-            ProtoApi__pb2.MarathonQuestStartResponse.FromString,
+            papi__pb2.MarathonQuestStartRequest.SerializeToString,
+            papi__pb2.MarathonQuestStartResponse.FromString,
             options,
             channel_credentials,
             insecure,
@@ -9830,8 +9830,8 @@ class Marathon(object):
             request,
             target,
             '/api.Marathon/ListQuestAsset',
-            ProtoApi__pb2.MarathonQuestListAssetRequest.SerializeToString,
-            ProtoApi__pb2.MarathonQuestListAssetResponse.FromString,
+            papi__pb2.MarathonQuestListAssetRequest.SerializeToString,
+            papi__pb2.MarathonQuestListAssetResponse.FromString,
             options,
             channel_credentials,
             insecure,
@@ -9857,8 +9857,8 @@ class Marathon(object):
             request,
             target,
             '/api.Marathon/UseQuestStaminaRecoveryItem',
-            ProtoApi__pb2.MarathonUseQuestStaminaRecoveryItemRequest.SerializeToString,
-            ProtoApi__pb2.MarathonUseQuestStaminaRecoveryItemResponse.FromString,
+            papi__pb2.MarathonUseQuestStaminaRecoveryItemRequest.SerializeToString,
+            papi__pb2.MarathonUseQuestStaminaRecoveryItemResponse.FromString,
             options,
             channel_credentials,
             insecure,
@@ -9884,8 +9884,8 @@ class Marathon(object):
             request,
             target,
             '/api.Marathon/ListDeck',
-            ProtoApi__pb2.MarathonListDeckRequest.SerializeToString,
-            ProtoApi__pb2.MarathonListDeckResponse.FromString,
+            papi__pb2.MarathonListDeckRequest.SerializeToString,
+            papi__pb2.MarathonListDeckResponse.FromString,
             options,
             channel_credentials,
             insecure,
@@ -9911,8 +9911,8 @@ class Marathon(object):
             request,
             target,
             '/api.Marathon/SaveDeck',
-            ProtoApi__pb2.MarathonDeckSaveRequest.SerializeToString,
-            ProtoApi__pb2.MarathonDeckSaveResponse.FromString,
+            papi__pb2.MarathonDeckSaveRequest.SerializeToString,
+            papi__pb2.MarathonDeckSaveResponse.FromString,
             options,
             channel_credentials,
             insecure,
@@ -9938,8 +9938,8 @@ class Marathon(object):
             request,
             target,
             '/api.Marathon/BuddyDeck',
-            ProtoApi__pb2.MarathonBuddyDeckRequest.SerializeToString,
-            ProtoApi__pb2.MarathonBuddyDeckResponse.FromString,
+            papi__pb2.MarathonBuddyDeckRequest.SerializeToString,
+            papi__pb2.MarathonBuddyDeckResponse.FromString,
             options,
             channel_credentials,
             insecure,
@@ -9965,8 +9965,8 @@ class Marathon(object):
             request,
             target,
             '/api.Marathon/DrawBoxGacha',
-            ProtoApi__pb2.MarathonBoxGachaDrawRequest.SerializeToString,
-            ProtoApi__pb2.MarathonBoxGachaDrawResponse.FromString,
+            papi__pb2.MarathonBoxGachaDrawRequest.SerializeToString,
+            papi__pb2.MarathonBoxGachaDrawResponse.FromString,
             options,
             channel_credentials,
             insecure,
@@ -9992,8 +9992,8 @@ class Marathon(object):
             request,
             target,
             '/api.Marathon/ResetBoxGacha',
-            ProtoApi__pb2.MarathonBoxGachaResetRequest.SerializeToString,
-            ProtoApi__pb2.MarathonBoxGachaResetResponse.FromString,
+            papi__pb2.MarathonBoxGachaResetRequest.SerializeToString,
+            papi__pb2.MarathonBoxGachaResetResponse.FromString,
             options,
             channel_credentials,
             insecure,
@@ -10019,8 +10019,8 @@ class Marathon(object):
             request,
             target,
             '/api.Marathon/ListRaid',
-            ProtoApi__pb2.MarathonRaidListRequest.SerializeToString,
-            ProtoApi__pb2.MarathonRaidListResponse.FromString,
+            papi__pb2.MarathonRaidListRequest.SerializeToString,
+            papi__pb2.MarathonRaidListResponse.FromString,
             options,
             channel_credentials,
             insecure,
@@ -10046,8 +10046,8 @@ class Marathon(object):
             request,
             target,
             '/api.Marathon/CheckRaidProgress',
-            ProtoApi__pb2.MarathonRaidCheckProgressRequest.SerializeToString,
-            ProtoApi__pb2.MarathonRaidCheckProgressResponse.FromString,
+            papi__pb2.MarathonRaidCheckProgressRequest.SerializeToString,
+            papi__pb2.MarathonRaidCheckProgressResponse.FromString,
             options,
             channel_credentials,
             insecure,
@@ -10073,8 +10073,8 @@ class Marathon(object):
             request,
             target,
             '/api.Marathon/ListRaidHistory',
-            ProtoApi__pb2.MarathonRaidListHistoryRequest.SerializeToString,
-            ProtoApi__pb2.MarathonRaidListHistoryResponse.FromString,
+            papi__pb2.MarathonRaidListHistoryRequest.SerializeToString,
+            papi__pb2.MarathonRaidListHistoryResponse.FromString,
             options,
             channel_credentials,
             insecure,
@@ -10100,8 +10100,8 @@ class Marathon(object):
             request,
             target,
             '/api.Marathon/GetRaidHistoryDetail',
-            ProtoApi__pb2.MarathonRaidGetHistoryDetailRequest.SerializeToString,
-            ProtoApi__pb2.MarathonRaidGetHistoryDetailResponse.FromString,
+            papi__pb2.MarathonRaidGetHistoryDetailRequest.SerializeToString,
+            papi__pb2.MarathonRaidGetHistoryDetailResponse.FromString,
             options,
             channel_credentials,
             insecure,
@@ -10127,8 +10127,8 @@ class Marathon(object):
             request,
             target,
             '/api.Marathon/ListRaidRanking',
-            ProtoApi__pb2.MarathonRaidListRankingRequest.SerializeToString,
-            ProtoApi__pb2.MarathonRaidListRankingResponse.FromString,
+            papi__pb2.MarathonRaidListRankingRequest.SerializeToString,
+            papi__pb2.MarathonRaidListRankingResponse.FromString,
             options,
             channel_credentials,
             insecure,
@@ -10154,8 +10154,8 @@ class Marathon(object):
             request,
             target,
             '/api.Marathon/StartRaid',
-            ProtoApi__pb2.MarathonRaidStartRequest.SerializeToString,
-            ProtoApi__pb2.MarathonRaidStartResponse.FromString,
+            papi__pb2.MarathonRaidStartRequest.SerializeToString,
+            papi__pb2.MarathonRaidStartResponse.FromString,
             options,
             channel_credentials,
             insecure,
@@ -10181,8 +10181,8 @@ class Marathon(object):
             request,
             target,
             '/api.Marathon/JoinRaid',
-            ProtoApi__pb2.MarathonRaidJoinRequest.SerializeToString,
-            ProtoApi__pb2.MarathonRaidJoinResponse.FromString,
+            papi__pb2.MarathonRaidJoinRequest.SerializeToString,
+            papi__pb2.MarathonRaidJoinResponse.FromString,
             options,
             channel_credentials,
             insecure,
@@ -10208,8 +10208,8 @@ class Marathon(object):
             request,
             target,
             '/api.Marathon/FinishRaid',
-            ProtoApi__pb2.MarathonRaidFinishRequest.SerializeToString,
-            ProtoApi__pb2.MarathonRaidFinishResponse.FromString,
+            papi__pb2.MarathonRaidFinishRequest.SerializeToString,
+            papi__pb2.MarathonRaidFinishResponse.FromString,
             options,
             channel_credentials,
             insecure,
@@ -10235,8 +10235,8 @@ class Marathon(object):
             request,
             target,
             '/api.Marathon/UseRaidStaminaRecoveryItem',
-            ProtoApi__pb2.MarathonUseRaidStaminaRecoveryItemRequest.SerializeToString,
-            ProtoApi__pb2.MarathonUseRaidStaminaRecoveryItemResponse.FromString,
+            papi__pb2.MarathonUseRaidStaminaRecoveryItemRequest.SerializeToString,
+            papi__pb2.MarathonUseRaidStaminaRecoveryItemResponse.FromString,
             options,
             channel_credentials,
             insecure,
@@ -10262,8 +10262,8 @@ class Marathon(object):
             request,
             target,
             '/api.Marathon/ListRaidDeck',
-            ProtoApi__pb2.MarathonListRaidDeckRequest.SerializeToString,
-            ProtoApi__pb2.MarathonListRaidDeckResponse.FromString,
+            papi__pb2.MarathonListRaidDeckRequest.SerializeToString,
+            papi__pb2.MarathonListRaidDeckResponse.FromString,
             options,
             channel_credentials,
             insecure,
@@ -10289,8 +10289,8 @@ class Marathon(object):
             request,
             target,
             '/api.Marathon/SaveRaidDeck',
-            ProtoApi__pb2.MarathonRaidDeckSaveRequest.SerializeToString,
-            ProtoApi__pb2.MarathonRaidDeckSaveResponse.FromString,
+            papi__pb2.MarathonRaidDeckSaveRequest.SerializeToString,
+            papi__pb2.MarathonRaidDeckSaveResponse.FromString,
             options,
             channel_credentials,
             insecure,
@@ -10393,8 +10393,8 @@ class Market(object):
             request,
             target,
             '/api.Market/ListItem',
-            ProtoApi__pb2.Empty.SerializeToString,
-            ProtoApi__pb2.MarketListItemResponse.FromString,
+            papi__pb2.Empty.SerializeToString,
+            papi__pb2.MarketListItemResponse.FromString,
             options,
             channel_credentials,
             insecure,
@@ -10420,8 +10420,8 @@ class Market(object):
             request,
             target,
             '/api.Market/Reset',
-            ProtoApi__pb2.MarketResetRequest.SerializeToString,
-            ProtoApi__pb2.MarketResetResponse.FromString,
+            papi__pb2.MarketResetRequest.SerializeToString,
+            papi__pb2.MarketResetResponse.FromString,
             options,
             channel_credentials,
             insecure,
@@ -10447,8 +10447,8 @@ class Market(object):
             request,
             target,
             '/api.Market/Purchase',
-            ProtoApi__pb2.MarketPurchaseRequest.SerializeToString,
-            ProtoApi__pb2.MarketPurchaseResponse.FromString,
+            papi__pb2.MarketPurchaseRequest.SerializeToString,
+            papi__pb2.MarketPurchaseResponse.FromString,
             options,
             channel_credentials,
             insecure,
@@ -10567,8 +10567,8 @@ class Master(object):
             request,
             target,
             '/api.Master/Get',
-            ProtoApi__pb2.Empty.SerializeToString,
-            ProtoApi__pb2.MasterGetResponse.FromString,
+            papi__pb2.Empty.SerializeToString,
+            papi__pb2.MasterGetResponse.FromString,
             options,
             channel_credentials,
             insecure,
@@ -10594,8 +10594,8 @@ class Master(object):
             request,
             target,
             '/api.Master/Rule',
-            ProtoApi__pb2.MasterRuleRequest.SerializeToString,
-            ProtoApi__pb2.MasterRuleResponse.FromString,
+            papi__pb2.MasterRuleRequest.SerializeToString,
+            papi__pb2.MasterRuleResponse.FromString,
             options,
             channel_credentials,
             insecure,
@@ -10621,8 +10621,8 @@ class Master(object):
             request,
             target,
             '/api.Master/GetInquiryTemplate',
-            ProtoApi__pb2.MasterGetInquiryTemplateRequest.SerializeToString,
-            ProtoApi__pb2.MasterGetInquiryTemplateResponse.FromString,
+            papi__pb2.MasterGetInquiryTemplateRequest.SerializeToString,
+            papi__pb2.MasterGetInquiryTemplateResponse.FromString,
             options,
             channel_credentials,
             insecure,
@@ -10648,8 +10648,8 @@ class Master(object):
             request,
             target,
             '/api.Master/GetHelpCategory',
-            ProtoApi__pb2.MasterGetHelpCategoryRequest.SerializeToString,
-            ProtoApi__pb2.MasterGetHelpCategoryResponse.FromString,
+            papi__pb2.MasterGetHelpCategoryRequest.SerializeToString,
+            papi__pb2.MasterGetHelpCategoryResponse.FromString,
             options,
             channel_credentials,
             insecure,
@@ -10800,8 +10800,8 @@ class Message(object):
             request,
             target,
             '/api.Message/ListGroup',
-            ProtoApi__pb2.Empty.SerializeToString,
-            ProtoApi__pb2.MessageListGroupResponse.FromString,
+            papi__pb2.Empty.SerializeToString,
+            papi__pb2.MessageListGroupResponse.FromString,
             options,
             channel_credentials,
             insecure,
@@ -10827,8 +10827,8 @@ class Message(object):
             request,
             target,
             '/api.Message/Timeline',
-            ProtoApi__pb2.MessageTimelineRequest.SerializeToString,
-            ProtoApi__pb2.MessageTimelineResponse.FromString,
+            papi__pb2.MessageTimelineRequest.SerializeToString,
+            papi__pb2.MessageTimelineResponse.FromString,
             options,
             channel_credentials,
             insecure,
@@ -10854,8 +10854,8 @@ class Message(object):
             request,
             target,
             '/api.Message/Receive',
-            ProtoApi__pb2.MessageReceiveRequest.SerializeToString,
-            ProtoApi__pb2.MessageReceiveResponse.FromString,
+            papi__pb2.MessageReceiveRequest.SerializeToString,
+            papi__pb2.MessageReceiveResponse.FromString,
             options,
             channel_credentials,
             insecure,
@@ -10881,8 +10881,8 @@ class Message(object):
             request,
             target,
             '/api.Message/Save',
-            ProtoApi__pb2.MessageSaveRequest.SerializeToString,
-            ProtoApi__pb2.MessageSaveResponse.FromString,
+            papi__pb2.MessageSaveRequest.SerializeToString,
+            papi__pb2.MessageSaveResponse.FromString,
             options,
             channel_credentials,
             insecure,
@@ -10908,8 +10908,8 @@ class Message(object):
             request,
             target,
             '/api.Message/Finish',
-            ProtoApi__pb2.MessageFinishRequest.SerializeToString,
-            ProtoApi__pb2.MessageFinishResponse.FromString,
+            papi__pb2.MessageFinishRequest.SerializeToString,
+            papi__pb2.MessageFinishResponse.FromString,
             options,
             channel_credentials,
             insecure,
@@ -10935,8 +10935,8 @@ class Message(object):
             request,
             target,
             '/api.Message/SaveHistory',
-            ProtoApi__pb2.MessageSaveHistoryRequest.SerializeToString,
-            ProtoApi__pb2.MessageSaveHistoryResponse.FromString,
+            papi__pb2.MessageSaveHistoryRequest.SerializeToString,
+            papi__pb2.MessageSaveHistoryResponse.FromString,
             options,
             channel_credentials,
             insecure,
@@ -11183,8 +11183,8 @@ class Migration(object):
             request,
             target,
             '/api.Migration/List',
-            ProtoApi__pb2.Empty.SerializeToString,
-            ProtoApi__pb2.MigrationListResponse.FromString,
+            papi__pb2.Empty.SerializeToString,
+            papi__pb2.MigrationListResponse.FromString,
             options,
             channel_credentials,
             insecure,
@@ -11210,8 +11210,8 @@ class Migration(object):
             request,
             target,
             '/api.Migration/Execute',
-            ProtoApi__pb2.MigrationExecuteRequest.SerializeToString,
-            ProtoApi__pb2.MigrationExecuteResponse.FromString,
+            papi__pb2.MigrationExecuteRequest.SerializeToString,
+            papi__pb2.MigrationExecuteResponse.FromString,
             options,
             channel_credentials,
             insecure,
@@ -11237,8 +11237,8 @@ class Migration(object):
             request,
             target,
             '/api.Migration/SetPassword',
-            ProtoApi__pb2.MigrationSetPasswordRequest.SerializeToString,
-            ProtoApi__pb2.MigrationSetPasswordResponse.FromString,
+            papi__pb2.MigrationSetPasswordRequest.SerializeToString,
+            papi__pb2.MigrationSetPasswordResponse.FromString,
             options,
             channel_credentials,
             insecure,
@@ -11264,8 +11264,8 @@ class Migration(object):
             request,
             target,
             '/api.Migration/MigratePassword',
-            ProtoApi__pb2.MigrationMigratePasswordRequest.SerializeToString,
-            ProtoApi__pb2.MigrationMigrateResponse.FromString,
+            papi__pb2.MigrationMigratePasswordRequest.SerializeToString,
+            papi__pb2.MigrationMigrateResponse.FromString,
             options,
             channel_credentials,
             insecure,
@@ -11291,8 +11291,8 @@ class Migration(object):
             request,
             target,
             '/api.Migration/LinkApple',
-            ProtoApi__pb2.MigrationLinkAppleRequest.SerializeToString,
-            ProtoApi__pb2.MigrationLinkResponse.FromString,
+            papi__pb2.MigrationLinkAppleRequest.SerializeToString,
+            papi__pb2.MigrationLinkResponse.FromString,
             options,
             channel_credentials,
             insecure,
@@ -11318,8 +11318,8 @@ class Migration(object):
             request,
             target,
             '/api.Migration/MigrateApple',
-            ProtoApi__pb2.MigrationMigrateAppleRequest.SerializeToString,
-            ProtoApi__pb2.MigrationMigrateResponse.FromString,
+            papi__pb2.MigrationMigrateAppleRequest.SerializeToString,
+            papi__pb2.MigrationMigrateResponse.FromString,
             options,
             channel_credentials,
             insecure,
@@ -11345,8 +11345,8 @@ class Migration(object):
             request,
             target,
             '/api.Migration/LinkGoogle',
-            ProtoApi__pb2.MigrationLinkGoogleRequest.SerializeToString,
-            ProtoApi__pb2.MigrationLinkResponse.FromString,
+            papi__pb2.MigrationLinkGoogleRequest.SerializeToString,
+            papi__pb2.MigrationLinkResponse.FromString,
             options,
             channel_credentials,
             insecure,
@@ -11372,8 +11372,8 @@ class Migration(object):
             request,
             target,
             '/api.Migration/MigrateGoogle',
-            ProtoApi__pb2.MigrationMigrateGoogleRequest.SerializeToString,
-            ProtoApi__pb2.MigrationMigrateResponse.FromString,
+            papi__pb2.MigrationMigrateGoogleRequest.SerializeToString,
+            papi__pb2.MigrationMigrateResponse.FromString,
             options,
             channel_credentials,
             insecure,
@@ -11399,8 +11399,8 @@ class Migration(object):
             request,
             target,
             '/api.Migration/RequestTwitterOAuthToken',
-            ProtoApi__pb2.RequestTwitterOAuthTokenRequest.SerializeToString,
-            ProtoApi__pb2.RequestTwitterOAuthTokenResponse.FromString,
+            papi__pb2.RequestTwitterOAuthTokenRequest.SerializeToString,
+            papi__pb2.RequestTwitterOAuthTokenResponse.FromString,
             options,
             channel_credentials,
             insecure,
@@ -11426,8 +11426,8 @@ class Migration(object):
             request,
             target,
             '/api.Migration/LinkTwitter',
-            ProtoApi__pb2.MigrationLinkTwitterRequest.SerializeToString,
-            ProtoApi__pb2.MigrationLinkResponse.FromString,
+            papi__pb2.MigrationLinkTwitterRequest.SerializeToString,
+            papi__pb2.MigrationLinkResponse.FromString,
             options,
             channel_credentials,
             insecure,
@@ -11453,8 +11453,8 @@ class Migration(object):
             request,
             target,
             '/api.Migration/MigrateTwitter',
-            ProtoApi__pb2.MigrationMigrateTwitterRequest.SerializeToString,
-            ProtoApi__pb2.MigrationMigrateResponse.FromString,
+            papi__pb2.MigrationMigrateTwitterRequest.SerializeToString,
+            papi__pb2.MigrationMigrateResponse.FromString,
             options,
             channel_credentials,
             insecure,
@@ -11480,8 +11480,8 @@ class Migration(object):
             request,
             target,
             '/api.Migration/Unlink',
-            ProtoApi__pb2.MigrationUnlinkRequest.SerializeToString,
-            ProtoApi__pb2.MigrationUnlinkResponse.FromString,
+            papi__pb2.MigrationUnlinkRequest.SerializeToString,
+            papi__pb2.MigrationUnlinkResponse.FromString,
             options,
             channel_credentials,
             insecure,
@@ -11600,8 +11600,8 @@ class Mission(object):
             request,
             target,
             '/api.Mission/List',
-            ProtoApi__pb2.Empty.SerializeToString,
-            ProtoApi__pb2.MissionListResponse.FromString,
+            papi__pb2.Empty.SerializeToString,
+            papi__pb2.MissionListResponse.FromString,
             options,
             channel_credentials,
             insecure,
@@ -11627,8 +11627,8 @@ class Mission(object):
             request,
             target,
             '/api.Mission/Receive',
-            ProtoApi__pb2.MissionReceiveRequest.SerializeToString,
-            ProtoApi__pb2.MissionReceiveResponse.FromString,
+            papi__pb2.MissionReceiveRequest.SerializeToString,
+            papi__pb2.MissionReceiveResponse.FromString,
             options,
             channel_credentials,
             insecure,
@@ -11654,8 +11654,8 @@ class Mission(object):
             request,
             target,
             '/api.Mission/URLTransition',
-            ProtoApi__pb2.MissionURLTransitionRequest.SerializeToString,
-            ProtoApi__pb2.MissionURLTransitionResponse.FromString,
+            papi__pb2.MissionURLTransitionRequest.SerializeToString,
+            papi__pb2.MissionURLTransitionResponse.FromString,
             options,
             channel_credentials,
             insecure,
@@ -11681,8 +11681,8 @@ class Mission(object):
             request,
             target,
             '/api.Mission/Event',
-            ProtoApi__pb2.MissionEventRequest.SerializeToString,
-            ProtoApi__pb2.MissionEventResponse.FromString,
+            papi__pb2.MissionEventRequest.SerializeToString,
+            papi__pb2.MissionEventResponse.FromString,
             options,
             channel_credentials,
             insecure,
@@ -11785,8 +11785,8 @@ class Mosaic(object):
             request,
             target,
             '/api.Mosaic/Top',
-            ProtoApi__pb2.MosaicTopRequest.SerializeToString,
-            ProtoApi__pb2.MosaicTopResponse.FromString,
+            papi__pb2.MosaicTopRequest.SerializeToString,
+            papi__pb2.MosaicTopResponse.FromString,
             options,
             channel_credentials,
             insecure,
@@ -11812,8 +11812,8 @@ class Mosaic(object):
             request,
             target,
             '/api.Mosaic/Exchange',
-            ProtoApi__pb2.MosaicExchangeRequest.SerializeToString,
-            ProtoApi__pb2.MosaicExchangeResponse.FromString,
+            papi__pb2.MosaicExchangeRequest.SerializeToString,
+            papi__pb2.MosaicExchangeResponse.FromString,
             options,
             channel_credentials,
             insecure,
@@ -11839,8 +11839,8 @@ class Mosaic(object):
             request,
             target,
             '/api.Mosaic/ReceiveTotalConsumptionReward',
-            ProtoApi__pb2.MosaicReceiveTotalConsumptionRewardRequest.SerializeToString,
-            ProtoApi__pb2.MosaicReceiveTotalConsumptionRewardResponse.FromString,
+            papi__pb2.MosaicReceiveTotalConsumptionRewardRequest.SerializeToString,
+            papi__pb2.MosaicReceiveTotalConsumptionRewardResponse.FromString,
             options,
             channel_credentials,
             insecure,
@@ -11943,8 +11943,8 @@ class Notice(object):
             request,
             target,
             '/api.Notice/List',
-            ProtoApi__pb2.Empty.SerializeToString,
-            ProtoApi__pb2.NoticeListResponse.FromString,
+            papi__pb2.Empty.SerializeToString,
+            papi__pb2.NoticeListResponse.FromString,
             options,
             channel_credentials,
             insecure,
@@ -11970,8 +11970,8 @@ class Notice(object):
             request,
             target,
             '/api.Notice/FetchList',
-            ProtoApi__pb2.NoticeFetchRequest.SerializeToString,
-            ProtoApi__pb2.NoticeFetchResponse.FromString,
+            papi__pb2.NoticeFetchRequest.SerializeToString,
+            papi__pb2.NoticeFetchResponse.FromString,
             options,
             channel_credentials,
             insecure,
@@ -11997,8 +11997,8 @@ class Notice(object):
             request,
             target,
             '/api.Notice/Get',
-            ProtoApi__pb2.NoticeGetRequest.SerializeToString,
-            ProtoApi__pb2.NoticeGetResponse.FromString,
+            papi__pb2.NoticeGetRequest.SerializeToString,
+            papi__pb2.NoticeGetResponse.FromString,
             options,
             channel_credentials,
             insecure,
@@ -12165,8 +12165,8 @@ class PhotoContest(object):
             request,
             target,
             '/api.PhotoContest/Top',
-            ProtoApi__pb2.PhotoContestTopRequest.SerializeToString,
-            ProtoApi__pb2.PhotoContestTopResponse.FromString,
+            papi__pb2.PhotoContestTopRequest.SerializeToString,
+            papi__pb2.PhotoContestTopResponse.FromString,
             options,
             channel_credentials,
             insecure,
@@ -12192,8 +12192,8 @@ class PhotoContest(object):
             request,
             target,
             '/api.PhotoContest/ListPhoto',
-            ProtoApi__pb2.PhotoContestListPhotoRequest.SerializeToString,
-            ProtoApi__pb2.PhotoContestListPhotoResponse.FromString,
+            papi__pb2.PhotoContestListPhotoRequest.SerializeToString,
+            papi__pb2.PhotoContestListPhotoResponse.FromString,
             options,
             channel_credentials,
             insecure,
@@ -12219,8 +12219,8 @@ class PhotoContest(object):
             request,
             target,
             '/api.PhotoContest/Ranking',
-            ProtoApi__pb2.PhotoContestRankingRequest.SerializeToString,
-            ProtoApi__pb2.PhotoContestRankingResponse.FromString,
+            papi__pb2.PhotoContestRankingRequest.SerializeToString,
+            papi__pb2.PhotoContestRankingResponse.FromString,
             options,
             channel_credentials,
             insecure,
@@ -12246,8 +12246,8 @@ class PhotoContest(object):
             request,
             target,
             '/api.PhotoContest/ReceiveSectionRewards',
-            ProtoApi__pb2.PhotoContestReceiveSectionRewardsRequest.SerializeToString,
-            ProtoApi__pb2.PhotoContestReceiveSectionRewardsResponse.FromString,
+            papi__pb2.PhotoContestReceiveSectionRewardsRequest.SerializeToString,
+            papi__pb2.PhotoContestReceiveSectionRewardsResponse.FromString,
             options,
             channel_credentials,
             insecure,
@@ -12273,8 +12273,8 @@ class PhotoContest(object):
             request,
             target,
             '/api.PhotoContest/CheckShooting',
-            ProtoApi__pb2.PhotoContestCheckShootingRequest.SerializeToString,
-            ProtoApi__pb2.PhotoContestCheckShootingResponse.FromString,
+            papi__pb2.PhotoContestCheckShootingRequest.SerializeToString,
+            papi__pb2.PhotoContestCheckShootingResponse.FromString,
             options,
             channel_credentials,
             insecure,
@@ -12300,8 +12300,8 @@ class PhotoContest(object):
             request,
             target,
             '/api.PhotoContest/SubmitShooting',
-            ProtoApi__pb2.PhotoContestSubmitShootingRequest.SerializeToString,
-            ProtoApi__pb2.PhotoContestSubmitShootingResponse.FromString,
+            papi__pb2.PhotoContestSubmitShootingRequest.SerializeToString,
+            papi__pb2.PhotoContestSubmitShootingResponse.FromString,
             options,
             channel_credentials,
             insecure,
@@ -12327,8 +12327,8 @@ class PhotoContest(object):
             request,
             target,
             '/api.PhotoContest/CreateShooting',
-            ProtoApi__pb2.PhotoContestCreateShootingRequest.SerializeToString,
-            ProtoApi__pb2.PhotoContestCreateShootingResponse.FromString,
+            papi__pb2.PhotoContestCreateShootingRequest.SerializeToString,
+            papi__pb2.PhotoContestCreateShootingResponse.FromString,
             options,
             channel_credentials,
             insecure,
@@ -12767,8 +12767,8 @@ class Photo(object):
             request,
             target,
             '/api.Photo/SwitchLock',
-            ProtoApi__pb2.PhotoSwitchLockRequest.SerializeToString,
-            ProtoApi__pb2.PhotoSwitchLockResponse.FromString,
+            papi__pb2.PhotoSwitchLockRequest.SerializeToString,
+            papi__pb2.PhotoSwitchLockResponse.FromString,
             options,
             channel_credentials,
             insecure,
@@ -12794,8 +12794,8 @@ class Photo(object):
             request,
             target,
             '/api.Photo/Delete',
-            ProtoApi__pb2.PhotoDeleteRequest.SerializeToString,
-            ProtoApi__pb2.PhotoDeleteResponse.FromString,
+            papi__pb2.PhotoDeleteRequest.SerializeToString,
+            papi__pb2.PhotoDeleteResponse.FromString,
             options,
             channel_credentials,
             insecure,
@@ -12821,8 +12821,8 @@ class Photo(object):
             request,
             target,
             '/api.Photo/Enhance',
-            ProtoApi__pb2.PhotoEnhanceRequest.SerializeToString,
-            ProtoApi__pb2.PhotoEnhanceResponse.FromString,
+            papi__pb2.PhotoEnhanceRequest.SerializeToString,
+            papi__pb2.PhotoEnhanceResponse.FromString,
             options,
             channel_credentials,
             insecure,
@@ -12848,8 +12848,8 @@ class Photo(object):
             request,
             target,
             '/api.Photo/Reroll',
-            ProtoApi__pb2.PhotoRerollRequest.SerializeToString,
-            ProtoApi__pb2.PhotoRerollResponse.FromString,
+            papi__pb2.PhotoRerollRequest.SerializeToString,
+            papi__pb2.PhotoRerollResponse.FromString,
             options,
             channel_credentials,
             insecure,
@@ -12875,8 +12875,8 @@ class Photo(object):
             request,
             target,
             '/api.Photo/Retouch',
-            ProtoApi__pb2.PhotoRetouchRequest.SerializeToString,
-            ProtoApi__pb2.PhotoRetouchResponse.FromString,
+            papi__pb2.PhotoRetouchRequest.SerializeToString,
+            papi__pb2.PhotoRetouchResponse.FromString,
             options,
             channel_credentials,
             insecure,
@@ -12902,8 +12902,8 @@ class Photo(object):
             request,
             target,
             '/api.Photo/Update',
-            ProtoApi__pb2.PhotoUpdateRequest.SerializeToString,
-            ProtoApi__pb2.PhotoUpdateResponse.FromString,
+            papi__pb2.PhotoUpdateRequest.SerializeToString,
+            papi__pb2.PhotoUpdateResponse.FromString,
             options,
             channel_credentials,
             insecure,
@@ -12929,8 +12929,8 @@ class Photo(object):
             request,
             target,
             '/api.Photo/Report',
-            ProtoApi__pb2.Empty.SerializeToString,
-            ProtoApi__pb2.PhotoReportResponse.FromString,
+            papi__pb2.Empty.SerializeToString,
+            papi__pb2.PhotoReportResponse.FromString,
             options,
             channel_credentials,
             insecure,
@@ -12956,8 +12956,8 @@ class Photo(object):
             request,
             target,
             '/api.Photo/GetImageURL',
-            ProtoApi__pb2.PhotoGetImageUrlRequest.SerializeToString,
-            ProtoApi__pb2.PhotoGetImageUrlResponse.FromString,
+            papi__pb2.PhotoGetImageUrlRequest.SerializeToString,
+            papi__pb2.PhotoGetImageUrlResponse.FromString,
             options,
             channel_credentials,
             insecure,
@@ -12983,8 +12983,8 @@ class Photo(object):
             request,
             target,
             '/api.Photo/CheckShooting',
-            ProtoApi__pb2.PhotoCheckShootingRequest.SerializeToString,
-            ProtoApi__pb2.PhotoCheckShootingResponse.FromString,
+            papi__pb2.PhotoCheckShootingRequest.SerializeToString,
+            papi__pb2.PhotoCheckShootingResponse.FromString,
             options,
             channel_credentials,
             insecure,
@@ -13010,8 +13010,8 @@ class Photo(object):
             request,
             target,
             '/api.Photo/CreateShootings',
-            ProtoApi__pb2.PhotoCreateShootingsRequest.SerializeToString,
-            ProtoApi__pb2.PhotoCreateShootingsResponse.FromString,
+            papi__pb2.PhotoCreateShootingsRequest.SerializeToString,
+            papi__pb2.PhotoCreateShootingsResponse.FromString,
             options,
             channel_credentials,
             insecure,
@@ -13037,8 +13037,8 @@ class Photo(object):
             request,
             target,
             '/api.Photo/ListShooting',
-            ProtoApi__pb2.Empty.SerializeToString,
-            ProtoApi__pb2.PhotoListShootingResponse.FromString,
+            papi__pb2.Empty.SerializeToString,
+            papi__pb2.PhotoListShootingResponse.FromString,
             options,
             channel_credentials,
             insecure,
@@ -13064,8 +13064,8 @@ class Photo(object):
             request,
             target,
             '/api.Photo/ExtendLimit',
-            ProtoApi__pb2.Empty.SerializeToString,
-            ProtoApi__pb2.PhotoExtendLimitResponse.FromString,
+            papi__pb2.Empty.SerializeToString,
+            papi__pb2.PhotoExtendLimitResponse.FromString,
             options,
             channel_credentials,
             insecure,
@@ -13091,8 +13091,8 @@ class Photo(object):
             request,
             target,
             '/api.Photo/SaleRecipe',
-            ProtoApi__pb2.PhotoSaleRecipeRequest.SerializeToString,
-            ProtoApi__pb2.PhotoSaleRecipeResponse.FromString,
+            papi__pb2.PhotoSaleRecipeRequest.SerializeToString,
+            papi__pb2.PhotoSaleRecipeResponse.FromString,
             options,
             channel_credentials,
             insecure,
@@ -13118,8 +13118,8 @@ class Photo(object):
             request,
             target,
             '/api.Photo/ListSpecialShooting',
-            ProtoApi__pb2.PhotoListSpecialShootingRequest.SerializeToString,
-            ProtoApi__pb2.PhotoListSpecialShootingResponse.FromString,
+            papi__pb2.PhotoListSpecialShootingRequest.SerializeToString,
+            papi__pb2.PhotoListSpecialShootingResponse.FromString,
             options,
             channel_credentials,
             insecure,
@@ -13145,8 +13145,8 @@ class Photo(object):
             request,
             target,
             '/api.Photo/CheckSpecialShooting',
-            ProtoApi__pb2.PhotoCheckSpecialShootingRequest.SerializeToString,
-            ProtoApi__pb2.PhotoCheckSpecialShootingResponse.FromString,
+            papi__pb2.PhotoCheckSpecialShootingRequest.SerializeToString,
+            papi__pb2.PhotoCheckSpecialShootingResponse.FromString,
             options,
             channel_credentials,
             insecure,
@@ -13172,8 +13172,8 @@ class Photo(object):
             request,
             target,
             '/api.Photo/CreateSpecialShootings',
-            ProtoApi__pb2.PhotoCreateSpecialShootingsRequest.SerializeToString,
-            ProtoApi__pb2.PhotoCreateSpecialShootingsResponse.FromString,
+            papi__pb2.PhotoCreateSpecialShootingsRequest.SerializeToString,
+            papi__pb2.PhotoCreateSpecialShootingsResponse.FromString,
             options,
             channel_credentials,
             insecure,
@@ -13199,8 +13199,8 @@ class Photo(object):
             request,
             target,
             '/api.Photo/GetDreamBasePhotoEnhanceLevelInfos',
-            ProtoApi__pb2.GetDreamBasePhotoEnhanceLevelInfosRequest.SerializeToString,
-            ProtoApi__pb2.GetDreamBasePhotoEnhanceLevelInfosResponse.FromString,
+            papi__pb2.GetDreamBasePhotoEnhanceLevelInfosRequest.SerializeToString,
+            papi__pb2.GetDreamBasePhotoEnhanceLevelInfosResponse.FromString,
             options,
             channel_credentials,
             insecure,
@@ -13226,8 +13226,8 @@ class Photo(object):
             request,
             target,
             '/api.Photo/ActivateStoryEpisodeShooting',
-            ProtoApi__pb2.PhotoActivateStoryEpisodeShootingRequest.SerializeToString,
-            ProtoApi__pb2.PhotoActivateStoryEpisodeShootingResponse.FromString,
+            papi__pb2.PhotoActivateStoryEpisodeShootingRequest.SerializeToString,
+            papi__pb2.PhotoActivateStoryEpisodeShootingResponse.FromString,
             options,
             channel_credentials,
             insecure,
@@ -13253,8 +13253,8 @@ class Photo(object):
             request,
             target,
             '/api.Photo/CheckStoryEpisodeShooting',
-            ProtoApi__pb2.PhotoCheckStoryEpisodeShootingRequest.SerializeToString,
-            ProtoApi__pb2.PhotoCheckStoryEpisodeShootingResponse.FromString,
+            papi__pb2.PhotoCheckStoryEpisodeShootingRequest.SerializeToString,
+            papi__pb2.PhotoCheckStoryEpisodeShootingResponse.FromString,
             options,
             channel_credentials,
             insecure,
@@ -13280,8 +13280,8 @@ class Photo(object):
             request,
             target,
             '/api.Photo/CheckCardStoryShooting',
-            ProtoApi__pb2.PhotoCheckCardStoryShootingRequest.SerializeToString,
-            ProtoApi__pb2.PhotoCheckCardStoryShootingResponse.FromString,
+            papi__pb2.PhotoCheckCardStoryShootingRequest.SerializeToString,
+            papi__pb2.PhotoCheckCardStoryShootingResponse.FromString,
             options,
             channel_credentials,
             insecure,
@@ -13307,8 +13307,8 @@ class Photo(object):
             request,
             target,
             '/api.Photo/CreateStoryEpisodeShootings',
-            ProtoApi__pb2.PhotoCreateStoryEpisodeShootingsRequest.SerializeToString,
-            ProtoApi__pb2.PhotoCreateStoryEpisodeShootingsResponse.FromString,
+            papi__pb2.PhotoCreateStoryEpisodeShootingsRequest.SerializeToString,
+            papi__pb2.PhotoCreateStoryEpisodeShootingsResponse.FromString,
             options,
             channel_credentials,
             insecure,
@@ -13334,8 +13334,8 @@ class Photo(object):
             request,
             target,
             '/api.Photo/CreateCardStoryShootings',
-            ProtoApi__pb2.PhotoCreateCardStoryShootingsRequest.SerializeToString,
-            ProtoApi__pb2.PhotoCreateCardStoryShootingsResponse.FromString,
+            papi__pb2.PhotoCreateCardStoryShootingsRequest.SerializeToString,
+            papi__pb2.PhotoCreateCardStoryShootingsResponse.FromString,
             options,
             channel_credentials,
             insecure,
@@ -13361,8 +13361,8 @@ class Photo(object):
             request,
             target,
             '/api.Photo/CheckExpressionShooting',
-            ProtoApi__pb2.PhotoCheckExpressionShootingRequest.SerializeToString,
-            ProtoApi__pb2.PhotoCheckExpressionShootingResponse.FromString,
+            papi__pb2.PhotoCheckExpressionShootingRequest.SerializeToString,
+            papi__pb2.PhotoCheckExpressionShootingResponse.FromString,
             options,
             channel_credentials,
             insecure,
@@ -13388,8 +13388,8 @@ class Photo(object):
             request,
             target,
             '/api.Photo/CreateExpressionShootings',
-            ProtoApi__pb2.PhotoCreateExpressionShootingsRequest.SerializeToString,
-            ProtoApi__pb2.PhotoCreateExpressionShootingsResponse.FromString,
+            papi__pb2.PhotoCreateExpressionShootingsRequest.SerializeToString,
+            papi__pb2.PhotoCreateExpressionShootingsResponse.FromString,
             options,
             channel_credentials,
             insecure,
@@ -13636,8 +13636,8 @@ class Profile(object):
             request,
             target,
             '/api.Profile/Top',
-            ProtoApi__pb2.Empty.SerializeToString,
-            ProtoApi__pb2.ProfileTopResponse.FromString,
+            papi__pb2.Empty.SerializeToString,
+            papi__pb2.ProfileTopResponse.FromString,
             options,
             channel_credentials,
             insecure,
@@ -13663,8 +13663,8 @@ class Profile(object):
             request,
             target,
             '/api.Profile/FindUser',
-            ProtoApi__pb2.ProfileFindUserRequest.SerializeToString,
-            ProtoApi__pb2.ProfileFindUserResponse.FromString,
+            papi__pb2.ProfileFindUserRequest.SerializeToString,
+            papi__pb2.ProfileFindUserResponse.FromString,
             options,
             channel_credentials,
             insecure,
@@ -13690,8 +13690,8 @@ class Profile(object):
             request,
             target,
             '/api.Profile/UpdateName',
-            ProtoApi__pb2.ProfileUpdateNameRequest.SerializeToString,
-            ProtoApi__pb2.ProfileUpdateNameResponse.FromString,
+            papi__pb2.ProfileUpdateNameRequest.SerializeToString,
+            papi__pb2.ProfileUpdateNameResponse.FromString,
             options,
             channel_credentials,
             insecure,
@@ -13717,8 +13717,8 @@ class Profile(object):
             request,
             target,
             '/api.Profile/UpdateMessage',
-            ProtoApi__pb2.ProfileUpdateMessageRequest.SerializeToString,
-            ProtoApi__pb2.ProfileUpdateMessageResponse.FromString,
+            papi__pb2.ProfileUpdateMessageRequest.SerializeToString,
+            papi__pb2.ProfileUpdateMessageResponse.FromString,
             options,
             channel_credentials,
             insecure,
@@ -13744,8 +13744,8 @@ class Profile(object):
             request,
             target,
             '/api.Profile/UpdateBackground',
-            ProtoApi__pb2.ProfileUpdateBackgroundRequest.SerializeToString,
-            ProtoApi__pb2.ProfileUpdateBackgroundResponse.FromString,
+            papi__pb2.ProfileUpdateBackgroundRequest.SerializeToString,
+            papi__pb2.ProfileUpdateBackgroundResponse.FromString,
             options,
             channel_credentials,
             insecure,
@@ -13771,8 +13771,8 @@ class Profile(object):
             request,
             target,
             '/api.Profile/UpdateFavoriteCharacters',
-            ProtoApi__pb2.ProfileUpdateFavoriteCharactersRequest.SerializeToString,
-            ProtoApi__pb2.ProfileUpdateFavoriteCharactersResponse.FromString,
+            papi__pb2.ProfileUpdateFavoriteCharactersRequest.SerializeToString,
+            papi__pb2.ProfileUpdateFavoriteCharactersResponse.FromString,
             options,
             channel_credentials,
             insecure,
@@ -13798,8 +13798,8 @@ class Profile(object):
             request,
             target,
             '/api.Profile/UpdateDecoration',
-            ProtoApi__pb2.ProfileUpdateDecorationRequest.SerializeToString,
-            ProtoApi__pb2.ProfileUpdateDecorationResponse.FromString,
+            papi__pb2.ProfileUpdateDecorationRequest.SerializeToString,
+            papi__pb2.ProfileUpdateDecorationResponse.FromString,
             options,
             channel_credentials,
             insecure,
@@ -13825,8 +13825,8 @@ class Profile(object):
             request,
             target,
             '/api.Profile/UpdateEmblem',
-            ProtoApi__pb2.ProfileUpdateEmblemRequest.SerializeToString,
-            ProtoApi__pb2.ProfileUpdateEmblemResponse.FromString,
+            papi__pb2.ProfileUpdateEmblemRequest.SerializeToString,
+            papi__pb2.ProfileUpdateEmblemResponse.FromString,
             options,
             channel_credentials,
             insecure,
@@ -13852,8 +13852,8 @@ class Profile(object):
             request,
             target,
             '/api.Profile/UpdateLayout',
-            ProtoApi__pb2.ProfileUpdateLayoutRequest.SerializeToString,
-            ProtoApi__pb2.ProfileUpdateLayoutResponse.FromString,
+            papi__pb2.ProfileUpdateLayoutRequest.SerializeToString,
+            papi__pb2.ProfileUpdateLayoutResponse.FromString,
             options,
             channel_credentials,
             insecure,
@@ -13879,8 +13879,8 @@ class Profile(object):
             request,
             target,
             '/api.Profile/ClearTwitterMission',
-            ProtoApi__pb2.Empty.SerializeToString,
-            ProtoApi__pb2.ProfileClearTwitterMissionResponse.FromString,
+            papi__pb2.Empty.SerializeToString,
+            papi__pb2.ProfileClearTwitterMissionResponse.FromString,
             options,
             channel_credentials,
             insecure,
@@ -13906,8 +13906,8 @@ class Profile(object):
             request,
             target,
             '/api.Profile/UpdateBuddyCard',
-            ProtoApi__pb2.ProfileUpdateBuddyCardRequest.SerializeToString,
-            ProtoApi__pb2.ProfileUpdateBuddyCardResponse.FromString,
+            papi__pb2.ProfileUpdateBuddyCardRequest.SerializeToString,
+            papi__pb2.ProfileUpdateBuddyCardResponse.FromString,
             options,
             channel_credentials,
             insecure,
@@ -13933,8 +13933,8 @@ class Profile(object):
             request,
             target,
             '/api.Profile/UpdateBirthday',
-            ProtoApi__pb2.ProfileUpdateBirthdayRequest.SerializeToString,
-            ProtoApi__pb2.ProfileUpdateBirthdayResponse.FromString,
+            papi__pb2.ProfileUpdateBirthdayRequest.SerializeToString,
+            papi__pb2.ProfileUpdateBirthdayResponse.FromString,
             options,
             channel_credentials,
             insecure,
@@ -14069,8 +14069,8 @@ class Pvp(object):
             request,
             target,
             '/api.Pvp/Top',
-            ProtoApi__pb2.Empty.SerializeToString,
-            ProtoApi__pb2.PvpTopResponse.FromString,
+            papi__pb2.Empty.SerializeToString,
+            papi__pb2.PvpTopResponse.FromString,
             options,
             channel_credentials,
             insecure,
@@ -14096,8 +14096,8 @@ class Pvp(object):
             request,
             target,
             '/api.Pvp/ListOpponent',
-            ProtoApi__pb2.PvpListOpponentRequest.SerializeToString,
-            ProtoApi__pb2.PvpListOpponentResponse.FromString,
+            papi__pb2.PvpListOpponentRequest.SerializeToString,
+            papi__pb2.PvpListOpponentResponse.FromString,
             options,
             channel_credentials,
             insecure,
@@ -14123,8 +14123,8 @@ class Pvp(object):
             request,
             target,
             '/api.Pvp/ListRanking',
-            ProtoApi__pb2.PvpListRankingRequest.SerializeToString,
-            ProtoApi__pb2.PvpListRankingResponse.FromString,
+            papi__pb2.PvpListRankingRequest.SerializeToString,
+            papi__pb2.PvpListRankingResponse.FromString,
             options,
             channel_credentials,
             insecure,
@@ -14150,8 +14150,8 @@ class Pvp(object):
             request,
             target,
             '/api.Pvp/Start',
-            ProtoApi__pb2.PvpStartRequest.SerializeToString,
-            ProtoApi__pb2.PvpStartResponse.FromString,
+            papi__pb2.PvpStartRequest.SerializeToString,
+            papi__pb2.PvpStartResponse.FromString,
             options,
             channel_credentials,
             insecure,
@@ -14177,8 +14177,8 @@ class Pvp(object):
             request,
             target,
             '/api.Pvp/ListAsset',
-            ProtoApi__pb2.PvpListAssetRequest.SerializeToString,
-            ProtoApi__pb2.PvpListAssetResponse.FromString,
+            papi__pb2.PvpListAssetRequest.SerializeToString,
+            papi__pb2.PvpListAssetResponse.FromString,
             options,
             channel_credentials,
             insecure,
@@ -14473,8 +14473,8 @@ class Quest(object):
             request,
             target,
             '/api.Quest/Top',
-            ProtoApi__pb2.Empty.SerializeToString,
-            ProtoApi__pb2.QuestTopResponse.FromString,
+            papi__pb2.Empty.SerializeToString,
+            papi__pb2.QuestTopResponse.FromString,
             options,
             channel_credentials,
             insecure,
@@ -14500,8 +14500,8 @@ class Quest(object):
             request,
             target,
             '/api.Quest/ListMain',
-            ProtoApi__pb2.Empty.SerializeToString,
-            ProtoApi__pb2.QuestListMainResponse.FromString,
+            papi__pb2.Empty.SerializeToString,
+            papi__pb2.QuestListMainResponse.FromString,
             options,
             channel_credentials,
             insecure,
@@ -14527,8 +14527,8 @@ class Quest(object):
             request,
             target,
             '/api.Quest/ListDaily',
-            ProtoApi__pb2.Empty.SerializeToString,
-            ProtoApi__pb2.QuestListDailyResponse.FromString,
+            papi__pb2.Empty.SerializeToString,
+            papi__pb2.QuestListDailyResponse.FromString,
             options,
             channel_credentials,
             insecure,
@@ -14554,8 +14554,8 @@ class Quest(object):
             request,
             target,
             '/api.Quest/ListContest',
-            ProtoApi__pb2.Empty.SerializeToString,
-            ProtoApi__pb2.QuestListContestResponse.FromString,
+            papi__pb2.Empty.SerializeToString,
+            papi__pb2.QuestListContestResponse.FromString,
             options,
             channel_credentials,
             insecure,
@@ -14581,8 +14581,8 @@ class Quest(object):
             request,
             target,
             '/api.Quest/ListTower',
-            ProtoApi__pb2.Empty.SerializeToString,
-            ProtoApi__pb2.QuestListTowerResponse.FromString,
+            papi__pb2.Empty.SerializeToString,
+            papi__pb2.QuestListTowerResponse.FromString,
             options,
             channel_credentials,
             insecure,
@@ -14608,8 +14608,8 @@ class Quest(object):
             request,
             target,
             '/api.Quest/Start',
-            ProtoApi__pb2.QuestStartRequest.SerializeToString,
-            ProtoApi__pb2.QuestStartResponse.FromString,
+            papi__pb2.QuestStartRequest.SerializeToString,
+            papi__pb2.QuestStartResponse.FromString,
             options,
             channel_credentials,
             insecure,
@@ -14635,8 +14635,8 @@ class Quest(object):
             request,
             target,
             '/api.Quest/StartBulkDaily',
-            ProtoApi__pb2.Empty.SerializeToString,
-            ProtoApi__pb2.QuestStartBulkDailyResponse.FromString,
+            papi__pb2.Empty.SerializeToString,
+            papi__pb2.QuestStartBulkDailyResponse.FromString,
             options,
             channel_credentials,
             insecure,
@@ -14662,8 +14662,8 @@ class Quest(object):
             request,
             target,
             '/api.Quest/ListTowerRanking',
-            ProtoApi__pb2.QuestListTowerRankingRequest.SerializeToString,
-            ProtoApi__pb2.QuestListTowerRankingResponse.FromString,
+            papi__pb2.QuestListTowerRankingRequest.SerializeToString,
+            papi__pb2.QuestListTowerRankingResponse.FromString,
             options,
             channel_credentials,
             insecure,
@@ -14689,8 +14689,8 @@ class Quest(object):
             request,
             target,
             '/api.Quest/ListContestRanking',
-            ProtoApi__pb2.QuestListContestRankingRequest.SerializeToString,
-            ProtoApi__pb2.QuestListContestRankingResponse.FromString,
+            papi__pb2.QuestListContestRankingRequest.SerializeToString,
+            papi__pb2.QuestListContestRankingResponse.FromString,
             options,
             channel_credentials,
             insecure,
@@ -14716,8 +14716,8 @@ class Quest(object):
             request,
             target,
             '/api.Quest/ListLatestClear',
-            ProtoApi__pb2.QuestListLatestClearRequest.SerializeToString,
-            ProtoApi__pb2.QuestListLatestClearResponse.FromString,
+            papi__pb2.QuestListLatestClearRequest.SerializeToString,
+            papi__pb2.QuestListLatestClearResponse.FromString,
             options,
             channel_credentials,
             insecure,
@@ -14743,8 +14743,8 @@ class Quest(object):
             request,
             target,
             '/api.Quest/ListAsset',
-            ProtoApi__pb2.QuestListAssetRequest.SerializeToString,
-            ProtoApi__pb2.QuestListAssetResponse.FromString,
+            papi__pb2.QuestListAssetRequest.SerializeToString,
+            papi__pb2.QuestListAssetResponse.FromString,
             options,
             channel_credentials,
             insecure,
@@ -14770,8 +14770,8 @@ class Quest(object):
             request,
             target,
             '/api.Quest/GetLatestClearLiveResult',
-            ProtoApi__pb2.QuestGetLatestClearLiveResultRequest.SerializeToString,
-            ProtoApi__pb2.QuestGetLatestClearLiveResultResponse.FromString,
+            papi__pb2.QuestGetLatestClearLiveResultRequest.SerializeToString,
+            papi__pb2.QuestGetLatestClearLiveResultResponse.FromString,
             options,
             channel_credentials,
             insecure,
@@ -14797,8 +14797,8 @@ class Quest(object):
             request,
             target,
             '/api.Quest/GetRankingLiveResult',
-            ProtoApi__pb2.QuestGetRankingLiveResultRequest.SerializeToString,
-            ProtoApi__pb2.QuestGetRankingLiveResultResponse.FromString,
+            papi__pb2.QuestGetRankingLiveResultRequest.SerializeToString,
+            papi__pb2.QuestGetRankingLiveResultResponse.FromString,
             options,
             channel_credentials,
             insecure,
@@ -14824,8 +14824,8 @@ class Quest(object):
             request,
             target,
             '/api.Quest/TowerTop',
-            ProtoApi__pb2.Empty.SerializeToString,
-            ProtoApi__pb2.QuestTowerTopResponse.FromString,
+            papi__pb2.Empty.SerializeToString,
+            papi__pb2.QuestTowerTopResponse.FromString,
             options,
             channel_credentials,
             insecure,
@@ -14851,8 +14851,8 @@ class Quest(object):
             request,
             target,
             '/api.Quest/OutputLiveResultDetailLog',
-            ProtoApi__pb2.OutputLiveResultDetailLogRequest.SerializeToString,
-            ProtoApi__pb2.OutputLiveResultDetailLogResponse.FromString,
+            papi__pb2.OutputLiveResultDetailLogRequest.SerializeToString,
+            papi__pb2.OutputLiveResultDetailLogResponse.FromString,
             options,
             channel_credentials,
             insecure,
@@ -15099,8 +15099,8 @@ class Race(object):
             request,
             target,
             '/api.Race/Top',
-            ProtoApi__pb2.RaceTopRequest.SerializeToString,
-            ProtoApi__pb2.RaceTopResponse.FromString,
+            papi__pb2.RaceTopRequest.SerializeToString,
+            papi__pb2.RaceTopResponse.FromString,
             options,
             channel_credentials,
             insecure,
@@ -15126,8 +15126,8 @@ class Race(object):
             request,
             target,
             '/api.Race/MovePanel',
-            ProtoApi__pb2.RaceMovePanelRequest.SerializeToString,
-            ProtoApi__pb2.RaceMovePanelResponse.FromString,
+            papi__pb2.RaceMovePanelRequest.SerializeToString,
+            papi__pb2.RaceMovePanelResponse.FromString,
             options,
             channel_credentials,
             insecure,
@@ -15153,8 +15153,8 @@ class Race(object):
             request,
             target,
             '/api.Race/ReceiveActivityLesson',
-            ProtoApi__pb2.RaceReceiveActivityLessonRequest.SerializeToString,
-            ProtoApi__pb2.RaceReceiveActivityLessonResponse.FromString,
+            papi__pb2.RaceReceiveActivityLessonRequest.SerializeToString,
+            papi__pb2.RaceReceiveActivityLessonResponse.FromString,
             options,
             channel_credentials,
             insecure,
@@ -15180,8 +15180,8 @@ class Race(object):
             request,
             target,
             '/api.Race/EnhanceLiveBonus',
-            ProtoApi__pb2.RaceEnhanceLiveBonusRequest.SerializeToString,
-            ProtoApi__pb2.RaceEnhanceLiveBonusResponse.FromString,
+            papi__pb2.RaceEnhanceLiveBonusRequest.SerializeToString,
+            papi__pb2.RaceEnhanceLiveBonusResponse.FromString,
             options,
             channel_credentials,
             insecure,
@@ -15207,8 +15207,8 @@ class Race(object):
             request,
             target,
             '/api.Race/ResetLiveBonus',
-            ProtoApi__pb2.RaceResetLiveBonusRequest.SerializeToString,
-            ProtoApi__pb2.RaceResetLiveBonusResponse.FromString,
+            papi__pb2.RaceResetLiveBonusRequest.SerializeToString,
+            papi__pb2.RaceResetLiveBonusResponse.FromString,
             options,
             channel_credentials,
             insecure,
@@ -15234,8 +15234,8 @@ class Race(object):
             request,
             target,
             '/api.Race/StartLivePanelQuest',
-            ProtoApi__pb2.RaceStartLivePanelQuestRequest.SerializeToString,
-            ProtoApi__pb2.RaceStartLivePanelQuestResponse.FromString,
+            papi__pb2.RaceStartLivePanelQuestRequest.SerializeToString,
+            papi__pb2.RaceStartLivePanelQuestResponse.FromString,
             options,
             channel_credentials,
             insecure,
@@ -15261,8 +15261,8 @@ class Race(object):
             request,
             target,
             '/api.Race/StartLiveAreaQuest',
-            ProtoApi__pb2.RaceStartLiveAreaQuestRequest.SerializeToString,
-            ProtoApi__pb2.RaceStartLiveAreaQuestResponse.FromString,
+            papi__pb2.RaceStartLiveAreaQuestRequest.SerializeToString,
+            papi__pb2.RaceStartLiveAreaQuestResponse.FromString,
             options,
             channel_credentials,
             insecure,
@@ -15288,8 +15288,8 @@ class Race(object):
             request,
             target,
             '/api.Race/ListQuestAsset',
-            ProtoApi__pb2.RaceQuestListAssetRequest.SerializeToString,
-            ProtoApi__pb2.RaceQuestListAssetResponse.FromString,
+            papi__pb2.RaceQuestListAssetRequest.SerializeToString,
+            papi__pb2.RaceQuestListAssetResponse.FromString,
             options,
             channel_credentials,
             insecure,
@@ -15315,8 +15315,8 @@ class Race(object):
             request,
             target,
             '/api.Race/ListDeck',
-            ProtoApi__pb2.RaceListDeckRequest.SerializeToString,
-            ProtoApi__pb2.RaceListDeckResponse.FromString,
+            papi__pb2.RaceListDeckRequest.SerializeToString,
+            papi__pb2.RaceListDeckResponse.FromString,
             options,
             channel_credentials,
             insecure,
@@ -15342,8 +15342,8 @@ class Race(object):
             request,
             target,
             '/api.Race/SaveDeck',
-            ProtoApi__pb2.RaceSaveDeckRequest.SerializeToString,
-            ProtoApi__pb2.RaceSaveDeckResponse.FromString,
+            papi__pb2.RaceSaveDeckRequest.SerializeToString,
+            papi__pb2.RaceSaveDeckResponse.FromString,
             options,
             channel_credentials,
             insecure,
@@ -15369,8 +15369,8 @@ class Race(object):
             request,
             target,
             '/api.Race/ResetCardCoolTime',
-            ProtoApi__pb2.RaceResetCardCoolTimeRequest.SerializeToString,
-            ProtoApi__pb2.RaceResetCardCoolTimeResponse.FromString,
+            papi__pb2.RaceResetCardCoolTimeRequest.SerializeToString,
+            papi__pb2.RaceResetCardCoolTimeResponse.FromString,
             options,
             channel_credentials,
             insecure,
@@ -15396,8 +15396,8 @@ class Race(object):
             request,
             target,
             '/api.Race/Ranking',
-            ProtoApi__pb2.RaceRankingRequest.SerializeToString,
-            ProtoApi__pb2.RaceRankingResponse.FromString,
+            papi__pb2.RaceRankingRequest.SerializeToString,
+            papi__pb2.RaceRankingResponse.FromString,
             options,
             channel_credentials,
             insecure,
@@ -15500,8 +15500,8 @@ class Roulette(object):
             request,
             target,
             '/api.Roulette/Top',
-            ProtoApi__pb2.Empty.SerializeToString,
-            ProtoApi__pb2.RouletteTopResponse.FromString,
+            papi__pb2.Empty.SerializeToString,
+            papi__pb2.RouletteTopResponse.FromString,
             options,
             channel_credentials,
             insecure,
@@ -15527,8 +15527,8 @@ class Roulette(object):
             request,
             target,
             '/api.Roulette/Check',
-            ProtoApi__pb2.RouletteCheckRequest.SerializeToString,
-            ProtoApi__pb2.RouletteCheckResponse.FromString,
+            papi__pb2.RouletteCheckRequest.SerializeToString,
+            papi__pb2.RouletteCheckResponse.FromString,
             options,
             channel_credentials,
             insecure,
@@ -15554,8 +15554,8 @@ class Roulette(object):
             request,
             target,
             '/api.Roulette/Draw',
-            ProtoApi__pb2.RouletteDrawRequest.SerializeToString,
-            ProtoApi__pb2.RouletteDrawResponse.FromString,
+            papi__pb2.RouletteDrawRequest.SerializeToString,
+            papi__pb2.RouletteDrawResponse.FromString,
             options,
             channel_credentials,
             insecure,
@@ -15642,8 +15642,8 @@ class Salary(object):
             request,
             target,
             '/api.Salary/GetPayslip',
-            ProtoApi__pb2.SalaryGetPayslipRequest.SerializeToString,
-            ProtoApi__pb2.SalaryGetPayslipResponse.FromString,
+            papi__pb2.SalaryGetPayslipRequest.SerializeToString,
+            papi__pb2.SalaryGetPayslipResponse.FromString,
             options,
             channel_credentials,
             insecure,
@@ -15669,8 +15669,8 @@ class Salary(object):
             request,
             target,
             '/api.Salary/Pay',
-            ProtoApi__pb2.SalaryPayRequest.SerializeToString,
-            ProtoApi__pb2.SalaryPayResponse.FromString,
+            papi__pb2.SalaryPayRequest.SerializeToString,
+            papi__pb2.SalaryPayResponse.FromString,
             options,
             channel_credentials,
             insecure,
@@ -15741,8 +15741,8 @@ class Satellite(object):
             request,
             target,
             '/api.Satellite/InitCode',
-            ProtoApi__pb2.SatelliteInitCodeRequest.SerializeToString,
-            ProtoApi__pb2.SatelliteInitCodeResponse.FromString,
+            papi__pb2.SatelliteInitCodeRequest.SerializeToString,
+            papi__pb2.SatelliteInitCodeResponse.FromString,
             options,
             channel_credentials,
             insecure,
@@ -15957,8 +15957,8 @@ class Shelf(object):
             request,
             target,
             '/api.Shelf/Top',
-            ProtoApi__pb2.Empty.SerializeToString,
-            ProtoApi__pb2.ShelfTopResponse.FromString,
+            papi__pb2.Empty.SerializeToString,
+            papi__pb2.ShelfTopResponse.FromString,
             options,
             channel_credentials,
             insecure,
@@ -15984,8 +15984,8 @@ class Shelf(object):
             request,
             target,
             '/api.Shelf/AlbumTop',
-            ProtoApi__pb2.ShelfAlbumTopRequest.SerializeToString,
-            ProtoApi__pb2.ShelfAlbumTopResponse.FromString,
+            papi__pb2.ShelfAlbumTopRequest.SerializeToString,
+            papi__pb2.ShelfAlbumTopResponse.FromString,
             options,
             channel_credentials,
             insecure,
@@ -16011,8 +16011,8 @@ class Shelf(object):
             request,
             target,
             '/api.Shelf/CheckShooting',
-            ProtoApi__pb2.ShelfCheckShootingRequest.SerializeToString,
-            ProtoApi__pb2.ShelfCheckShootingResponse.FromString,
+            papi__pb2.ShelfCheckShootingRequest.SerializeToString,
+            papi__pb2.ShelfCheckShootingResponse.FromString,
             options,
             channel_credentials,
             insecure,
@@ -16038,8 +16038,8 @@ class Shelf(object):
             request,
             target,
             '/api.Shelf/SavePhoto',
-            ProtoApi__pb2.ShelfSavePhotoRequest.SerializeToString,
-            ProtoApi__pb2.ShelfSavePhotoResponse.FromString,
+            papi__pb2.ShelfSavePhotoRequest.SerializeToString,
+            papi__pb2.ShelfSavePhotoResponse.FromString,
             options,
             channel_credentials,
             insecure,
@@ -16065,8 +16065,8 @@ class Shelf(object):
             request,
             target,
             '/api.Shelf/SetPhoto',
-            ProtoApi__pb2.ShelfSetPhotoRequest.SerializeToString,
-            ProtoApi__pb2.ShelfSetPhotoResponse.FromString,
+            papi__pb2.ShelfSetPhotoRequest.SerializeToString,
+            papi__pb2.ShelfSetPhotoResponse.FromString,
             options,
             channel_credentials,
             insecure,
@@ -16092,8 +16092,8 @@ class Shelf(object):
             request,
             target,
             '/api.Shelf/CreatePhoto',
-            ProtoApi__pb2.ShelfCreatePhotoRequest.SerializeToString,
-            ProtoApi__pb2.ShelfCreatePhotoResponse.FromString,
+            papi__pb2.ShelfCreatePhotoRequest.SerializeToString,
+            papi__pb2.ShelfCreatePhotoResponse.FromString,
             options,
             channel_credentials,
             insecure,
@@ -16119,8 +16119,8 @@ class Shelf(object):
             request,
             target,
             '/api.Shelf/CreateAlbumPhoto',
-            ProtoApi__pb2.ShelfCreateAlbumPhotoRequest.SerializeToString,
-            ProtoApi__pb2.ShelfCreateAlbumPhotoResponse.FromString,
+            papi__pb2.ShelfCreateAlbumPhotoRequest.SerializeToString,
+            papi__pb2.ShelfCreateAlbumPhotoResponse.FromString,
             options,
             channel_credentials,
             insecure,
@@ -16146,8 +16146,8 @@ class Shelf(object):
             request,
             target,
             '/api.Shelf/DeletePhoto',
-            ProtoApi__pb2.ShelfDeletePhotoRequest.SerializeToString,
-            ProtoApi__pb2.ShelfDeletePhotoResponse.FromString,
+            papi__pb2.ShelfDeletePhotoRequest.SerializeToString,
+            papi__pb2.ShelfDeletePhotoResponse.FromString,
             options,
             channel_credentials,
             insecure,
@@ -16173,8 +16173,8 @@ class Shelf(object):
             request,
             target,
             '/api.Shelf/SwitchTemplate',
-            ProtoApi__pb2.ShelfSwitchTemplateRequest.SerializeToString,
-            ProtoApi__pb2.ShelfSwitchTemplateResponse.FromString,
+            papi__pb2.ShelfSwitchTemplateRequest.SerializeToString,
+            papi__pb2.ShelfSwitchTemplateResponse.FromString,
             options,
             channel_credentials,
             insecure,
@@ -16200,8 +16200,8 @@ class Shelf(object):
             request,
             target,
             '/api.Shelf/UnsetPhoto',
-            ProtoApi__pb2.ShelfUnsetPhotoRequest.SerializeToString,
-            ProtoApi__pb2.ShelfUnsetPhotoResponse.FromString,
+            papi__pb2.ShelfUnsetPhotoRequest.SerializeToString,
+            papi__pb2.ShelfUnsetPhotoResponse.FromString,
             options,
             channel_credentials,
             insecure,
@@ -16464,8 +16464,8 @@ class Shop(object):
             request,
             target,
             '/api.Shop/List',
-            ProtoApi__pb2.Empty.SerializeToString,
-            ProtoApi__pb2.ShopListResponse.FromString,
+            papi__pb2.Empty.SerializeToString,
+            papi__pb2.ShopListResponse.FromString,
             options,
             channel_credentials,
             insecure,
@@ -16491,8 +16491,8 @@ class Shop(object):
             request,
             target,
             '/api.Shop/ListItem',
-            ProtoApi__pb2.ShopListItemRequest.SerializeToString,
-            ProtoApi__pb2.ShopListItemResponse.FromString,
+            papi__pb2.ShopListItemRequest.SerializeToString,
+            papi__pb2.ShopListItemResponse.FromString,
             options,
             channel_credentials,
             insecure,
@@ -16518,8 +16518,8 @@ class Shop(object):
             request,
             target,
             '/api.Shop/GetLoginBonusPackageItem',
-            ProtoApi__pb2.ShopGetLoginBonusPackageItemRequest.SerializeToString,
-            ProtoApi__pb2.ShopGetLoginBonusPackageItemResponse.FromString,
+            papi__pb2.ShopGetLoginBonusPackageItemRequest.SerializeToString,
+            papi__pb2.ShopGetLoginBonusPackageItemResponse.FromString,
             options,
             channel_credentials,
             insecure,
@@ -16545,8 +16545,8 @@ class Shop(object):
             request,
             target,
             '/api.Shop/GetConditionRewardPackageItem',
-            ProtoApi__pb2.ShopGetConditionRewardPackageItemRequest.SerializeToString,
-            ProtoApi__pb2.ShopGetConditionRewardPackageItemResponse.FromString,
+            papi__pb2.ShopGetConditionRewardPackageItemRequest.SerializeToString,
+            papi__pb2.ShopGetConditionRewardPackageItemResponse.FromString,
             options,
             channel_credentials,
             insecure,
@@ -16572,8 +16572,8 @@ class Shop(object):
             request,
             target,
             '/api.Shop/Purchase',
-            ProtoApi__pb2.ShopPurchaseRequest.SerializeToString,
-            ProtoApi__pb2.ShopPurchaseResponse.FromString,
+            papi__pb2.ShopPurchaseRequest.SerializeToString,
+            papi__pb2.ShopPurchaseResponse.FromString,
             options,
             channel_credentials,
             insecure,
@@ -16599,8 +16599,8 @@ class Shop(object):
             request,
             target,
             '/api.Shop/RegisterPurchaseTransaction',
-            ProtoApi__pb2.ShopRegisterPurchaseTransactionRequest.SerializeToString,
-            ProtoApi__pb2.ShopRegisterPurchaseTransactionResponse.FromString,
+            papi__pb2.ShopRegisterPurchaseTransactionRequest.SerializeToString,
+            papi__pb2.ShopRegisterPurchaseTransactionResponse.FromString,
             options,
             channel_credentials,
             insecure,
@@ -16626,8 +16626,8 @@ class Shop(object):
             request,
             target,
             '/api.Shop/CancelPurchaseTransaction',
-            ProtoApi__pb2.ShopCancelPurchaseTransactionRequest.SerializeToString,
-            ProtoApi__pb2.ShopCancelPurchaseTransactionResponse.FromString,
+            papi__pb2.ShopCancelPurchaseTransactionRequest.SerializeToString,
+            papi__pb2.ShopCancelPurchaseTransactionResponse.FromString,
             options,
             channel_credentials,
             insecure,
@@ -16653,8 +16653,8 @@ class Shop(object):
             request,
             target,
             '/api.Shop/PurchaseStone',
-            ProtoApi__pb2.ShopPurchaseStoneRequest.SerializeToString,
-            ProtoApi__pb2.ShopPurchaseStoneResponse.FromString,
+            papi__pb2.ShopPurchaseStoneRequest.SerializeToString,
+            papi__pb2.ShopPurchaseStoneResponse.FromString,
             options,
             channel_credentials,
             insecure,
@@ -16680,8 +16680,8 @@ class Shop(object):
             request,
             target,
             '/api.Shop/RecoverPurchaseStone',
-            ProtoApi__pb2.ShopRecoverPurchaseStoneRequest.SerializeToString,
-            ProtoApi__pb2.ShopRecoverPurchaseStoneResponse.FromString,
+            papi__pb2.ShopRecoverPurchaseStoneRequest.SerializeToString,
+            papi__pb2.ShopRecoverPurchaseStoneResponse.FromString,
             options,
             channel_credentials,
             insecure,
@@ -16707,8 +16707,8 @@ class Shop(object):
             request,
             target,
             '/api.Shop/CheckPurchaseStone',
-            ProtoApi__pb2.ShopCheckPurchaseStoneRequest.SerializeToString,
-            ProtoApi__pb2.ShopCheckPurchaseStoneResponse.FromString,
+            papi__pb2.ShopCheckPurchaseStoneRequest.SerializeToString,
+            papi__pb2.ShopCheckPurchaseStoneResponse.FromString,
             options,
             channel_credentials,
             insecure,
@@ -16734,8 +16734,8 @@ class Shop(object):
             request,
             target,
             '/api.Shop/RegisterBirthday',
-            ProtoApi__pb2.ShopRegisterBirthdayRequest.SerializeToString,
-            ProtoApi__pb2.ShopRegisterBirthdayResponse.FromString,
+            papi__pb2.ShopRegisterBirthdayRequest.SerializeToString,
+            papi__pb2.ShopRegisterBirthdayResponse.FromString,
             options,
             channel_credentials,
             insecure,
@@ -16761,8 +16761,8 @@ class Shop(object):
             request,
             target,
             '/api.Shop/ReceiveConditionReward',
-            ProtoApi__pb2.ShopReceiveConditionRewardRequest.SerializeToString,
-            ProtoApi__pb2.ShopReceiveConditionRewardResponse.FromString,
+            papi__pb2.ShopReceiveConditionRewardRequest.SerializeToString,
+            papi__pb2.ShopReceiveConditionRewardResponse.FromString,
             options,
             channel_credentials,
             insecure,
@@ -16788,8 +16788,8 @@ class Shop(object):
             request,
             target,
             '/api.Shop/TryOn',
-            ProtoApi__pb2.ShopTryOnRequest.SerializeToString,
-            ProtoApi__pb2.ShopTryOnResponse.FromString,
+            papi__pb2.ShopTryOnRequest.SerializeToString,
+            papi__pb2.ShopTryOnResponse.FromString,
             options,
             channel_credentials,
             insecure,
@@ -17100,8 +17100,8 @@ class Showcase(object):
             request,
             target,
             '/api.Showcase/Top',
-            ProtoApi__pb2.Empty.SerializeToString,
-            ProtoApi__pb2.ShowcaseTopResponse.FromString,
+            papi__pb2.Empty.SerializeToString,
+            papi__pb2.ShowcaseTopResponse.FromString,
             options,
             channel_credentials,
             insecure,
@@ -17127,8 +17127,8 @@ class Showcase(object):
             request,
             target,
             '/api.Showcase/Save',
-            ProtoApi__pb2.ShowcaseSaveRequest.SerializeToString,
-            ProtoApi__pb2.ShowcaseSaveResponse.FromString,
+            papi__pb2.ShowcaseSaveRequest.SerializeToString,
+            papi__pb2.ShowcaseSaveResponse.FromString,
             options,
             channel_credentials,
             insecure,
@@ -17154,8 +17154,8 @@ class Showcase(object):
             request,
             target,
             '/api.Showcase/SaveDetail',
-            ProtoApi__pb2.ShowcaseSaveDetailRequest.SerializeToString,
-            ProtoApi__pb2.ShowcaseSaveDetailResponse.FromString,
+            papi__pb2.ShowcaseSaveDetailRequest.SerializeToString,
+            papi__pb2.ShowcaseSaveDetailResponse.FromString,
             options,
             channel_credentials,
             insecure,
@@ -17181,8 +17181,8 @@ class Showcase(object):
             request,
             target,
             '/api.Showcase/SaveMyset',
-            ProtoApi__pb2.ShowcaseSaveMysetRequest.SerializeToString,
-            ProtoApi__pb2.ShowcaseSaveMysetResponse.FromString,
+            papi__pb2.ShowcaseSaveMysetRequest.SerializeToString,
+            papi__pb2.ShowcaseSaveMysetResponse.FromString,
             options,
             channel_credentials,
             insecure,
@@ -17208,8 +17208,8 @@ class Showcase(object):
             request,
             target,
             '/api.Showcase/DeleteMyset',
-            ProtoApi__pb2.ShowcaseDeleteMysetRequest.SerializeToString,
-            ProtoApi__pb2.ShowcaseDeleteMysetResponse.FromString,
+            papi__pb2.ShowcaseDeleteMysetRequest.SerializeToString,
+            papi__pb2.ShowcaseDeleteMysetResponse.FromString,
             options,
             channel_credentials,
             insecure,
@@ -17235,8 +17235,8 @@ class Showcase(object):
             request,
             target,
             '/api.Showcase/ApplyMyset',
-            ProtoApi__pb2.ShowcaseApplyMysetRequest.SerializeToString,
-            ProtoApi__pb2.ShowcaseApplyMysetResponse.FromString,
+            papi__pb2.ShowcaseApplyMysetRequest.SerializeToString,
+            papi__pb2.ShowcaseApplyMysetResponse.FromString,
             options,
             channel_credentials,
             insecure,
@@ -17262,8 +17262,8 @@ class Showcase(object):
             request,
             target,
             '/api.Showcase/RenameMyset',
-            ProtoApi__pb2.ShowcaseRenameMysetRequest.SerializeToString,
-            ProtoApi__pb2.ShowcaseRenameMysetResponse.FromString,
+            papi__pb2.ShowcaseRenameMysetRequest.SerializeToString,
+            papi__pb2.ShowcaseRenameMysetResponse.FromString,
             options,
             channel_credentials,
             insecure,
@@ -17289,8 +17289,8 @@ class Showcase(object):
             request,
             target,
             '/api.Showcase/CheckThumbnailShooting',
-            ProtoApi__pb2.ShowcaseCheckThumbnailShootingRequest.SerializeToString,
-            ProtoApi__pb2.ShowcaseCheckThumbnailShootingResponse.FromString,
+            papi__pb2.ShowcaseCheckThumbnailShootingRequest.SerializeToString,
+            papi__pb2.ShowcaseCheckThumbnailShootingResponse.FromString,
             options,
             channel_credentials,
             insecure,
@@ -17316,8 +17316,8 @@ class Showcase(object):
             request,
             target,
             '/api.Showcase/Like',
-            ProtoApi__pb2.ShowcaseLikeRequest.SerializeToString,
-            ProtoApi__pb2.ShowcaseLikeResponse.FromString,
+            papi__pb2.ShowcaseLikeRequest.SerializeToString,
+            papi__pb2.ShowcaseLikeResponse.FromString,
             options,
             channel_credentials,
             insecure,
@@ -17343,8 +17343,8 @@ class Showcase(object):
             request,
             target,
             '/api.Showcase/Get',
-            ProtoApi__pb2.ShowcaseGetRequest.SerializeToString,
-            ProtoApi__pb2.ShowcaseGetResponse.FromString,
+            papi__pb2.ShowcaseGetRequest.SerializeToString,
+            papi__pb2.ShowcaseGetResponse.FromString,
             options,
             channel_credentials,
             insecure,
@@ -17370,8 +17370,8 @@ class Showcase(object):
             request,
             target,
             '/api.Showcase/GalleryTop',
-            ProtoApi__pb2.Empty.SerializeToString,
-            ProtoApi__pb2.ShowcaseGalleryTopResponse.FromString,
+            papi__pb2.Empty.SerializeToString,
+            papi__pb2.ShowcaseGalleryTopResponse.FromString,
             options,
             channel_credentials,
             insecure,
@@ -17397,8 +17397,8 @@ class Showcase(object):
             request,
             target,
             '/api.Showcase/SearchFriendRecommendList',
-            ProtoApi__pb2.Empty.SerializeToString,
-            ProtoApi__pb2.ShowcaseSearchFriendRecommendListResponse.FromString,
+            papi__pb2.Empty.SerializeToString,
+            papi__pb2.ShowcaseSearchFriendRecommendListResponse.FromString,
             options,
             channel_credentials,
             insecure,
@@ -17424,8 +17424,8 @@ class Showcase(object):
             request,
             target,
             '/api.Showcase/SearchHashtagList',
-            ProtoApi__pb2.ShowcaseSearchHashtagListRequest.SerializeToString,
-            ProtoApi__pb2.ShowcaseSearchHashtagListResponse.FromString,
+            papi__pb2.ShowcaseSearchHashtagListRequest.SerializeToString,
+            papi__pb2.ShowcaseSearchHashtagListResponse.FromString,
             options,
             channel_credentials,
             insecure,
@@ -17451,8 +17451,8 @@ class Showcase(object):
             request,
             target,
             '/api.Showcase/Display',
-            ProtoApi__pb2.ShowcaseDisplayRequest.SerializeToString,
-            ProtoApi__pb2.ShowcaseDisplayResponse.FromString,
+            papi__pb2.ShowcaseDisplayRequest.SerializeToString,
+            papi__pb2.ShowcaseDisplayResponse.FromString,
             options,
             channel_credentials,
             insecure,
@@ -17478,8 +17478,8 @@ class Showcase(object):
             request,
             target,
             '/api.Showcase/CheckShooting',
-            ProtoApi__pb2.ShowcaseCheckShootingRequest.SerializeToString,
-            ProtoApi__pb2.ShowcaseCheckShootingResponse.FromString,
+            papi__pb2.ShowcaseCheckShootingRequest.SerializeToString,
+            papi__pb2.ShowcaseCheckShootingResponse.FromString,
             options,
             channel_credentials,
             insecure,
@@ -17505,8 +17505,8 @@ class Showcase(object):
             request,
             target,
             '/api.Showcase/CreatePhoto',
-            ProtoApi__pb2.ShowcaseCreatePhotoRequest.SerializeToString,
-            ProtoApi__pb2.ShowcaseCreatePhotoResponse.FromString,
+            papi__pb2.ShowcaseCreatePhotoRequest.SerializeToString,
+            papi__pb2.ShowcaseCreatePhotoResponse.FromString,
             options,
             channel_credentials,
             insecure,
@@ -17593,8 +17593,8 @@ class Staff(object):
             request,
             target,
             '/api.Staff/Train',
-            ProtoApi__pb2.StaffTrainRequest.SerializeToString,
-            ProtoApi__pb2.StaffTrainResponse.FromString,
+            papi__pb2.StaffTrainRequest.SerializeToString,
+            papi__pb2.StaffTrainResponse.FromString,
             options,
             channel_credentials,
             insecure,
@@ -17620,8 +17620,8 @@ class Staff(object):
             request,
             target,
             '/api.Staff/LevelLimitBreak',
-            ProtoApi__pb2.StaffLevelLimitBreakRequest.SerializeToString,
-            ProtoApi__pb2.StaffLevelLimitBreakResponse.FromString,
+            papi__pb2.StaffLevelLimitBreakRequest.SerializeToString,
+            papi__pb2.StaffLevelLimitBreakResponse.FromString,
             options,
             channel_credentials,
             insecure,
@@ -17804,8 +17804,8 @@ class Story(object):
             request,
             target,
             '/api.Story/Read',
-            ProtoApi__pb2.StoryReadRequest.SerializeToString,
-            ProtoApi__pb2.StoryReadResponse.FromString,
+            papi__pb2.StoryReadRequest.SerializeToString,
+            papi__pb2.StoryReadResponse.FromString,
             options,
             channel_credentials,
             insecure,
@@ -17831,8 +17831,8 @@ class Story(object):
             request,
             target,
             '/api.Story/ReleaseEpisode',
-            ProtoApi__pb2.StoryReleaseEpisodeRequest.SerializeToString,
-            ProtoApi__pb2.StoryReleaseEpisodeResponse.FromString,
+            papi__pb2.StoryReleaseEpisodeRequest.SerializeToString,
+            papi__pb2.StoryReleaseEpisodeResponse.FromString,
             options,
             channel_credentials,
             insecure,
@@ -17858,8 +17858,8 @@ class Story(object):
             request,
             target,
             '/api.Story/ListEvent',
-            ProtoApi__pb2.Empty.SerializeToString,
-            ProtoApi__pb2.StoryListEventResponse.FromString,
+            papi__pb2.Empty.SerializeToString,
+            papi__pb2.StoryListEventResponse.FromString,
             options,
             channel_credentials,
             insecure,
@@ -17885,8 +17885,8 @@ class Story(object):
             request,
             target,
             '/api.Story/ReadEvent',
-            ProtoApi__pb2.StoryReadEventRequest.SerializeToString,
-            ProtoApi__pb2.StoryReadEventResponse.FromString,
+            papi__pb2.StoryReadEventRequest.SerializeToString,
+            papi__pb2.StoryReadEventResponse.FromString,
             options,
             channel_credentials,
             insecure,
@@ -17912,8 +17912,8 @@ class Story(object):
             request,
             target,
             '/api.Story/ListExtra',
-            ProtoApi__pb2.Empty.SerializeToString,
-            ProtoApi__pb2.StoryListExtraResponse.FromString,
+            papi__pb2.Empty.SerializeToString,
+            papi__pb2.StoryListExtraResponse.FromString,
             options,
             channel_credentials,
             insecure,
@@ -17939,8 +17939,8 @@ class Story(object):
             request,
             target,
             '/api.Story/ReadExtra',
-            ProtoApi__pb2.StoryReadExtraRequest.SerializeToString,
-            ProtoApi__pb2.StoryReadExtraResponse.FromString,
+            papi__pb2.StoryReadExtraRequest.SerializeToString,
+            papi__pb2.StoryReadExtraResponse.FromString,
             options,
             channel_credentials,
             insecure,
@@ -17966,8 +17966,8 @@ class Story(object):
             request,
             target,
             '/api.Story/ReadAnniversaryStory',
-            ProtoApi__pb2.StoryReadAnniversaryStoryRequest.SerializeToString,
-            ProtoApi__pb2.StoryReadAnniversaryStoryResponse.FromString,
+            papi__pb2.StoryReadAnniversaryStoryRequest.SerializeToString,
+            papi__pb2.StoryReadAnniversaryStoryResponse.FromString,
             options,
             channel_credentials,
             insecure,
@@ -17993,8 +17993,8 @@ class Story(object):
             request,
             target,
             '/api.Story/ReadCharacterCompanyEnjoyStory',
-            ProtoApi__pb2.StoryReadCharacterCompanyEnjoyStoryRequest.SerializeToString,
-            ProtoApi__pb2.StoryReadCharacterCompanyEnjoyStoryResponse.FromString,
+            papi__pb2.StoryReadCharacterCompanyEnjoyStoryRequest.SerializeToString,
+            papi__pb2.StoryReadCharacterCompanyEnjoyStoryResponse.FromString,
             options,
             channel_credentials,
             insecure,
@@ -18097,8 +18097,8 @@ class System(object):
             request,
             target,
             '/api.System/Check',
-            ProtoApi__pb2.SystemCheckRequest.SerializeToString,
-            ProtoApi__pb2.SystemCheckResponse.FromString,
+            papi__pb2.SystemCheckRequest.SerializeToString,
+            papi__pb2.SystemCheckResponse.FromString,
             options,
             channel_credentials,
             insecure,
@@ -18124,8 +18124,8 @@ class System(object):
             request,
             target,
             '/api.System/GetMetadata',
-            ProtoApi__pb2.Empty.SerializeToString,
-            ProtoApi__pb2.Empty.FromString,
+            papi__pb2.Empty.SerializeToString,
+            papi__pb2.Empty.FromString,
             options,
             channel_credentials,
             insecure,
@@ -18151,8 +18151,8 @@ class System(object):
             request,
             target,
             '/api.System/CheckApp',
-            ProtoApi__pb2.Empty.SerializeToString,
-            ProtoApi__pb2.Empty.FromString,
+            papi__pb2.Empty.SerializeToString,
+            papi__pb2.Empty.FromString,
             options,
             channel_credentials,
             insecure,
@@ -18255,8 +18255,8 @@ class Telephone(object):
             request,
             target,
             '/api.Telephone/Receive',
-            ProtoApi__pb2.TelephoneReceiveRequest.SerializeToString,
-            ProtoApi__pb2.TelephoneReceiveResponse.FromString,
+            papi__pb2.TelephoneReceiveRequest.SerializeToString,
+            papi__pb2.TelephoneReceiveResponse.FromString,
             options,
             channel_credentials,
             insecure,
@@ -18282,8 +18282,8 @@ class Telephone(object):
             request,
             target,
             '/api.Telephone/Finishes',
-            ProtoApi__pb2.TelephoneFinishesRequest.SerializeToString,
-            ProtoApi__pb2.TelephoneFinishesResponse.FromString,
+            papi__pb2.TelephoneFinishesRequest.SerializeToString,
+            papi__pb2.TelephoneFinishesResponse.FromString,
             options,
             channel_credentials,
             insecure,
@@ -18309,8 +18309,8 @@ class Telephone(object):
             request,
             target,
             '/api.Telephone/CallHistory',
-            ProtoApi__pb2.TelephoneCallHistoryRequest.SerializeToString,
-            ProtoApi__pb2.TelephoneCallHistoryResponse.FromString,
+            papi__pb2.TelephoneCallHistoryRequest.SerializeToString,
+            papi__pb2.TelephoneCallHistoryResponse.FromString,
             options,
             channel_credentials,
             insecure,
@@ -18573,8 +18573,8 @@ class Tour(object):
             request,
             target,
             '/api.Tour/Top',
-            ProtoApi__pb2.TourTopRequest.SerializeToString,
-            ProtoApi__pb2.TourTopResponse.FromString,
+            papi__pb2.TourTopRequest.SerializeToString,
+            papi__pb2.TourTopResponse.FromString,
             options,
             channel_credentials,
             insecure,
@@ -18600,8 +18600,8 @@ class Tour(object):
             request,
             target,
             '/api.Tour/Ranking',
-            ProtoApi__pb2.TourRankingRequest.SerializeToString,
-            ProtoApi__pb2.TourRankingResponse.FromString,
+            papi__pb2.TourRankingRequest.SerializeToString,
+            papi__pb2.TourRankingResponse.FromString,
             options,
             channel_credentials,
             insecure,
@@ -18627,8 +18627,8 @@ class Tour(object):
             request,
             target,
             '/api.Tour/AreaTop',
-            ProtoApi__pb2.TourAreaTopRequest.SerializeToString,
-            ProtoApi__pb2.TourAreaTopResponse.FromString,
+            papi__pb2.TourAreaTopRequest.SerializeToString,
+            papi__pb2.TourAreaTopResponse.FromString,
             options,
             channel_credentials,
             insecure,
@@ -18654,8 +18654,8 @@ class Tour(object):
             request,
             target,
             '/api.Tour/AreaActivity',
-            ProtoApi__pb2.TourAreaActivityRequest.SerializeToString,
-            ProtoApi__pb2.TourAreaActivityResponse.FromString,
+            papi__pb2.TourAreaActivityRequest.SerializeToString,
+            papi__pb2.TourAreaActivityResponse.FromString,
             options,
             channel_credentials,
             insecure,
@@ -18681,8 +18681,8 @@ class Tour(object):
             request,
             target,
             '/api.Tour/AreaRefresh',
-            ProtoApi__pb2.TourAreaRefreshRequest.SerializeToString,
-            ProtoApi__pb2.TourAreaRefreshResponse.FromString,
+            papi__pb2.TourAreaRefreshRequest.SerializeToString,
+            papi__pb2.TourAreaRefreshResponse.FromString,
             options,
             channel_credentials,
             insecure,
@@ -18708,8 +18708,8 @@ class Tour(object):
             request,
             target,
             '/api.Tour/AreaScout',
-            ProtoApi__pb2.TourAreaScoutRequest.SerializeToString,
-            ProtoApi__pb2.TourAreaScoutResponse.FromString,
+            papi__pb2.TourAreaScoutRequest.SerializeToString,
+            papi__pb2.TourAreaScoutResponse.FromString,
             options,
             channel_credentials,
             insecure,
@@ -18735,8 +18735,8 @@ class Tour(object):
             request,
             target,
             '/api.Tour/AreaLive',
-            ProtoApi__pb2.TourAreaLiveRequest.SerializeToString,
-            ProtoApi__pb2.TourAreaLiveResponse.FromString,
+            papi__pb2.TourAreaLiveRequest.SerializeToString,
+            papi__pb2.TourAreaLiveResponse.FromString,
             options,
             channel_credentials,
             insecure,
@@ -18762,8 +18762,8 @@ class Tour(object):
             request,
             target,
             '/api.Tour/AreaLiveBonus',
-            ProtoApi__pb2.TourAreaLiveBonusRequest.SerializeToString,
-            ProtoApi__pb2.TourAreaLiveBonusResponse.FromString,
+            papi__pb2.TourAreaLiveBonusRequest.SerializeToString,
+            papi__pb2.TourAreaLiveBonusResponse.FromString,
             options,
             channel_credentials,
             insecure,
@@ -18789,8 +18789,8 @@ class Tour(object):
             request,
             target,
             '/api.Tour/AreaPvp',
-            ProtoApi__pb2.TourAreaPvpRequest.SerializeToString,
-            ProtoApi__pb2.TourAreaPvpResponse.FromString,
+            papi__pb2.TourAreaPvpRequest.SerializeToString,
+            papi__pb2.TourAreaPvpResponse.FromString,
             options,
             channel_credentials,
             insecure,
@@ -18816,8 +18816,8 @@ class Tour(object):
             request,
             target,
             '/api.Tour/AreaClear',
-            ProtoApi__pb2.TourAreaClearRequest.SerializeToString,
-            ProtoApi__pb2.TourAreaClearResponse.FromString,
+            papi__pb2.TourAreaClearRequest.SerializeToString,
+            papi__pb2.TourAreaClearResponse.FromString,
             options,
             channel_credentials,
             insecure,
@@ -18843,8 +18843,8 @@ class Tour(object):
             request,
             target,
             '/api.Tour/AreaNext',
-            ProtoApi__pb2.TourAreaNextRequest.SerializeToString,
-            ProtoApi__pb2.TourAreaNextResponse.FromString,
+            papi__pb2.TourAreaNextRequest.SerializeToString,
+            papi__pb2.TourAreaNextResponse.FromString,
             options,
             channel_credentials,
             insecure,
@@ -18870,8 +18870,8 @@ class Tour(object):
             request,
             target,
             '/api.Tour/AreaRetire',
-            ProtoApi__pb2.TourAreaRetireRequest.SerializeToString,
-            ProtoApi__pb2.TourAreaRetireResponse.FromString,
+            papi__pb2.TourAreaRetireRequest.SerializeToString,
+            papi__pb2.TourAreaRetireResponse.FromString,
             options,
             channel_credentials,
             insecure,
@@ -18897,8 +18897,8 @@ class Tour(object):
             request,
             target,
             '/api.Tour/DeckSave',
-            ProtoApi__pb2.TourDeckSaveRequest.SerializeToString,
-            ProtoApi__pb2.TourDeckSaveResponse.FromString,
+            papi__pb2.TourDeckSaveRequest.SerializeToString,
+            papi__pb2.TourDeckSaveResponse.FromString,
             options,
             channel_credentials,
             insecure,
@@ -19081,8 +19081,8 @@ class Tutorial(object):
             request,
             target,
             '/api.Tutorial/Init',
-            ProtoApi__pb2.TutorialInitRequest.SerializeToString,
-            ProtoApi__pb2.TutorialInitResponse.FromString,
+            papi__pb2.TutorialInitRequest.SerializeToString,
+            papi__pb2.TutorialInitResponse.FromString,
             options,
             channel_credentials,
             insecure,
@@ -19108,8 +19108,8 @@ class Tutorial(object):
             request,
             target,
             '/api.Tutorial/Progress',
-            ProtoApi__pb2.TutorialProgressRequest.SerializeToString,
-            ProtoApi__pb2.TutorialProgressResponse.FromString,
+            papi__pb2.TutorialProgressRequest.SerializeToString,
+            papi__pb2.TutorialProgressResponse.FromString,
             options,
             channel_credentials,
             insecure,
@@ -19135,8 +19135,8 @@ class Tutorial(object):
             request,
             target,
             '/api.Tutorial/StartQuest',
-            ProtoApi__pb2.TutorialStartQuestRequest.SerializeToString,
-            ProtoApi__pb2.TutorialStartQuestResponse.FromString,
+            papi__pb2.TutorialStartQuestRequest.SerializeToString,
+            papi__pb2.TutorialStartQuestResponse.FromString,
             options,
             channel_credentials,
             insecure,
@@ -19162,8 +19162,8 @@ class Tutorial(object):
             request,
             target,
             '/api.Tutorial/StartFanEvent',
-            ProtoApi__pb2.Empty.SerializeToString,
-            ProtoApi__pb2.TutorialActivityStartFanEventResponse.FromString,
+            papi__pb2.Empty.SerializeToString,
+            papi__pb2.TutorialActivityStartFanEventResponse.FromString,
             options,
             channel_credentials,
             insecure,
@@ -19189,8 +19189,8 @@ class Tutorial(object):
             request,
             target,
             '/api.Tutorial/ReceivePromotionReward',
-            ProtoApi__pb2.Empty.SerializeToString,
-            ProtoApi__pb2.TutorialActivityReceivePromotionRewardResponse.FromString,
+            papi__pb2.Empty.SerializeToString,
+            papi__pb2.TutorialActivityReceivePromotionRewardResponse.FromString,
             options,
             channel_credentials,
             insecure,
@@ -19216,8 +19216,8 @@ class Tutorial(object):
             request,
             target,
             '/api.Tutorial/ReceiveLessonReward',
-            ProtoApi__pb2.Empty.SerializeToString,
-            ProtoApi__pb2.TutorialActivityReceiveLessonRewardResponse.FromString,
+            papi__pb2.Empty.SerializeToString,
+            papi__pb2.TutorialActivityReceiveLessonRewardResponse.FromString,
             options,
             channel_credentials,
             insecure,
@@ -19243,8 +19243,8 @@ class Tutorial(object):
             request,
             target,
             '/api.Tutorial/CreateShooting',
-            ProtoApi__pb2.TutorialPhotoCreateShootingRequest.SerializeToString,
-            ProtoApi__pb2.TutorialPhotoCreateShootingResponse.FromString,
+            papi__pb2.TutorialPhotoCreateShootingRequest.SerializeToString,
+            papi__pb2.TutorialPhotoCreateShootingResponse.FromString,
             options,
             channel_credentials,
             insecure,
@@ -19270,8 +19270,8 @@ class Tutorial(object):
             request,
             target,
             '/api.Tutorial/Skip',
-            ProtoApi__pb2.Empty.SerializeToString,
-            ProtoApi__pb2.TutorialSkipResponse.FromString,
+            papi__pb2.Empty.SerializeToString,
+            papi__pb2.TutorialSkipResponse.FromString,
             options,
             channel_credentials,
             insecure,
@@ -19358,8 +19358,8 @@ class User(object):
             request,
             target,
             '/api.User/Get',
-            ProtoApi__pb2.Empty.SerializeToString,
-            ProtoApi__pb2.UserGetResponse.FromString,
+            papi__pb2.Empty.SerializeToString,
+            papi__pb2.UserGetResponse.FromString,
             options,
             channel_credentials,
             insecure,
@@ -19385,8 +19385,8 @@ class User(object):
             request,
             target,
             '/api.User/ProvideExternalReward',
-            ProtoApi__pb2.UserProvideExternalRewardRequest.SerializeToString,
-            ProtoApi__pb2.UserProvideExternalRewardResponse.FromString,
+            papi__pb2.UserProvideExternalRewardRequest.SerializeToString,
+            papi__pb2.UserProvideExternalRewardResponse.FromString,
             options,
             channel_credentials,
             insecure,
@@ -19397,4898 +19397,4898 @@ class User(object):
             metadata,
             _registered_method=True)
 def AccessoryEnhanceRequest_serializer(message):
-    origin = ProtoApi__pb2.AccessoryEnhanceRequest.SerializeToString(message)
+    origin = papi__pb2.AccessoryEnhanceRequest.SerializeToString(message)
     return serialize(origin)
 def AccessoryLimitBreakRequest_serializer(message):
-    origin = ProtoApi__pb2.AccessoryLimitBreakRequest.SerializeToString(message)
+    origin = papi__pb2.AccessoryLimitBreakRequest.SerializeToString(message)
     return serialize(origin)
 def AccessorySellRequest_serializer(message):
-    origin = ProtoApi__pb2.AccessorySellRequest.SerializeToString(message)
+    origin = papi__pb2.AccessorySellRequest.SerializeToString(message)
     return serialize(origin)
 def AccessoryEnhanceResponse_serializer(message):
-    origin = ProtoApi__pb2.AccessoryEnhanceResponse.SerializeToString(message)
+    origin = papi__pb2.AccessoryEnhanceResponse.SerializeToString(message)
     return serialize(origin)
 def AccessoryLimitBreakResponse_serializer(message):
-    origin = ProtoApi__pb2.AccessoryLimitBreakResponse.SerializeToString(message)
+    origin = papi__pb2.AccessoryLimitBreakResponse.SerializeToString(message)
     return serialize(origin)
 def AccessorySellResponse_serializer(message):
-    origin = ProtoApi__pb2.AccessorySellResponse.SerializeToString(message)
+    origin = papi__pb2.AccessorySellResponse.SerializeToString(message)
     return serialize(origin)
 def ActivityStartFanEventRequest_serializer(message):
-    origin = ProtoApi__pb2.ActivityStartFanEventRequest.SerializeToString(message)
+    origin = papi__pb2.ActivityStartFanEventRequest.SerializeToString(message)
     return serialize(origin)
 def Empty_serializer(message):
-    origin = ProtoApi__pb2.Empty.SerializeToString(message)
+    origin = papi__pb2.Empty.SerializeToString(message)
     return serialize(origin)
 def ActivityFetchFanEventStepsRequest_serializer(message):
-    origin = ProtoApi__pb2.ActivityFetchFanEventStepsRequest.SerializeToString(message)
+    origin = papi__pb2.ActivityFetchFanEventStepsRequest.SerializeToString(message)
     return serialize(origin)
 def ActivitySaveFanEventRequest_serializer(message):
-    origin = ProtoApi__pb2.ActivitySaveFanEventRequest.SerializeToString(message)
+    origin = papi__pb2.ActivitySaveFanEventRequest.SerializeToString(message)
     return serialize(origin)
 def Empty_serializer(message):
-    origin = ProtoApi__pb2.Empty.SerializeToString(message)
+    origin = papi__pb2.Empty.SerializeToString(message)
     return serialize(origin)
 def ActivityGetFanEventRankingRequest_serializer(message):
-    origin = ProtoApi__pb2.ActivityGetFanEventRankingRequest.SerializeToString(message)
+    origin = papi__pb2.ActivityGetFanEventRankingRequest.SerializeToString(message)
     return serialize(origin)
 def ActivityStartPromotionRequest_serializer(message):
-    origin = ProtoApi__pb2.ActivityStartPromotionRequest.SerializeToString(message)
+    origin = papi__pb2.ActivityStartPromotionRequest.SerializeToString(message)
     return serialize(origin)
 def Empty_serializer(message):
-    origin = ProtoApi__pb2.Empty.SerializeToString(message)
+    origin = papi__pb2.Empty.SerializeToString(message)
     return serialize(origin)
 def ActivityUsePromotionItemRequest_serializer(message):
-    origin = ProtoApi__pb2.ActivityUsePromotionItemRequest.SerializeToString(message)
+    origin = papi__pb2.ActivityUsePromotionItemRequest.SerializeToString(message)
     return serialize(origin)
 def Empty_serializer(message):
-    origin = ProtoApi__pb2.Empty.SerializeToString(message)
+    origin = papi__pb2.Empty.SerializeToString(message)
     return serialize(origin)
 def ActivityFetchPromotionStepsRequest_serializer(message):
-    origin = ProtoApi__pb2.ActivityFetchPromotionStepsRequest.SerializeToString(message)
+    origin = papi__pb2.ActivityFetchPromotionStepsRequest.SerializeToString(message)
     return serialize(origin)
 def Empty_serializer(message):
-    origin = ProtoApi__pb2.Empty.SerializeToString(message)
+    origin = papi__pb2.Empty.SerializeToString(message)
     return serialize(origin)
 def ActivityStartRefreshRequest_serializer(message):
-    origin = ProtoApi__pb2.ActivityStartRefreshRequest.SerializeToString(message)
+    origin = papi__pb2.ActivityStartRefreshRequest.SerializeToString(message)
     return serialize(origin)
 def Empty_serializer(message):
-    origin = ProtoApi__pb2.Empty.SerializeToString(message)
+    origin = papi__pb2.Empty.SerializeToString(message)
     return serialize(origin)
 def ActivityUseRefreshItemRequest_serializer(message):
-    origin = ProtoApi__pb2.ActivityUseRefreshItemRequest.SerializeToString(message)
+    origin = papi__pb2.ActivityUseRefreshItemRequest.SerializeToString(message)
     return serialize(origin)
 def Empty_serializer(message):
-    origin = ProtoApi__pb2.Empty.SerializeToString(message)
+    origin = papi__pb2.Empty.SerializeToString(message)
     return serialize(origin)
 def Empty_serializer(message):
-    origin = ProtoApi__pb2.Empty.SerializeToString(message)
+    origin = papi__pb2.Empty.SerializeToString(message)
     return serialize(origin)
 def ActivityPromoteLessonRequest_serializer(message):
-    origin = ProtoApi__pb2.ActivityPromoteLessonRequest.SerializeToString(message)
+    origin = papi__pb2.ActivityPromoteLessonRequest.SerializeToString(message)
     return serialize(origin)
 def ActivityStartFanEventResponse_serializer(message):
-    origin = ProtoApi__pb2.ActivityStartFanEventResponse.SerializeToString(message)
+    origin = papi__pb2.ActivityStartFanEventResponse.SerializeToString(message)
     return serialize(origin)
 def ActivityLoadFanEventResponse_serializer(message):
-    origin = ProtoApi__pb2.ActivityLoadFanEventResponse.SerializeToString(message)
+    origin = papi__pb2.ActivityLoadFanEventResponse.SerializeToString(message)
     return serialize(origin)
 def ActivityFetchFanEventStepsResponse_serializer(message):
-    origin = ProtoApi__pb2.ActivityFetchFanEventStepsResponse.SerializeToString(message)
+    origin = papi__pb2.ActivityFetchFanEventStepsResponse.SerializeToString(message)
     return serialize(origin)
 def ActivitySaveFanEventResponse_serializer(message):
-    origin = ProtoApi__pb2.ActivitySaveFanEventResponse.SerializeToString(message)
+    origin = papi__pb2.ActivitySaveFanEventResponse.SerializeToString(message)
     return serialize(origin)
 def ActivityFinishFanEventResponse_serializer(message):
-    origin = ProtoApi__pb2.ActivityFinishFanEventResponse.SerializeToString(message)
+    origin = papi__pb2.ActivityFinishFanEventResponse.SerializeToString(message)
     return serialize(origin)
 def ActivityGetFanEventRankingResponse_serializer(message):
-    origin = ProtoApi__pb2.ActivityGetFanEventRankingResponse.SerializeToString(message)
+    origin = papi__pb2.ActivityGetFanEventRankingResponse.SerializeToString(message)
     return serialize(origin)
 def ActivityStartPromotionResponse_serializer(message):
-    origin = ProtoApi__pb2.ActivityStartPromotionResponse.SerializeToString(message)
+    origin = papi__pb2.ActivityStartPromotionResponse.SerializeToString(message)
     return serialize(origin)
 def ActivityLoadPromotionResponse_serializer(message):
-    origin = ProtoApi__pb2.ActivityLoadPromotionResponse.SerializeToString(message)
+    origin = papi__pb2.ActivityLoadPromotionResponse.SerializeToString(message)
     return serialize(origin)
 def ActivityUsePromotionItemResponse_serializer(message):
-    origin = ProtoApi__pb2.ActivityUsePromotionItemResponse.SerializeToString(message)
+    origin = papi__pb2.ActivityUsePromotionItemResponse.SerializeToString(message)
     return serialize(origin)
 def ActivityReceivePromotionRewardResponse_serializer(message):
-    origin = ProtoApi__pb2.ActivityReceivePromotionRewardResponse.SerializeToString(message)
+    origin = papi__pb2.ActivityReceivePromotionRewardResponse.SerializeToString(message)
     return serialize(origin)
 def ActivityFetchPromotionStepsResponse_serializer(message):
-    origin = ProtoApi__pb2.ActivityFetchPromotionStepsResponse.SerializeToString(message)
+    origin = papi__pb2.ActivityFetchPromotionStepsResponse.SerializeToString(message)
     return serialize(origin)
 def ActivityFinishPromotionResponse_serializer(message):
-    origin = ProtoApi__pb2.ActivityFinishPromotionResponse.SerializeToString(message)
+    origin = papi__pb2.ActivityFinishPromotionResponse.SerializeToString(message)
     return serialize(origin)
 def ActivityStartRefreshResponse_serializer(message):
-    origin = ProtoApi__pb2.ActivityStartRefreshResponse.SerializeToString(message)
+    origin = papi__pb2.ActivityStartRefreshResponse.SerializeToString(message)
     return serialize(origin)
 def ActivityLoadRefreshResponse_serializer(message):
-    origin = ProtoApi__pb2.ActivityLoadRefreshResponse.SerializeToString(message)
+    origin = papi__pb2.ActivityLoadRefreshResponse.SerializeToString(message)
     return serialize(origin)
 def ActivityUseRefreshItemResponse_serializer(message):
-    origin = ProtoApi__pb2.ActivityUseRefreshItemResponse.SerializeToString(message)
+    origin = papi__pb2.ActivityUseRefreshItemResponse.SerializeToString(message)
     return serialize(origin)
 def ActivityFinishRefreshResponse_serializer(message):
-    origin = ProtoApi__pb2.ActivityFinishRefreshResponse.SerializeToString(message)
+    origin = papi__pb2.ActivityFinishRefreshResponse.SerializeToString(message)
     return serialize(origin)
 def ActivityReceiveLessonRewardResponse_serializer(message):
-    origin = ProtoApi__pb2.ActivityReceiveLessonRewardResponse.SerializeToString(message)
+    origin = papi__pb2.ActivityReceiveLessonRewardResponse.SerializeToString(message)
     return serialize(origin)
 def ActivityPromoteLessonResponse_serializer(message):
-    origin = ProtoApi__pb2.ActivityPromoteLessonResponse.SerializeToString(message)
+    origin = papi__pb2.ActivityPromoteLessonResponse.SerializeToString(message)
     return serialize(origin)
 def AdvertisementStartRequest_serializer(message):
-    origin = ProtoApi__pb2.AdvertisementStartRequest.SerializeToString(message)
+    origin = papi__pb2.AdvertisementStartRequest.SerializeToString(message)
     return serialize(origin)
 def AdvertisementEndRequest_serializer(message):
-    origin = ProtoApi__pb2.AdvertisementEndRequest.SerializeToString(message)
+    origin = papi__pb2.AdvertisementEndRequest.SerializeToString(message)
     return serialize(origin)
 def AdvertisementStartResponse_serializer(message):
-    origin = ProtoApi__pb2.AdvertisementStartResponse.SerializeToString(message)
+    origin = papi__pb2.AdvertisementStartResponse.SerializeToString(message)
     return serialize(origin)
 def AdvertisementEndResponse_serializer(message):
-    origin = ProtoApi__pb2.AdvertisementEndResponse.SerializeToString(message)
+    origin = papi__pb2.AdvertisementEndResponse.SerializeToString(message)
     return serialize(origin)
 def AnniversaryOutputTransitionLogRequest_serializer(message):
-    origin = ProtoApi__pb2.AnniversaryOutputTransitionLogRequest.SerializeToString(message)
+    origin = papi__pb2.AnniversaryOutputTransitionLogRequest.SerializeToString(message)
     return serialize(origin)
 def AnniversaryOutputTransitionLogResponse_serializer(message):
-    origin = ProtoApi__pb2.AnniversaryOutputTransitionLogResponse.SerializeToString(message)
+    origin = papi__pb2.AnniversaryOutputTransitionLogResponse.SerializeToString(message)
     return serialize(origin)
 def AuthCreateRequest_serializer(message):
-    origin = ProtoApi__pb2.AuthCreateRequest.SerializeToString(message)
+    origin = papi__pb2.AuthCreateRequest.SerializeToString(message)
     return serialize(origin)
 def AuthLoginRequest_serializer(message):
-    origin = ProtoApi__pb2.AuthLoginRequest.SerializeToString(message)
+    origin = papi__pb2.AuthLoginRequest.SerializeToString(message)
     return serialize(origin)
 def Empty_serializer(message):
-    origin = ProtoApi__pb2.Empty.SerializeToString(message)
+    origin = papi__pb2.Empty.SerializeToString(message)
     return serialize(origin)
 def AuthRecreateRequest_serializer(message):
-    origin = ProtoApi__pb2.AuthRecreateRequest.SerializeToString(message)
+    origin = papi__pb2.AuthRecreateRequest.SerializeToString(message)
     return serialize(origin)
 def AuthCreateResponse_serializer(message):
-    origin = ProtoApi__pb2.AuthCreateResponse.SerializeToString(message)
+    origin = papi__pb2.AuthCreateResponse.SerializeToString(message)
     return serialize(origin)
 def AuthLoginResponse_serializer(message):
-    origin = ProtoApi__pb2.AuthLoginResponse.SerializeToString(message)
+    origin = papi__pb2.AuthLoginResponse.SerializeToString(message)
     return serialize(origin)
 def AuthDeleteResponse_serializer(message):
-    origin = ProtoApi__pb2.AuthDeleteResponse.SerializeToString(message)
+    origin = papi__pb2.AuthDeleteResponse.SerializeToString(message)
     return serialize(origin)
 def AuthRecreateResponse_serializer(message):
-    origin = ProtoApi__pb2.AuthRecreateResponse.SerializeToString(message)
+    origin = papi__pb2.AuthRecreateResponse.SerializeToString(message)
     return serialize(origin)
 def BacksideTopRequest_serializer(message):
-    origin = ProtoApi__pb2.BacksideTopRequest.SerializeToString(message)
+    origin = papi__pb2.BacksideTopRequest.SerializeToString(message)
     return serialize(origin)
 def BacksideRankingRequest_serializer(message):
-    origin = ProtoApi__pb2.BacksideRankingRequest.SerializeToString(message)
+    origin = papi__pb2.BacksideRankingRequest.SerializeToString(message)
     return serialize(origin)
 def BacksideStageStartRequest_serializer(message):
-    origin = ProtoApi__pb2.BacksideStageStartRequest.SerializeToString(message)
+    origin = papi__pb2.BacksideStageStartRequest.SerializeToString(message)
     return serialize(origin)
 def BacksideStageActionRequest_serializer(message):
-    origin = ProtoApi__pb2.BacksideStageActionRequest.SerializeToString(message)
+    origin = papi__pb2.BacksideStageActionRequest.SerializeToString(message)
     return serialize(origin)
 def BacksideStageLiveBonusRequest_serializer(message):
-    origin = ProtoApi__pb2.BacksideStageLiveBonusRequest.SerializeToString(message)
+    origin = papi__pb2.BacksideStageLiveBonusRequest.SerializeToString(message)
     return serialize(origin)
 def BacksideStagePracticeUpdateRequest_serializer(message):
-    origin = ProtoApi__pb2.BacksideStagePracticeUpdateRequest.SerializeToString(message)
+    origin = papi__pb2.BacksideStagePracticeUpdateRequest.SerializeToString(message)
     return serialize(origin)
 def BacksideStageResetRequest_serializer(message):
-    origin = ProtoApi__pb2.BacksideStageResetRequest.SerializeToString(message)
+    origin = papi__pb2.BacksideStageResetRequest.SerializeToString(message)
     return serialize(origin)
 def BacksideStageSurpriseFinishRequest_serializer(message):
-    origin = ProtoApi__pb2.BacksideStageSurpriseFinishRequest.SerializeToString(message)
+    origin = papi__pb2.BacksideStageSurpriseFinishRequest.SerializeToString(message)
     return serialize(origin)
 def BacksideStageDeckPositionChangeRequest_serializer(message):
-    origin = ProtoApi__pb2.BacksideStageDeckPositionChangeRequest.SerializeToString(message)
+    origin = papi__pb2.BacksideStageDeckPositionChangeRequest.SerializeToString(message)
     return serialize(origin)
 def BacksideTopResponse_serializer(message):
-    origin = ProtoApi__pb2.BacksideTopResponse.SerializeToString(message)
+    origin = papi__pb2.BacksideTopResponse.SerializeToString(message)
     return serialize(origin)
 def BacksideRankingResponse_serializer(message):
-    origin = ProtoApi__pb2.BacksideRankingResponse.SerializeToString(message)
+    origin = papi__pb2.BacksideRankingResponse.SerializeToString(message)
     return serialize(origin)
 def BacksideStageStartResponse_serializer(message):
-    origin = ProtoApi__pb2.BacksideStageStartResponse.SerializeToString(message)
+    origin = papi__pb2.BacksideStageStartResponse.SerializeToString(message)
     return serialize(origin)
 def BacksideStageActionResponse_serializer(message):
-    origin = ProtoApi__pb2.BacksideStageActionResponse.SerializeToString(message)
+    origin = papi__pb2.BacksideStageActionResponse.SerializeToString(message)
     return serialize(origin)
 def BacksideStageLiveBonusResponse_serializer(message):
-    origin = ProtoApi__pb2.BacksideStageLiveBonusResponse.SerializeToString(message)
+    origin = papi__pb2.BacksideStageLiveBonusResponse.SerializeToString(message)
     return serialize(origin)
 def BacksideStagePracticeUpdateResponse_serializer(message):
-    origin = ProtoApi__pb2.BacksideStagePracticeUpdateResponse.SerializeToString(message)
+    origin = papi__pb2.BacksideStagePracticeUpdateResponse.SerializeToString(message)
     return serialize(origin)
 def BacksideStageResetResponse_serializer(message):
-    origin = ProtoApi__pb2.BacksideStageResetResponse.SerializeToString(message)
+    origin = papi__pb2.BacksideStageResetResponse.SerializeToString(message)
     return serialize(origin)
 def BacksideStageSurpriseFinishResponse_serializer(message):
-    origin = ProtoApi__pb2.BacksideStageSurpriseFinishResponse.SerializeToString(message)
+    origin = papi__pb2.BacksideStageSurpriseFinishResponse.SerializeToString(message)
     return serialize(origin)
 def BacksideStageDeckPositionChangeResponse_serializer(message):
-    origin = ProtoApi__pb2.BacksideStageDeckPositionChangeResponse.SerializeToString(message)
+    origin = papi__pb2.BacksideStageDeckPositionChangeResponse.SerializeToString(message)
     return serialize(origin)
 def Empty_serializer(message):
-    origin = ProtoApi__pb2.Empty.SerializeToString(message)
+    origin = papi__pb2.Empty.SerializeToString(message)
     return serialize(origin)
 def BirthdaySetWatchedRequest_serializer(message):
-    origin = ProtoApi__pb2.BirthdaySetWatchedRequest.SerializeToString(message)
+    origin = papi__pb2.BirthdaySetWatchedRequest.SerializeToString(message)
     return serialize(origin)
 def Empty_serializer(message):
-    origin = ProtoApi__pb2.Empty.SerializeToString(message)
+    origin = papi__pb2.Empty.SerializeToString(message)
     return serialize(origin)
 def BirthdayOutputWatchedLogRequest_serializer(message):
-    origin = ProtoApi__pb2.BirthdayOutputWatchedLogRequest.SerializeToString(message)
+    origin = papi__pb2.BirthdayOutputWatchedLogRequest.SerializeToString(message)
     return serialize(origin)
 def Empty_serializer(message):
-    origin = ProtoApi__pb2.Empty.SerializeToString(message)
+    origin = papi__pb2.Empty.SerializeToString(message)
     return serialize(origin)
 def BirthdayTopResponse_serializer(message):
-    origin = ProtoApi__pb2.BirthdayTopResponse.SerializeToString(message)
+    origin = papi__pb2.BirthdayTopResponse.SerializeToString(message)
     return serialize(origin)
 def BirthdaySetWatchedResponse_serializer(message):
-    origin = ProtoApi__pb2.BirthdaySetWatchedResponse.SerializeToString(message)
+    origin = papi__pb2.BirthdaySetWatchedResponse.SerializeToString(message)
     return serialize(origin)
 def BirthdayReceiveRewardResponse_serializer(message):
-    origin = ProtoApi__pb2.BirthdayReceiveRewardResponse.SerializeToString(message)
+    origin = papi__pb2.BirthdayReceiveRewardResponse.SerializeToString(message)
     return serialize(origin)
 def BirthdayOutputWatchedLogResponse_serializer(message):
-    origin = ProtoApi__pb2.BirthdayOutputWatchedLogResponse.SerializeToString(message)
+    origin = papi__pb2.BirthdayOutputWatchedLogResponse.SerializeToString(message)
     return serialize(origin)
 def BirthdaySetWatchedRemindInfoResponse_serializer(message):
-    origin = ProtoApi__pb2.BirthdaySetWatchedRemindInfoResponse.SerializeToString(message)
+    origin = papi__pb2.BirthdaySetWatchedRemindInfoResponse.SerializeToString(message)
     return serialize(origin)
 def CardEnhanceRequest_serializer(message):
-    origin = ProtoApi__pb2.CardEnhanceRequest.SerializeToString(message)
+    origin = papi__pb2.CardEnhanceRequest.SerializeToString(message)
     return serialize(origin)
 def CardLimitBreakRequest_serializer(message):
-    origin = ProtoApi__pb2.CardLimitBreakRequest.SerializeToString(message)
+    origin = papi__pb2.CardLimitBreakRequest.SerializeToString(message)
     return serialize(origin)
 def CardSkillEnhanceRequest_serializer(message):
-    origin = ProtoApi__pb2.CardSkillEnhanceRequest.SerializeToString(message)
+    origin = papi__pb2.CardSkillEnhanceRequest.SerializeToString(message)
     return serialize(origin)
 def CardLiveAbilityEnhanceRequest_serializer(message):
-    origin = ProtoApi__pb2.CardLiveAbilityEnhanceRequest.SerializeToString(message)
+    origin = papi__pb2.CardLiveAbilityEnhanceRequest.SerializeToString(message)
     return serialize(origin)
 def CardActivityAbilityEnhanceRequest_serializer(message):
-    origin = ProtoApi__pb2.CardActivityAbilityEnhanceRequest.SerializeToString(message)
+    origin = papi__pb2.CardActivityAbilityEnhanceRequest.SerializeToString(message)
     return serialize(origin)
 def CardResetRequest_serializer(message):
-    origin = ProtoApi__pb2.CardResetRequest.SerializeToString(message)
+    origin = papi__pb2.CardResetRequest.SerializeToString(message)
     return serialize(origin)
 def CardSetSupportRequest_serializer(message):
-    origin = ProtoApi__pb2.CardSetSupportRequest.SerializeToString(message)
+    origin = papi__pb2.CardSetSupportRequest.SerializeToString(message)
     return serialize(origin)
 def CardRemoveSupportRequest_serializer(message):
-    origin = ProtoApi__pb2.CardRemoveSupportRequest.SerializeToString(message)
+    origin = papi__pb2.CardRemoveSupportRequest.SerializeToString(message)
     return serialize(origin)
 def CardReleaseSupportRequest_serializer(message):
-    origin = ProtoApi__pb2.CardReleaseSupportRequest.SerializeToString(message)
+    origin = papi__pb2.CardReleaseSupportRequest.SerializeToString(message)
     return serialize(origin)
 def CardRankUpRequest_serializer(message):
-    origin = ProtoApi__pb2.CardRankUpRequest.SerializeToString(message)
+    origin = papi__pb2.CardRankUpRequest.SerializeToString(message)
     return serialize(origin)
 def CardUpdateDisplayTypeRequest_serializer(message):
-    origin = ProtoApi__pb2.CardUpdateDisplayTypeRequest.SerializeToString(message)
+    origin = papi__pb2.CardUpdateDisplayTypeRequest.SerializeToString(message)
     return serialize(origin)
 def CardEnhanceResponse_serializer(message):
-    origin = ProtoApi__pb2.CardEnhanceResponse.SerializeToString(message)
+    origin = papi__pb2.CardEnhanceResponse.SerializeToString(message)
     return serialize(origin)
 def CardLimitBreakResponse_serializer(message):
-    origin = ProtoApi__pb2.CardLimitBreakResponse.SerializeToString(message)
+    origin = papi__pb2.CardLimitBreakResponse.SerializeToString(message)
     return serialize(origin)
 def CardSkillEnhanceResponse_serializer(message):
-    origin = ProtoApi__pb2.CardSkillEnhanceResponse.SerializeToString(message)
+    origin = papi__pb2.CardSkillEnhanceResponse.SerializeToString(message)
     return serialize(origin)
 def CardLiveAbilityEnhanceResponse_serializer(message):
-    origin = ProtoApi__pb2.CardLiveAbilityEnhanceResponse.SerializeToString(message)
+    origin = papi__pb2.CardLiveAbilityEnhanceResponse.SerializeToString(message)
     return serialize(origin)
 def CardActivityAbilityEnhanceResponse_serializer(message):
-    origin = ProtoApi__pb2.CardActivityAbilityEnhanceResponse.SerializeToString(message)
+    origin = papi__pb2.CardActivityAbilityEnhanceResponse.SerializeToString(message)
     return serialize(origin)
 def CardResetResponse_serializer(message):
-    origin = ProtoApi__pb2.CardResetResponse.SerializeToString(message)
+    origin = papi__pb2.CardResetResponse.SerializeToString(message)
     return serialize(origin)
 def CardSetSupportResponse_serializer(message):
-    origin = ProtoApi__pb2.CardSetSupportResponse.SerializeToString(message)
+    origin = papi__pb2.CardSetSupportResponse.SerializeToString(message)
     return serialize(origin)
 def CardRemoveSupportResponse_serializer(message):
-    origin = ProtoApi__pb2.CardRemoveSupportResponse.SerializeToString(message)
+    origin = papi__pb2.CardRemoveSupportResponse.SerializeToString(message)
     return serialize(origin)
 def CardReleaseSupportResponse_serializer(message):
-    origin = ProtoApi__pb2.CardReleaseSupportResponse.SerializeToString(message)
+    origin = papi__pb2.CardReleaseSupportResponse.SerializeToString(message)
     return serialize(origin)
 def CardRankUpResponse_serializer(message):
-    origin = ProtoApi__pb2.CardRankUpResponse.SerializeToString(message)
+    origin = papi__pb2.CardRankUpResponse.SerializeToString(message)
     return serialize(origin)
 def CardUpdateDisplayTypeResponse_serializer(message):
-    origin = ProtoApi__pb2.CardUpdateDisplayTypeResponse.SerializeToString(message)
+    origin = papi__pb2.CardUpdateDisplayTypeResponse.SerializeToString(message)
     return serialize(origin)
 def CompanyTopRequest_serializer(message):
-    origin = ProtoApi__pb2.CompanyTopRequest.SerializeToString(message)
+    origin = papi__pb2.CompanyTopRequest.SerializeToString(message)
     return serialize(origin)
 def Empty_serializer(message):
-    origin = ProtoApi__pb2.Empty.SerializeToString(message)
+    origin = papi__pb2.Empty.SerializeToString(message)
     return serialize(origin)
 def CompanyReceiveGradeRewardsRequest_serializer(message):
-    origin = ProtoApi__pb2.CompanyReceiveGradeRewardsRequest.SerializeToString(message)
+    origin = papi__pb2.CompanyReceiveGradeRewardsRequest.SerializeToString(message)
     return serialize(origin)
 def CompanyBulkReceiveMissionRequest_serializer(message):
-    origin = ProtoApi__pb2.CompanyBulkReceiveMissionRequest.SerializeToString(message)
+    origin = papi__pb2.CompanyBulkReceiveMissionRequest.SerializeToString(message)
     return serialize(origin)
 def CompanyEnjoyCharacterTopRequest_serializer(message):
-    origin = ProtoApi__pb2.CompanyEnjoyCharacterTopRequest.SerializeToString(message)
+    origin = papi__pb2.CompanyEnjoyCharacterTopRequest.SerializeToString(message)
     return serialize(origin)
 def CompanyListEnjoyCharacterRankingRequest_serializer(message):
-    origin = ProtoApi__pb2.CompanyListEnjoyCharacterRankingRequest.SerializeToString(message)
+    origin = papi__pb2.CompanyListEnjoyCharacterRankingRequest.SerializeToString(message)
     return serialize(origin)
 def CompanyReceiveEnjoyCharacterLevelRewardsRequest_serializer(message):
-    origin = ProtoApi__pb2.CompanyReceiveEnjoyCharacterLevelRewardsRequest.SerializeToString(message)
+    origin = papi__pb2.CompanyReceiveEnjoyCharacterLevelRewardsRequest.SerializeToString(message)
     return serialize(origin)
 def CompanyUseObtainEnjoyPointItemRequest_serializer(message):
-    origin = ProtoApi__pb2.CompanyUseObtainEnjoyPointItemRequest.SerializeToString(message)
+    origin = papi__pb2.CompanyUseObtainEnjoyPointItemRequest.SerializeToString(message)
     return serialize(origin)
 def CompanyBulkReceiveEnjoyRequest_serializer(message):
-    origin = ProtoApi__pb2.CompanyBulkReceiveEnjoyRequest.SerializeToString(message)
+    origin = papi__pb2.CompanyBulkReceiveEnjoyRequest.SerializeToString(message)
     return serialize(origin)
 def Empty_serializer(message):
-    origin = ProtoApi__pb2.Empty.SerializeToString(message)
+    origin = papi__pb2.Empty.SerializeToString(message)
     return serialize(origin)
 def CompanyReceiveTrustLevelRewardsRequest_serializer(message):
-    origin = ProtoApi__pb2.CompanyReceiveTrustLevelRewardsRequest.SerializeToString(message)
+    origin = papi__pb2.CompanyReceiveTrustLevelRewardsRequest.SerializeToString(message)
     return serialize(origin)
 def CompanyTopResponse_serializer(message):
-    origin = ProtoApi__pb2.CompanyTopResponse.SerializeToString(message)
+    origin = papi__pb2.CompanyTopResponse.SerializeToString(message)
     return serialize(origin)
 def CompanyListRankingResponse_serializer(message):
-    origin = ProtoApi__pb2.CompanyListRankingResponse.SerializeToString(message)
+    origin = papi__pb2.CompanyListRankingResponse.SerializeToString(message)
     return serialize(origin)
 def CompanyReceiveGradeRewardsResponse_serializer(message):
-    origin = ProtoApi__pb2.CompanyReceiveGradeRewardsResponse.SerializeToString(message)
+    origin = papi__pb2.CompanyReceiveGradeRewardsResponse.SerializeToString(message)
     return serialize(origin)
 def CompanyBulkReceiveMissionResponse_serializer(message):
-    origin = ProtoApi__pb2.CompanyBulkReceiveMissionResponse.SerializeToString(message)
+    origin = papi__pb2.CompanyBulkReceiveMissionResponse.SerializeToString(message)
     return serialize(origin)
 def CompanyEnjoyCharacterTopResponse_serializer(message):
-    origin = ProtoApi__pb2.CompanyEnjoyCharacterTopResponse.SerializeToString(message)
+    origin = papi__pb2.CompanyEnjoyCharacterTopResponse.SerializeToString(message)
     return serialize(origin)
 def CompanyListEnjoyCharacterRankingResponse_serializer(message):
-    origin = ProtoApi__pb2.CompanyListEnjoyCharacterRankingResponse.SerializeToString(message)
+    origin = papi__pb2.CompanyListEnjoyCharacterRankingResponse.SerializeToString(message)
     return serialize(origin)
 def CompanyReceiveEnjoyCharacterLevelRewardsResponse_serializer(message):
-    origin = ProtoApi__pb2.CompanyReceiveEnjoyCharacterLevelRewardsResponse.SerializeToString(message)
+    origin = papi__pb2.CompanyReceiveEnjoyCharacterLevelRewardsResponse.SerializeToString(message)
     return serialize(origin)
 def CompanyUseObtainEnjoyPointItemResponse_serializer(message):
-    origin = ProtoApi__pb2.CompanyUseObtainEnjoyPointItemResponse.SerializeToString(message)
+    origin = papi__pb2.CompanyUseObtainEnjoyPointItemResponse.SerializeToString(message)
     return serialize(origin)
 def CompanyBulkReceiveEnjoyResponse_serializer(message):
-    origin = ProtoApi__pb2.CompanyBulkReceiveEnjoyResponse.SerializeToString(message)
+    origin = papi__pb2.CompanyBulkReceiveEnjoyResponse.SerializeToString(message)
     return serialize(origin)
 def CompanyBulkReceiveEnjoyCharacterLevelRewardsResponse_serializer(message):
-    origin = ProtoApi__pb2.CompanyBulkReceiveEnjoyCharacterLevelRewardsResponse.SerializeToString(message)
+    origin = papi__pb2.CompanyBulkReceiveEnjoyCharacterLevelRewardsResponse.SerializeToString(message)
     return serialize(origin)
 def CompanyReceiveTrustLevelRewardsResponse_serializer(message):
-    origin = ProtoApi__pb2.CompanyReceiveTrustLevelRewardsResponse.SerializeToString(message)
+    origin = papi__pb2.CompanyReceiveTrustLevelRewardsResponse.SerializeToString(message)
     return serialize(origin)
 def CostumeSetRequest_serializer(message):
-    origin = ProtoApi__pb2.CostumeSetRequest.SerializeToString(message)
+    origin = papi__pb2.CostumeSetRequest.SerializeToString(message)
     return serialize(origin)
 def CostumeLiveSetRequest_serializer(message):
-    origin = ProtoApi__pb2.CostumeLiveSetRequest.SerializeToString(message)
+    origin = papi__pb2.CostumeLiveSetRequest.SerializeToString(message)
     return serialize(origin)
 def CostumeCheckRequest_serializer(message):
-    origin = ProtoApi__pb2.CostumeCheckRequest.SerializeToString(message)
+    origin = papi__pb2.CostumeCheckRequest.SerializeToString(message)
     return serialize(origin)
 def CostumeCheckBulkRequest_serializer(message):
-    origin = ProtoApi__pb2.CostumeCheckBulkRequest.SerializeToString(message)
+    origin = papi__pb2.CostumeCheckBulkRequest.SerializeToString(message)
     return serialize(origin)
 def CostumeSetResponse_serializer(message):
-    origin = ProtoApi__pb2.CostumeSetResponse.SerializeToString(message)
+    origin = papi__pb2.CostumeSetResponse.SerializeToString(message)
     return serialize(origin)
 def CostumeLiveSetResponse_serializer(message):
-    origin = ProtoApi__pb2.CostumeLiveSetResponse.SerializeToString(message)
+    origin = papi__pb2.CostumeLiveSetResponse.SerializeToString(message)
     return serialize(origin)
 def CostumeCheckResponse_serializer(message):
-    origin = ProtoApi__pb2.CostumeCheckResponse.SerializeToString(message)
+    origin = papi__pb2.CostumeCheckResponse.SerializeToString(message)
     return serialize(origin)
 def CostumeCheckBulkResponse_serializer(message):
-    origin = ProtoApi__pb2.CostumeCheckBulkResponse.SerializeToString(message)
+    origin = papi__pb2.CostumeCheckBulkResponse.SerializeToString(message)
     return serialize(origin)
 def DeckSaveRequest_serializer(message):
-    origin = ProtoApi__pb2.DeckSaveRequest.SerializeToString(message)
+    origin = papi__pb2.DeckSaveRequest.SerializeToString(message)
     return serialize(origin)
 def DeckDeleteRequest_serializer(message):
-    origin = ProtoApi__pb2.DeckDeleteRequest.SerializeToString(message)
+    origin = papi__pb2.DeckDeleteRequest.SerializeToString(message)
     return serialize(origin)
 def Empty_serializer(message):
-    origin = ProtoApi__pb2.Empty.SerializeToString(message)
+    origin = papi__pb2.Empty.SerializeToString(message)
     return serialize(origin)
 def DeckSaveResponse_serializer(message):
-    origin = ProtoApi__pb2.DeckSaveResponse.SerializeToString(message)
+    origin = papi__pb2.DeckSaveResponse.SerializeToString(message)
     return serialize(origin)
 def DeckDeleteResponse_serializer(message):
-    origin = ProtoApi__pb2.DeckDeleteResponse.SerializeToString(message)
+    origin = papi__pb2.DeckDeleteResponse.SerializeToString(message)
     return serialize(origin)
 def DeckBuddyListResponse_serializer(message):
-    origin = ProtoApi__pb2.DeckBuddyListResponse.SerializeToString(message)
+    origin = papi__pb2.DeckBuddyListResponse.SerializeToString(message)
     return serialize(origin)
 def Empty_serializer(message):
-    origin = ProtoApi__pb2.Empty.SerializeToString(message)
+    origin = papi__pb2.Empty.SerializeToString(message)
     return serialize(origin)
 def DiaryReadRequest_serializer(message):
-    origin = ProtoApi__pb2.DiaryReadRequest.SerializeToString(message)
+    origin = papi__pb2.DiaryReadRequest.SerializeToString(message)
     return serialize(origin)
 def DiaryGetInfosResponse_serializer(message):
-    origin = ProtoApi__pb2.DiaryGetInfosResponse.SerializeToString(message)
+    origin = papi__pb2.DiaryGetInfosResponse.SerializeToString(message)
     return serialize(origin)
 def DiaryReadResponse_serializer(message):
-    origin = ProtoApi__pb2.DiaryReadResponse.SerializeToString(message)
+    origin = papi__pb2.DiaryReadResponse.SerializeToString(message)
     return serialize(origin)
 def Empty_serializer(message):
-    origin = ProtoApi__pb2.Empty.SerializeToString(message)
+    origin = papi__pb2.Empty.SerializeToString(message)
     return serialize(origin)
 def Empty_serializer(message):
-    origin = ProtoApi__pb2.Empty.SerializeToString(message)
+    origin = papi__pb2.Empty.SerializeToString(message)
     return serialize(origin)
 def DiceUseItemRequest_serializer(message):
-    origin = ProtoApi__pb2.DiceUseItemRequest.SerializeToString(message)
+    origin = papi__pb2.DiceUseItemRequest.SerializeToString(message)
     return serialize(origin)
 def DiceDiscardItemRequest_serializer(message):
-    origin = ProtoApi__pb2.DiceDiscardItemRequest.SerializeToString(message)
+    origin = papi__pb2.DiceDiscardItemRequest.SerializeToString(message)
     return serialize(origin)
 def DicePurchaseItemRequest_serializer(message):
-    origin = ProtoApi__pb2.DicePurchaseItemRequest.SerializeToString(message)
+    origin = papi__pb2.DicePurchaseItemRequest.SerializeToString(message)
     return serialize(origin)
 def DiceSellItemRequest_serializer(message):
-    origin = ProtoApi__pb2.DiceSellItemRequest.SerializeToString(message)
+    origin = papi__pb2.DiceSellItemRequest.SerializeToString(message)
     return serialize(origin)
 def Empty_serializer(message):
-    origin = ProtoApi__pb2.Empty.SerializeToString(message)
+    origin = papi__pb2.Empty.SerializeToString(message)
     return serialize(origin)
 def DiceFinishStoryPanelRequest_serializer(message):
-    origin = ProtoApi__pb2.DiceFinishStoryPanelRequest.SerializeToString(message)
+    origin = papi__pb2.DiceFinishStoryPanelRequest.SerializeToString(message)
     return serialize(origin)
 def DiceUseStaminaRecoveryItemRequest_serializer(message):
-    origin = ProtoApi__pb2.DiceUseStaminaRecoveryItemRequest.SerializeToString(message)
+    origin = papi__pb2.DiceUseStaminaRecoveryItemRequest.SerializeToString(message)
     return serialize(origin)
 def DiceListDeckRequest_serializer(message):
-    origin = ProtoApi__pb2.DiceListDeckRequest.SerializeToString(message)
+    origin = papi__pb2.DiceListDeckRequest.SerializeToString(message)
     return serialize(origin)
 def DiceStartQuestRequest_serializer(message):
-    origin = ProtoApi__pb2.DiceStartQuestRequest.SerializeToString(message)
+    origin = papi__pb2.DiceStartQuestRequest.SerializeToString(message)
     return serialize(origin)
 def DiceStartGoalQuestRequest_serializer(message):
-    origin = ProtoApi__pb2.DiceStartGoalQuestRequest.SerializeToString(message)
+    origin = papi__pb2.DiceStartGoalQuestRequest.SerializeToString(message)
     return serialize(origin)
 def DiceChooseLiveBonusRequest_serializer(message):
-    origin = ProtoApi__pb2.DiceChooseLiveBonusRequest.SerializeToString(message)
+    origin = papi__pb2.DiceChooseLiveBonusRequest.SerializeToString(message)
     return serialize(origin)
 def Empty_serializer(message):
-    origin = ProtoApi__pb2.Empty.SerializeToString(message)
+    origin = papi__pb2.Empty.SerializeToString(message)
     return serialize(origin)
 def DiceSaveDeckRequest_serializer(message):
-    origin = ProtoApi__pb2.DiceSaveDeckRequest.SerializeToString(message)
+    origin = papi__pb2.DiceSaveDeckRequest.SerializeToString(message)
     return serialize(origin)
 def DiceTopResponse_serializer(message):
-    origin = ProtoApi__pb2.DiceTopResponse.SerializeToString(message)
+    origin = papi__pb2.DiceTopResponse.SerializeToString(message)
     return serialize(origin)
 def DiceMovePanelResponse_serializer(message):
-    origin = ProtoApi__pb2.DiceMovePanelResponse.SerializeToString(message)
+    origin = papi__pb2.DiceMovePanelResponse.SerializeToString(message)
     return serialize(origin)
 def DiceUseItemResponse_serializer(message):
-    origin = ProtoApi__pb2.DiceUseItemResponse.SerializeToString(message)
+    origin = papi__pb2.DiceUseItemResponse.SerializeToString(message)
     return serialize(origin)
 def DiceDiscardItemResponse_serializer(message):
-    origin = ProtoApi__pb2.DiceDiscardItemResponse.SerializeToString(message)
+    origin = papi__pb2.DiceDiscardItemResponse.SerializeToString(message)
     return serialize(origin)
 def DicePurchaseItemResponse_serializer(message):
-    origin = ProtoApi__pb2.DicePurchaseItemResponse.SerializeToString(message)
+    origin = papi__pb2.DicePurchaseItemResponse.SerializeToString(message)
     return serialize(origin)
 def DiceSellItemResponse_serializer(message):
-    origin = ProtoApi__pb2.DiceSellItemResponse.SerializeToString(message)
+    origin = papi__pb2.DiceSellItemResponse.SerializeToString(message)
     return serialize(origin)
 def DiceFinishShopPanelResponse_serializer(message):
-    origin = ProtoApi__pb2.DiceFinishShopPanelResponse.SerializeToString(message)
+    origin = papi__pb2.DiceFinishShopPanelResponse.SerializeToString(message)
     return serialize(origin)
 def DiceFinishStoryPanelResponse_serializer(message):
-    origin = ProtoApi__pb2.DiceFinishStoryPanelResponse.SerializeToString(message)
+    origin = papi__pb2.DiceFinishStoryPanelResponse.SerializeToString(message)
     return serialize(origin)
 def DiceUseStaminaRecoveryItemResponse_serializer(message):
-    origin = ProtoApi__pb2.DiceUseStaminaRecoveryItemResponse.SerializeToString(message)
+    origin = papi__pb2.DiceUseStaminaRecoveryItemResponse.SerializeToString(message)
     return serialize(origin)
 def DiceListDeckResponse_serializer(message):
-    origin = ProtoApi__pb2.DiceListDeckResponse.SerializeToString(message)
+    origin = papi__pb2.DiceListDeckResponse.SerializeToString(message)
     return serialize(origin)
 def DiceStartQuestResponse_serializer(message):
-    origin = ProtoApi__pb2.DiceStartQuestResponse.SerializeToString(message)
+    origin = papi__pb2.DiceStartQuestResponse.SerializeToString(message)
     return serialize(origin)
 def DiceStartGoalQuestResponse_serializer(message):
-    origin = ProtoApi__pb2.DiceStartGoalQuestResponse.SerializeToString(message)
+    origin = papi__pb2.DiceStartGoalQuestResponse.SerializeToString(message)
     return serialize(origin)
 def DiceChooseLiveBonusResponse_serializer(message):
-    origin = ProtoApi__pb2.DiceChooseLiveBonusResponse.SerializeToString(message)
+    origin = papi__pb2.DiceChooseLiveBonusResponse.SerializeToString(message)
     return serialize(origin)
 def DiceListRankingResponse_serializer(message):
-    origin = ProtoApi__pb2.DiceListRankingResponse.SerializeToString(message)
+    origin = papi__pb2.DiceListRankingResponse.SerializeToString(message)
     return serialize(origin)
 def DiceSaveDeckResponse_serializer(message):
-    origin = ProtoApi__pb2.DiceSaveDeckResponse.SerializeToString(message)
+    origin = papi__pb2.DiceSaveDeckResponse.SerializeToString(message)
     return serialize(origin)
 def Empty_serializer(message):
-    origin = ProtoApi__pb2.Empty.SerializeToString(message)
+    origin = papi__pb2.Empty.SerializeToString(message)
     return serialize(origin)
 def DivisionMoveRequest_serializer(message):
-    origin = ProtoApi__pb2.DivisionMoveRequest.SerializeToString(message)
+    origin = papi__pb2.DivisionMoveRequest.SerializeToString(message)
     return serialize(origin)
 def DivisionListResponse_serializer(message):
-    origin = ProtoApi__pb2.DivisionListResponse.SerializeToString(message)
+    origin = papi__pb2.DivisionListResponse.SerializeToString(message)
     return serialize(origin)
 def DivisionMoveResponse_serializer(message):
-    origin = ProtoApi__pb2.DivisionMoveResponse.SerializeToString(message)
+    origin = papi__pb2.DivisionMoveResponse.SerializeToString(message)
     return serialize(origin)
 def Empty_serializer(message):
-    origin = ProtoApi__pb2.Empty.SerializeToString(message)
+    origin = papi__pb2.Empty.SerializeToString(message)
     return serialize(origin)
 def DokanSetWatchedRequest_serializer(message):
-    origin = ProtoApi__pb2.DokanSetWatchedRequest.SerializeToString(message)
+    origin = papi__pb2.DokanSetWatchedRequest.SerializeToString(message)
     return serialize(origin)
 def DokanOutputWatchedLogRequest_serializer(message):
-    origin = ProtoApi__pb2.DokanOutputWatchedLogRequest.SerializeToString(message)
+    origin = papi__pb2.DokanOutputWatchedLogRequest.SerializeToString(message)
     return serialize(origin)
 def DokanListResponse_serializer(message):
-    origin = ProtoApi__pb2.DokanListResponse.SerializeToString(message)
+    origin = papi__pb2.DokanListResponse.SerializeToString(message)
     return serialize(origin)
 def DokanSetWathcedResponse_serializer(message):
-    origin = ProtoApi__pb2.DokanSetWathcedResponse.SerializeToString(message)
+    origin = papi__pb2.DokanSetWathcedResponse.SerializeToString(message)
     return serialize(origin)
 def DokanOutputWatchedLogResponse_serializer(message):
-    origin = ProtoApi__pb2.DokanOutputWatchedLogResponse.SerializeToString(message)
+    origin = papi__pb2.DokanOutputWatchedLogResponse.SerializeToString(message)
     return serialize(origin)
 def Empty_serializer(message):
-    origin = ProtoApi__pb2.Empty.SerializeToString(message)
+    origin = papi__pb2.Empty.SerializeToString(message)
     return serialize(origin)
 def DreamListMaterialPhotoRequest_serializer(message):
-    origin = ProtoApi__pb2.DreamListMaterialPhotoRequest.SerializeToString(message)
+    origin = papi__pb2.DreamListMaterialPhotoRequest.SerializeToString(message)
     return serialize(origin)
 def DreamListQuestRequest_serializer(message):
-    origin = ProtoApi__pb2.DreamListQuestRequest.SerializeToString(message)
+    origin = papi__pb2.DreamListQuestRequest.SerializeToString(message)
     return serialize(origin)
 def DreamGenerateAreaRequest_serializer(message):
-    origin = ProtoApi__pb2.DreamGenerateAreaRequest.SerializeToString(message)
+    origin = papi__pb2.DreamGenerateAreaRequest.SerializeToString(message)
     return serialize(origin)
 def DreamStartQuestRequest_serializer(message):
-    origin = ProtoApi__pb2.DreamStartQuestRequest.SerializeToString(message)
+    origin = papi__pb2.DreamStartQuestRequest.SerializeToString(message)
     return serialize(origin)
 def DreamSkipQuestRequest_serializer(message):
-    origin = ProtoApi__pb2.DreamSkipQuestRequest.SerializeToString(message)
+    origin = papi__pb2.DreamSkipQuestRequest.SerializeToString(message)
     return serialize(origin)
 def DreamResetAreaRequest_serializer(message):
-    origin = ProtoApi__pb2.DreamResetAreaRequest.SerializeToString(message)
+    origin = papi__pb2.DreamResetAreaRequest.SerializeToString(message)
     return serialize(origin)
 def DreamTopResponse_serializer(message):
-    origin = ProtoApi__pb2.DreamTopResponse.SerializeToString(message)
+    origin = papi__pb2.DreamTopResponse.SerializeToString(message)
     return serialize(origin)
 def DreamListMaterialPhotoResponse_serializer(message):
-    origin = ProtoApi__pb2.DreamListMaterialPhotoResponse.SerializeToString(message)
+    origin = papi__pb2.DreamListMaterialPhotoResponse.SerializeToString(message)
     return serialize(origin)
 def DreamListQuestResponse_serializer(message):
-    origin = ProtoApi__pb2.DreamListQuestResponse.SerializeToString(message)
+    origin = papi__pb2.DreamListQuestResponse.SerializeToString(message)
     return serialize(origin)
 def DreamGenerateAreaResponse_serializer(message):
-    origin = ProtoApi__pb2.DreamGenerateAreaResponse.SerializeToString(message)
+    origin = papi__pb2.DreamGenerateAreaResponse.SerializeToString(message)
     return serialize(origin)
 def DreamStartQuestResponse_serializer(message):
-    origin = ProtoApi__pb2.DreamStartQuestResponse.SerializeToString(message)
+    origin = papi__pb2.DreamStartQuestResponse.SerializeToString(message)
     return serialize(origin)
 def DreamSkipQuestResponse_serializer(message):
-    origin = ProtoApi__pb2.DreamSkipQuestResponse.SerializeToString(message)
+    origin = papi__pb2.DreamSkipQuestResponse.SerializeToString(message)
     return serialize(origin)
 def DreamResetAreaResponse_serializer(message):
-    origin = ProtoApi__pb2.DreamResetAreaResponse.SerializeToString(message)
+    origin = papi__pb2.DreamResetAreaResponse.SerializeToString(message)
     return serialize(origin)
 def DutyTopRequest_serializer(message):
-    origin = ProtoApi__pb2.DutyTopRequest.SerializeToString(message)
+    origin = papi__pb2.DutyTopRequest.SerializeToString(message)
     return serialize(origin)
 def DutyExchangeRewardRequest_serializer(message):
-    origin = ProtoApi__pb2.DutyExchangeRewardRequest.SerializeToString(message)
+    origin = papi__pb2.DutyExchangeRewardRequest.SerializeToString(message)
     return serialize(origin)
 def DutyReceiveTotalObtainRewardRequest_serializer(message):
-    origin = ProtoApi__pb2.DutyReceiveTotalObtainRewardRequest.SerializeToString(message)
+    origin = papi__pb2.DutyReceiveTotalObtainRewardRequest.SerializeToString(message)
     return serialize(origin)
 def DutyTopResponse_serializer(message):
-    origin = ProtoApi__pb2.DutyTopResponse.SerializeToString(message)
+    origin = papi__pb2.DutyTopResponse.SerializeToString(message)
     return serialize(origin)
 def DutyExchangeRewardResponse_serializer(message):
-    origin = ProtoApi__pb2.DutyExchangeRewardResponse.SerializeToString(message)
+    origin = papi__pb2.DutyExchangeRewardResponse.SerializeToString(message)
     return serialize(origin)
 def DutyReceiveTotalObtainRewardResponse_serializer(message):
-    origin = ProtoApi__pb2.DutyReceiveTotalObtainRewardResponse.SerializeToString(message)
+    origin = papi__pb2.DutyReceiveTotalObtainRewardResponse.SerializeToString(message)
     return serialize(origin)
 def Empty_serializer(message):
-    origin = ProtoApi__pb2.Empty.SerializeToString(message)
+    origin = papi__pb2.Empty.SerializeToString(message)
     return serialize(origin)
 def ExchangeExecuteRequest_serializer(message):
-    origin = ProtoApi__pb2.ExchangeExecuteRequest.SerializeToString(message)
+    origin = papi__pb2.ExchangeExecuteRequest.SerializeToString(message)
     return serialize(origin)
 def ExchangeTryOnRequest_serializer(message):
-    origin = ProtoApi__pb2.ExchangeTryOnRequest.SerializeToString(message)
+    origin = papi__pb2.ExchangeTryOnRequest.SerializeToString(message)
     return serialize(origin)
 def ExchangeListResponse_serializer(message):
-    origin = ProtoApi__pb2.ExchangeListResponse.SerializeToString(message)
+    origin = papi__pb2.ExchangeListResponse.SerializeToString(message)
     return serialize(origin)
 def ExchangeExecuteResponse_serializer(message):
-    origin = ProtoApi__pb2.ExchangeExecuteResponse.SerializeToString(message)
+    origin = papi__pb2.ExchangeExecuteResponse.SerializeToString(message)
     return serialize(origin)
 def ExchangeTryOnResponse_serializer(message):
-    origin = ProtoApi__pb2.ExchangeTryOnResponse.SerializeToString(message)
+    origin = papi__pb2.ExchangeTryOnResponse.SerializeToString(message)
     return serialize(origin)
 def Empty_serializer(message):
-    origin = ProtoApi__pb2.Empty.SerializeToString(message)
+    origin = papi__pb2.Empty.SerializeToString(message)
     return serialize(origin)
 def ExerciseSaveDeckRequest_serializer(message):
-    origin = ProtoApi__pb2.ExerciseSaveDeckRequest.SerializeToString(message)
+    origin = papi__pb2.ExerciseSaveDeckRequest.SerializeToString(message)
     return serialize(origin)
 def ExerciseStartRequest_serializer(message):
-    origin = ProtoApi__pb2.ExerciseStartRequest.SerializeToString(message)
+    origin = papi__pb2.ExerciseStartRequest.SerializeToString(message)
     return serialize(origin)
 def ExerciseListAssetRequest_serializer(message):
-    origin = ProtoApi__pb2.ExerciseListAssetRequest.SerializeToString(message)
+    origin = papi__pb2.ExerciseListAssetRequest.SerializeToString(message)
     return serialize(origin)
 def ExerciseTopResponse_serializer(message):
-    origin = ProtoApi__pb2.ExerciseTopResponse.SerializeToString(message)
+    origin = papi__pb2.ExerciseTopResponse.SerializeToString(message)
     return serialize(origin)
 def ExerciseSaveDeckResponse_serializer(message):
-    origin = ProtoApi__pb2.ExerciseSaveDeckResponse.SerializeToString(message)
+    origin = papi__pb2.ExerciseSaveDeckResponse.SerializeToString(message)
     return serialize(origin)
 def ExerciseStartResponse_serializer(message):
-    origin = ProtoApi__pb2.ExerciseStartResponse.SerializeToString(message)
+    origin = papi__pb2.ExerciseStartResponse.SerializeToString(message)
     return serialize(origin)
 def ExerciseListAssetResponse_serializer(message):
-    origin = ProtoApi__pb2.ExerciseListAssetResponse.SerializeToString(message)
+    origin = papi__pb2.ExerciseListAssetResponse.SerializeToString(message)
     return serialize(origin)
 def Empty_serializer(message):
-    origin = ProtoApi__pb2.Empty.SerializeToString(message)
+    origin = papi__pb2.Empty.SerializeToString(message)
     return serialize(origin)
 def ForumListThreadReplyRequest_serializer(message):
-    origin = ProtoApi__pb2.ForumListThreadReplyRequest.SerializeToString(message)
+    origin = papi__pb2.ForumListThreadReplyRequest.SerializeToString(message)
     return serialize(origin)
 def ForumCreateThreadRequest_serializer(message):
-    origin = ProtoApi__pb2.ForumCreateThreadRequest.SerializeToString(message)
+    origin = papi__pb2.ForumCreateThreadRequest.SerializeToString(message)
     return serialize(origin)
 def ForumSendThreadReplyRequest_serializer(message):
-    origin = ProtoApi__pb2.ForumSendThreadReplyRequest.SerializeToString(message)
+    origin = papi__pb2.ForumSendThreadReplyRequest.SerializeToString(message)
     return serialize(origin)
 def ForumLikeReplyRequest_serializer(message):
-    origin = ProtoApi__pb2.ForumLikeReplyRequest.SerializeToString(message)
+    origin = papi__pb2.ForumLikeReplyRequest.SerializeToString(message)
     return serialize(origin)
 def ForumDislikeReplyRequest_serializer(message):
-    origin = ProtoApi__pb2.ForumDislikeReplyRequest.SerializeToString(message)
+    origin = papi__pb2.ForumDislikeReplyRequest.SerializeToString(message)
     return serialize(origin)
 def ForumBookmarkThreadRequest_serializer(message):
-    origin = ProtoApi__pb2.ForumBookmarkThreadRequest.SerializeToString(message)
+    origin = papi__pb2.ForumBookmarkThreadRequest.SerializeToString(message)
     return serialize(origin)
 def ForumUnbookmarkThreadRequest_serializer(message):
-    origin = ProtoApi__pb2.ForumUnbookmarkThreadRequest.SerializeToString(message)
+    origin = papi__pb2.ForumUnbookmarkThreadRequest.SerializeToString(message)
     return serialize(origin)
 def ForumBlockUserRequest_serializer(message):
-    origin = ProtoApi__pb2.ForumBlockUserRequest.SerializeToString(message)
+    origin = papi__pb2.ForumBlockUserRequest.SerializeToString(message)
     return serialize(origin)
 def ForumListThreadResponse_serializer(message):
-    origin = ProtoApi__pb2.ForumListThreadResponse.SerializeToString(message)
+    origin = papi__pb2.ForumListThreadResponse.SerializeToString(message)
     return serialize(origin)
 def ForumListThreadReplyResponse_serializer(message):
-    origin = ProtoApi__pb2.ForumListThreadReplyResponse.SerializeToString(message)
+    origin = papi__pb2.ForumListThreadReplyResponse.SerializeToString(message)
     return serialize(origin)
 def ForumCreateThreadResponse_serializer(message):
-    origin = ProtoApi__pb2.ForumCreateThreadResponse.SerializeToString(message)
+    origin = papi__pb2.ForumCreateThreadResponse.SerializeToString(message)
     return serialize(origin)
 def ForumSendThreadReplyResponse_serializer(message):
-    origin = ProtoApi__pb2.ForumSendThreadReplyResponse.SerializeToString(message)
+    origin = papi__pb2.ForumSendThreadReplyResponse.SerializeToString(message)
     return serialize(origin)
 def ForumLikeReplyResponse_serializer(message):
-    origin = ProtoApi__pb2.ForumLikeReplyResponse.SerializeToString(message)
+    origin = papi__pb2.ForumLikeReplyResponse.SerializeToString(message)
     return serialize(origin)
 def ForumDislikeReplyResponse_serializer(message):
-    origin = ProtoApi__pb2.ForumDislikeReplyResponse.SerializeToString(message)
+    origin = papi__pb2.ForumDislikeReplyResponse.SerializeToString(message)
     return serialize(origin)
 def ForumBookmarkThreadResponse_serializer(message):
-    origin = ProtoApi__pb2.ForumBookmarkThreadResponse.SerializeToString(message)
+    origin = papi__pb2.ForumBookmarkThreadResponse.SerializeToString(message)
     return serialize(origin)
 def ForumUnbookmarkThreadResponse_serializer(message):
-    origin = ProtoApi__pb2.ForumUnbookmarkThreadResponse.SerializeToString(message)
+    origin = papi__pb2.ForumUnbookmarkThreadResponse.SerializeToString(message)
     return serialize(origin)
 def ForumBlockUserResponse_serializer(message):
-    origin = ProtoApi__pb2.ForumBlockUserResponse.SerializeToString(message)
+    origin = papi__pb2.ForumBlockUserResponse.SerializeToString(message)
     return serialize(origin)
 def Empty_serializer(message):
-    origin = ProtoApi__pb2.Empty.SerializeToString(message)
+    origin = papi__pb2.Empty.SerializeToString(message)
     return serialize(origin)
 def FriendDeleteRequest_serializer(message):
-    origin = ProtoApi__pb2.FriendDeleteRequest.SerializeToString(message)
+    origin = papi__pb2.FriendDeleteRequest.SerializeToString(message)
     return serialize(origin)
 def FriendApplyRequest_serializer(message):
-    origin = ProtoApi__pb2.FriendApplyRequest.SerializeToString(message)
+    origin = papi__pb2.FriendApplyRequest.SerializeToString(message)
     return serialize(origin)
 def FriendApproveRequest_serializer(message):
-    origin = ProtoApi__pb2.FriendApproveRequest.SerializeToString(message)
+    origin = papi__pb2.FriendApproveRequest.SerializeToString(message)
     return serialize(origin)
 def FriendCancelRequest_serializer(message):
-    origin = ProtoApi__pb2.FriendCancelRequest.SerializeToString(message)
+    origin = papi__pb2.FriendCancelRequest.SerializeToString(message)
     return serialize(origin)
 def Empty_serializer(message):
-    origin = ProtoApi__pb2.Empty.SerializeToString(message)
+    origin = papi__pb2.Empty.SerializeToString(message)
     return serialize(origin)
 def FriendRejectRequest_serializer(message):
-    origin = ProtoApi__pb2.FriendRejectRequest.SerializeToString(message)
+    origin = papi__pb2.FriendRejectRequest.SerializeToString(message)
     return serialize(origin)
 def Empty_serializer(message):
-    origin = ProtoApi__pb2.Empty.SerializeToString(message)
+    origin = papi__pb2.Empty.SerializeToString(message)
     return serialize(origin)
 def Empty_serializer(message):
-    origin = ProtoApi__pb2.Empty.SerializeToString(message)
+    origin = papi__pb2.Empty.SerializeToString(message)
     return serialize(origin)
 def Empty_serializer(message):
-    origin = ProtoApi__pb2.Empty.SerializeToString(message)
+    origin = papi__pb2.Empty.SerializeToString(message)
     return serialize(origin)
 def FriendListResponse_serializer(message):
-    origin = ProtoApi__pb2.FriendListResponse.SerializeToString(message)
+    origin = papi__pb2.FriendListResponse.SerializeToString(message)
     return serialize(origin)
 def FriendDeleteResponse_serializer(message):
-    origin = ProtoApi__pb2.FriendDeleteResponse.SerializeToString(message)
+    origin = papi__pb2.FriendDeleteResponse.SerializeToString(message)
     return serialize(origin)
 def FriendApplyResponse_serializer(message):
-    origin = ProtoApi__pb2.FriendApplyResponse.SerializeToString(message)
+    origin = papi__pb2.FriendApplyResponse.SerializeToString(message)
     return serialize(origin)
 def FriendApproveResponse_serializer(message):
-    origin = ProtoApi__pb2.FriendApproveResponse.SerializeToString(message)
+    origin = papi__pb2.FriendApproveResponse.SerializeToString(message)
     return serialize(origin)
 def FriendCancelResponse_serializer(message):
-    origin = ProtoApi__pb2.FriendCancelResponse.SerializeToString(message)
+    origin = papi__pb2.FriendCancelResponse.SerializeToString(message)
     return serialize(origin)
 def FriendCancelAllResponse_serializer(message):
-    origin = ProtoApi__pb2.FriendCancelAllResponse.SerializeToString(message)
+    origin = papi__pb2.FriendCancelAllResponse.SerializeToString(message)
     return serialize(origin)
 def FriendRejectResponse_serializer(message):
-    origin = ProtoApi__pb2.FriendRejectResponse.SerializeToString(message)
+    origin = papi__pb2.FriendRejectResponse.SerializeToString(message)
     return serialize(origin)
 def FriendListApplyingResponse_serializer(message):
-    origin = ProtoApi__pb2.FriendListApplyingResponse.SerializeToString(message)
+    origin = papi__pb2.FriendListApplyingResponse.SerializeToString(message)
     return serialize(origin)
 def FriendListAppliedResponse_serializer(message):
-    origin = ProtoApi__pb2.FriendListAppliedResponse.SerializeToString(message)
+    origin = papi__pb2.FriendListAppliedResponse.SerializeToString(message)
     return serialize(origin)
 def FriendSearchResponse_serializer(message):
-    origin = ProtoApi__pb2.FriendSearchResponse.SerializeToString(message)
+    origin = papi__pb2.FriendSearchResponse.SerializeToString(message)
     return serialize(origin)
 def Empty_serializer(message):
-    origin = ProtoApi__pb2.Empty.SerializeToString(message)
+    origin = papi__pb2.Empty.SerializeToString(message)
     return serialize(origin)
 def GachaDrawRequest_serializer(message):
-    origin = ProtoApi__pb2.GachaDrawRequest.SerializeToString(message)
+    origin = papi__pb2.GachaDrawRequest.SerializeToString(message)
     return serialize(origin)
 def GachaExchangeRequest_serializer(message):
-    origin = ProtoApi__pb2.GachaExchangeRequest.SerializeToString(message)
+    origin = papi__pb2.GachaExchangeRequest.SerializeToString(message)
     return serialize(origin)
 def GachaProbabilityRequest_serializer(message):
-    origin = ProtoApi__pb2.GachaProbabilityRequest.SerializeToString(message)
+    origin = papi__pb2.GachaProbabilityRequest.SerializeToString(message)
     return serialize(origin)
 def GachaHistoryRequest_serializer(message):
-    origin = ProtoApi__pb2.GachaHistoryRequest.SerializeToString(message)
+    origin = papi__pb2.GachaHistoryRequest.SerializeToString(message)
     return serialize(origin)
 def GachaSelectCardRequest_serializer(message):
-    origin = ProtoApi__pb2.GachaSelectCardRequest.SerializeToString(message)
+    origin = papi__pb2.GachaSelectCardRequest.SerializeToString(message)
     return serialize(origin)
 def GachaReceiveFreePremiumGachaTicketRequest_serializer(message):
-    origin = ProtoApi__pb2.GachaReceiveFreePremiumGachaTicketRequest.SerializeToString(message)
+    origin = papi__pb2.GachaReceiveFreePremiumGachaTicketRequest.SerializeToString(message)
     return serialize(origin)
 def GachaListResponse_serializer(message):
-    origin = ProtoApi__pb2.GachaListResponse.SerializeToString(message)
+    origin = papi__pb2.GachaListResponse.SerializeToString(message)
     return serialize(origin)
 def GachaDrawResponse_serializer(message):
-    origin = ProtoApi__pb2.GachaDrawResponse.SerializeToString(message)
+    origin = papi__pb2.GachaDrawResponse.SerializeToString(message)
     return serialize(origin)
 def GachaExchangeResponse_serializer(message):
-    origin = ProtoApi__pb2.GachaExchangeResponse.SerializeToString(message)
+    origin = papi__pb2.GachaExchangeResponse.SerializeToString(message)
     return serialize(origin)
 def GachaProbabilityResponse_serializer(message):
-    origin = ProtoApi__pb2.GachaProbabilityResponse.SerializeToString(message)
+    origin = papi__pb2.GachaProbabilityResponse.SerializeToString(message)
     return serialize(origin)
 def GachaHistoryResponse_serializer(message):
-    origin = ProtoApi__pb2.GachaHistoryResponse.SerializeToString(message)
+    origin = papi__pb2.GachaHistoryResponse.SerializeToString(message)
     return serialize(origin)
 def GachaSelectCardResponse_serializer(message):
-    origin = ProtoApi__pb2.GachaSelectCardResponse.SerializeToString(message)
+    origin = papi__pb2.GachaSelectCardResponse.SerializeToString(message)
     return serialize(origin)
 def GachaReceiveFreePremiumGachaTicketResponse_serializer(message):
-    origin = ProtoApi__pb2.GachaReceiveFreePremiumGachaTicketResponse.SerializeToString(message)
+    origin = papi__pb2.GachaReceiveFreePremiumGachaTicketResponse.SerializeToString(message)
     return serialize(origin)
 def GiftListRequest_serializer(message):
-    origin = ProtoApi__pb2.GiftListRequest.SerializeToString(message)
+    origin = papi__pb2.GiftListRequest.SerializeToString(message)
     return serialize(origin)
 def GiftReceiveRequest_serializer(message):
-    origin = ProtoApi__pb2.GiftReceiveRequest.SerializeToString(message)
+    origin = papi__pb2.GiftReceiveRequest.SerializeToString(message)
     return serialize(origin)
 def Empty_serializer(message):
-    origin = ProtoApi__pb2.Empty.SerializeToString(message)
+    origin = papi__pb2.Empty.SerializeToString(message)
     return serialize(origin)
 def GiftListResponse_serializer(message):
-    origin = ProtoApi__pb2.GiftListResponse.SerializeToString(message)
+    origin = papi__pb2.GiftListResponse.SerializeToString(message)
     return serialize(origin)
 def GiftReceiveResponse_serializer(message):
-    origin = ProtoApi__pb2.GiftReceiveResponse.SerializeToString(message)
+    origin = papi__pb2.GiftReceiveResponse.SerializeToString(message)
     return serialize(origin)
 def GiftHistoryListResponse_serializer(message):
-    origin = ProtoApi__pb2.GiftHistoryListResponse.SerializeToString(message)
+    origin = papi__pb2.GiftHistoryListResponse.SerializeToString(message)
     return serialize(origin)
 def GppReceiveRewardRequest_serializer(message):
-    origin = ProtoApi__pb2.GppReceiveRewardRequest.SerializeToString(message)
+    origin = papi__pb2.GppReceiveRewardRequest.SerializeToString(message)
     return serialize(origin)
 def GppReceiveRewardResponse_serializer(message):
-    origin = ProtoApi__pb2.GppReceiveRewardResponse.SerializeToString(message)
+    origin = papi__pb2.GppReceiveRewardResponse.SerializeToString(message)
     return serialize(origin)
 def Empty_serializer(message):
-    origin = ProtoApi__pb2.Empty.SerializeToString(message)
+    origin = papi__pb2.Empty.SerializeToString(message)
     return serialize(origin)
 def Empty_serializer(message):
-    origin = ProtoApi__pb2.Empty.SerializeToString(message)
+    origin = papi__pb2.Empty.SerializeToString(message)
     return serialize(origin)
 def GuildJoinRequest_serializer(message):
-    origin = ProtoApi__pb2.GuildJoinRequest.SerializeToString(message)
+    origin = papi__pb2.GuildJoinRequest.SerializeToString(message)
     return serialize(origin)
 def GuildListResponse_serializer(message):
-    origin = ProtoApi__pb2.GuildListResponse.SerializeToString(message)
+    origin = papi__pb2.GuildListResponse.SerializeToString(message)
     return serialize(origin)
 def GuildTopResponse_serializer(message):
-    origin = ProtoApi__pb2.GuildTopResponse.SerializeToString(message)
+    origin = papi__pb2.GuildTopResponse.SerializeToString(message)
     return serialize(origin)
 def GuildJoinResponse_serializer(message):
-    origin = ProtoApi__pb2.GuildJoinResponse.SerializeToString(message)
+    origin = papi__pb2.GuildJoinResponse.SerializeToString(message)
     return serialize(origin)
 def Empty_serializer(message):
-    origin = ProtoApi__pb2.Empty.SerializeToString(message)
+    origin = papi__pb2.Empty.SerializeToString(message)
     return serialize(origin)
 def GvgListOpponentRequest_serializer(message):
-    origin = ProtoApi__pb2.GvgListOpponentRequest.SerializeToString(message)
+    origin = papi__pb2.GvgListOpponentRequest.SerializeToString(message)
     return serialize(origin)
 def GvgListRankingRequest_serializer(message):
-    origin = ProtoApi__pb2.GvgListRankingRequest.SerializeToString(message)
+    origin = papi__pb2.GvgListRankingRequest.SerializeToString(message)
     return serialize(origin)
 def GvgStartRequest_serializer(message):
-    origin = ProtoApi__pb2.GvgStartRequest.SerializeToString(message)
+    origin = papi__pb2.GvgStartRequest.SerializeToString(message)
     return serialize(origin)
 def GvgListAssetRequest_serializer(message):
-    origin = ProtoApi__pb2.GvgListAssetRequest.SerializeToString(message)
+    origin = papi__pb2.GvgListAssetRequest.SerializeToString(message)
     return serialize(origin)
 def GvgTopResponse_serializer(message):
-    origin = ProtoApi__pb2.GvgTopResponse.SerializeToString(message)
+    origin = papi__pb2.GvgTopResponse.SerializeToString(message)
     return serialize(origin)
 def GvgListOpponentResponse_serializer(message):
-    origin = ProtoApi__pb2.GvgListOpponentResponse.SerializeToString(message)
+    origin = papi__pb2.GvgListOpponentResponse.SerializeToString(message)
     return serialize(origin)
 def GvgListRankingResponse_serializer(message):
-    origin = ProtoApi__pb2.GvgListRankingResponse.SerializeToString(message)
+    origin = papi__pb2.GvgListRankingResponse.SerializeToString(message)
     return serialize(origin)
 def GvgStartResponse_serializer(message):
-    origin = ProtoApi__pb2.GvgStartResponse.SerializeToString(message)
+    origin = papi__pb2.GvgStartResponse.SerializeToString(message)
     return serialize(origin)
 def GvgListAssetResponse_serializer(message):
-    origin = ProtoApi__pb2.GvgListAssetResponse.SerializeToString(message)
+    origin = papi__pb2.GvgListAssetResponse.SerializeToString(message)
     return serialize(origin)
 def HairCheckRequest_serializer(message):
-    origin = ProtoApi__pb2.HairCheckRequest.SerializeToString(message)
+    origin = papi__pb2.HairCheckRequest.SerializeToString(message)
     return serialize(origin)
 def HairCheckResponse_serializer(message):
-    origin = ProtoApi__pb2.HairCheckResponse.SerializeToString(message)
+    origin = papi__pb2.HairCheckResponse.SerializeToString(message)
     return serialize(origin)
 def HealthCheckRequest_serializer(message):
-    origin = ProtoApi__pb2.HealthCheckRequest.SerializeToString(message)
+    origin = papi__pb2.HealthCheckRequest.SerializeToString(message)
     return serialize(origin)
 def HealthCheckResponse_serializer(message):
-    origin = ProtoApi__pb2.HealthCheckResponse.SerializeToString(message)
+    origin = papi__pb2.HealthCheckResponse.SerializeToString(message)
     return serialize(origin)
 def Empty_serializer(message):
-    origin = ProtoApi__pb2.Empty.SerializeToString(message)
+    origin = papi__pb2.Empty.SerializeToString(message)
     return serialize(origin)
 def Empty_serializer(message):
-    origin = ProtoApi__pb2.Empty.SerializeToString(message)
+    origin = papi__pb2.Empty.SerializeToString(message)
     return serialize(origin)
 def HierarchyRewardsReceiveRequest_serializer(message):
-    origin = ProtoApi__pb2.HierarchyRewardsReceiveRequest.SerializeToString(message)
+    origin = papi__pb2.HierarchyRewardsReceiveRequest.SerializeToString(message)
     return serialize(origin)
 def HierarchyDivisionRewardsReceiveRequest_serializer(message):
-    origin = ProtoApi__pb2.HierarchyDivisionRewardsReceiveRequest.SerializeToString(message)
+    origin = papi__pb2.HierarchyDivisionRewardsReceiveRequest.SerializeToString(message)
     return serialize(origin)
 def HierarchyTopResponse_serializer(message):
-    origin = ProtoApi__pb2.HierarchyTopResponse.SerializeToString(message)
+    origin = papi__pb2.HierarchyTopResponse.SerializeToString(message)
     return serialize(origin)
 def HierarchyRankingResponse_serializer(message):
-    origin = ProtoApi__pb2.HierarchyRankingResponse.SerializeToString(message)
+    origin = papi__pb2.HierarchyRankingResponse.SerializeToString(message)
     return serialize(origin)
 def HierarchyRewardsReceiveResponse_serializer(message):
-    origin = ProtoApi__pb2.HierarchyRewardsReceiveResponse.SerializeToString(message)
+    origin = papi__pb2.HierarchyRewardsReceiveResponse.SerializeToString(message)
     return serialize(origin)
 def HierarchyDivisionRewardsReceiveResponse_serializer(message):
-    origin = ProtoApi__pb2.HierarchyDivisionRewardsReceiveResponse.SerializeToString(message)
+    origin = papi__pb2.HierarchyDivisionRewardsReceiveResponse.SerializeToString(message)
     return serialize(origin)
 def HomeEnterRequest_serializer(message):
-    origin = ProtoApi__pb2.HomeEnterRequest.SerializeToString(message)
+    origin = papi__pb2.HomeEnterRequest.SerializeToString(message)
     return serialize(origin)
 def HomeLoginRequest_serializer(message):
-    origin = ProtoApi__pb2.HomeLoginRequest.SerializeToString(message)
+    origin = papi__pb2.HomeLoginRequest.SerializeToString(message)
     return serialize(origin)
 def HomeReadTalkRequest_serializer(message):
-    origin = ProtoApi__pb2.HomeReadTalkRequest.SerializeToString(message)
+    origin = papi__pb2.HomeReadTalkRequest.SerializeToString(message)
     return serialize(origin)
 def Empty_serializer(message):
-    origin = ProtoApi__pb2.Empty.SerializeToString(message)
+    origin = papi__pb2.Empty.SerializeToString(message)
     return serialize(origin)
 def HomeSetCharacterPositionRequest_serializer(message):
-    origin = ProtoApi__pb2.HomeSetCharacterPositionRequest.SerializeToString(message)
+    origin = papi__pb2.HomeSetCharacterPositionRequest.SerializeToString(message)
     return serialize(origin)
 def HomeEnterResponse_serializer(message):
-    origin = ProtoApi__pb2.HomeEnterResponse.SerializeToString(message)
+    origin = papi__pb2.HomeEnterResponse.SerializeToString(message)
     return serialize(origin)
 def HomeLoginResponse_serializer(message):
-    origin = ProtoApi__pb2.HomeLoginResponse.SerializeToString(message)
+    origin = papi__pb2.HomeLoginResponse.SerializeToString(message)
     return serialize(origin)
 def HomeReadTalkResponse_serializer(message):
-    origin = ProtoApi__pb2.HomeReadTalkResponse.SerializeToString(message)
+    origin = papi__pb2.HomeReadTalkResponse.SerializeToString(message)
     return serialize(origin)
 def HomeSetReviewResponse_serializer(message):
-    origin = ProtoApi__pb2.HomeSetReviewResponse.SerializeToString(message)
+    origin = papi__pb2.HomeSetReviewResponse.SerializeToString(message)
     return serialize(origin)
 def HomeSetCharacterPositionResponse_serializer(message):
-    origin = ProtoApi__pb2.HomeSetCharacterPositionResponse.SerializeToString(message)
+    origin = papi__pb2.HomeSetCharacterPositionResponse.SerializeToString(message)
     return serialize(origin)
 def Empty_serializer(message):
-    origin = ProtoApi__pb2.Empty.SerializeToString(message)
+    origin = papi__pb2.Empty.SerializeToString(message)
     return serialize(origin)
 def InviteReceiveHostRewardsRequest_serializer(message):
-    origin = ProtoApi__pb2.InviteReceiveHostRewardsRequest.SerializeToString(message)
+    origin = papi__pb2.InviteReceiveHostRewardsRequest.SerializeToString(message)
     return serialize(origin)
 def InviteEnterCodeRequest_serializer(message):
-    origin = ProtoApi__pb2.InviteEnterCodeRequest.SerializeToString(message)
+    origin = papi__pb2.InviteEnterCodeRequest.SerializeToString(message)
     return serialize(origin)
 def InviteTopResponse_serializer(message):
-    origin = ProtoApi__pb2.InviteTopResponse.SerializeToString(message)
+    origin = papi__pb2.InviteTopResponse.SerializeToString(message)
     return serialize(origin)
 def InviteReceiveHostRewardsResponse_serializer(message):
-    origin = ProtoApi__pb2.InviteReceiveHostRewardsResponse.SerializeToString(message)
+    origin = papi__pb2.InviteReceiveHostRewardsResponse.SerializeToString(message)
     return serialize(origin)
 def InviteEnterCodeResponse_serializer(message):
-    origin = ProtoApi__pb2.InviteEnterCodeResponse.SerializeToString(message)
+    origin = papi__pb2.InviteEnterCodeResponse.SerializeToString(message)
     return serialize(origin)
 def ItemSellRequest_serializer(message):
-    origin = ProtoApi__pb2.ItemSellRequest.SerializeToString(message)
+    origin = papi__pb2.ItemSellRequest.SerializeToString(message)
     return serialize(origin)
 def ItemSellResponse_serializer(message):
-    origin = ProtoApi__pb2.ItemSellResponse.SerializeToString(message)
+    origin = papi__pb2.ItemSellResponse.SerializeToString(message)
     return serialize(origin)
 def LadderTopRequest_serializer(message):
-    origin = ProtoApi__pb2.LadderTopRequest.SerializeToString(message)
+    origin = papi__pb2.LadderTopRequest.SerializeToString(message)
     return serialize(origin)
 def LadderPanelReachRequest_serializer(message):
-    origin = ProtoApi__pb2.LadderPanelReachRequest.SerializeToString(message)
+    origin = papi__pb2.LadderPanelReachRequest.SerializeToString(message)
     return serialize(origin)
 def LadderTopResponse_serializer(message):
-    origin = ProtoApi__pb2.LadderTopResponse.SerializeToString(message)
+    origin = papi__pb2.LadderTopResponse.SerializeToString(message)
     return serialize(origin)
 def LadderPanelReachResponse_serializer(message):
-    origin = ProtoApi__pb2.LadderPanelReachResponse.SerializeToString(message)
+    origin = papi__pb2.LadderPanelReachResponse.SerializeToString(message)
     return serialize(origin)
 def Empty_serializer(message):
-    origin = ProtoApi__pb2.Empty.SerializeToString(message)
+    origin = papi__pb2.Empty.SerializeToString(message)
     return serialize(origin)
 def LeagueGetLiveResultRequest_serializer(message):
-    origin = ProtoApi__pb2.LeagueGetLiveResultRequest.SerializeToString(message)
+    origin = papi__pb2.LeagueGetLiveResultRequest.SerializeToString(message)
     return serialize(origin)
 def LeagueSaveDeckRequest_serializer(message):
-    origin = ProtoApi__pb2.LeagueSaveDeckRequest.SerializeToString(message)
+    origin = papi__pb2.LeagueSaveDeckRequest.SerializeToString(message)
     return serialize(origin)
 def Empty_serializer(message):
-    origin = ProtoApi__pb2.Empty.SerializeToString(message)
+    origin = papi__pb2.Empty.SerializeToString(message)
     return serialize(origin)
 def LeagueListPointRankingRequest_serializer(message):
-    origin = ProtoApi__pb2.LeagueListPointRankingRequest.SerializeToString(message)
+    origin = papi__pb2.LeagueListPointRankingRequest.SerializeToString(message)
     return serialize(origin)
 def LeagueListCardHighestScoreRankingRequest_serializer(message):
-    origin = ProtoApi__pb2.LeagueListCardHighestScoreRankingRequest.SerializeToString(message)
+    origin = papi__pb2.LeagueListCardHighestScoreRankingRequest.SerializeToString(message)
     return serialize(origin)
 def LeagueListCardSkillRateRankingRequest_serializer(message):
-    origin = ProtoApi__pb2.LeagueListCardSkillRateRankingRequest.SerializeToString(message)
+    origin = papi__pb2.LeagueListCardSkillRateRankingRequest.SerializeToString(message)
     return serialize(origin)
 def LeagueListCardMvpRankingRequest_serializer(message):
-    origin = ProtoApi__pb2.LeagueListCardMvpRankingRequest.SerializeToString(message)
+    origin = papi__pb2.LeagueListCardMvpRankingRequest.SerializeToString(message)
     return serialize(origin)
 def LeagueGetDailyDetailRequest_serializer(message):
-    origin = ProtoApi__pb2.LeagueGetDailyDetailRequest.SerializeToString(message)
+    origin = papi__pb2.LeagueGetDailyDetailRequest.SerializeToString(message)
     return serialize(origin)
 def LeagueTopResponse_serializer(message):
-    origin = ProtoApi__pb2.LeagueTopResponse.SerializeToString(message)
+    origin = papi__pb2.LeagueTopResponse.SerializeToString(message)
     return serialize(origin)
 def LeagueGetLiveResultResponse_serializer(message):
-    origin = ProtoApi__pb2.LeagueGetLiveResultResponse.SerializeToString(message)
+    origin = papi__pb2.LeagueGetLiveResultResponse.SerializeToString(message)
     return serialize(origin)
 def LeagueSaveDeckResponse_serializer(message):
-    origin = ProtoApi__pb2.LeagueSaveDeckResponse.SerializeToString(message)
+    origin = papi__pb2.LeagueSaveDeckResponse.SerializeToString(message)
     return serialize(origin)
 def LeagueGetLastSeasonResultResponse_serializer(message):
-    origin = ProtoApi__pb2.LeagueGetLastSeasonResultResponse.SerializeToString(message)
+    origin = papi__pb2.LeagueGetLastSeasonResultResponse.SerializeToString(message)
     return serialize(origin)
 def LeagueListPointRankingResponse_serializer(message):
-    origin = ProtoApi__pb2.LeagueListPointRankingResponse.SerializeToString(message)
+    origin = papi__pb2.LeagueListPointRankingResponse.SerializeToString(message)
     return serialize(origin)
 def LeagueListCardHighestScoreRankingResponse_serializer(message):
-    origin = ProtoApi__pb2.LeagueListCardHighestScoreRankingResponse.SerializeToString(message)
+    origin = papi__pb2.LeagueListCardHighestScoreRankingResponse.SerializeToString(message)
     return serialize(origin)
 def LeagueListCardSkillRateRankingResponse_serializer(message):
-    origin = ProtoApi__pb2.LeagueListCardSkillRateRankingResponse.SerializeToString(message)
+    origin = papi__pb2.LeagueListCardSkillRateRankingResponse.SerializeToString(message)
     return serialize(origin)
 def LeagueListCardMvpRankingResponse_serializer(message):
-    origin = ProtoApi__pb2.LeagueListCardMvpRankingResponse.SerializeToString(message)
+    origin = papi__pb2.LeagueListCardMvpRankingResponse.SerializeToString(message)
     return serialize(origin)
 def LeagueGetDailyDetailResponse_serializer(message):
-    origin = ProtoApi__pb2.LeagueGetDailyDetailResponse.SerializeToString(message)
+    origin = papi__pb2.LeagueGetDailyDetailResponse.SerializeToString(message)
     return serialize(origin)
 def Empty_serializer(message):
-    origin = ProtoApi__pb2.Empty.SerializeToString(message)
+    origin = papi__pb2.Empty.SerializeToString(message)
     return serialize(origin)
 def LoginBonusReceiveRequest_serializer(message):
-    origin = ProtoApi__pb2.LoginBonusReceiveRequest.SerializeToString(message)
+    origin = papi__pb2.LoginBonusReceiveRequest.SerializeToString(message)
     return serialize(origin)
 def LoginBonusListResponse_serializer(message):
-    origin = ProtoApi__pb2.LoginBonusListResponse.SerializeToString(message)
+    origin = papi__pb2.LoginBonusListResponse.SerializeToString(message)
     return serialize(origin)
 def LoginBonusReceiveResponse_serializer(message):
-    origin = ProtoApi__pb2.LoginBonusReceiveResponse.SerializeToString(message)
+    origin = papi__pb2.LoginBonusReceiveResponse.SerializeToString(message)
     return serialize(origin)
 def Empty_serializer(message):
-    origin = ProtoApi__pb2.Empty.SerializeToString(message)
+    origin = papi__pb2.Empty.SerializeToString(message)
     return serialize(origin)
 def LoveTitleExtraRequest_serializer(message):
-    origin = ProtoApi__pb2.LoveTitleExtraRequest.SerializeToString(message)
+    origin = papi__pb2.LoveTitleExtraRequest.SerializeToString(message)
     return serialize(origin)
 def LoveRegisterRequest_serializer(message):
-    origin = ProtoApi__pb2.LoveRegisterRequest.SerializeToString(message)
+    origin = papi__pb2.LoveRegisterRequest.SerializeToString(message)
     return serialize(origin)
 def LoveTopRequest_serializer(message):
-    origin = ProtoApi__pb2.LoveTopRequest.SerializeToString(message)
+    origin = papi__pb2.LoveTopRequest.SerializeToString(message)
     return serialize(origin)
 def LoveStartRequest_serializer(message):
-    origin = ProtoApi__pb2.LoveStartRequest.SerializeToString(message)
+    origin = papi__pb2.LoveStartRequest.SerializeToString(message)
     return serialize(origin)
 def LoveRestartRequest_serializer(message):
-    origin = ProtoApi__pb2.LoveRestartRequest.SerializeToString(message)
+    origin = papi__pb2.LoveRestartRequest.SerializeToString(message)
     return serialize(origin)
 def LoveFinishRequest_serializer(message):
-    origin = ProtoApi__pb2.LoveFinishRequest.SerializeToString(message)
+    origin = papi__pb2.LoveFinishRequest.SerializeToString(message)
     return serialize(origin)
 def LoveResetReadingStoryStatusRequest_serializer(message):
-    origin = ProtoApi__pb2.LoveResetReadingStoryStatusRequest.SerializeToString(message)
+    origin = papi__pb2.LoveResetReadingStoryStatusRequest.SerializeToString(message)
     return serialize(origin)
 def LovePresentRequest_serializer(message):
-    origin = ProtoApi__pb2.LovePresentRequest.SerializeToString(message)
+    origin = papi__pb2.LovePresentRequest.SerializeToString(message)
     return serialize(origin)
 def LoveSaveRequest_serializer(message):
-    origin = ProtoApi__pb2.LoveSaveRequest.SerializeToString(message)
+    origin = papi__pb2.LoveSaveRequest.SerializeToString(message)
     return serialize(origin)
 def LoveUpdateSaveNameRequest_serializer(message):
-    origin = ProtoApi__pb2.LoveUpdateSaveNameRequest.SerializeToString(message)
+    origin = papi__pb2.LoveUpdateSaveNameRequest.SerializeToString(message)
     return serialize(origin)
 def LoveLoadRequest_serializer(message):
-    origin = ProtoApi__pb2.LoveLoadRequest.SerializeToString(message)
+    origin = papi__pb2.LoveLoadRequest.SerializeToString(message)
     return serialize(origin)
 def LoveResetRequest_serializer(message):
-    origin = ProtoApi__pb2.LoveResetRequest.SerializeToString(message)
+    origin = papi__pb2.LoveResetRequest.SerializeToString(message)
     return serialize(origin)
 def LoveReceiveLessonRewardRequest_serializer(message):
-    origin = ProtoApi__pb2.LoveReceiveLessonRewardRequest.SerializeToString(message)
+    origin = papi__pb2.LoveReceiveLessonRewardRequest.SerializeToString(message)
     return serialize(origin)
 def LovePromoteLessonRequest_serializer(message):
-    origin = ProtoApi__pb2.LovePromoteLessonRequest.SerializeToString(message)
+    origin = papi__pb2.LovePromoteLessonRequest.SerializeToString(message)
     return serialize(origin)
 def LoveUpdateNameRequest_serializer(message):
-    origin = ProtoApi__pb2.LoveUpdateNameRequest.SerializeToString(message)
+    origin = papi__pb2.LoveUpdateNameRequest.SerializeToString(message)
     return serialize(origin)
 def LoveGetMainCharacterRequest_serializer(message):
-    origin = ProtoApi__pb2.LoveGetMainCharacterRequest.SerializeToString(message)
+    origin = papi__pb2.LoveGetMainCharacterRequest.SerializeToString(message)
     return serialize(origin)
 def LoveTitleResponse_serializer(message):
-    origin = ProtoApi__pb2.LoveTitleResponse.SerializeToString(message)
+    origin = papi__pb2.LoveTitleResponse.SerializeToString(message)
     return serialize(origin)
 def LoveTitleExtraResponse_serializer(message):
-    origin = ProtoApi__pb2.LoveTitleExtraResponse.SerializeToString(message)
+    origin = papi__pb2.LoveTitleExtraResponse.SerializeToString(message)
     return serialize(origin)
 def LoveRegisterResponse_serializer(message):
-    origin = ProtoApi__pb2.LoveRegisterResponse.SerializeToString(message)
+    origin = papi__pb2.LoveRegisterResponse.SerializeToString(message)
     return serialize(origin)
 def LoveTopResponse_serializer(message):
-    origin = ProtoApi__pb2.LoveTopResponse.SerializeToString(message)
+    origin = papi__pb2.LoveTopResponse.SerializeToString(message)
     return serialize(origin)
 def LoveStartResponse_serializer(message):
-    origin = ProtoApi__pb2.LoveStartResponse.SerializeToString(message)
+    origin = papi__pb2.LoveStartResponse.SerializeToString(message)
     return serialize(origin)
 def LoveRestartResponse_serializer(message):
-    origin = ProtoApi__pb2.LoveRestartResponse.SerializeToString(message)
+    origin = papi__pb2.LoveRestartResponse.SerializeToString(message)
     return serialize(origin)
 def LoveFinishResponse_serializer(message):
-    origin = ProtoApi__pb2.LoveFinishResponse.SerializeToString(message)
+    origin = papi__pb2.LoveFinishResponse.SerializeToString(message)
     return serialize(origin)
 def LoveResetReadingStoryStatusResponse_serializer(message):
-    origin = ProtoApi__pb2.LoveResetReadingStoryStatusResponse.SerializeToString(message)
+    origin = papi__pb2.LoveResetReadingStoryStatusResponse.SerializeToString(message)
     return serialize(origin)
 def LovePresentResponse_serializer(message):
-    origin = ProtoApi__pb2.LovePresentResponse.SerializeToString(message)
+    origin = papi__pb2.LovePresentResponse.SerializeToString(message)
     return serialize(origin)
 def LoveSaveResponse_serializer(message):
-    origin = ProtoApi__pb2.LoveSaveResponse.SerializeToString(message)
+    origin = papi__pb2.LoveSaveResponse.SerializeToString(message)
     return serialize(origin)
 def LoveUpdateSaveNameResponse_serializer(message):
-    origin = ProtoApi__pb2.LoveUpdateSaveNameResponse.SerializeToString(message)
+    origin = papi__pb2.LoveUpdateSaveNameResponse.SerializeToString(message)
     return serialize(origin)
 def LoveLoadResponse_serializer(message):
-    origin = ProtoApi__pb2.LoveLoadResponse.SerializeToString(message)
+    origin = papi__pb2.LoveLoadResponse.SerializeToString(message)
     return serialize(origin)
 def LoveResetResponse_serializer(message):
-    origin = ProtoApi__pb2.LoveResetResponse.SerializeToString(message)
+    origin = papi__pb2.LoveResetResponse.SerializeToString(message)
     return serialize(origin)
 def LoveReceiveLessonRewardResponse_serializer(message):
-    origin = ProtoApi__pb2.LoveReceiveLessonRewardResponse.SerializeToString(message)
+    origin = papi__pb2.LoveReceiveLessonRewardResponse.SerializeToString(message)
     return serialize(origin)
 def LovePromoteLessonResponse_serializer(message):
-    origin = ProtoApi__pb2.LovePromoteLessonResponse.SerializeToString(message)
+    origin = papi__pb2.LovePromoteLessonResponse.SerializeToString(message)
     return serialize(origin)
 def LoveUpdateNameResponse_serializer(message):
-    origin = ProtoApi__pb2.LoveUpdateNameResponse.SerializeToString(message)
+    origin = papi__pb2.LoveUpdateNameResponse.SerializeToString(message)
     return serialize(origin)
 def LoveGetMainCharacterResponse_serializer(message):
-    origin = ProtoApi__pb2.LoveGetMainCharacterResponse.SerializeToString(message)
+    origin = papi__pb2.LoveGetMainCharacterResponse.SerializeToString(message)
     return serialize(origin)
 def MarathonTopRequest_serializer(message):
-    origin = ProtoApi__pb2.MarathonTopRequest.SerializeToString(message)
+    origin = papi__pb2.MarathonTopRequest.SerializeToString(message)
     return serialize(origin)
 def MarathonQuestUnlockRequest_serializer(message):
-    origin = ProtoApi__pb2.MarathonQuestUnlockRequest.SerializeToString(message)
+    origin = papi__pb2.MarathonQuestUnlockRequest.SerializeToString(message)
     return serialize(origin)
 def MarathonQuestStartRequest_serializer(message):
-    origin = ProtoApi__pb2.MarathonQuestStartRequest.SerializeToString(message)
+    origin = papi__pb2.MarathonQuestStartRequest.SerializeToString(message)
     return serialize(origin)
 def MarathonQuestListAssetRequest_serializer(message):
-    origin = ProtoApi__pb2.MarathonQuestListAssetRequest.SerializeToString(message)
+    origin = papi__pb2.MarathonQuestListAssetRequest.SerializeToString(message)
     return serialize(origin)
 def MarathonUseQuestStaminaRecoveryItemRequest_serializer(message):
-    origin = ProtoApi__pb2.MarathonUseQuestStaminaRecoveryItemRequest.SerializeToString(message)
+    origin = papi__pb2.MarathonUseQuestStaminaRecoveryItemRequest.SerializeToString(message)
     return serialize(origin)
 def MarathonListDeckRequest_serializer(message):
-    origin = ProtoApi__pb2.MarathonListDeckRequest.SerializeToString(message)
+    origin = papi__pb2.MarathonListDeckRequest.SerializeToString(message)
     return serialize(origin)
 def MarathonDeckSaveRequest_serializer(message):
-    origin = ProtoApi__pb2.MarathonDeckSaveRequest.SerializeToString(message)
+    origin = papi__pb2.MarathonDeckSaveRequest.SerializeToString(message)
     return serialize(origin)
 def MarathonBuddyDeckRequest_serializer(message):
-    origin = ProtoApi__pb2.MarathonBuddyDeckRequest.SerializeToString(message)
+    origin = papi__pb2.MarathonBuddyDeckRequest.SerializeToString(message)
     return serialize(origin)
 def MarathonBoxGachaDrawRequest_serializer(message):
-    origin = ProtoApi__pb2.MarathonBoxGachaDrawRequest.SerializeToString(message)
+    origin = papi__pb2.MarathonBoxGachaDrawRequest.SerializeToString(message)
     return serialize(origin)
 def MarathonBoxGachaResetRequest_serializer(message):
-    origin = ProtoApi__pb2.MarathonBoxGachaResetRequest.SerializeToString(message)
+    origin = papi__pb2.MarathonBoxGachaResetRequest.SerializeToString(message)
     return serialize(origin)
 def MarathonRaidListRequest_serializer(message):
-    origin = ProtoApi__pb2.MarathonRaidListRequest.SerializeToString(message)
+    origin = papi__pb2.MarathonRaidListRequest.SerializeToString(message)
     return serialize(origin)
 def MarathonRaidCheckProgressRequest_serializer(message):
-    origin = ProtoApi__pb2.MarathonRaidCheckProgressRequest.SerializeToString(message)
+    origin = papi__pb2.MarathonRaidCheckProgressRequest.SerializeToString(message)
     return serialize(origin)
 def MarathonRaidListHistoryRequest_serializer(message):
-    origin = ProtoApi__pb2.MarathonRaidListHistoryRequest.SerializeToString(message)
+    origin = papi__pb2.MarathonRaidListHistoryRequest.SerializeToString(message)
     return serialize(origin)
 def MarathonRaidGetHistoryDetailRequest_serializer(message):
-    origin = ProtoApi__pb2.MarathonRaidGetHistoryDetailRequest.SerializeToString(message)
+    origin = papi__pb2.MarathonRaidGetHistoryDetailRequest.SerializeToString(message)
     return serialize(origin)
 def MarathonRaidListRankingRequest_serializer(message):
-    origin = ProtoApi__pb2.MarathonRaidListRankingRequest.SerializeToString(message)
+    origin = papi__pb2.MarathonRaidListRankingRequest.SerializeToString(message)
     return serialize(origin)
 def MarathonRaidStartRequest_serializer(message):
-    origin = ProtoApi__pb2.MarathonRaidStartRequest.SerializeToString(message)
+    origin = papi__pb2.MarathonRaidStartRequest.SerializeToString(message)
     return serialize(origin)
 def MarathonRaidJoinRequest_serializer(message):
-    origin = ProtoApi__pb2.MarathonRaidJoinRequest.SerializeToString(message)
+    origin = papi__pb2.MarathonRaidJoinRequest.SerializeToString(message)
     return serialize(origin)
 def MarathonRaidFinishRequest_serializer(message):
-    origin = ProtoApi__pb2.MarathonRaidFinishRequest.SerializeToString(message)
+    origin = papi__pb2.MarathonRaidFinishRequest.SerializeToString(message)
     return serialize(origin)
 def MarathonUseRaidStaminaRecoveryItemRequest_serializer(message):
-    origin = ProtoApi__pb2.MarathonUseRaidStaminaRecoveryItemRequest.SerializeToString(message)
+    origin = papi__pb2.MarathonUseRaidStaminaRecoveryItemRequest.SerializeToString(message)
     return serialize(origin)
 def MarathonListRaidDeckRequest_serializer(message):
-    origin = ProtoApi__pb2.MarathonListRaidDeckRequest.SerializeToString(message)
+    origin = papi__pb2.MarathonListRaidDeckRequest.SerializeToString(message)
     return serialize(origin)
 def MarathonRaidDeckSaveRequest_serializer(message):
-    origin = ProtoApi__pb2.MarathonRaidDeckSaveRequest.SerializeToString(message)
+    origin = papi__pb2.MarathonRaidDeckSaveRequest.SerializeToString(message)
     return serialize(origin)
 def MarathonTopResponse_serializer(message):
-    origin = ProtoApi__pb2.MarathonTopResponse.SerializeToString(message)
+    origin = papi__pb2.MarathonTopResponse.SerializeToString(message)
     return serialize(origin)
 def MarathonQuestUnlockResponse_serializer(message):
-    origin = ProtoApi__pb2.MarathonQuestUnlockResponse.SerializeToString(message)
+    origin = papi__pb2.MarathonQuestUnlockResponse.SerializeToString(message)
     return serialize(origin)
 def MarathonQuestStartResponse_serializer(message):
-    origin = ProtoApi__pb2.MarathonQuestStartResponse.SerializeToString(message)
+    origin = papi__pb2.MarathonQuestStartResponse.SerializeToString(message)
     return serialize(origin)
 def MarathonQuestListAssetResponse_serializer(message):
-    origin = ProtoApi__pb2.MarathonQuestListAssetResponse.SerializeToString(message)
+    origin = papi__pb2.MarathonQuestListAssetResponse.SerializeToString(message)
     return serialize(origin)
 def MarathonUseQuestStaminaRecoveryItemResponse_serializer(message):
-    origin = ProtoApi__pb2.MarathonUseQuestStaminaRecoveryItemResponse.SerializeToString(message)
+    origin = papi__pb2.MarathonUseQuestStaminaRecoveryItemResponse.SerializeToString(message)
     return serialize(origin)
 def MarathonListDeckResponse_serializer(message):
-    origin = ProtoApi__pb2.MarathonListDeckResponse.SerializeToString(message)
+    origin = papi__pb2.MarathonListDeckResponse.SerializeToString(message)
     return serialize(origin)
 def MarathonDeckSaveResponse_serializer(message):
-    origin = ProtoApi__pb2.MarathonDeckSaveResponse.SerializeToString(message)
+    origin = papi__pb2.MarathonDeckSaveResponse.SerializeToString(message)
     return serialize(origin)
 def MarathonBuddyDeckResponse_serializer(message):
-    origin = ProtoApi__pb2.MarathonBuddyDeckResponse.SerializeToString(message)
+    origin = papi__pb2.MarathonBuddyDeckResponse.SerializeToString(message)
     return serialize(origin)
 def MarathonBoxGachaDrawResponse_serializer(message):
-    origin = ProtoApi__pb2.MarathonBoxGachaDrawResponse.SerializeToString(message)
+    origin = papi__pb2.MarathonBoxGachaDrawResponse.SerializeToString(message)
     return serialize(origin)
 def MarathonBoxGachaResetResponse_serializer(message):
-    origin = ProtoApi__pb2.MarathonBoxGachaResetResponse.SerializeToString(message)
+    origin = papi__pb2.MarathonBoxGachaResetResponse.SerializeToString(message)
     return serialize(origin)
 def MarathonRaidListResponse_serializer(message):
-    origin = ProtoApi__pb2.MarathonRaidListResponse.SerializeToString(message)
+    origin = papi__pb2.MarathonRaidListResponse.SerializeToString(message)
     return serialize(origin)
 def MarathonRaidCheckProgressResponse_serializer(message):
-    origin = ProtoApi__pb2.MarathonRaidCheckProgressResponse.SerializeToString(message)
+    origin = papi__pb2.MarathonRaidCheckProgressResponse.SerializeToString(message)
     return serialize(origin)
 def MarathonRaidListHistoryResponse_serializer(message):
-    origin = ProtoApi__pb2.MarathonRaidListHistoryResponse.SerializeToString(message)
+    origin = papi__pb2.MarathonRaidListHistoryResponse.SerializeToString(message)
     return serialize(origin)
 def MarathonRaidGetHistoryDetailResponse_serializer(message):
-    origin = ProtoApi__pb2.MarathonRaidGetHistoryDetailResponse.SerializeToString(message)
+    origin = papi__pb2.MarathonRaidGetHistoryDetailResponse.SerializeToString(message)
     return serialize(origin)
 def MarathonRaidListRankingResponse_serializer(message):
-    origin = ProtoApi__pb2.MarathonRaidListRankingResponse.SerializeToString(message)
+    origin = papi__pb2.MarathonRaidListRankingResponse.SerializeToString(message)
     return serialize(origin)
 def MarathonRaidStartResponse_serializer(message):
-    origin = ProtoApi__pb2.MarathonRaidStartResponse.SerializeToString(message)
+    origin = papi__pb2.MarathonRaidStartResponse.SerializeToString(message)
     return serialize(origin)
 def MarathonRaidJoinResponse_serializer(message):
-    origin = ProtoApi__pb2.MarathonRaidJoinResponse.SerializeToString(message)
+    origin = papi__pb2.MarathonRaidJoinResponse.SerializeToString(message)
     return serialize(origin)
 def MarathonRaidFinishResponse_serializer(message):
-    origin = ProtoApi__pb2.MarathonRaidFinishResponse.SerializeToString(message)
+    origin = papi__pb2.MarathonRaidFinishResponse.SerializeToString(message)
     return serialize(origin)
 def MarathonUseRaidStaminaRecoveryItemResponse_serializer(message):
-    origin = ProtoApi__pb2.MarathonUseRaidStaminaRecoveryItemResponse.SerializeToString(message)
+    origin = papi__pb2.MarathonUseRaidStaminaRecoveryItemResponse.SerializeToString(message)
     return serialize(origin)
 def MarathonListRaidDeckResponse_serializer(message):
-    origin = ProtoApi__pb2.MarathonListRaidDeckResponse.SerializeToString(message)
+    origin = papi__pb2.MarathonListRaidDeckResponse.SerializeToString(message)
     return serialize(origin)
 def MarathonRaidDeckSaveResponse_serializer(message):
-    origin = ProtoApi__pb2.MarathonRaidDeckSaveResponse.SerializeToString(message)
+    origin = papi__pb2.MarathonRaidDeckSaveResponse.SerializeToString(message)
     return serialize(origin)
 def Empty_serializer(message):
-    origin = ProtoApi__pb2.Empty.SerializeToString(message)
+    origin = papi__pb2.Empty.SerializeToString(message)
     return serialize(origin)
 def MarketResetRequest_serializer(message):
-    origin = ProtoApi__pb2.MarketResetRequest.SerializeToString(message)
+    origin = papi__pb2.MarketResetRequest.SerializeToString(message)
     return serialize(origin)
 def MarketPurchaseRequest_serializer(message):
-    origin = ProtoApi__pb2.MarketPurchaseRequest.SerializeToString(message)
+    origin = papi__pb2.MarketPurchaseRequest.SerializeToString(message)
     return serialize(origin)
 def MarketListItemResponse_serializer(message):
-    origin = ProtoApi__pb2.MarketListItemResponse.SerializeToString(message)
+    origin = papi__pb2.MarketListItemResponse.SerializeToString(message)
     return serialize(origin)
 def MarketResetResponse_serializer(message):
-    origin = ProtoApi__pb2.MarketResetResponse.SerializeToString(message)
+    origin = papi__pb2.MarketResetResponse.SerializeToString(message)
     return serialize(origin)
 def MarketPurchaseResponse_serializer(message):
-    origin = ProtoApi__pb2.MarketPurchaseResponse.SerializeToString(message)
+    origin = papi__pb2.MarketPurchaseResponse.SerializeToString(message)
     return serialize(origin)
 def Empty_serializer(message):
-    origin = ProtoApi__pb2.Empty.SerializeToString(message)
+    origin = papi__pb2.Empty.SerializeToString(message)
     return serialize(origin)
 def MasterRuleRequest_serializer(message):
-    origin = ProtoApi__pb2.MasterRuleRequest.SerializeToString(message)
+    origin = papi__pb2.MasterRuleRequest.SerializeToString(message)
     return serialize(origin)
 def MasterGetInquiryTemplateRequest_serializer(message):
-    origin = ProtoApi__pb2.MasterGetInquiryTemplateRequest.SerializeToString(message)
+    origin = papi__pb2.MasterGetInquiryTemplateRequest.SerializeToString(message)
     return serialize(origin)
 def MasterGetHelpCategoryRequest_serializer(message):
-    origin = ProtoApi__pb2.MasterGetHelpCategoryRequest.SerializeToString(message)
+    origin = papi__pb2.MasterGetHelpCategoryRequest.SerializeToString(message)
     return serialize(origin)
 def MasterGetResponse_serializer(message):
-    origin = ProtoApi__pb2.MasterGetResponse.SerializeToString(message)
+    origin = papi__pb2.MasterGetResponse.SerializeToString(message)
     return serialize(origin)
 def MasterRuleResponse_serializer(message):
-    origin = ProtoApi__pb2.MasterRuleResponse.SerializeToString(message)
+    origin = papi__pb2.MasterRuleResponse.SerializeToString(message)
     return serialize(origin)
 def MasterGetInquiryTemplateResponse_serializer(message):
-    origin = ProtoApi__pb2.MasterGetInquiryTemplateResponse.SerializeToString(message)
+    origin = papi__pb2.MasterGetInquiryTemplateResponse.SerializeToString(message)
     return serialize(origin)
 def MasterGetHelpCategoryResponse_serializer(message):
-    origin = ProtoApi__pb2.MasterGetHelpCategoryResponse.SerializeToString(message)
+    origin = papi__pb2.MasterGetHelpCategoryResponse.SerializeToString(message)
     return serialize(origin)
 def Empty_serializer(message):
-    origin = ProtoApi__pb2.Empty.SerializeToString(message)
+    origin = papi__pb2.Empty.SerializeToString(message)
     return serialize(origin)
 def MessageTimelineRequest_serializer(message):
-    origin = ProtoApi__pb2.MessageTimelineRequest.SerializeToString(message)
+    origin = papi__pb2.MessageTimelineRequest.SerializeToString(message)
     return serialize(origin)
 def MessageReceiveRequest_serializer(message):
-    origin = ProtoApi__pb2.MessageReceiveRequest.SerializeToString(message)
+    origin = papi__pb2.MessageReceiveRequest.SerializeToString(message)
     return serialize(origin)
 def MessageSaveRequest_serializer(message):
-    origin = ProtoApi__pb2.MessageSaveRequest.SerializeToString(message)
+    origin = papi__pb2.MessageSaveRequest.SerializeToString(message)
     return serialize(origin)
 def MessageFinishRequest_serializer(message):
-    origin = ProtoApi__pb2.MessageFinishRequest.SerializeToString(message)
+    origin = papi__pb2.MessageFinishRequest.SerializeToString(message)
     return serialize(origin)
 def MessageSaveHistoryRequest_serializer(message):
-    origin = ProtoApi__pb2.MessageSaveHistoryRequest.SerializeToString(message)
+    origin = papi__pb2.MessageSaveHistoryRequest.SerializeToString(message)
     return serialize(origin)
 def MessageListGroupResponse_serializer(message):
-    origin = ProtoApi__pb2.MessageListGroupResponse.SerializeToString(message)
+    origin = papi__pb2.MessageListGroupResponse.SerializeToString(message)
     return serialize(origin)
 def MessageTimelineResponse_serializer(message):
-    origin = ProtoApi__pb2.MessageTimelineResponse.SerializeToString(message)
+    origin = papi__pb2.MessageTimelineResponse.SerializeToString(message)
     return serialize(origin)
 def MessageReceiveResponse_serializer(message):
-    origin = ProtoApi__pb2.MessageReceiveResponse.SerializeToString(message)
+    origin = papi__pb2.MessageReceiveResponse.SerializeToString(message)
     return serialize(origin)
 def MessageSaveResponse_serializer(message):
-    origin = ProtoApi__pb2.MessageSaveResponse.SerializeToString(message)
+    origin = papi__pb2.MessageSaveResponse.SerializeToString(message)
     return serialize(origin)
 def MessageFinishResponse_serializer(message):
-    origin = ProtoApi__pb2.MessageFinishResponse.SerializeToString(message)
+    origin = papi__pb2.MessageFinishResponse.SerializeToString(message)
     return serialize(origin)
 def MessageSaveHistoryResponse_serializer(message):
-    origin = ProtoApi__pb2.MessageSaveHistoryResponse.SerializeToString(message)
+    origin = papi__pb2.MessageSaveHistoryResponse.SerializeToString(message)
     return serialize(origin)
 def Empty_serializer(message):
-    origin = ProtoApi__pb2.Empty.SerializeToString(message)
+    origin = papi__pb2.Empty.SerializeToString(message)
     return serialize(origin)
 def MigrationExecuteRequest_serializer(message):
-    origin = ProtoApi__pb2.MigrationExecuteRequest.SerializeToString(message)
+    origin = papi__pb2.MigrationExecuteRequest.SerializeToString(message)
     return serialize(origin)
 def MigrationSetPasswordRequest_serializer(message):
-    origin = ProtoApi__pb2.MigrationSetPasswordRequest.SerializeToString(message)
+    origin = papi__pb2.MigrationSetPasswordRequest.SerializeToString(message)
     return serialize(origin)
 def MigrationMigratePasswordRequest_serializer(message):
-    origin = ProtoApi__pb2.MigrationMigratePasswordRequest.SerializeToString(message)
+    origin = papi__pb2.MigrationMigratePasswordRequest.SerializeToString(message)
     return serialize(origin)
 def MigrationLinkAppleRequest_serializer(message):
-    origin = ProtoApi__pb2.MigrationLinkAppleRequest.SerializeToString(message)
+    origin = papi__pb2.MigrationLinkAppleRequest.SerializeToString(message)
     return serialize(origin)
 def MigrationMigrateAppleRequest_serializer(message):
-    origin = ProtoApi__pb2.MigrationMigrateAppleRequest.SerializeToString(message)
+    origin = papi__pb2.MigrationMigrateAppleRequest.SerializeToString(message)
     return serialize(origin)
 def MigrationLinkGoogleRequest_serializer(message):
-    origin = ProtoApi__pb2.MigrationLinkGoogleRequest.SerializeToString(message)
+    origin = papi__pb2.MigrationLinkGoogleRequest.SerializeToString(message)
     return serialize(origin)
 def MigrationMigrateGoogleRequest_serializer(message):
-    origin = ProtoApi__pb2.MigrationMigrateGoogleRequest.SerializeToString(message)
+    origin = papi__pb2.MigrationMigrateGoogleRequest.SerializeToString(message)
     return serialize(origin)
 def RequestTwitterOAuthTokenRequest_serializer(message):
-    origin = ProtoApi__pb2.RequestTwitterOAuthTokenRequest.SerializeToString(message)
+    origin = papi__pb2.RequestTwitterOAuthTokenRequest.SerializeToString(message)
     return serialize(origin)
 def MigrationLinkTwitterRequest_serializer(message):
-    origin = ProtoApi__pb2.MigrationLinkTwitterRequest.SerializeToString(message)
+    origin = papi__pb2.MigrationLinkTwitterRequest.SerializeToString(message)
     return serialize(origin)
 def MigrationMigrateTwitterRequest_serializer(message):
-    origin = ProtoApi__pb2.MigrationMigrateTwitterRequest.SerializeToString(message)
+    origin = papi__pb2.MigrationMigrateTwitterRequest.SerializeToString(message)
     return serialize(origin)
 def MigrationUnlinkRequest_serializer(message):
-    origin = ProtoApi__pb2.MigrationUnlinkRequest.SerializeToString(message)
+    origin = papi__pb2.MigrationUnlinkRequest.SerializeToString(message)
     return serialize(origin)
 def MigrationListResponse_serializer(message):
-    origin = ProtoApi__pb2.MigrationListResponse.SerializeToString(message)
+    origin = papi__pb2.MigrationListResponse.SerializeToString(message)
     return serialize(origin)
 def MigrationExecuteResponse_serializer(message):
-    origin = ProtoApi__pb2.MigrationExecuteResponse.SerializeToString(message)
+    origin = papi__pb2.MigrationExecuteResponse.SerializeToString(message)
     return serialize(origin)
 def MigrationSetPasswordResponse_serializer(message):
-    origin = ProtoApi__pb2.MigrationSetPasswordResponse.SerializeToString(message)
+    origin = papi__pb2.MigrationSetPasswordResponse.SerializeToString(message)
     return serialize(origin)
 def MigrationMigrateResponse_serializer(message):
-    origin = ProtoApi__pb2.MigrationMigrateResponse.SerializeToString(message)
+    origin = papi__pb2.MigrationMigrateResponse.SerializeToString(message)
     return serialize(origin)
 def MigrationLinkResponse_serializer(message):
-    origin = ProtoApi__pb2.MigrationLinkResponse.SerializeToString(message)
+    origin = papi__pb2.MigrationLinkResponse.SerializeToString(message)
     return serialize(origin)
 def MigrationMigrateResponse_serializer(message):
-    origin = ProtoApi__pb2.MigrationMigrateResponse.SerializeToString(message)
+    origin = papi__pb2.MigrationMigrateResponse.SerializeToString(message)
     return serialize(origin)
 def MigrationLinkResponse_serializer(message):
-    origin = ProtoApi__pb2.MigrationLinkResponse.SerializeToString(message)
+    origin = papi__pb2.MigrationLinkResponse.SerializeToString(message)
     return serialize(origin)
 def MigrationMigrateResponse_serializer(message):
-    origin = ProtoApi__pb2.MigrationMigrateResponse.SerializeToString(message)
+    origin = papi__pb2.MigrationMigrateResponse.SerializeToString(message)
     return serialize(origin)
 def RequestTwitterOAuthTokenResponse_serializer(message):
-    origin = ProtoApi__pb2.RequestTwitterOAuthTokenResponse.SerializeToString(message)
+    origin = papi__pb2.RequestTwitterOAuthTokenResponse.SerializeToString(message)
     return serialize(origin)
 def MigrationLinkResponse_serializer(message):
-    origin = ProtoApi__pb2.MigrationLinkResponse.SerializeToString(message)
+    origin = papi__pb2.MigrationLinkResponse.SerializeToString(message)
     return serialize(origin)
 def MigrationMigrateResponse_serializer(message):
-    origin = ProtoApi__pb2.MigrationMigrateResponse.SerializeToString(message)
+    origin = papi__pb2.MigrationMigrateResponse.SerializeToString(message)
     return serialize(origin)
 def MigrationUnlinkResponse_serializer(message):
-    origin = ProtoApi__pb2.MigrationUnlinkResponse.SerializeToString(message)
+    origin = papi__pb2.MigrationUnlinkResponse.SerializeToString(message)
     return serialize(origin)
 def Empty_serializer(message):
-    origin = ProtoApi__pb2.Empty.SerializeToString(message)
+    origin = papi__pb2.Empty.SerializeToString(message)
     return serialize(origin)
 def MissionReceiveRequest_serializer(message):
-    origin = ProtoApi__pb2.MissionReceiveRequest.SerializeToString(message)
+    origin = papi__pb2.MissionReceiveRequest.SerializeToString(message)
     return serialize(origin)
 def MissionURLTransitionRequest_serializer(message):
-    origin = ProtoApi__pb2.MissionURLTransitionRequest.SerializeToString(message)
+    origin = papi__pb2.MissionURLTransitionRequest.SerializeToString(message)
     return serialize(origin)
 def MissionEventRequest_serializer(message):
-    origin = ProtoApi__pb2.MissionEventRequest.SerializeToString(message)
+    origin = papi__pb2.MissionEventRequest.SerializeToString(message)
     return serialize(origin)
 def MissionListResponse_serializer(message):
-    origin = ProtoApi__pb2.MissionListResponse.SerializeToString(message)
+    origin = papi__pb2.MissionListResponse.SerializeToString(message)
     return serialize(origin)
 def MissionReceiveResponse_serializer(message):
-    origin = ProtoApi__pb2.MissionReceiveResponse.SerializeToString(message)
+    origin = papi__pb2.MissionReceiveResponse.SerializeToString(message)
     return serialize(origin)
 def MissionURLTransitionResponse_serializer(message):
-    origin = ProtoApi__pb2.MissionURLTransitionResponse.SerializeToString(message)
+    origin = papi__pb2.MissionURLTransitionResponse.SerializeToString(message)
     return serialize(origin)
 def MissionEventResponse_serializer(message):
-    origin = ProtoApi__pb2.MissionEventResponse.SerializeToString(message)
+    origin = papi__pb2.MissionEventResponse.SerializeToString(message)
     return serialize(origin)
 def MosaicTopRequest_serializer(message):
-    origin = ProtoApi__pb2.MosaicTopRequest.SerializeToString(message)
+    origin = papi__pb2.MosaicTopRequest.SerializeToString(message)
     return serialize(origin)
 def MosaicExchangeRequest_serializer(message):
-    origin = ProtoApi__pb2.MosaicExchangeRequest.SerializeToString(message)
+    origin = papi__pb2.MosaicExchangeRequest.SerializeToString(message)
     return serialize(origin)
 def MosaicReceiveTotalConsumptionRewardRequest_serializer(message):
-    origin = ProtoApi__pb2.MosaicReceiveTotalConsumptionRewardRequest.SerializeToString(message)
+    origin = papi__pb2.MosaicReceiveTotalConsumptionRewardRequest.SerializeToString(message)
     return serialize(origin)
 def MosaicTopResponse_serializer(message):
-    origin = ProtoApi__pb2.MosaicTopResponse.SerializeToString(message)
+    origin = papi__pb2.MosaicTopResponse.SerializeToString(message)
     return serialize(origin)
 def MosaicExchangeResponse_serializer(message):
-    origin = ProtoApi__pb2.MosaicExchangeResponse.SerializeToString(message)
+    origin = papi__pb2.MosaicExchangeResponse.SerializeToString(message)
     return serialize(origin)
 def MosaicReceiveTotalConsumptionRewardResponse_serializer(message):
-    origin = ProtoApi__pb2.MosaicReceiveTotalConsumptionRewardResponse.SerializeToString(message)
+    origin = papi__pb2.MosaicReceiveTotalConsumptionRewardResponse.SerializeToString(message)
     return serialize(origin)
 def Empty_serializer(message):
-    origin = ProtoApi__pb2.Empty.SerializeToString(message)
+    origin = papi__pb2.Empty.SerializeToString(message)
     return serialize(origin)
 def NoticeFetchRequest_serializer(message):
-    origin = ProtoApi__pb2.NoticeFetchRequest.SerializeToString(message)
+    origin = papi__pb2.NoticeFetchRequest.SerializeToString(message)
     return serialize(origin)
 def NoticeGetRequest_serializer(message):
-    origin = ProtoApi__pb2.NoticeGetRequest.SerializeToString(message)
+    origin = papi__pb2.NoticeGetRequest.SerializeToString(message)
     return serialize(origin)
 def NoticeListResponse_serializer(message):
-    origin = ProtoApi__pb2.NoticeListResponse.SerializeToString(message)
+    origin = papi__pb2.NoticeListResponse.SerializeToString(message)
     return serialize(origin)
 def NoticeFetchResponse_serializer(message):
-    origin = ProtoApi__pb2.NoticeFetchResponse.SerializeToString(message)
+    origin = papi__pb2.NoticeFetchResponse.SerializeToString(message)
     return serialize(origin)
 def NoticeGetResponse_serializer(message):
-    origin = ProtoApi__pb2.NoticeGetResponse.SerializeToString(message)
+    origin = papi__pb2.NoticeGetResponse.SerializeToString(message)
     return serialize(origin)
 def PhotoContestTopRequest_serializer(message):
-    origin = ProtoApi__pb2.PhotoContestTopRequest.SerializeToString(message)
+    origin = papi__pb2.PhotoContestTopRequest.SerializeToString(message)
     return serialize(origin)
 def PhotoContestListPhotoRequest_serializer(message):
-    origin = ProtoApi__pb2.PhotoContestListPhotoRequest.SerializeToString(message)
+    origin = papi__pb2.PhotoContestListPhotoRequest.SerializeToString(message)
     return serialize(origin)
 def PhotoContestRankingRequest_serializer(message):
-    origin = ProtoApi__pb2.PhotoContestRankingRequest.SerializeToString(message)
+    origin = papi__pb2.PhotoContestRankingRequest.SerializeToString(message)
     return serialize(origin)
 def PhotoContestReceiveSectionRewardsRequest_serializer(message):
-    origin = ProtoApi__pb2.PhotoContestReceiveSectionRewardsRequest.SerializeToString(message)
+    origin = papi__pb2.PhotoContestReceiveSectionRewardsRequest.SerializeToString(message)
     return serialize(origin)
 def PhotoContestCheckShootingRequest_serializer(message):
-    origin = ProtoApi__pb2.PhotoContestCheckShootingRequest.SerializeToString(message)
+    origin = papi__pb2.PhotoContestCheckShootingRequest.SerializeToString(message)
     return serialize(origin)
 def PhotoContestSubmitShootingRequest_serializer(message):
-    origin = ProtoApi__pb2.PhotoContestSubmitShootingRequest.SerializeToString(message)
+    origin = papi__pb2.PhotoContestSubmitShootingRequest.SerializeToString(message)
     return serialize(origin)
 def PhotoContestCreateShootingRequest_serializer(message):
-    origin = ProtoApi__pb2.PhotoContestCreateShootingRequest.SerializeToString(message)
+    origin = papi__pb2.PhotoContestCreateShootingRequest.SerializeToString(message)
     return serialize(origin)
 def PhotoContestTopResponse_serializer(message):
-    origin = ProtoApi__pb2.PhotoContestTopResponse.SerializeToString(message)
+    origin = papi__pb2.PhotoContestTopResponse.SerializeToString(message)
     return serialize(origin)
 def PhotoContestListPhotoResponse_serializer(message):
-    origin = ProtoApi__pb2.PhotoContestListPhotoResponse.SerializeToString(message)
+    origin = papi__pb2.PhotoContestListPhotoResponse.SerializeToString(message)
     return serialize(origin)
 def PhotoContestRankingResponse_serializer(message):
-    origin = ProtoApi__pb2.PhotoContestRankingResponse.SerializeToString(message)
+    origin = papi__pb2.PhotoContestRankingResponse.SerializeToString(message)
     return serialize(origin)
 def PhotoContestReceiveSectionRewardsResponse_serializer(message):
-    origin = ProtoApi__pb2.PhotoContestReceiveSectionRewardsResponse.SerializeToString(message)
+    origin = papi__pb2.PhotoContestReceiveSectionRewardsResponse.SerializeToString(message)
     return serialize(origin)
 def PhotoContestCheckShootingResponse_serializer(message):
-    origin = ProtoApi__pb2.PhotoContestCheckShootingResponse.SerializeToString(message)
+    origin = papi__pb2.PhotoContestCheckShootingResponse.SerializeToString(message)
     return serialize(origin)
 def PhotoContestSubmitShootingResponse_serializer(message):
-    origin = ProtoApi__pb2.PhotoContestSubmitShootingResponse.SerializeToString(message)
+    origin = papi__pb2.PhotoContestSubmitShootingResponse.SerializeToString(message)
     return serialize(origin)
 def PhotoContestCreateShootingResponse_serializer(message):
-    origin = ProtoApi__pb2.PhotoContestCreateShootingResponse.SerializeToString(message)
+    origin = papi__pb2.PhotoContestCreateShootingResponse.SerializeToString(message)
     return serialize(origin)
 def PhotoSwitchLockRequest_serializer(message):
-    origin = ProtoApi__pb2.PhotoSwitchLockRequest.SerializeToString(message)
+    origin = papi__pb2.PhotoSwitchLockRequest.SerializeToString(message)
     return serialize(origin)
 def PhotoDeleteRequest_serializer(message):
-    origin = ProtoApi__pb2.PhotoDeleteRequest.SerializeToString(message)
+    origin = papi__pb2.PhotoDeleteRequest.SerializeToString(message)
     return serialize(origin)
 def PhotoEnhanceRequest_serializer(message):
-    origin = ProtoApi__pb2.PhotoEnhanceRequest.SerializeToString(message)
+    origin = papi__pb2.PhotoEnhanceRequest.SerializeToString(message)
     return serialize(origin)
 def PhotoRerollRequest_serializer(message):
-    origin = ProtoApi__pb2.PhotoRerollRequest.SerializeToString(message)
+    origin = papi__pb2.PhotoRerollRequest.SerializeToString(message)
     return serialize(origin)
 def PhotoRetouchRequest_serializer(message):
-    origin = ProtoApi__pb2.PhotoRetouchRequest.SerializeToString(message)
+    origin = papi__pb2.PhotoRetouchRequest.SerializeToString(message)
     return serialize(origin)
 def PhotoUpdateRequest_serializer(message):
-    origin = ProtoApi__pb2.PhotoUpdateRequest.SerializeToString(message)
+    origin = papi__pb2.PhotoUpdateRequest.SerializeToString(message)
     return serialize(origin)
 def Empty_serializer(message):
-    origin = ProtoApi__pb2.Empty.SerializeToString(message)
+    origin = papi__pb2.Empty.SerializeToString(message)
     return serialize(origin)
 def PhotoGetImageUrlRequest_serializer(message):
-    origin = ProtoApi__pb2.PhotoGetImageUrlRequest.SerializeToString(message)
+    origin = papi__pb2.PhotoGetImageUrlRequest.SerializeToString(message)
     return serialize(origin)
 def PhotoCheckShootingRequest_serializer(message):
-    origin = ProtoApi__pb2.PhotoCheckShootingRequest.SerializeToString(message)
+    origin = papi__pb2.PhotoCheckShootingRequest.SerializeToString(message)
     return serialize(origin)
 def PhotoCreateShootingsRequest_serializer(message):
-    origin = ProtoApi__pb2.PhotoCreateShootingsRequest.SerializeToString(message)
+    origin = papi__pb2.PhotoCreateShootingsRequest.SerializeToString(message)
     return serialize(origin)
 def Empty_serializer(message):
-    origin = ProtoApi__pb2.Empty.SerializeToString(message)
+    origin = papi__pb2.Empty.SerializeToString(message)
     return serialize(origin)
 def Empty_serializer(message):
-    origin = ProtoApi__pb2.Empty.SerializeToString(message)
+    origin = papi__pb2.Empty.SerializeToString(message)
     return serialize(origin)
 def PhotoSaleRecipeRequest_serializer(message):
-    origin = ProtoApi__pb2.PhotoSaleRecipeRequest.SerializeToString(message)
+    origin = papi__pb2.PhotoSaleRecipeRequest.SerializeToString(message)
     return serialize(origin)
 def PhotoListSpecialShootingRequest_serializer(message):
-    origin = ProtoApi__pb2.PhotoListSpecialShootingRequest.SerializeToString(message)
+    origin = papi__pb2.PhotoListSpecialShootingRequest.SerializeToString(message)
     return serialize(origin)
 def PhotoCheckSpecialShootingRequest_serializer(message):
-    origin = ProtoApi__pb2.PhotoCheckSpecialShootingRequest.SerializeToString(message)
+    origin = papi__pb2.PhotoCheckSpecialShootingRequest.SerializeToString(message)
     return serialize(origin)
 def PhotoCreateSpecialShootingsRequest_serializer(message):
-    origin = ProtoApi__pb2.PhotoCreateSpecialShootingsRequest.SerializeToString(message)
+    origin = papi__pb2.PhotoCreateSpecialShootingsRequest.SerializeToString(message)
     return serialize(origin)
 def GetDreamBasePhotoEnhanceLevelInfosRequest_serializer(message):
-    origin = ProtoApi__pb2.GetDreamBasePhotoEnhanceLevelInfosRequest.SerializeToString(message)
+    origin = papi__pb2.GetDreamBasePhotoEnhanceLevelInfosRequest.SerializeToString(message)
     return serialize(origin)
 def PhotoActivateStoryEpisodeShootingRequest_serializer(message):
-    origin = ProtoApi__pb2.PhotoActivateStoryEpisodeShootingRequest.SerializeToString(message)
+    origin = papi__pb2.PhotoActivateStoryEpisodeShootingRequest.SerializeToString(message)
     return serialize(origin)
 def PhotoCheckStoryEpisodeShootingRequest_serializer(message):
-    origin = ProtoApi__pb2.PhotoCheckStoryEpisodeShootingRequest.SerializeToString(message)
+    origin = papi__pb2.PhotoCheckStoryEpisodeShootingRequest.SerializeToString(message)
     return serialize(origin)
 def PhotoCheckCardStoryShootingRequest_serializer(message):
-    origin = ProtoApi__pb2.PhotoCheckCardStoryShootingRequest.SerializeToString(message)
+    origin = papi__pb2.PhotoCheckCardStoryShootingRequest.SerializeToString(message)
     return serialize(origin)
 def PhotoCreateStoryEpisodeShootingsRequest_serializer(message):
-    origin = ProtoApi__pb2.PhotoCreateStoryEpisodeShootingsRequest.SerializeToString(message)
+    origin = papi__pb2.PhotoCreateStoryEpisodeShootingsRequest.SerializeToString(message)
     return serialize(origin)
 def PhotoCreateCardStoryShootingsRequest_serializer(message):
-    origin = ProtoApi__pb2.PhotoCreateCardStoryShootingsRequest.SerializeToString(message)
+    origin = papi__pb2.PhotoCreateCardStoryShootingsRequest.SerializeToString(message)
     return serialize(origin)
 def PhotoCheckExpressionShootingRequest_serializer(message):
-    origin = ProtoApi__pb2.PhotoCheckExpressionShootingRequest.SerializeToString(message)
+    origin = papi__pb2.PhotoCheckExpressionShootingRequest.SerializeToString(message)
     return serialize(origin)
 def PhotoCreateExpressionShootingsRequest_serializer(message):
-    origin = ProtoApi__pb2.PhotoCreateExpressionShootingsRequest.SerializeToString(message)
+    origin = papi__pb2.PhotoCreateExpressionShootingsRequest.SerializeToString(message)
     return serialize(origin)
 def PhotoSwitchLockResponse_serializer(message):
-    origin = ProtoApi__pb2.PhotoSwitchLockResponse.SerializeToString(message)
+    origin = papi__pb2.PhotoSwitchLockResponse.SerializeToString(message)
     return serialize(origin)
 def PhotoDeleteResponse_serializer(message):
-    origin = ProtoApi__pb2.PhotoDeleteResponse.SerializeToString(message)
+    origin = papi__pb2.PhotoDeleteResponse.SerializeToString(message)
     return serialize(origin)
 def PhotoEnhanceResponse_serializer(message):
-    origin = ProtoApi__pb2.PhotoEnhanceResponse.SerializeToString(message)
+    origin = papi__pb2.PhotoEnhanceResponse.SerializeToString(message)
     return serialize(origin)
 def PhotoRerollResponse_serializer(message):
-    origin = ProtoApi__pb2.PhotoRerollResponse.SerializeToString(message)
+    origin = papi__pb2.PhotoRerollResponse.SerializeToString(message)
     return serialize(origin)
 def PhotoRetouchResponse_serializer(message):
-    origin = ProtoApi__pb2.PhotoRetouchResponse.SerializeToString(message)
+    origin = papi__pb2.PhotoRetouchResponse.SerializeToString(message)
     return serialize(origin)
 def PhotoUpdateResponse_serializer(message):
-    origin = ProtoApi__pb2.PhotoUpdateResponse.SerializeToString(message)
+    origin = papi__pb2.PhotoUpdateResponse.SerializeToString(message)
     return serialize(origin)
 def PhotoReportResponse_serializer(message):
-    origin = ProtoApi__pb2.PhotoReportResponse.SerializeToString(message)
+    origin = papi__pb2.PhotoReportResponse.SerializeToString(message)
     return serialize(origin)
 def PhotoGetImageUrlResponse_serializer(message):
-    origin = ProtoApi__pb2.PhotoGetImageUrlResponse.SerializeToString(message)
+    origin = papi__pb2.PhotoGetImageUrlResponse.SerializeToString(message)
     return serialize(origin)
 def PhotoCheckShootingResponse_serializer(message):
-    origin = ProtoApi__pb2.PhotoCheckShootingResponse.SerializeToString(message)
+    origin = papi__pb2.PhotoCheckShootingResponse.SerializeToString(message)
     return serialize(origin)
 def PhotoCreateShootingsResponse_serializer(message):
-    origin = ProtoApi__pb2.PhotoCreateShootingsResponse.SerializeToString(message)
+    origin = papi__pb2.PhotoCreateShootingsResponse.SerializeToString(message)
     return serialize(origin)
 def PhotoListShootingResponse_serializer(message):
-    origin = ProtoApi__pb2.PhotoListShootingResponse.SerializeToString(message)
+    origin = papi__pb2.PhotoListShootingResponse.SerializeToString(message)
     return serialize(origin)
 def PhotoExtendLimitResponse_serializer(message):
-    origin = ProtoApi__pb2.PhotoExtendLimitResponse.SerializeToString(message)
+    origin = papi__pb2.PhotoExtendLimitResponse.SerializeToString(message)
     return serialize(origin)
 def PhotoSaleRecipeResponse_serializer(message):
-    origin = ProtoApi__pb2.PhotoSaleRecipeResponse.SerializeToString(message)
+    origin = papi__pb2.PhotoSaleRecipeResponse.SerializeToString(message)
     return serialize(origin)
 def PhotoListSpecialShootingResponse_serializer(message):
-    origin = ProtoApi__pb2.PhotoListSpecialShootingResponse.SerializeToString(message)
+    origin = papi__pb2.PhotoListSpecialShootingResponse.SerializeToString(message)
     return serialize(origin)
 def PhotoCheckSpecialShootingResponse_serializer(message):
-    origin = ProtoApi__pb2.PhotoCheckSpecialShootingResponse.SerializeToString(message)
+    origin = papi__pb2.PhotoCheckSpecialShootingResponse.SerializeToString(message)
     return serialize(origin)
 def PhotoCreateSpecialShootingsResponse_serializer(message):
-    origin = ProtoApi__pb2.PhotoCreateSpecialShootingsResponse.SerializeToString(message)
+    origin = papi__pb2.PhotoCreateSpecialShootingsResponse.SerializeToString(message)
     return serialize(origin)
 def GetDreamBasePhotoEnhanceLevelInfosResponse_serializer(message):
-    origin = ProtoApi__pb2.GetDreamBasePhotoEnhanceLevelInfosResponse.SerializeToString(message)
+    origin = papi__pb2.GetDreamBasePhotoEnhanceLevelInfosResponse.SerializeToString(message)
     return serialize(origin)
 def PhotoActivateStoryEpisodeShootingResponse_serializer(message):
-    origin = ProtoApi__pb2.PhotoActivateStoryEpisodeShootingResponse.SerializeToString(message)
+    origin = papi__pb2.PhotoActivateStoryEpisodeShootingResponse.SerializeToString(message)
     return serialize(origin)
 def PhotoCheckStoryEpisodeShootingResponse_serializer(message):
-    origin = ProtoApi__pb2.PhotoCheckStoryEpisodeShootingResponse.SerializeToString(message)
+    origin = papi__pb2.PhotoCheckStoryEpisodeShootingResponse.SerializeToString(message)
     return serialize(origin)
 def PhotoCheckCardStoryShootingResponse_serializer(message):
-    origin = ProtoApi__pb2.PhotoCheckCardStoryShootingResponse.SerializeToString(message)
+    origin = papi__pb2.PhotoCheckCardStoryShootingResponse.SerializeToString(message)
     return serialize(origin)
 def PhotoCreateStoryEpisodeShootingsResponse_serializer(message):
-    origin = ProtoApi__pb2.PhotoCreateStoryEpisodeShootingsResponse.SerializeToString(message)
+    origin = papi__pb2.PhotoCreateStoryEpisodeShootingsResponse.SerializeToString(message)
     return serialize(origin)
 def PhotoCreateCardStoryShootingsResponse_serializer(message):
-    origin = ProtoApi__pb2.PhotoCreateCardStoryShootingsResponse.SerializeToString(message)
+    origin = papi__pb2.PhotoCreateCardStoryShootingsResponse.SerializeToString(message)
     return serialize(origin)
 def PhotoCheckExpressionShootingResponse_serializer(message):
-    origin = ProtoApi__pb2.PhotoCheckExpressionShootingResponse.SerializeToString(message)
+    origin = papi__pb2.PhotoCheckExpressionShootingResponse.SerializeToString(message)
     return serialize(origin)
 def PhotoCreateExpressionShootingsResponse_serializer(message):
-    origin = ProtoApi__pb2.PhotoCreateExpressionShootingsResponse.SerializeToString(message)
+    origin = papi__pb2.PhotoCreateExpressionShootingsResponse.SerializeToString(message)
     return serialize(origin)
 def Empty_serializer(message):
-    origin = ProtoApi__pb2.Empty.SerializeToString(message)
+    origin = papi__pb2.Empty.SerializeToString(message)
     return serialize(origin)
 def ProfileFindUserRequest_serializer(message):
-    origin = ProtoApi__pb2.ProfileFindUserRequest.SerializeToString(message)
+    origin = papi__pb2.ProfileFindUserRequest.SerializeToString(message)
     return serialize(origin)
 def ProfileUpdateNameRequest_serializer(message):
-    origin = ProtoApi__pb2.ProfileUpdateNameRequest.SerializeToString(message)
+    origin = papi__pb2.ProfileUpdateNameRequest.SerializeToString(message)
     return serialize(origin)
 def ProfileUpdateMessageRequest_serializer(message):
-    origin = ProtoApi__pb2.ProfileUpdateMessageRequest.SerializeToString(message)
+    origin = papi__pb2.ProfileUpdateMessageRequest.SerializeToString(message)
     return serialize(origin)
 def ProfileUpdateBackgroundRequest_serializer(message):
-    origin = ProtoApi__pb2.ProfileUpdateBackgroundRequest.SerializeToString(message)
+    origin = papi__pb2.ProfileUpdateBackgroundRequest.SerializeToString(message)
     return serialize(origin)
 def ProfileUpdateFavoriteCharactersRequest_serializer(message):
-    origin = ProtoApi__pb2.ProfileUpdateFavoriteCharactersRequest.SerializeToString(message)
+    origin = papi__pb2.ProfileUpdateFavoriteCharactersRequest.SerializeToString(message)
     return serialize(origin)
 def ProfileUpdateDecorationRequest_serializer(message):
-    origin = ProtoApi__pb2.ProfileUpdateDecorationRequest.SerializeToString(message)
+    origin = papi__pb2.ProfileUpdateDecorationRequest.SerializeToString(message)
     return serialize(origin)
 def ProfileUpdateEmblemRequest_serializer(message):
-    origin = ProtoApi__pb2.ProfileUpdateEmblemRequest.SerializeToString(message)
+    origin = papi__pb2.ProfileUpdateEmblemRequest.SerializeToString(message)
     return serialize(origin)
 def ProfileUpdateLayoutRequest_serializer(message):
-    origin = ProtoApi__pb2.ProfileUpdateLayoutRequest.SerializeToString(message)
+    origin = papi__pb2.ProfileUpdateLayoutRequest.SerializeToString(message)
     return serialize(origin)
 def Empty_serializer(message):
-    origin = ProtoApi__pb2.Empty.SerializeToString(message)
+    origin = papi__pb2.Empty.SerializeToString(message)
     return serialize(origin)
 def ProfileUpdateBuddyCardRequest_serializer(message):
-    origin = ProtoApi__pb2.ProfileUpdateBuddyCardRequest.SerializeToString(message)
+    origin = papi__pb2.ProfileUpdateBuddyCardRequest.SerializeToString(message)
     return serialize(origin)
 def ProfileUpdateBirthdayRequest_serializer(message):
-    origin = ProtoApi__pb2.ProfileUpdateBirthdayRequest.SerializeToString(message)
+    origin = papi__pb2.ProfileUpdateBirthdayRequest.SerializeToString(message)
     return serialize(origin)
 def ProfileTopResponse_serializer(message):
-    origin = ProtoApi__pb2.ProfileTopResponse.SerializeToString(message)
+    origin = papi__pb2.ProfileTopResponse.SerializeToString(message)
     return serialize(origin)
 def ProfileFindUserResponse_serializer(message):
-    origin = ProtoApi__pb2.ProfileFindUserResponse.SerializeToString(message)
+    origin = papi__pb2.ProfileFindUserResponse.SerializeToString(message)
     return serialize(origin)
 def ProfileUpdateNameResponse_serializer(message):
-    origin = ProtoApi__pb2.ProfileUpdateNameResponse.SerializeToString(message)
+    origin = papi__pb2.ProfileUpdateNameResponse.SerializeToString(message)
     return serialize(origin)
 def ProfileUpdateMessageResponse_serializer(message):
-    origin = ProtoApi__pb2.ProfileUpdateMessageResponse.SerializeToString(message)
+    origin = papi__pb2.ProfileUpdateMessageResponse.SerializeToString(message)
     return serialize(origin)
 def ProfileUpdateBackgroundResponse_serializer(message):
-    origin = ProtoApi__pb2.ProfileUpdateBackgroundResponse.SerializeToString(message)
+    origin = papi__pb2.ProfileUpdateBackgroundResponse.SerializeToString(message)
     return serialize(origin)
 def ProfileUpdateFavoriteCharactersResponse_serializer(message):
-    origin = ProtoApi__pb2.ProfileUpdateFavoriteCharactersResponse.SerializeToString(message)
+    origin = papi__pb2.ProfileUpdateFavoriteCharactersResponse.SerializeToString(message)
     return serialize(origin)
 def ProfileUpdateDecorationResponse_serializer(message):
-    origin = ProtoApi__pb2.ProfileUpdateDecorationResponse.SerializeToString(message)
+    origin = papi__pb2.ProfileUpdateDecorationResponse.SerializeToString(message)
     return serialize(origin)
 def ProfileUpdateEmblemResponse_serializer(message):
-    origin = ProtoApi__pb2.ProfileUpdateEmblemResponse.SerializeToString(message)
+    origin = papi__pb2.ProfileUpdateEmblemResponse.SerializeToString(message)
     return serialize(origin)
 def ProfileUpdateLayoutResponse_serializer(message):
-    origin = ProtoApi__pb2.ProfileUpdateLayoutResponse.SerializeToString(message)
+    origin = papi__pb2.ProfileUpdateLayoutResponse.SerializeToString(message)
     return serialize(origin)
 def ProfileClearTwitterMissionResponse_serializer(message):
-    origin = ProtoApi__pb2.ProfileClearTwitterMissionResponse.SerializeToString(message)
+    origin = papi__pb2.ProfileClearTwitterMissionResponse.SerializeToString(message)
     return serialize(origin)
 def ProfileUpdateBuddyCardResponse_serializer(message):
-    origin = ProtoApi__pb2.ProfileUpdateBuddyCardResponse.SerializeToString(message)
+    origin = papi__pb2.ProfileUpdateBuddyCardResponse.SerializeToString(message)
     return serialize(origin)
 def ProfileUpdateBirthdayResponse_serializer(message):
-    origin = ProtoApi__pb2.ProfileUpdateBirthdayResponse.SerializeToString(message)
+    origin = papi__pb2.ProfileUpdateBirthdayResponse.SerializeToString(message)
     return serialize(origin)
 def Empty_serializer(message):
-    origin = ProtoApi__pb2.Empty.SerializeToString(message)
+    origin = papi__pb2.Empty.SerializeToString(message)
     return serialize(origin)
 def PvpListOpponentRequest_serializer(message):
-    origin = ProtoApi__pb2.PvpListOpponentRequest.SerializeToString(message)
+    origin = papi__pb2.PvpListOpponentRequest.SerializeToString(message)
     return serialize(origin)
 def PvpListRankingRequest_serializer(message):
-    origin = ProtoApi__pb2.PvpListRankingRequest.SerializeToString(message)
+    origin = papi__pb2.PvpListRankingRequest.SerializeToString(message)
     return serialize(origin)
 def PvpStartRequest_serializer(message):
-    origin = ProtoApi__pb2.PvpStartRequest.SerializeToString(message)
+    origin = papi__pb2.PvpStartRequest.SerializeToString(message)
     return serialize(origin)
 def PvpListAssetRequest_serializer(message):
-    origin = ProtoApi__pb2.PvpListAssetRequest.SerializeToString(message)
+    origin = papi__pb2.PvpListAssetRequest.SerializeToString(message)
     return serialize(origin)
 def PvpTopResponse_serializer(message):
-    origin = ProtoApi__pb2.PvpTopResponse.SerializeToString(message)
+    origin = papi__pb2.PvpTopResponse.SerializeToString(message)
     return serialize(origin)
 def PvpListOpponentResponse_serializer(message):
-    origin = ProtoApi__pb2.PvpListOpponentResponse.SerializeToString(message)
+    origin = papi__pb2.PvpListOpponentResponse.SerializeToString(message)
     return serialize(origin)
 def PvpListRankingResponse_serializer(message):
-    origin = ProtoApi__pb2.PvpListRankingResponse.SerializeToString(message)
+    origin = papi__pb2.PvpListRankingResponse.SerializeToString(message)
     return serialize(origin)
 def PvpStartResponse_serializer(message):
-    origin = ProtoApi__pb2.PvpStartResponse.SerializeToString(message)
+    origin = papi__pb2.PvpStartResponse.SerializeToString(message)
     return serialize(origin)
 def PvpListAssetResponse_serializer(message):
-    origin = ProtoApi__pb2.PvpListAssetResponse.SerializeToString(message)
+    origin = papi__pb2.PvpListAssetResponse.SerializeToString(message)
     return serialize(origin)
 def Empty_serializer(message):
-    origin = ProtoApi__pb2.Empty.SerializeToString(message)
+    origin = papi__pb2.Empty.SerializeToString(message)
     return serialize(origin)
 def Empty_serializer(message):
-    origin = ProtoApi__pb2.Empty.SerializeToString(message)
+    origin = papi__pb2.Empty.SerializeToString(message)
     return serialize(origin)
 def Empty_serializer(message):
-    origin = ProtoApi__pb2.Empty.SerializeToString(message)
+    origin = papi__pb2.Empty.SerializeToString(message)
     return serialize(origin)
 def Empty_serializer(message):
-    origin = ProtoApi__pb2.Empty.SerializeToString(message)
+    origin = papi__pb2.Empty.SerializeToString(message)
     return serialize(origin)
 def Empty_serializer(message):
-    origin = ProtoApi__pb2.Empty.SerializeToString(message)
+    origin = papi__pb2.Empty.SerializeToString(message)
     return serialize(origin)
 def QuestStartRequest_serializer(message):
-    origin = ProtoApi__pb2.QuestStartRequest.SerializeToString(message)
+    origin = papi__pb2.QuestStartRequest.SerializeToString(message)
     return serialize(origin)
 def Empty_serializer(message):
-    origin = ProtoApi__pb2.Empty.SerializeToString(message)
+    origin = papi__pb2.Empty.SerializeToString(message)
     return serialize(origin)
 def QuestListTowerRankingRequest_serializer(message):
-    origin = ProtoApi__pb2.QuestListTowerRankingRequest.SerializeToString(message)
+    origin = papi__pb2.QuestListTowerRankingRequest.SerializeToString(message)
     return serialize(origin)
 def QuestListContestRankingRequest_serializer(message):
-    origin = ProtoApi__pb2.QuestListContestRankingRequest.SerializeToString(message)
+    origin = papi__pb2.QuestListContestRankingRequest.SerializeToString(message)
     return serialize(origin)
 def QuestListLatestClearRequest_serializer(message):
-    origin = ProtoApi__pb2.QuestListLatestClearRequest.SerializeToString(message)
+    origin = papi__pb2.QuestListLatestClearRequest.SerializeToString(message)
     return serialize(origin)
 def QuestListAssetRequest_serializer(message):
-    origin = ProtoApi__pb2.QuestListAssetRequest.SerializeToString(message)
+    origin = papi__pb2.QuestListAssetRequest.SerializeToString(message)
     return serialize(origin)
 def QuestGetLatestClearLiveResultRequest_serializer(message):
-    origin = ProtoApi__pb2.QuestGetLatestClearLiveResultRequest.SerializeToString(message)
+    origin = papi__pb2.QuestGetLatestClearLiveResultRequest.SerializeToString(message)
     return serialize(origin)
 def QuestGetRankingLiveResultRequest_serializer(message):
-    origin = ProtoApi__pb2.QuestGetRankingLiveResultRequest.SerializeToString(message)
+    origin = papi__pb2.QuestGetRankingLiveResultRequest.SerializeToString(message)
     return serialize(origin)
 def Empty_serializer(message):
-    origin = ProtoApi__pb2.Empty.SerializeToString(message)
+    origin = papi__pb2.Empty.SerializeToString(message)
     return serialize(origin)
 def OutputLiveResultDetailLogRequest_serializer(message):
-    origin = ProtoApi__pb2.OutputLiveResultDetailLogRequest.SerializeToString(message)
+    origin = papi__pb2.OutputLiveResultDetailLogRequest.SerializeToString(message)
     return serialize(origin)
 def QuestTopResponse_serializer(message):
-    origin = ProtoApi__pb2.QuestTopResponse.SerializeToString(message)
+    origin = papi__pb2.QuestTopResponse.SerializeToString(message)
     return serialize(origin)
 def QuestListMainResponse_serializer(message):
-    origin = ProtoApi__pb2.QuestListMainResponse.SerializeToString(message)
+    origin = papi__pb2.QuestListMainResponse.SerializeToString(message)
     return serialize(origin)
 def QuestListDailyResponse_serializer(message):
-    origin = ProtoApi__pb2.QuestListDailyResponse.SerializeToString(message)
+    origin = papi__pb2.QuestListDailyResponse.SerializeToString(message)
     return serialize(origin)
 def QuestListContestResponse_serializer(message):
-    origin = ProtoApi__pb2.QuestListContestResponse.SerializeToString(message)
+    origin = papi__pb2.QuestListContestResponse.SerializeToString(message)
     return serialize(origin)
 def QuestListTowerResponse_serializer(message):
-    origin = ProtoApi__pb2.QuestListTowerResponse.SerializeToString(message)
+    origin = papi__pb2.QuestListTowerResponse.SerializeToString(message)
     return serialize(origin)
 def QuestStartResponse_serializer(message):
-    origin = ProtoApi__pb2.QuestStartResponse.SerializeToString(message)
+    origin = papi__pb2.QuestStartResponse.SerializeToString(message)
     return serialize(origin)
 def QuestStartBulkDailyResponse_serializer(message):
-    origin = ProtoApi__pb2.QuestStartBulkDailyResponse.SerializeToString(message)
+    origin = papi__pb2.QuestStartBulkDailyResponse.SerializeToString(message)
     return serialize(origin)
 def QuestListTowerRankingResponse_serializer(message):
-    origin = ProtoApi__pb2.QuestListTowerRankingResponse.SerializeToString(message)
+    origin = papi__pb2.QuestListTowerRankingResponse.SerializeToString(message)
     return serialize(origin)
 def QuestListContestRankingResponse_serializer(message):
-    origin = ProtoApi__pb2.QuestListContestRankingResponse.SerializeToString(message)
+    origin = papi__pb2.QuestListContestRankingResponse.SerializeToString(message)
     return serialize(origin)
 def QuestListLatestClearResponse_serializer(message):
-    origin = ProtoApi__pb2.QuestListLatestClearResponse.SerializeToString(message)
+    origin = papi__pb2.QuestListLatestClearResponse.SerializeToString(message)
     return serialize(origin)
 def QuestListAssetResponse_serializer(message):
-    origin = ProtoApi__pb2.QuestListAssetResponse.SerializeToString(message)
+    origin = papi__pb2.QuestListAssetResponse.SerializeToString(message)
     return serialize(origin)
 def QuestGetLatestClearLiveResultResponse_serializer(message):
-    origin = ProtoApi__pb2.QuestGetLatestClearLiveResultResponse.SerializeToString(message)
+    origin = papi__pb2.QuestGetLatestClearLiveResultResponse.SerializeToString(message)
     return serialize(origin)
 def QuestGetRankingLiveResultResponse_serializer(message):
-    origin = ProtoApi__pb2.QuestGetRankingLiveResultResponse.SerializeToString(message)
+    origin = papi__pb2.QuestGetRankingLiveResultResponse.SerializeToString(message)
     return serialize(origin)
 def QuestTowerTopResponse_serializer(message):
-    origin = ProtoApi__pb2.QuestTowerTopResponse.SerializeToString(message)
+    origin = papi__pb2.QuestTowerTopResponse.SerializeToString(message)
     return serialize(origin)
 def OutputLiveResultDetailLogResponse_serializer(message):
-    origin = ProtoApi__pb2.OutputLiveResultDetailLogResponse.SerializeToString(message)
+    origin = papi__pb2.OutputLiveResultDetailLogResponse.SerializeToString(message)
     return serialize(origin)
 def RaceTopRequest_serializer(message):
-    origin = ProtoApi__pb2.RaceTopRequest.SerializeToString(message)
+    origin = papi__pb2.RaceTopRequest.SerializeToString(message)
     return serialize(origin)
 def RaceMovePanelRequest_serializer(message):
-    origin = ProtoApi__pb2.RaceMovePanelRequest.SerializeToString(message)
+    origin = papi__pb2.RaceMovePanelRequest.SerializeToString(message)
     return serialize(origin)
 def RaceReceiveActivityLessonRequest_serializer(message):
-    origin = ProtoApi__pb2.RaceReceiveActivityLessonRequest.SerializeToString(message)
+    origin = papi__pb2.RaceReceiveActivityLessonRequest.SerializeToString(message)
     return serialize(origin)
 def RaceEnhanceLiveBonusRequest_serializer(message):
-    origin = ProtoApi__pb2.RaceEnhanceLiveBonusRequest.SerializeToString(message)
+    origin = papi__pb2.RaceEnhanceLiveBonusRequest.SerializeToString(message)
     return serialize(origin)
 def RaceResetLiveBonusRequest_serializer(message):
-    origin = ProtoApi__pb2.RaceResetLiveBonusRequest.SerializeToString(message)
+    origin = papi__pb2.RaceResetLiveBonusRequest.SerializeToString(message)
     return serialize(origin)
 def RaceStartLivePanelQuestRequest_serializer(message):
-    origin = ProtoApi__pb2.RaceStartLivePanelQuestRequest.SerializeToString(message)
+    origin = papi__pb2.RaceStartLivePanelQuestRequest.SerializeToString(message)
     return serialize(origin)
 def RaceStartLiveAreaQuestRequest_serializer(message):
-    origin = ProtoApi__pb2.RaceStartLiveAreaQuestRequest.SerializeToString(message)
+    origin = papi__pb2.RaceStartLiveAreaQuestRequest.SerializeToString(message)
     return serialize(origin)
 def RaceQuestListAssetRequest_serializer(message):
-    origin = ProtoApi__pb2.RaceQuestListAssetRequest.SerializeToString(message)
+    origin = papi__pb2.RaceQuestListAssetRequest.SerializeToString(message)
     return serialize(origin)
 def RaceListDeckRequest_serializer(message):
-    origin = ProtoApi__pb2.RaceListDeckRequest.SerializeToString(message)
+    origin = papi__pb2.RaceListDeckRequest.SerializeToString(message)
     return serialize(origin)
 def RaceSaveDeckRequest_serializer(message):
-    origin = ProtoApi__pb2.RaceSaveDeckRequest.SerializeToString(message)
+    origin = papi__pb2.RaceSaveDeckRequest.SerializeToString(message)
     return serialize(origin)
 def RaceResetCardCoolTimeRequest_serializer(message):
-    origin = ProtoApi__pb2.RaceResetCardCoolTimeRequest.SerializeToString(message)
+    origin = papi__pb2.RaceResetCardCoolTimeRequest.SerializeToString(message)
     return serialize(origin)
 def RaceRankingRequest_serializer(message):
-    origin = ProtoApi__pb2.RaceRankingRequest.SerializeToString(message)
+    origin = papi__pb2.RaceRankingRequest.SerializeToString(message)
     return serialize(origin)
 def RaceTopResponse_serializer(message):
-    origin = ProtoApi__pb2.RaceTopResponse.SerializeToString(message)
+    origin = papi__pb2.RaceTopResponse.SerializeToString(message)
     return serialize(origin)
 def RaceMovePanelResponse_serializer(message):
-    origin = ProtoApi__pb2.RaceMovePanelResponse.SerializeToString(message)
+    origin = papi__pb2.RaceMovePanelResponse.SerializeToString(message)
     return serialize(origin)
 def RaceReceiveActivityLessonResponse_serializer(message):
-    origin = ProtoApi__pb2.RaceReceiveActivityLessonResponse.SerializeToString(message)
+    origin = papi__pb2.RaceReceiveActivityLessonResponse.SerializeToString(message)
     return serialize(origin)
 def RaceEnhanceLiveBonusResponse_serializer(message):
-    origin = ProtoApi__pb2.RaceEnhanceLiveBonusResponse.SerializeToString(message)
+    origin = papi__pb2.RaceEnhanceLiveBonusResponse.SerializeToString(message)
     return serialize(origin)
 def RaceResetLiveBonusResponse_serializer(message):
-    origin = ProtoApi__pb2.RaceResetLiveBonusResponse.SerializeToString(message)
+    origin = papi__pb2.RaceResetLiveBonusResponse.SerializeToString(message)
     return serialize(origin)
 def RaceStartLivePanelQuestResponse_serializer(message):
-    origin = ProtoApi__pb2.RaceStartLivePanelQuestResponse.SerializeToString(message)
+    origin = papi__pb2.RaceStartLivePanelQuestResponse.SerializeToString(message)
     return serialize(origin)
 def RaceStartLiveAreaQuestResponse_serializer(message):
-    origin = ProtoApi__pb2.RaceStartLiveAreaQuestResponse.SerializeToString(message)
+    origin = papi__pb2.RaceStartLiveAreaQuestResponse.SerializeToString(message)
     return serialize(origin)
 def RaceQuestListAssetResponse_serializer(message):
-    origin = ProtoApi__pb2.RaceQuestListAssetResponse.SerializeToString(message)
+    origin = papi__pb2.RaceQuestListAssetResponse.SerializeToString(message)
     return serialize(origin)
 def RaceListDeckResponse_serializer(message):
-    origin = ProtoApi__pb2.RaceListDeckResponse.SerializeToString(message)
+    origin = papi__pb2.RaceListDeckResponse.SerializeToString(message)
     return serialize(origin)
 def RaceSaveDeckResponse_serializer(message):
-    origin = ProtoApi__pb2.RaceSaveDeckResponse.SerializeToString(message)
+    origin = papi__pb2.RaceSaveDeckResponse.SerializeToString(message)
     return serialize(origin)
 def RaceResetCardCoolTimeResponse_serializer(message):
-    origin = ProtoApi__pb2.RaceResetCardCoolTimeResponse.SerializeToString(message)
+    origin = papi__pb2.RaceResetCardCoolTimeResponse.SerializeToString(message)
     return serialize(origin)
 def RaceRankingResponse_serializer(message):
-    origin = ProtoApi__pb2.RaceRankingResponse.SerializeToString(message)
+    origin = papi__pb2.RaceRankingResponse.SerializeToString(message)
     return serialize(origin)
 def Empty_serializer(message):
-    origin = ProtoApi__pb2.Empty.SerializeToString(message)
+    origin = papi__pb2.Empty.SerializeToString(message)
     return serialize(origin)
 def RouletteCheckRequest_serializer(message):
-    origin = ProtoApi__pb2.RouletteCheckRequest.SerializeToString(message)
+    origin = papi__pb2.RouletteCheckRequest.SerializeToString(message)
     return serialize(origin)
 def RouletteDrawRequest_serializer(message):
-    origin = ProtoApi__pb2.RouletteDrawRequest.SerializeToString(message)
+    origin = papi__pb2.RouletteDrawRequest.SerializeToString(message)
     return serialize(origin)
 def RouletteTopResponse_serializer(message):
-    origin = ProtoApi__pb2.RouletteTopResponse.SerializeToString(message)
+    origin = papi__pb2.RouletteTopResponse.SerializeToString(message)
     return serialize(origin)
 def RouletteCheckResponse_serializer(message):
-    origin = ProtoApi__pb2.RouletteCheckResponse.SerializeToString(message)
+    origin = papi__pb2.RouletteCheckResponse.SerializeToString(message)
     return serialize(origin)
 def RouletteDrawResponse_serializer(message):
-    origin = ProtoApi__pb2.RouletteDrawResponse.SerializeToString(message)
+    origin = papi__pb2.RouletteDrawResponse.SerializeToString(message)
     return serialize(origin)
 def SalaryGetPayslipRequest_serializer(message):
-    origin = ProtoApi__pb2.SalaryGetPayslipRequest.SerializeToString(message)
+    origin = papi__pb2.SalaryGetPayslipRequest.SerializeToString(message)
     return serialize(origin)
 def SalaryPayRequest_serializer(message):
-    origin = ProtoApi__pb2.SalaryPayRequest.SerializeToString(message)
+    origin = papi__pb2.SalaryPayRequest.SerializeToString(message)
     return serialize(origin)
 def SalaryGetPayslipResponse_serializer(message):
-    origin = ProtoApi__pb2.SalaryGetPayslipResponse.SerializeToString(message)
+    origin = papi__pb2.SalaryGetPayslipResponse.SerializeToString(message)
     return serialize(origin)
 def SalaryPayResponse_serializer(message):
-    origin = ProtoApi__pb2.SalaryPayResponse.SerializeToString(message)
+    origin = papi__pb2.SalaryPayResponse.SerializeToString(message)
     return serialize(origin)
 def SatelliteInitCodeRequest_serializer(message):
-    origin = ProtoApi__pb2.SatelliteInitCodeRequest.SerializeToString(message)
+    origin = papi__pb2.SatelliteInitCodeRequest.SerializeToString(message)
     return serialize(origin)
 def SatelliteInitCodeResponse_serializer(message):
-    origin = ProtoApi__pb2.SatelliteInitCodeResponse.SerializeToString(message)
+    origin = papi__pb2.SatelliteInitCodeResponse.SerializeToString(message)
     return serialize(origin)
 def Empty_serializer(message):
-    origin = ProtoApi__pb2.Empty.SerializeToString(message)
+    origin = papi__pb2.Empty.SerializeToString(message)
     return serialize(origin)
 def ShelfAlbumTopRequest_serializer(message):
-    origin = ProtoApi__pb2.ShelfAlbumTopRequest.SerializeToString(message)
+    origin = papi__pb2.ShelfAlbumTopRequest.SerializeToString(message)
     return serialize(origin)
 def ShelfCheckShootingRequest_serializer(message):
-    origin = ProtoApi__pb2.ShelfCheckShootingRequest.SerializeToString(message)
+    origin = papi__pb2.ShelfCheckShootingRequest.SerializeToString(message)
     return serialize(origin)
 def ShelfSavePhotoRequest_serializer(message):
-    origin = ProtoApi__pb2.ShelfSavePhotoRequest.SerializeToString(message)
+    origin = papi__pb2.ShelfSavePhotoRequest.SerializeToString(message)
     return serialize(origin)
 def ShelfSetPhotoRequest_serializer(message):
-    origin = ProtoApi__pb2.ShelfSetPhotoRequest.SerializeToString(message)
+    origin = papi__pb2.ShelfSetPhotoRequest.SerializeToString(message)
     return serialize(origin)
 def ShelfCreatePhotoRequest_serializer(message):
-    origin = ProtoApi__pb2.ShelfCreatePhotoRequest.SerializeToString(message)
+    origin = papi__pb2.ShelfCreatePhotoRequest.SerializeToString(message)
     return serialize(origin)
 def ShelfCreateAlbumPhotoRequest_serializer(message):
-    origin = ProtoApi__pb2.ShelfCreateAlbumPhotoRequest.SerializeToString(message)
+    origin = papi__pb2.ShelfCreateAlbumPhotoRequest.SerializeToString(message)
     return serialize(origin)
 def ShelfDeletePhotoRequest_serializer(message):
-    origin = ProtoApi__pb2.ShelfDeletePhotoRequest.SerializeToString(message)
+    origin = papi__pb2.ShelfDeletePhotoRequest.SerializeToString(message)
     return serialize(origin)
 def ShelfSwitchTemplateRequest_serializer(message):
-    origin = ProtoApi__pb2.ShelfSwitchTemplateRequest.SerializeToString(message)
+    origin = papi__pb2.ShelfSwitchTemplateRequest.SerializeToString(message)
     return serialize(origin)
 def ShelfUnsetPhotoRequest_serializer(message):
-    origin = ProtoApi__pb2.ShelfUnsetPhotoRequest.SerializeToString(message)
+    origin = papi__pb2.ShelfUnsetPhotoRequest.SerializeToString(message)
     return serialize(origin)
 def ShelfTopResponse_serializer(message):
-    origin = ProtoApi__pb2.ShelfTopResponse.SerializeToString(message)
+    origin = papi__pb2.ShelfTopResponse.SerializeToString(message)
     return serialize(origin)
 def ShelfAlbumTopResponse_serializer(message):
-    origin = ProtoApi__pb2.ShelfAlbumTopResponse.SerializeToString(message)
+    origin = papi__pb2.ShelfAlbumTopResponse.SerializeToString(message)
     return serialize(origin)
 def ShelfCheckShootingResponse_serializer(message):
-    origin = ProtoApi__pb2.ShelfCheckShootingResponse.SerializeToString(message)
+    origin = papi__pb2.ShelfCheckShootingResponse.SerializeToString(message)
     return serialize(origin)
 def ShelfSavePhotoResponse_serializer(message):
-    origin = ProtoApi__pb2.ShelfSavePhotoResponse.SerializeToString(message)
+    origin = papi__pb2.ShelfSavePhotoResponse.SerializeToString(message)
     return serialize(origin)
 def ShelfSetPhotoResponse_serializer(message):
-    origin = ProtoApi__pb2.ShelfSetPhotoResponse.SerializeToString(message)
+    origin = papi__pb2.ShelfSetPhotoResponse.SerializeToString(message)
     return serialize(origin)
 def ShelfCreatePhotoResponse_serializer(message):
-    origin = ProtoApi__pb2.ShelfCreatePhotoResponse.SerializeToString(message)
+    origin = papi__pb2.ShelfCreatePhotoResponse.SerializeToString(message)
     return serialize(origin)
 def ShelfCreateAlbumPhotoResponse_serializer(message):
-    origin = ProtoApi__pb2.ShelfCreateAlbumPhotoResponse.SerializeToString(message)
+    origin = papi__pb2.ShelfCreateAlbumPhotoResponse.SerializeToString(message)
     return serialize(origin)
 def ShelfDeletePhotoResponse_serializer(message):
-    origin = ProtoApi__pb2.ShelfDeletePhotoResponse.SerializeToString(message)
+    origin = papi__pb2.ShelfDeletePhotoResponse.SerializeToString(message)
     return serialize(origin)
 def ShelfSwitchTemplateResponse_serializer(message):
-    origin = ProtoApi__pb2.ShelfSwitchTemplateResponse.SerializeToString(message)
+    origin = papi__pb2.ShelfSwitchTemplateResponse.SerializeToString(message)
     return serialize(origin)
 def ShelfUnsetPhotoResponse_serializer(message):
-    origin = ProtoApi__pb2.ShelfUnsetPhotoResponse.SerializeToString(message)
+    origin = papi__pb2.ShelfUnsetPhotoResponse.SerializeToString(message)
     return serialize(origin)
 def Empty_serializer(message):
-    origin = ProtoApi__pb2.Empty.SerializeToString(message)
+    origin = papi__pb2.Empty.SerializeToString(message)
     return serialize(origin)
 def ShopListItemRequest_serializer(message):
-    origin = ProtoApi__pb2.ShopListItemRequest.SerializeToString(message)
+    origin = papi__pb2.ShopListItemRequest.SerializeToString(message)
     return serialize(origin)
 def ShopGetLoginBonusPackageItemRequest_serializer(message):
-    origin = ProtoApi__pb2.ShopGetLoginBonusPackageItemRequest.SerializeToString(message)
+    origin = papi__pb2.ShopGetLoginBonusPackageItemRequest.SerializeToString(message)
     return serialize(origin)
 def ShopGetConditionRewardPackageItemRequest_serializer(message):
-    origin = ProtoApi__pb2.ShopGetConditionRewardPackageItemRequest.SerializeToString(message)
+    origin = papi__pb2.ShopGetConditionRewardPackageItemRequest.SerializeToString(message)
     return serialize(origin)
 def ShopPurchaseRequest_serializer(message):
-    origin = ProtoApi__pb2.ShopPurchaseRequest.SerializeToString(message)
+    origin = papi__pb2.ShopPurchaseRequest.SerializeToString(message)
     return serialize(origin)
 def ShopRegisterPurchaseTransactionRequest_serializer(message):
-    origin = ProtoApi__pb2.ShopRegisterPurchaseTransactionRequest.SerializeToString(message)
+    origin = papi__pb2.ShopRegisterPurchaseTransactionRequest.SerializeToString(message)
     return serialize(origin)
 def ShopCancelPurchaseTransactionRequest_serializer(message):
-    origin = ProtoApi__pb2.ShopCancelPurchaseTransactionRequest.SerializeToString(message)
+    origin = papi__pb2.ShopCancelPurchaseTransactionRequest.SerializeToString(message)
     return serialize(origin)
 def ShopPurchaseStoneRequest_serializer(message):
-    origin = ProtoApi__pb2.ShopPurchaseStoneRequest.SerializeToString(message)
+    origin = papi__pb2.ShopPurchaseStoneRequest.SerializeToString(message)
     return serialize(origin)
 def ShopRecoverPurchaseStoneRequest_serializer(message):
-    origin = ProtoApi__pb2.ShopRecoverPurchaseStoneRequest.SerializeToString(message)
+    origin = papi__pb2.ShopRecoverPurchaseStoneRequest.SerializeToString(message)
     return serialize(origin)
 def ShopCheckPurchaseStoneRequest_serializer(message):
-    origin = ProtoApi__pb2.ShopCheckPurchaseStoneRequest.SerializeToString(message)
+    origin = papi__pb2.ShopCheckPurchaseStoneRequest.SerializeToString(message)
     return serialize(origin)
 def ShopRegisterBirthdayRequest_serializer(message):
-    origin = ProtoApi__pb2.ShopRegisterBirthdayRequest.SerializeToString(message)
+    origin = papi__pb2.ShopRegisterBirthdayRequest.SerializeToString(message)
     return serialize(origin)
 def ShopReceiveConditionRewardRequest_serializer(message):
-    origin = ProtoApi__pb2.ShopReceiveConditionRewardRequest.SerializeToString(message)
+    origin = papi__pb2.ShopReceiveConditionRewardRequest.SerializeToString(message)
     return serialize(origin)
 def ShopTryOnRequest_serializer(message):
-    origin = ProtoApi__pb2.ShopTryOnRequest.SerializeToString(message)
+    origin = papi__pb2.ShopTryOnRequest.SerializeToString(message)
     return serialize(origin)
 def ShopListResponse_serializer(message):
-    origin = ProtoApi__pb2.ShopListResponse.SerializeToString(message)
+    origin = papi__pb2.ShopListResponse.SerializeToString(message)
     return serialize(origin)
 def ShopListItemResponse_serializer(message):
-    origin = ProtoApi__pb2.ShopListItemResponse.SerializeToString(message)
+    origin = papi__pb2.ShopListItemResponse.SerializeToString(message)
     return serialize(origin)
 def ShopGetLoginBonusPackageItemResponse_serializer(message):
-    origin = ProtoApi__pb2.ShopGetLoginBonusPackageItemResponse.SerializeToString(message)
+    origin = papi__pb2.ShopGetLoginBonusPackageItemResponse.SerializeToString(message)
     return serialize(origin)
 def ShopGetConditionRewardPackageItemResponse_serializer(message):
-    origin = ProtoApi__pb2.ShopGetConditionRewardPackageItemResponse.SerializeToString(message)
+    origin = papi__pb2.ShopGetConditionRewardPackageItemResponse.SerializeToString(message)
     return serialize(origin)
 def ShopPurchaseResponse_serializer(message):
-    origin = ProtoApi__pb2.ShopPurchaseResponse.SerializeToString(message)
+    origin = papi__pb2.ShopPurchaseResponse.SerializeToString(message)
     return serialize(origin)
 def ShopRegisterPurchaseTransactionResponse_serializer(message):
-    origin = ProtoApi__pb2.ShopRegisterPurchaseTransactionResponse.SerializeToString(message)
+    origin = papi__pb2.ShopRegisterPurchaseTransactionResponse.SerializeToString(message)
     return serialize(origin)
 def ShopCancelPurchaseTransactionResponse_serializer(message):
-    origin = ProtoApi__pb2.ShopCancelPurchaseTransactionResponse.SerializeToString(message)
+    origin = papi__pb2.ShopCancelPurchaseTransactionResponse.SerializeToString(message)
     return serialize(origin)
 def ShopPurchaseStoneResponse_serializer(message):
-    origin = ProtoApi__pb2.ShopPurchaseStoneResponse.SerializeToString(message)
+    origin = papi__pb2.ShopPurchaseStoneResponse.SerializeToString(message)
     return serialize(origin)
 def ShopRecoverPurchaseStoneResponse_serializer(message):
-    origin = ProtoApi__pb2.ShopRecoverPurchaseStoneResponse.SerializeToString(message)
+    origin = papi__pb2.ShopRecoverPurchaseStoneResponse.SerializeToString(message)
     return serialize(origin)
 def ShopCheckPurchaseStoneResponse_serializer(message):
-    origin = ProtoApi__pb2.ShopCheckPurchaseStoneResponse.SerializeToString(message)
+    origin = papi__pb2.ShopCheckPurchaseStoneResponse.SerializeToString(message)
     return serialize(origin)
 def ShopRegisterBirthdayResponse_serializer(message):
-    origin = ProtoApi__pb2.ShopRegisterBirthdayResponse.SerializeToString(message)
+    origin = papi__pb2.ShopRegisterBirthdayResponse.SerializeToString(message)
     return serialize(origin)
 def ShopReceiveConditionRewardResponse_serializer(message):
-    origin = ProtoApi__pb2.ShopReceiveConditionRewardResponse.SerializeToString(message)
+    origin = papi__pb2.ShopReceiveConditionRewardResponse.SerializeToString(message)
     return serialize(origin)
 def ShopTryOnResponse_serializer(message):
-    origin = ProtoApi__pb2.ShopTryOnResponse.SerializeToString(message)
+    origin = papi__pb2.ShopTryOnResponse.SerializeToString(message)
     return serialize(origin)
 def Empty_serializer(message):
-    origin = ProtoApi__pb2.Empty.SerializeToString(message)
+    origin = papi__pb2.Empty.SerializeToString(message)
     return serialize(origin)
 def ShowcaseSaveRequest_serializer(message):
-    origin = ProtoApi__pb2.ShowcaseSaveRequest.SerializeToString(message)
+    origin = papi__pb2.ShowcaseSaveRequest.SerializeToString(message)
     return serialize(origin)
 def ShowcaseSaveDetailRequest_serializer(message):
-    origin = ProtoApi__pb2.ShowcaseSaveDetailRequest.SerializeToString(message)
+    origin = papi__pb2.ShowcaseSaveDetailRequest.SerializeToString(message)
     return serialize(origin)
 def ShowcaseSaveMysetRequest_serializer(message):
-    origin = ProtoApi__pb2.ShowcaseSaveMysetRequest.SerializeToString(message)
+    origin = papi__pb2.ShowcaseSaveMysetRequest.SerializeToString(message)
     return serialize(origin)
 def ShowcaseDeleteMysetRequest_serializer(message):
-    origin = ProtoApi__pb2.ShowcaseDeleteMysetRequest.SerializeToString(message)
+    origin = papi__pb2.ShowcaseDeleteMysetRequest.SerializeToString(message)
     return serialize(origin)
 def ShowcaseApplyMysetRequest_serializer(message):
-    origin = ProtoApi__pb2.ShowcaseApplyMysetRequest.SerializeToString(message)
+    origin = papi__pb2.ShowcaseApplyMysetRequest.SerializeToString(message)
     return serialize(origin)
 def ShowcaseRenameMysetRequest_serializer(message):
-    origin = ProtoApi__pb2.ShowcaseRenameMysetRequest.SerializeToString(message)
+    origin = papi__pb2.ShowcaseRenameMysetRequest.SerializeToString(message)
     return serialize(origin)
 def ShowcaseCheckThumbnailShootingRequest_serializer(message):
-    origin = ProtoApi__pb2.ShowcaseCheckThumbnailShootingRequest.SerializeToString(message)
+    origin = papi__pb2.ShowcaseCheckThumbnailShootingRequest.SerializeToString(message)
     return serialize(origin)
 def ShowcaseLikeRequest_serializer(message):
-    origin = ProtoApi__pb2.ShowcaseLikeRequest.SerializeToString(message)
+    origin = papi__pb2.ShowcaseLikeRequest.SerializeToString(message)
     return serialize(origin)
 def ShowcaseGetRequest_serializer(message):
-    origin = ProtoApi__pb2.ShowcaseGetRequest.SerializeToString(message)
+    origin = papi__pb2.ShowcaseGetRequest.SerializeToString(message)
     return serialize(origin)
 def Empty_serializer(message):
-    origin = ProtoApi__pb2.Empty.SerializeToString(message)
+    origin = papi__pb2.Empty.SerializeToString(message)
     return serialize(origin)
 def Empty_serializer(message):
-    origin = ProtoApi__pb2.Empty.SerializeToString(message)
+    origin = papi__pb2.Empty.SerializeToString(message)
     return serialize(origin)
 def ShowcaseSearchHashtagListRequest_serializer(message):
-    origin = ProtoApi__pb2.ShowcaseSearchHashtagListRequest.SerializeToString(message)
+    origin = papi__pb2.ShowcaseSearchHashtagListRequest.SerializeToString(message)
     return serialize(origin)
 def ShowcaseDisplayRequest_serializer(message):
-    origin = ProtoApi__pb2.ShowcaseDisplayRequest.SerializeToString(message)
+    origin = papi__pb2.ShowcaseDisplayRequest.SerializeToString(message)
     return serialize(origin)
 def ShowcaseCheckShootingRequest_serializer(message):
-    origin = ProtoApi__pb2.ShowcaseCheckShootingRequest.SerializeToString(message)
+    origin = papi__pb2.ShowcaseCheckShootingRequest.SerializeToString(message)
     return serialize(origin)
 def ShowcaseCreatePhotoRequest_serializer(message):
-    origin = ProtoApi__pb2.ShowcaseCreatePhotoRequest.SerializeToString(message)
+    origin = papi__pb2.ShowcaseCreatePhotoRequest.SerializeToString(message)
     return serialize(origin)
 def ShowcaseTopResponse_serializer(message):
-    origin = ProtoApi__pb2.ShowcaseTopResponse.SerializeToString(message)
+    origin = papi__pb2.ShowcaseTopResponse.SerializeToString(message)
     return serialize(origin)
 def ShowcaseSaveResponse_serializer(message):
-    origin = ProtoApi__pb2.ShowcaseSaveResponse.SerializeToString(message)
+    origin = papi__pb2.ShowcaseSaveResponse.SerializeToString(message)
     return serialize(origin)
 def ShowcaseSaveDetailResponse_serializer(message):
-    origin = ProtoApi__pb2.ShowcaseSaveDetailResponse.SerializeToString(message)
+    origin = papi__pb2.ShowcaseSaveDetailResponse.SerializeToString(message)
     return serialize(origin)
 def ShowcaseSaveMysetResponse_serializer(message):
-    origin = ProtoApi__pb2.ShowcaseSaveMysetResponse.SerializeToString(message)
+    origin = papi__pb2.ShowcaseSaveMysetResponse.SerializeToString(message)
     return serialize(origin)
 def ShowcaseDeleteMysetResponse_serializer(message):
-    origin = ProtoApi__pb2.ShowcaseDeleteMysetResponse.SerializeToString(message)
+    origin = papi__pb2.ShowcaseDeleteMysetResponse.SerializeToString(message)
     return serialize(origin)
 def ShowcaseApplyMysetResponse_serializer(message):
-    origin = ProtoApi__pb2.ShowcaseApplyMysetResponse.SerializeToString(message)
+    origin = papi__pb2.ShowcaseApplyMysetResponse.SerializeToString(message)
     return serialize(origin)
 def ShowcaseRenameMysetResponse_serializer(message):
-    origin = ProtoApi__pb2.ShowcaseRenameMysetResponse.SerializeToString(message)
+    origin = papi__pb2.ShowcaseRenameMysetResponse.SerializeToString(message)
     return serialize(origin)
 def ShowcaseCheckThumbnailShootingResponse_serializer(message):
-    origin = ProtoApi__pb2.ShowcaseCheckThumbnailShootingResponse.SerializeToString(message)
+    origin = papi__pb2.ShowcaseCheckThumbnailShootingResponse.SerializeToString(message)
     return serialize(origin)
 def ShowcaseLikeResponse_serializer(message):
-    origin = ProtoApi__pb2.ShowcaseLikeResponse.SerializeToString(message)
+    origin = papi__pb2.ShowcaseLikeResponse.SerializeToString(message)
     return serialize(origin)
 def ShowcaseGetResponse_serializer(message):
-    origin = ProtoApi__pb2.ShowcaseGetResponse.SerializeToString(message)
+    origin = papi__pb2.ShowcaseGetResponse.SerializeToString(message)
     return serialize(origin)
 def ShowcaseGalleryTopResponse_serializer(message):
-    origin = ProtoApi__pb2.ShowcaseGalleryTopResponse.SerializeToString(message)
+    origin = papi__pb2.ShowcaseGalleryTopResponse.SerializeToString(message)
     return serialize(origin)
 def ShowcaseSearchFriendRecommendListResponse_serializer(message):
-    origin = ProtoApi__pb2.ShowcaseSearchFriendRecommendListResponse.SerializeToString(message)
+    origin = papi__pb2.ShowcaseSearchFriendRecommendListResponse.SerializeToString(message)
     return serialize(origin)
 def ShowcaseSearchHashtagListResponse_serializer(message):
-    origin = ProtoApi__pb2.ShowcaseSearchHashtagListResponse.SerializeToString(message)
+    origin = papi__pb2.ShowcaseSearchHashtagListResponse.SerializeToString(message)
     return serialize(origin)
 def ShowcaseDisplayResponse_serializer(message):
-    origin = ProtoApi__pb2.ShowcaseDisplayResponse.SerializeToString(message)
+    origin = papi__pb2.ShowcaseDisplayResponse.SerializeToString(message)
     return serialize(origin)
 def ShowcaseCheckShootingResponse_serializer(message):
-    origin = ProtoApi__pb2.ShowcaseCheckShootingResponse.SerializeToString(message)
+    origin = papi__pb2.ShowcaseCheckShootingResponse.SerializeToString(message)
     return serialize(origin)
 def ShowcaseCreatePhotoResponse_serializer(message):
-    origin = ProtoApi__pb2.ShowcaseCreatePhotoResponse.SerializeToString(message)
+    origin = papi__pb2.ShowcaseCreatePhotoResponse.SerializeToString(message)
     return serialize(origin)
 def StaffTrainRequest_serializer(message):
-    origin = ProtoApi__pb2.StaffTrainRequest.SerializeToString(message)
+    origin = papi__pb2.StaffTrainRequest.SerializeToString(message)
     return serialize(origin)
 def StaffLevelLimitBreakRequest_serializer(message):
-    origin = ProtoApi__pb2.StaffLevelLimitBreakRequest.SerializeToString(message)
+    origin = papi__pb2.StaffLevelLimitBreakRequest.SerializeToString(message)
     return serialize(origin)
 def StaffTrainResponse_serializer(message):
-    origin = ProtoApi__pb2.StaffTrainResponse.SerializeToString(message)
+    origin = papi__pb2.StaffTrainResponse.SerializeToString(message)
     return serialize(origin)
 def StaffLevelLimitBreakResponse_serializer(message):
-    origin = ProtoApi__pb2.StaffLevelLimitBreakResponse.SerializeToString(message)
+    origin = papi__pb2.StaffLevelLimitBreakResponse.SerializeToString(message)
     return serialize(origin)
 def StoryReadRequest_serializer(message):
-    origin = ProtoApi__pb2.StoryReadRequest.SerializeToString(message)
+    origin = papi__pb2.StoryReadRequest.SerializeToString(message)
     return serialize(origin)
 def StoryReleaseEpisodeRequest_serializer(message):
-    origin = ProtoApi__pb2.StoryReleaseEpisodeRequest.SerializeToString(message)
+    origin = papi__pb2.StoryReleaseEpisodeRequest.SerializeToString(message)
     return serialize(origin)
 def Empty_serializer(message):
-    origin = ProtoApi__pb2.Empty.SerializeToString(message)
+    origin = papi__pb2.Empty.SerializeToString(message)
     return serialize(origin)
 def StoryReadEventRequest_serializer(message):
-    origin = ProtoApi__pb2.StoryReadEventRequest.SerializeToString(message)
+    origin = papi__pb2.StoryReadEventRequest.SerializeToString(message)
     return serialize(origin)
 def Empty_serializer(message):
-    origin = ProtoApi__pb2.Empty.SerializeToString(message)
+    origin = papi__pb2.Empty.SerializeToString(message)
     return serialize(origin)
 def StoryReadExtraRequest_serializer(message):
-    origin = ProtoApi__pb2.StoryReadExtraRequest.SerializeToString(message)
+    origin = papi__pb2.StoryReadExtraRequest.SerializeToString(message)
     return serialize(origin)
 def StoryReadAnniversaryStoryRequest_serializer(message):
-    origin = ProtoApi__pb2.StoryReadAnniversaryStoryRequest.SerializeToString(message)
+    origin = papi__pb2.StoryReadAnniversaryStoryRequest.SerializeToString(message)
     return serialize(origin)
 def StoryReadCharacterCompanyEnjoyStoryRequest_serializer(message):
-    origin = ProtoApi__pb2.StoryReadCharacterCompanyEnjoyStoryRequest.SerializeToString(message)
+    origin = papi__pb2.StoryReadCharacterCompanyEnjoyStoryRequest.SerializeToString(message)
     return serialize(origin)
 def StoryReadResponse_serializer(message):
-    origin = ProtoApi__pb2.StoryReadResponse.SerializeToString(message)
+    origin = papi__pb2.StoryReadResponse.SerializeToString(message)
     return serialize(origin)
 def StoryReleaseEpisodeResponse_serializer(message):
-    origin = ProtoApi__pb2.StoryReleaseEpisodeResponse.SerializeToString(message)
+    origin = papi__pb2.StoryReleaseEpisodeResponse.SerializeToString(message)
     return serialize(origin)
 def StoryListEventResponse_serializer(message):
-    origin = ProtoApi__pb2.StoryListEventResponse.SerializeToString(message)
+    origin = papi__pb2.StoryListEventResponse.SerializeToString(message)
     return serialize(origin)
 def StoryReadEventResponse_serializer(message):
-    origin = ProtoApi__pb2.StoryReadEventResponse.SerializeToString(message)
+    origin = papi__pb2.StoryReadEventResponse.SerializeToString(message)
     return serialize(origin)
 def StoryListExtraResponse_serializer(message):
-    origin = ProtoApi__pb2.StoryListExtraResponse.SerializeToString(message)
+    origin = papi__pb2.StoryListExtraResponse.SerializeToString(message)
     return serialize(origin)
 def StoryReadExtraResponse_serializer(message):
-    origin = ProtoApi__pb2.StoryReadExtraResponse.SerializeToString(message)
+    origin = papi__pb2.StoryReadExtraResponse.SerializeToString(message)
     return serialize(origin)
 def StoryReadAnniversaryStoryResponse_serializer(message):
-    origin = ProtoApi__pb2.StoryReadAnniversaryStoryResponse.SerializeToString(message)
+    origin = papi__pb2.StoryReadAnniversaryStoryResponse.SerializeToString(message)
     return serialize(origin)
 def StoryReadCharacterCompanyEnjoyStoryResponse_serializer(message):
-    origin = ProtoApi__pb2.StoryReadCharacterCompanyEnjoyStoryResponse.SerializeToString(message)
+    origin = papi__pb2.StoryReadCharacterCompanyEnjoyStoryResponse.SerializeToString(message)
     return serialize(origin)
 def SystemCheckRequest_serializer(message):
-    origin = ProtoApi__pb2.SystemCheckRequest.SerializeToString(message)
+    origin = papi__pb2.SystemCheckRequest.SerializeToString(message)
     return serialize(origin)
 def Empty_serializer(message):
-    origin = ProtoApi__pb2.Empty.SerializeToString(message)
+    origin = papi__pb2.Empty.SerializeToString(message)
     return serialize(origin)
 def Empty_serializer(message):
-    origin = ProtoApi__pb2.Empty.SerializeToString(message)
+    origin = papi__pb2.Empty.SerializeToString(message)
     return serialize(origin)
 def SystemCheckResponse_serializer(message):
-    origin = ProtoApi__pb2.SystemCheckResponse.SerializeToString(message)
+    origin = papi__pb2.SystemCheckResponse.SerializeToString(message)
     return serialize(origin)
 def Empty_serializer(message):
-    origin = ProtoApi__pb2.Empty.SerializeToString(message)
+    origin = papi__pb2.Empty.SerializeToString(message)
     return serialize(origin)
 def Empty_serializer(message):
-    origin = ProtoApi__pb2.Empty.SerializeToString(message)
+    origin = papi__pb2.Empty.SerializeToString(message)
     return serialize(origin)
 def TelephoneReceiveRequest_serializer(message):
-    origin = ProtoApi__pb2.TelephoneReceiveRequest.SerializeToString(message)
+    origin = papi__pb2.TelephoneReceiveRequest.SerializeToString(message)
     return serialize(origin)
 def TelephoneFinishesRequest_serializer(message):
-    origin = ProtoApi__pb2.TelephoneFinishesRequest.SerializeToString(message)
+    origin = papi__pb2.TelephoneFinishesRequest.SerializeToString(message)
     return serialize(origin)
 def TelephoneCallHistoryRequest_serializer(message):
-    origin = ProtoApi__pb2.TelephoneCallHistoryRequest.SerializeToString(message)
+    origin = papi__pb2.TelephoneCallHistoryRequest.SerializeToString(message)
     return serialize(origin)
 def TelephoneReceiveResponse_serializer(message):
-    origin = ProtoApi__pb2.TelephoneReceiveResponse.SerializeToString(message)
+    origin = papi__pb2.TelephoneReceiveResponse.SerializeToString(message)
     return serialize(origin)
 def TelephoneFinishesResponse_serializer(message):
-    origin = ProtoApi__pb2.TelephoneFinishesResponse.SerializeToString(message)
+    origin = papi__pb2.TelephoneFinishesResponse.SerializeToString(message)
     return serialize(origin)
 def TelephoneCallHistoryResponse_serializer(message):
-    origin = ProtoApi__pb2.TelephoneCallHistoryResponse.SerializeToString(message)
+    origin = papi__pb2.TelephoneCallHistoryResponse.SerializeToString(message)
     return serialize(origin)
 def TourTopRequest_serializer(message):
-    origin = ProtoApi__pb2.TourTopRequest.SerializeToString(message)
+    origin = papi__pb2.TourTopRequest.SerializeToString(message)
     return serialize(origin)
 def TourRankingRequest_serializer(message):
-    origin = ProtoApi__pb2.TourRankingRequest.SerializeToString(message)
+    origin = papi__pb2.TourRankingRequest.SerializeToString(message)
     return serialize(origin)
 def TourAreaTopRequest_serializer(message):
-    origin = ProtoApi__pb2.TourAreaTopRequest.SerializeToString(message)
+    origin = papi__pb2.TourAreaTopRequest.SerializeToString(message)
     return serialize(origin)
 def TourAreaActivityRequest_serializer(message):
-    origin = ProtoApi__pb2.TourAreaActivityRequest.SerializeToString(message)
+    origin = papi__pb2.TourAreaActivityRequest.SerializeToString(message)
     return serialize(origin)
 def TourAreaRefreshRequest_serializer(message):
-    origin = ProtoApi__pb2.TourAreaRefreshRequest.SerializeToString(message)
+    origin = papi__pb2.TourAreaRefreshRequest.SerializeToString(message)
     return serialize(origin)
 def TourAreaScoutRequest_serializer(message):
-    origin = ProtoApi__pb2.TourAreaScoutRequest.SerializeToString(message)
+    origin = papi__pb2.TourAreaScoutRequest.SerializeToString(message)
     return serialize(origin)
 def TourAreaLiveRequest_serializer(message):
-    origin = ProtoApi__pb2.TourAreaLiveRequest.SerializeToString(message)
+    origin = papi__pb2.TourAreaLiveRequest.SerializeToString(message)
     return serialize(origin)
 def TourAreaLiveBonusRequest_serializer(message):
-    origin = ProtoApi__pb2.TourAreaLiveBonusRequest.SerializeToString(message)
+    origin = papi__pb2.TourAreaLiveBonusRequest.SerializeToString(message)
     return serialize(origin)
 def TourAreaPvpRequest_serializer(message):
-    origin = ProtoApi__pb2.TourAreaPvpRequest.SerializeToString(message)
+    origin = papi__pb2.TourAreaPvpRequest.SerializeToString(message)
     return serialize(origin)
 def TourAreaClearRequest_serializer(message):
-    origin = ProtoApi__pb2.TourAreaClearRequest.SerializeToString(message)
+    origin = papi__pb2.TourAreaClearRequest.SerializeToString(message)
     return serialize(origin)
 def TourAreaNextRequest_serializer(message):
-    origin = ProtoApi__pb2.TourAreaNextRequest.SerializeToString(message)
+    origin = papi__pb2.TourAreaNextRequest.SerializeToString(message)
     return serialize(origin)
 def TourAreaRetireRequest_serializer(message):
-    origin = ProtoApi__pb2.TourAreaRetireRequest.SerializeToString(message)
+    origin = papi__pb2.TourAreaRetireRequest.SerializeToString(message)
     return serialize(origin)
 def TourDeckSaveRequest_serializer(message):
-    origin = ProtoApi__pb2.TourDeckSaveRequest.SerializeToString(message)
+    origin = papi__pb2.TourDeckSaveRequest.SerializeToString(message)
     return serialize(origin)
 def TourTopResponse_serializer(message):
-    origin = ProtoApi__pb2.TourTopResponse.SerializeToString(message)
+    origin = papi__pb2.TourTopResponse.SerializeToString(message)
     return serialize(origin)
 def TourRankingResponse_serializer(message):
-    origin = ProtoApi__pb2.TourRankingResponse.SerializeToString(message)
+    origin = papi__pb2.TourRankingResponse.SerializeToString(message)
     return serialize(origin)
 def TourAreaTopResponse_serializer(message):
-    origin = ProtoApi__pb2.TourAreaTopResponse.SerializeToString(message)
+    origin = papi__pb2.TourAreaTopResponse.SerializeToString(message)
     return serialize(origin)
 def TourAreaActivityResponse_serializer(message):
-    origin = ProtoApi__pb2.TourAreaActivityResponse.SerializeToString(message)
+    origin = papi__pb2.TourAreaActivityResponse.SerializeToString(message)
     return serialize(origin)
 def TourAreaRefreshResponse_serializer(message):
-    origin = ProtoApi__pb2.TourAreaRefreshResponse.SerializeToString(message)
+    origin = papi__pb2.TourAreaRefreshResponse.SerializeToString(message)
     return serialize(origin)
 def TourAreaScoutResponse_serializer(message):
-    origin = ProtoApi__pb2.TourAreaScoutResponse.SerializeToString(message)
+    origin = papi__pb2.TourAreaScoutResponse.SerializeToString(message)
     return serialize(origin)
 def TourAreaLiveResponse_serializer(message):
-    origin = ProtoApi__pb2.TourAreaLiveResponse.SerializeToString(message)
+    origin = papi__pb2.TourAreaLiveResponse.SerializeToString(message)
     return serialize(origin)
 def TourAreaLiveBonusResponse_serializer(message):
-    origin = ProtoApi__pb2.TourAreaLiveBonusResponse.SerializeToString(message)
+    origin = papi__pb2.TourAreaLiveBonusResponse.SerializeToString(message)
     return serialize(origin)
 def TourAreaPvpResponse_serializer(message):
-    origin = ProtoApi__pb2.TourAreaPvpResponse.SerializeToString(message)
+    origin = papi__pb2.TourAreaPvpResponse.SerializeToString(message)
     return serialize(origin)
 def TourAreaClearResponse_serializer(message):
-    origin = ProtoApi__pb2.TourAreaClearResponse.SerializeToString(message)
+    origin = papi__pb2.TourAreaClearResponse.SerializeToString(message)
     return serialize(origin)
 def TourAreaNextResponse_serializer(message):
-    origin = ProtoApi__pb2.TourAreaNextResponse.SerializeToString(message)
+    origin = papi__pb2.TourAreaNextResponse.SerializeToString(message)
     return serialize(origin)
 def TourAreaRetireResponse_serializer(message):
-    origin = ProtoApi__pb2.TourAreaRetireResponse.SerializeToString(message)
+    origin = papi__pb2.TourAreaRetireResponse.SerializeToString(message)
     return serialize(origin)
 def TourDeckSaveResponse_serializer(message):
-    origin = ProtoApi__pb2.TourDeckSaveResponse.SerializeToString(message)
+    origin = papi__pb2.TourDeckSaveResponse.SerializeToString(message)
     return serialize(origin)
 def TutorialInitRequest_serializer(message):
-    origin = ProtoApi__pb2.TutorialInitRequest.SerializeToString(message)
+    origin = papi__pb2.TutorialInitRequest.SerializeToString(message)
     return serialize(origin)
 def TutorialProgressRequest_serializer(message):
-    origin = ProtoApi__pb2.TutorialProgressRequest.SerializeToString(message)
+    origin = papi__pb2.TutorialProgressRequest.SerializeToString(message)
     return serialize(origin)
 def TutorialStartQuestRequest_serializer(message):
-    origin = ProtoApi__pb2.TutorialStartQuestRequest.SerializeToString(message)
+    origin = papi__pb2.TutorialStartQuestRequest.SerializeToString(message)
     return serialize(origin)
 def Empty_serializer(message):
-    origin = ProtoApi__pb2.Empty.SerializeToString(message)
+    origin = papi__pb2.Empty.SerializeToString(message)
     return serialize(origin)
 def Empty_serializer(message):
-    origin = ProtoApi__pb2.Empty.SerializeToString(message)
+    origin = papi__pb2.Empty.SerializeToString(message)
     return serialize(origin)
 def Empty_serializer(message):
-    origin = ProtoApi__pb2.Empty.SerializeToString(message)
+    origin = papi__pb2.Empty.SerializeToString(message)
     return serialize(origin)
 def TutorialPhotoCreateShootingRequest_serializer(message):
-    origin = ProtoApi__pb2.TutorialPhotoCreateShootingRequest.SerializeToString(message)
+    origin = papi__pb2.TutorialPhotoCreateShootingRequest.SerializeToString(message)
     return serialize(origin)
 def Empty_serializer(message):
-    origin = ProtoApi__pb2.Empty.SerializeToString(message)
+    origin = papi__pb2.Empty.SerializeToString(message)
     return serialize(origin)
 def TutorialInitResponse_serializer(message):
-    origin = ProtoApi__pb2.TutorialInitResponse.SerializeToString(message)
+    origin = papi__pb2.TutorialInitResponse.SerializeToString(message)
     return serialize(origin)
 def TutorialProgressResponse_serializer(message):
-    origin = ProtoApi__pb2.TutorialProgressResponse.SerializeToString(message)
+    origin = papi__pb2.TutorialProgressResponse.SerializeToString(message)
     return serialize(origin)
 def TutorialStartQuestResponse_serializer(message):
-    origin = ProtoApi__pb2.TutorialStartQuestResponse.SerializeToString(message)
+    origin = papi__pb2.TutorialStartQuestResponse.SerializeToString(message)
     return serialize(origin)
 def TutorialActivityStartFanEventResponse_serializer(message):
-    origin = ProtoApi__pb2.TutorialActivityStartFanEventResponse.SerializeToString(message)
+    origin = papi__pb2.TutorialActivityStartFanEventResponse.SerializeToString(message)
     return serialize(origin)
 def TutorialActivityReceivePromotionRewardResponse_serializer(message):
-    origin = ProtoApi__pb2.TutorialActivityReceivePromotionRewardResponse.SerializeToString(message)
+    origin = papi__pb2.TutorialActivityReceivePromotionRewardResponse.SerializeToString(message)
     return serialize(origin)
 def TutorialActivityReceiveLessonRewardResponse_serializer(message):
-    origin = ProtoApi__pb2.TutorialActivityReceiveLessonRewardResponse.SerializeToString(message)
+    origin = papi__pb2.TutorialActivityReceiveLessonRewardResponse.SerializeToString(message)
     return serialize(origin)
 def TutorialPhotoCreateShootingResponse_serializer(message):
-    origin = ProtoApi__pb2.TutorialPhotoCreateShootingResponse.SerializeToString(message)
+    origin = papi__pb2.TutorialPhotoCreateShootingResponse.SerializeToString(message)
     return serialize(origin)
 def TutorialSkipResponse_serializer(message):
-    origin = ProtoApi__pb2.TutorialSkipResponse.SerializeToString(message)
+    origin = papi__pb2.TutorialSkipResponse.SerializeToString(message)
     return serialize(origin)
 def Empty_serializer(message):
-    origin = ProtoApi__pb2.Empty.SerializeToString(message)
+    origin = papi__pb2.Empty.SerializeToString(message)
     return serialize(origin)
 def UserProvideExternalRewardRequest_serializer(message):
-    origin = ProtoApi__pb2.UserProvideExternalRewardRequest.SerializeToString(message)
+    origin = papi__pb2.UserProvideExternalRewardRequest.SerializeToString(message)
     return serialize(origin)
 def UserGetResponse_serializer(message):
-    origin = ProtoApi__pb2.UserGetResponse.SerializeToString(message)
+    origin = papi__pb2.UserGetResponse.SerializeToString(message)
     return serialize(origin)
 def UserProvideExternalRewardResponse_serializer(message):
-    origin = ProtoApi__pb2.UserProvideExternalRewardResponse.SerializeToString(message)
+    origin = papi__pb2.UserProvideExternalRewardResponse.SerializeToString(message)
     return serialize(origin)
 def AccessoryEnhanceResponse_deserializer(raw):
     data = deserialize(raw)
-    return ProtoApi__pb2.AccessoryEnhanceResponse.FromString(data)
+    return papi__pb2.AccessoryEnhanceResponse.FromString(data)
 def AccessoryLimitBreakResponse_deserializer(raw):
     data = deserialize(raw)
-    return ProtoApi__pb2.AccessoryLimitBreakResponse.FromString(data)
+    return papi__pb2.AccessoryLimitBreakResponse.FromString(data)
 def AccessorySellResponse_deserializer(raw):
     data = deserialize(raw)
-    return ProtoApi__pb2.AccessorySellResponse.FromString(data)
+    return papi__pb2.AccessorySellResponse.FromString(data)
 def AccessoryEnhanceRequest_deserializer(raw):
     data = deserialize(raw)
-    return ProtoApi__pb2.AccessoryEnhanceRequest.FromString(data)
+    return papi__pb2.AccessoryEnhanceRequest.FromString(data)
 def AccessoryLimitBreakRequest_deserializer(raw):
     data = deserialize(raw)
-    return ProtoApi__pb2.AccessoryLimitBreakRequest.FromString(data)
+    return papi__pb2.AccessoryLimitBreakRequest.FromString(data)
 def AccessorySellRequest_deserializer(raw):
     data = deserialize(raw)
-    return ProtoApi__pb2.AccessorySellRequest.FromString(data)
+    return papi__pb2.AccessorySellRequest.FromString(data)
 def ActivityStartFanEventResponse_deserializer(raw):
     data = deserialize(raw)
-    return ProtoApi__pb2.ActivityStartFanEventResponse.FromString(data)
+    return papi__pb2.ActivityStartFanEventResponse.FromString(data)
 def ActivityLoadFanEventResponse_deserializer(raw):
     data = deserialize(raw)
-    return ProtoApi__pb2.ActivityLoadFanEventResponse.FromString(data)
+    return papi__pb2.ActivityLoadFanEventResponse.FromString(data)
 def ActivityFetchFanEventStepsResponse_deserializer(raw):
     data = deserialize(raw)
-    return ProtoApi__pb2.ActivityFetchFanEventStepsResponse.FromString(data)
+    return papi__pb2.ActivityFetchFanEventStepsResponse.FromString(data)
 def ActivitySaveFanEventResponse_deserializer(raw):
     data = deserialize(raw)
-    return ProtoApi__pb2.ActivitySaveFanEventResponse.FromString(data)
+    return papi__pb2.ActivitySaveFanEventResponse.FromString(data)
 def ActivityFinishFanEventResponse_deserializer(raw):
     data = deserialize(raw)
-    return ProtoApi__pb2.ActivityFinishFanEventResponse.FromString(data)
+    return papi__pb2.ActivityFinishFanEventResponse.FromString(data)
 def ActivityGetFanEventRankingResponse_deserializer(raw):
     data = deserialize(raw)
-    return ProtoApi__pb2.ActivityGetFanEventRankingResponse.FromString(data)
+    return papi__pb2.ActivityGetFanEventRankingResponse.FromString(data)
 def ActivityStartPromotionResponse_deserializer(raw):
     data = deserialize(raw)
-    return ProtoApi__pb2.ActivityStartPromotionResponse.FromString(data)
+    return papi__pb2.ActivityStartPromotionResponse.FromString(data)
 def ActivityLoadPromotionResponse_deserializer(raw):
     data = deserialize(raw)
-    return ProtoApi__pb2.ActivityLoadPromotionResponse.FromString(data)
+    return papi__pb2.ActivityLoadPromotionResponse.FromString(data)
 def ActivityUsePromotionItemResponse_deserializer(raw):
     data = deserialize(raw)
-    return ProtoApi__pb2.ActivityUsePromotionItemResponse.FromString(data)
+    return papi__pb2.ActivityUsePromotionItemResponse.FromString(data)
 def ActivityReceivePromotionRewardResponse_deserializer(raw):
     data = deserialize(raw)
-    return ProtoApi__pb2.ActivityReceivePromotionRewardResponse.FromString(data)
+    return papi__pb2.ActivityReceivePromotionRewardResponse.FromString(data)
 def ActivityFetchPromotionStepsResponse_deserializer(raw):
     data = deserialize(raw)
-    return ProtoApi__pb2.ActivityFetchPromotionStepsResponse.FromString(data)
+    return papi__pb2.ActivityFetchPromotionStepsResponse.FromString(data)
 def ActivityFinishPromotionResponse_deserializer(raw):
     data = deserialize(raw)
-    return ProtoApi__pb2.ActivityFinishPromotionResponse.FromString(data)
+    return papi__pb2.ActivityFinishPromotionResponse.FromString(data)
 def ActivityStartRefreshResponse_deserializer(raw):
     data = deserialize(raw)
-    return ProtoApi__pb2.ActivityStartRefreshResponse.FromString(data)
+    return papi__pb2.ActivityStartRefreshResponse.FromString(data)
 def ActivityLoadRefreshResponse_deserializer(raw):
     data = deserialize(raw)
-    return ProtoApi__pb2.ActivityLoadRefreshResponse.FromString(data)
+    return papi__pb2.ActivityLoadRefreshResponse.FromString(data)
 def ActivityUseRefreshItemResponse_deserializer(raw):
     data = deserialize(raw)
-    return ProtoApi__pb2.ActivityUseRefreshItemResponse.FromString(data)
+    return papi__pb2.ActivityUseRefreshItemResponse.FromString(data)
 def ActivityFinishRefreshResponse_deserializer(raw):
     data = deserialize(raw)
-    return ProtoApi__pb2.ActivityFinishRefreshResponse.FromString(data)
+    return papi__pb2.ActivityFinishRefreshResponse.FromString(data)
 def ActivityReceiveLessonRewardResponse_deserializer(raw):
     data = deserialize(raw)
-    return ProtoApi__pb2.ActivityReceiveLessonRewardResponse.FromString(data)
+    return papi__pb2.ActivityReceiveLessonRewardResponse.FromString(data)
 def ActivityPromoteLessonResponse_deserializer(raw):
     data = deserialize(raw)
-    return ProtoApi__pb2.ActivityPromoteLessonResponse.FromString(data)
+    return papi__pb2.ActivityPromoteLessonResponse.FromString(data)
 def ActivityStartFanEventRequest_deserializer(raw):
     data = deserialize(raw)
-    return ProtoApi__pb2.ActivityStartFanEventRequest.FromString(data)
+    return papi__pb2.ActivityStartFanEventRequest.FromString(data)
 def Empty_deserializer(raw):
     data = deserialize(raw)
-    return ProtoApi__pb2.Empty.FromString(data)
+    return papi__pb2.Empty.FromString(data)
 def ActivityFetchFanEventStepsRequest_deserializer(raw):
     data = deserialize(raw)
-    return ProtoApi__pb2.ActivityFetchFanEventStepsRequest.FromString(data)
+    return papi__pb2.ActivityFetchFanEventStepsRequest.FromString(data)
 def ActivitySaveFanEventRequest_deserializer(raw):
     data = deserialize(raw)
-    return ProtoApi__pb2.ActivitySaveFanEventRequest.FromString(data)
+    return papi__pb2.ActivitySaveFanEventRequest.FromString(data)
 def Empty_deserializer(raw):
     data = deserialize(raw)
-    return ProtoApi__pb2.Empty.FromString(data)
+    return papi__pb2.Empty.FromString(data)
 def ActivityGetFanEventRankingRequest_deserializer(raw):
     data = deserialize(raw)
-    return ProtoApi__pb2.ActivityGetFanEventRankingRequest.FromString(data)
+    return papi__pb2.ActivityGetFanEventRankingRequest.FromString(data)
 def ActivityStartPromotionRequest_deserializer(raw):
     data = deserialize(raw)
-    return ProtoApi__pb2.ActivityStartPromotionRequest.FromString(data)
+    return papi__pb2.ActivityStartPromotionRequest.FromString(data)
 def Empty_deserializer(raw):
     data = deserialize(raw)
-    return ProtoApi__pb2.Empty.FromString(data)
+    return papi__pb2.Empty.FromString(data)
 def ActivityUsePromotionItemRequest_deserializer(raw):
     data = deserialize(raw)
-    return ProtoApi__pb2.ActivityUsePromotionItemRequest.FromString(data)
+    return papi__pb2.ActivityUsePromotionItemRequest.FromString(data)
 def Empty_deserializer(raw):
     data = deserialize(raw)
-    return ProtoApi__pb2.Empty.FromString(data)
+    return papi__pb2.Empty.FromString(data)
 def ActivityFetchPromotionStepsRequest_deserializer(raw):
     data = deserialize(raw)
-    return ProtoApi__pb2.ActivityFetchPromotionStepsRequest.FromString(data)
+    return papi__pb2.ActivityFetchPromotionStepsRequest.FromString(data)
 def Empty_deserializer(raw):
     data = deserialize(raw)
-    return ProtoApi__pb2.Empty.FromString(data)
+    return papi__pb2.Empty.FromString(data)
 def ActivityStartRefreshRequest_deserializer(raw):
     data = deserialize(raw)
-    return ProtoApi__pb2.ActivityStartRefreshRequest.FromString(data)
+    return papi__pb2.ActivityStartRefreshRequest.FromString(data)
 def Empty_deserializer(raw):
     data = deserialize(raw)
-    return ProtoApi__pb2.Empty.FromString(data)
+    return papi__pb2.Empty.FromString(data)
 def ActivityUseRefreshItemRequest_deserializer(raw):
     data = deserialize(raw)
-    return ProtoApi__pb2.ActivityUseRefreshItemRequest.FromString(data)
+    return papi__pb2.ActivityUseRefreshItemRequest.FromString(data)
 def Empty_deserializer(raw):
     data = deserialize(raw)
-    return ProtoApi__pb2.Empty.FromString(data)
+    return papi__pb2.Empty.FromString(data)
 def Empty_deserializer(raw):
     data = deserialize(raw)
-    return ProtoApi__pb2.Empty.FromString(data)
+    return papi__pb2.Empty.FromString(data)
 def ActivityPromoteLessonRequest_deserializer(raw):
     data = deserialize(raw)
-    return ProtoApi__pb2.ActivityPromoteLessonRequest.FromString(data)
+    return papi__pb2.ActivityPromoteLessonRequest.FromString(data)
 def AdvertisementStartResponse_deserializer(raw):
     data = deserialize(raw)
-    return ProtoApi__pb2.AdvertisementStartResponse.FromString(data)
+    return papi__pb2.AdvertisementStartResponse.FromString(data)
 def AdvertisementEndResponse_deserializer(raw):
     data = deserialize(raw)
-    return ProtoApi__pb2.AdvertisementEndResponse.FromString(data)
+    return papi__pb2.AdvertisementEndResponse.FromString(data)
 def AdvertisementStartRequest_deserializer(raw):
     data = deserialize(raw)
-    return ProtoApi__pb2.AdvertisementStartRequest.FromString(data)
+    return papi__pb2.AdvertisementStartRequest.FromString(data)
 def AdvertisementEndRequest_deserializer(raw):
     data = deserialize(raw)
-    return ProtoApi__pb2.AdvertisementEndRequest.FromString(data)
+    return papi__pb2.AdvertisementEndRequest.FromString(data)
 def AnniversaryOutputTransitionLogResponse_deserializer(raw):
     data = deserialize(raw)
-    return ProtoApi__pb2.AnniversaryOutputTransitionLogResponse.FromString(data)
+    return papi__pb2.AnniversaryOutputTransitionLogResponse.FromString(data)
 def AnniversaryOutputTransitionLogRequest_deserializer(raw):
     data = deserialize(raw)
-    return ProtoApi__pb2.AnniversaryOutputTransitionLogRequest.FromString(data)
+    return papi__pb2.AnniversaryOutputTransitionLogRequest.FromString(data)
 def AuthCreateResponse_deserializer(raw):
     data = deserialize(raw)
-    return ProtoApi__pb2.AuthCreateResponse.FromString(data)
+    return papi__pb2.AuthCreateResponse.FromString(data)
 def AuthLoginResponse_deserializer(raw):
     data = deserialize(raw)
-    return ProtoApi__pb2.AuthLoginResponse.FromString(data)
+    return papi__pb2.AuthLoginResponse.FromString(data)
 def AuthDeleteResponse_deserializer(raw):
     data = deserialize(raw)
-    return ProtoApi__pb2.AuthDeleteResponse.FromString(data)
+    return papi__pb2.AuthDeleteResponse.FromString(data)
 def AuthRecreateResponse_deserializer(raw):
     data = deserialize(raw)
-    return ProtoApi__pb2.AuthRecreateResponse.FromString(data)
+    return papi__pb2.AuthRecreateResponse.FromString(data)
 def AuthCreateRequest_deserializer(raw):
     data = deserialize(raw)
-    return ProtoApi__pb2.AuthCreateRequest.FromString(data)
+    return papi__pb2.AuthCreateRequest.FromString(data)
 def AuthLoginRequest_deserializer(raw):
     data = deserialize(raw)
-    return ProtoApi__pb2.AuthLoginRequest.FromString(data)
+    return papi__pb2.AuthLoginRequest.FromString(data)
 def Empty_deserializer(raw):
     data = deserialize(raw)
-    return ProtoApi__pb2.Empty.FromString(data)
+    return papi__pb2.Empty.FromString(data)
 def AuthRecreateRequest_deserializer(raw):
     data = deserialize(raw)
-    return ProtoApi__pb2.AuthRecreateRequest.FromString(data)
+    return papi__pb2.AuthRecreateRequest.FromString(data)
 def BacksideTopResponse_deserializer(raw):
     data = deserialize(raw)
-    return ProtoApi__pb2.BacksideTopResponse.FromString(data)
+    return papi__pb2.BacksideTopResponse.FromString(data)
 def BacksideRankingResponse_deserializer(raw):
     data = deserialize(raw)
-    return ProtoApi__pb2.BacksideRankingResponse.FromString(data)
+    return papi__pb2.BacksideRankingResponse.FromString(data)
 def BacksideStageStartResponse_deserializer(raw):
     data = deserialize(raw)
-    return ProtoApi__pb2.BacksideStageStartResponse.FromString(data)
+    return papi__pb2.BacksideStageStartResponse.FromString(data)
 def BacksideStageActionResponse_deserializer(raw):
     data = deserialize(raw)
-    return ProtoApi__pb2.BacksideStageActionResponse.FromString(data)
+    return papi__pb2.BacksideStageActionResponse.FromString(data)
 def BacksideStageLiveBonusResponse_deserializer(raw):
     data = deserialize(raw)
-    return ProtoApi__pb2.BacksideStageLiveBonusResponse.FromString(data)
+    return papi__pb2.BacksideStageLiveBonusResponse.FromString(data)
 def BacksideStagePracticeUpdateResponse_deserializer(raw):
     data = deserialize(raw)
-    return ProtoApi__pb2.BacksideStagePracticeUpdateResponse.FromString(data)
+    return papi__pb2.BacksideStagePracticeUpdateResponse.FromString(data)
 def BacksideStageResetResponse_deserializer(raw):
     data = deserialize(raw)
-    return ProtoApi__pb2.BacksideStageResetResponse.FromString(data)
+    return papi__pb2.BacksideStageResetResponse.FromString(data)
 def BacksideStageSurpriseFinishResponse_deserializer(raw):
     data = deserialize(raw)
-    return ProtoApi__pb2.BacksideStageSurpriseFinishResponse.FromString(data)
+    return papi__pb2.BacksideStageSurpriseFinishResponse.FromString(data)
 def BacksideStageDeckPositionChangeResponse_deserializer(raw):
     data = deserialize(raw)
-    return ProtoApi__pb2.BacksideStageDeckPositionChangeResponse.FromString(data)
+    return papi__pb2.BacksideStageDeckPositionChangeResponse.FromString(data)
 def BacksideTopRequest_deserializer(raw):
     data = deserialize(raw)
-    return ProtoApi__pb2.BacksideTopRequest.FromString(data)
+    return papi__pb2.BacksideTopRequest.FromString(data)
 def BacksideRankingRequest_deserializer(raw):
     data = deserialize(raw)
-    return ProtoApi__pb2.BacksideRankingRequest.FromString(data)
+    return papi__pb2.BacksideRankingRequest.FromString(data)
 def BacksideStageStartRequest_deserializer(raw):
     data = deserialize(raw)
-    return ProtoApi__pb2.BacksideStageStartRequest.FromString(data)
+    return papi__pb2.BacksideStageStartRequest.FromString(data)
 def BacksideStageActionRequest_deserializer(raw):
     data = deserialize(raw)
-    return ProtoApi__pb2.BacksideStageActionRequest.FromString(data)
+    return papi__pb2.BacksideStageActionRequest.FromString(data)
 def BacksideStageLiveBonusRequest_deserializer(raw):
     data = deserialize(raw)
-    return ProtoApi__pb2.BacksideStageLiveBonusRequest.FromString(data)
+    return papi__pb2.BacksideStageLiveBonusRequest.FromString(data)
 def BacksideStagePracticeUpdateRequest_deserializer(raw):
     data = deserialize(raw)
-    return ProtoApi__pb2.BacksideStagePracticeUpdateRequest.FromString(data)
+    return papi__pb2.BacksideStagePracticeUpdateRequest.FromString(data)
 def BacksideStageResetRequest_deserializer(raw):
     data = deserialize(raw)
-    return ProtoApi__pb2.BacksideStageResetRequest.FromString(data)
+    return papi__pb2.BacksideStageResetRequest.FromString(data)
 def BacksideStageSurpriseFinishRequest_deserializer(raw):
     data = deserialize(raw)
-    return ProtoApi__pb2.BacksideStageSurpriseFinishRequest.FromString(data)
+    return papi__pb2.BacksideStageSurpriseFinishRequest.FromString(data)
 def BacksideStageDeckPositionChangeRequest_deserializer(raw):
     data = deserialize(raw)
-    return ProtoApi__pb2.BacksideStageDeckPositionChangeRequest.FromString(data)
+    return papi__pb2.BacksideStageDeckPositionChangeRequest.FromString(data)
 def BirthdayTopResponse_deserializer(raw):
     data = deserialize(raw)
-    return ProtoApi__pb2.BirthdayTopResponse.FromString(data)
+    return papi__pb2.BirthdayTopResponse.FromString(data)
 def BirthdaySetWatchedResponse_deserializer(raw):
     data = deserialize(raw)
-    return ProtoApi__pb2.BirthdaySetWatchedResponse.FromString(data)
+    return papi__pb2.BirthdaySetWatchedResponse.FromString(data)
 def BirthdayReceiveRewardResponse_deserializer(raw):
     data = deserialize(raw)
-    return ProtoApi__pb2.BirthdayReceiveRewardResponse.FromString(data)
+    return papi__pb2.BirthdayReceiveRewardResponse.FromString(data)
 def BirthdayOutputWatchedLogResponse_deserializer(raw):
     data = deserialize(raw)
-    return ProtoApi__pb2.BirthdayOutputWatchedLogResponse.FromString(data)
+    return papi__pb2.BirthdayOutputWatchedLogResponse.FromString(data)
 def BirthdaySetWatchedRemindInfoResponse_deserializer(raw):
     data = deserialize(raw)
-    return ProtoApi__pb2.BirthdaySetWatchedRemindInfoResponse.FromString(data)
+    return papi__pb2.BirthdaySetWatchedRemindInfoResponse.FromString(data)
 def Empty_deserializer(raw):
     data = deserialize(raw)
-    return ProtoApi__pb2.Empty.FromString(data)
+    return papi__pb2.Empty.FromString(data)
 def BirthdaySetWatchedRequest_deserializer(raw):
     data = deserialize(raw)
-    return ProtoApi__pb2.BirthdaySetWatchedRequest.FromString(data)
+    return papi__pb2.BirthdaySetWatchedRequest.FromString(data)
 def Empty_deserializer(raw):
     data = deserialize(raw)
-    return ProtoApi__pb2.Empty.FromString(data)
+    return papi__pb2.Empty.FromString(data)
 def BirthdayOutputWatchedLogRequest_deserializer(raw):
     data = deserialize(raw)
-    return ProtoApi__pb2.BirthdayOutputWatchedLogRequest.FromString(data)
+    return papi__pb2.BirthdayOutputWatchedLogRequest.FromString(data)
 def Empty_deserializer(raw):
     data = deserialize(raw)
-    return ProtoApi__pb2.Empty.FromString(data)
+    return papi__pb2.Empty.FromString(data)
 def CardEnhanceResponse_deserializer(raw):
     data = deserialize(raw)
-    return ProtoApi__pb2.CardEnhanceResponse.FromString(data)
+    return papi__pb2.CardEnhanceResponse.FromString(data)
 def CardLimitBreakResponse_deserializer(raw):
     data = deserialize(raw)
-    return ProtoApi__pb2.CardLimitBreakResponse.FromString(data)
+    return papi__pb2.CardLimitBreakResponse.FromString(data)
 def CardSkillEnhanceResponse_deserializer(raw):
     data = deserialize(raw)
-    return ProtoApi__pb2.CardSkillEnhanceResponse.FromString(data)
+    return papi__pb2.CardSkillEnhanceResponse.FromString(data)
 def CardLiveAbilityEnhanceResponse_deserializer(raw):
     data = deserialize(raw)
-    return ProtoApi__pb2.CardLiveAbilityEnhanceResponse.FromString(data)
+    return papi__pb2.CardLiveAbilityEnhanceResponse.FromString(data)
 def CardActivityAbilityEnhanceResponse_deserializer(raw):
     data = deserialize(raw)
-    return ProtoApi__pb2.CardActivityAbilityEnhanceResponse.FromString(data)
+    return papi__pb2.CardActivityAbilityEnhanceResponse.FromString(data)
 def CardResetResponse_deserializer(raw):
     data = deserialize(raw)
-    return ProtoApi__pb2.CardResetResponse.FromString(data)
+    return papi__pb2.CardResetResponse.FromString(data)
 def CardSetSupportResponse_deserializer(raw):
     data = deserialize(raw)
-    return ProtoApi__pb2.CardSetSupportResponse.FromString(data)
+    return papi__pb2.CardSetSupportResponse.FromString(data)
 def CardRemoveSupportResponse_deserializer(raw):
     data = deserialize(raw)
-    return ProtoApi__pb2.CardRemoveSupportResponse.FromString(data)
+    return papi__pb2.CardRemoveSupportResponse.FromString(data)
 def CardReleaseSupportResponse_deserializer(raw):
     data = deserialize(raw)
-    return ProtoApi__pb2.CardReleaseSupportResponse.FromString(data)
+    return papi__pb2.CardReleaseSupportResponse.FromString(data)
 def CardRankUpResponse_deserializer(raw):
     data = deserialize(raw)
-    return ProtoApi__pb2.CardRankUpResponse.FromString(data)
+    return papi__pb2.CardRankUpResponse.FromString(data)
 def CardUpdateDisplayTypeResponse_deserializer(raw):
     data = deserialize(raw)
-    return ProtoApi__pb2.CardUpdateDisplayTypeResponse.FromString(data)
+    return papi__pb2.CardUpdateDisplayTypeResponse.FromString(data)
 def CardEnhanceRequest_deserializer(raw):
     data = deserialize(raw)
-    return ProtoApi__pb2.CardEnhanceRequest.FromString(data)
+    return papi__pb2.CardEnhanceRequest.FromString(data)
 def CardLimitBreakRequest_deserializer(raw):
     data = deserialize(raw)
-    return ProtoApi__pb2.CardLimitBreakRequest.FromString(data)
+    return papi__pb2.CardLimitBreakRequest.FromString(data)
 def CardSkillEnhanceRequest_deserializer(raw):
     data = deserialize(raw)
-    return ProtoApi__pb2.CardSkillEnhanceRequest.FromString(data)
+    return papi__pb2.CardSkillEnhanceRequest.FromString(data)
 def CardLiveAbilityEnhanceRequest_deserializer(raw):
     data = deserialize(raw)
-    return ProtoApi__pb2.CardLiveAbilityEnhanceRequest.FromString(data)
+    return papi__pb2.CardLiveAbilityEnhanceRequest.FromString(data)
 def CardActivityAbilityEnhanceRequest_deserializer(raw):
     data = deserialize(raw)
-    return ProtoApi__pb2.CardActivityAbilityEnhanceRequest.FromString(data)
+    return papi__pb2.CardActivityAbilityEnhanceRequest.FromString(data)
 def CardResetRequest_deserializer(raw):
     data = deserialize(raw)
-    return ProtoApi__pb2.CardResetRequest.FromString(data)
+    return papi__pb2.CardResetRequest.FromString(data)
 def CardSetSupportRequest_deserializer(raw):
     data = deserialize(raw)
-    return ProtoApi__pb2.CardSetSupportRequest.FromString(data)
+    return papi__pb2.CardSetSupportRequest.FromString(data)
 def CardRemoveSupportRequest_deserializer(raw):
     data = deserialize(raw)
-    return ProtoApi__pb2.CardRemoveSupportRequest.FromString(data)
+    return papi__pb2.CardRemoveSupportRequest.FromString(data)
 def CardReleaseSupportRequest_deserializer(raw):
     data = deserialize(raw)
-    return ProtoApi__pb2.CardReleaseSupportRequest.FromString(data)
+    return papi__pb2.CardReleaseSupportRequest.FromString(data)
 def CardRankUpRequest_deserializer(raw):
     data = deserialize(raw)
-    return ProtoApi__pb2.CardRankUpRequest.FromString(data)
+    return papi__pb2.CardRankUpRequest.FromString(data)
 def CardUpdateDisplayTypeRequest_deserializer(raw):
     data = deserialize(raw)
-    return ProtoApi__pb2.CardUpdateDisplayTypeRequest.FromString(data)
+    return papi__pb2.CardUpdateDisplayTypeRequest.FromString(data)
 def CompanyTopResponse_deserializer(raw):
     data = deserialize(raw)
-    return ProtoApi__pb2.CompanyTopResponse.FromString(data)
+    return papi__pb2.CompanyTopResponse.FromString(data)
 def CompanyListRankingResponse_deserializer(raw):
     data = deserialize(raw)
-    return ProtoApi__pb2.CompanyListRankingResponse.FromString(data)
+    return papi__pb2.CompanyListRankingResponse.FromString(data)
 def CompanyReceiveGradeRewardsResponse_deserializer(raw):
     data = deserialize(raw)
-    return ProtoApi__pb2.CompanyReceiveGradeRewardsResponse.FromString(data)
+    return papi__pb2.CompanyReceiveGradeRewardsResponse.FromString(data)
 def CompanyBulkReceiveMissionResponse_deserializer(raw):
     data = deserialize(raw)
-    return ProtoApi__pb2.CompanyBulkReceiveMissionResponse.FromString(data)
+    return papi__pb2.CompanyBulkReceiveMissionResponse.FromString(data)
 def CompanyEnjoyCharacterTopResponse_deserializer(raw):
     data = deserialize(raw)
-    return ProtoApi__pb2.CompanyEnjoyCharacterTopResponse.FromString(data)
+    return papi__pb2.CompanyEnjoyCharacterTopResponse.FromString(data)
 def CompanyListEnjoyCharacterRankingResponse_deserializer(raw):
     data = deserialize(raw)
-    return ProtoApi__pb2.CompanyListEnjoyCharacterRankingResponse.FromString(data)
+    return papi__pb2.CompanyListEnjoyCharacterRankingResponse.FromString(data)
 def CompanyReceiveEnjoyCharacterLevelRewardsResponse_deserializer(raw):
     data = deserialize(raw)
-    return ProtoApi__pb2.CompanyReceiveEnjoyCharacterLevelRewardsResponse.FromString(data)
+    return papi__pb2.CompanyReceiveEnjoyCharacterLevelRewardsResponse.FromString(data)
 def CompanyUseObtainEnjoyPointItemResponse_deserializer(raw):
     data = deserialize(raw)
-    return ProtoApi__pb2.CompanyUseObtainEnjoyPointItemResponse.FromString(data)
+    return papi__pb2.CompanyUseObtainEnjoyPointItemResponse.FromString(data)
 def CompanyBulkReceiveEnjoyResponse_deserializer(raw):
     data = deserialize(raw)
-    return ProtoApi__pb2.CompanyBulkReceiveEnjoyResponse.FromString(data)
+    return papi__pb2.CompanyBulkReceiveEnjoyResponse.FromString(data)
 def CompanyBulkReceiveEnjoyCharacterLevelRewardsResponse_deserializer(raw):
     data = deserialize(raw)
-    return ProtoApi__pb2.CompanyBulkReceiveEnjoyCharacterLevelRewardsResponse.FromString(data)
+    return papi__pb2.CompanyBulkReceiveEnjoyCharacterLevelRewardsResponse.FromString(data)
 def CompanyReceiveTrustLevelRewardsResponse_deserializer(raw):
     data = deserialize(raw)
-    return ProtoApi__pb2.CompanyReceiveTrustLevelRewardsResponse.FromString(data)
+    return papi__pb2.CompanyReceiveTrustLevelRewardsResponse.FromString(data)
 def CompanyTopRequest_deserializer(raw):
     data = deserialize(raw)
-    return ProtoApi__pb2.CompanyTopRequest.FromString(data)
+    return papi__pb2.CompanyTopRequest.FromString(data)
 def Empty_deserializer(raw):
     data = deserialize(raw)
-    return ProtoApi__pb2.Empty.FromString(data)
+    return papi__pb2.Empty.FromString(data)
 def CompanyReceiveGradeRewardsRequest_deserializer(raw):
     data = deserialize(raw)
-    return ProtoApi__pb2.CompanyReceiveGradeRewardsRequest.FromString(data)
+    return papi__pb2.CompanyReceiveGradeRewardsRequest.FromString(data)
 def CompanyBulkReceiveMissionRequest_deserializer(raw):
     data = deserialize(raw)
-    return ProtoApi__pb2.CompanyBulkReceiveMissionRequest.FromString(data)
+    return papi__pb2.CompanyBulkReceiveMissionRequest.FromString(data)
 def CompanyEnjoyCharacterTopRequest_deserializer(raw):
     data = deserialize(raw)
-    return ProtoApi__pb2.CompanyEnjoyCharacterTopRequest.FromString(data)
+    return papi__pb2.CompanyEnjoyCharacterTopRequest.FromString(data)
 def CompanyListEnjoyCharacterRankingRequest_deserializer(raw):
     data = deserialize(raw)
-    return ProtoApi__pb2.CompanyListEnjoyCharacterRankingRequest.FromString(data)
+    return papi__pb2.CompanyListEnjoyCharacterRankingRequest.FromString(data)
 def CompanyReceiveEnjoyCharacterLevelRewardsRequest_deserializer(raw):
     data = deserialize(raw)
-    return ProtoApi__pb2.CompanyReceiveEnjoyCharacterLevelRewardsRequest.FromString(data)
+    return papi__pb2.CompanyReceiveEnjoyCharacterLevelRewardsRequest.FromString(data)
 def CompanyUseObtainEnjoyPointItemRequest_deserializer(raw):
     data = deserialize(raw)
-    return ProtoApi__pb2.CompanyUseObtainEnjoyPointItemRequest.FromString(data)
+    return papi__pb2.CompanyUseObtainEnjoyPointItemRequest.FromString(data)
 def CompanyBulkReceiveEnjoyRequest_deserializer(raw):
     data = deserialize(raw)
-    return ProtoApi__pb2.CompanyBulkReceiveEnjoyRequest.FromString(data)
+    return papi__pb2.CompanyBulkReceiveEnjoyRequest.FromString(data)
 def Empty_deserializer(raw):
     data = deserialize(raw)
-    return ProtoApi__pb2.Empty.FromString(data)
+    return papi__pb2.Empty.FromString(data)
 def CompanyReceiveTrustLevelRewardsRequest_deserializer(raw):
     data = deserialize(raw)
-    return ProtoApi__pb2.CompanyReceiveTrustLevelRewardsRequest.FromString(data)
+    return papi__pb2.CompanyReceiveTrustLevelRewardsRequest.FromString(data)
 def CostumeSetResponse_deserializer(raw):
     data = deserialize(raw)
-    return ProtoApi__pb2.CostumeSetResponse.FromString(data)
+    return papi__pb2.CostumeSetResponse.FromString(data)
 def CostumeLiveSetResponse_deserializer(raw):
     data = deserialize(raw)
-    return ProtoApi__pb2.CostumeLiveSetResponse.FromString(data)
+    return papi__pb2.CostumeLiveSetResponse.FromString(data)
 def CostumeCheckResponse_deserializer(raw):
     data = deserialize(raw)
-    return ProtoApi__pb2.CostumeCheckResponse.FromString(data)
+    return papi__pb2.CostumeCheckResponse.FromString(data)
 def CostumeCheckBulkResponse_deserializer(raw):
     data = deserialize(raw)
-    return ProtoApi__pb2.CostumeCheckBulkResponse.FromString(data)
+    return papi__pb2.CostumeCheckBulkResponse.FromString(data)
 def CostumeSetRequest_deserializer(raw):
     data = deserialize(raw)
-    return ProtoApi__pb2.CostumeSetRequest.FromString(data)
+    return papi__pb2.CostumeSetRequest.FromString(data)
 def CostumeLiveSetRequest_deserializer(raw):
     data = deserialize(raw)
-    return ProtoApi__pb2.CostumeLiveSetRequest.FromString(data)
+    return papi__pb2.CostumeLiveSetRequest.FromString(data)
 def CostumeCheckRequest_deserializer(raw):
     data = deserialize(raw)
-    return ProtoApi__pb2.CostumeCheckRequest.FromString(data)
+    return papi__pb2.CostumeCheckRequest.FromString(data)
 def CostumeCheckBulkRequest_deserializer(raw):
     data = deserialize(raw)
-    return ProtoApi__pb2.CostumeCheckBulkRequest.FromString(data)
+    return papi__pb2.CostumeCheckBulkRequest.FromString(data)
 def DeckSaveResponse_deserializer(raw):
     data = deserialize(raw)
-    return ProtoApi__pb2.DeckSaveResponse.FromString(data)
+    return papi__pb2.DeckSaveResponse.FromString(data)
 def DeckDeleteResponse_deserializer(raw):
     data = deserialize(raw)
-    return ProtoApi__pb2.DeckDeleteResponse.FromString(data)
+    return papi__pb2.DeckDeleteResponse.FromString(data)
 def DeckBuddyListResponse_deserializer(raw):
     data = deserialize(raw)
-    return ProtoApi__pb2.DeckBuddyListResponse.FromString(data)
+    return papi__pb2.DeckBuddyListResponse.FromString(data)
 def DeckSaveRequest_deserializer(raw):
     data = deserialize(raw)
-    return ProtoApi__pb2.DeckSaveRequest.FromString(data)
+    return papi__pb2.DeckSaveRequest.FromString(data)
 def DeckDeleteRequest_deserializer(raw):
     data = deserialize(raw)
-    return ProtoApi__pb2.DeckDeleteRequest.FromString(data)
+    return papi__pb2.DeckDeleteRequest.FromString(data)
 def Empty_deserializer(raw):
     data = deserialize(raw)
-    return ProtoApi__pb2.Empty.FromString(data)
+    return papi__pb2.Empty.FromString(data)
 def DiaryGetInfosResponse_deserializer(raw):
     data = deserialize(raw)
-    return ProtoApi__pb2.DiaryGetInfosResponse.FromString(data)
+    return papi__pb2.DiaryGetInfosResponse.FromString(data)
 def DiaryReadResponse_deserializer(raw):
     data = deserialize(raw)
-    return ProtoApi__pb2.DiaryReadResponse.FromString(data)
+    return papi__pb2.DiaryReadResponse.FromString(data)
 def Empty_deserializer(raw):
     data = deserialize(raw)
-    return ProtoApi__pb2.Empty.FromString(data)
+    return papi__pb2.Empty.FromString(data)
 def DiaryReadRequest_deserializer(raw):
     data = deserialize(raw)
-    return ProtoApi__pb2.DiaryReadRequest.FromString(data)
+    return papi__pb2.DiaryReadRequest.FromString(data)
 def DiceTopResponse_deserializer(raw):
     data = deserialize(raw)
-    return ProtoApi__pb2.DiceTopResponse.FromString(data)
+    return papi__pb2.DiceTopResponse.FromString(data)
 def DiceMovePanelResponse_deserializer(raw):
     data = deserialize(raw)
-    return ProtoApi__pb2.DiceMovePanelResponse.FromString(data)
+    return papi__pb2.DiceMovePanelResponse.FromString(data)
 def DiceUseItemResponse_deserializer(raw):
     data = deserialize(raw)
-    return ProtoApi__pb2.DiceUseItemResponse.FromString(data)
+    return papi__pb2.DiceUseItemResponse.FromString(data)
 def DiceDiscardItemResponse_deserializer(raw):
     data = deserialize(raw)
-    return ProtoApi__pb2.DiceDiscardItemResponse.FromString(data)
+    return papi__pb2.DiceDiscardItemResponse.FromString(data)
 def DicePurchaseItemResponse_deserializer(raw):
     data = deserialize(raw)
-    return ProtoApi__pb2.DicePurchaseItemResponse.FromString(data)
+    return papi__pb2.DicePurchaseItemResponse.FromString(data)
 def DiceSellItemResponse_deserializer(raw):
     data = deserialize(raw)
-    return ProtoApi__pb2.DiceSellItemResponse.FromString(data)
+    return papi__pb2.DiceSellItemResponse.FromString(data)
 def DiceFinishShopPanelResponse_deserializer(raw):
     data = deserialize(raw)
-    return ProtoApi__pb2.DiceFinishShopPanelResponse.FromString(data)
+    return papi__pb2.DiceFinishShopPanelResponse.FromString(data)
 def DiceFinishStoryPanelResponse_deserializer(raw):
     data = deserialize(raw)
-    return ProtoApi__pb2.DiceFinishStoryPanelResponse.FromString(data)
+    return papi__pb2.DiceFinishStoryPanelResponse.FromString(data)
 def DiceUseStaminaRecoveryItemResponse_deserializer(raw):
     data = deserialize(raw)
-    return ProtoApi__pb2.DiceUseStaminaRecoveryItemResponse.FromString(data)
+    return papi__pb2.DiceUseStaminaRecoveryItemResponse.FromString(data)
 def DiceListDeckResponse_deserializer(raw):
     data = deserialize(raw)
-    return ProtoApi__pb2.DiceListDeckResponse.FromString(data)
+    return papi__pb2.DiceListDeckResponse.FromString(data)
 def DiceStartQuestResponse_deserializer(raw):
     data = deserialize(raw)
-    return ProtoApi__pb2.DiceStartQuestResponse.FromString(data)
+    return papi__pb2.DiceStartQuestResponse.FromString(data)
 def DiceStartGoalQuestResponse_deserializer(raw):
     data = deserialize(raw)
-    return ProtoApi__pb2.DiceStartGoalQuestResponse.FromString(data)
+    return papi__pb2.DiceStartGoalQuestResponse.FromString(data)
 def DiceChooseLiveBonusResponse_deserializer(raw):
     data = deserialize(raw)
-    return ProtoApi__pb2.DiceChooseLiveBonusResponse.FromString(data)
+    return papi__pb2.DiceChooseLiveBonusResponse.FromString(data)
 def DiceListRankingResponse_deserializer(raw):
     data = deserialize(raw)
-    return ProtoApi__pb2.DiceListRankingResponse.FromString(data)
+    return papi__pb2.DiceListRankingResponse.FromString(data)
 def DiceSaveDeckResponse_deserializer(raw):
     data = deserialize(raw)
-    return ProtoApi__pb2.DiceSaveDeckResponse.FromString(data)
+    return papi__pb2.DiceSaveDeckResponse.FromString(data)
 def Empty_deserializer(raw):
     data = deserialize(raw)
-    return ProtoApi__pb2.Empty.FromString(data)
+    return papi__pb2.Empty.FromString(data)
 def Empty_deserializer(raw):
     data = deserialize(raw)
-    return ProtoApi__pb2.Empty.FromString(data)
+    return papi__pb2.Empty.FromString(data)
 def DiceUseItemRequest_deserializer(raw):
     data = deserialize(raw)
-    return ProtoApi__pb2.DiceUseItemRequest.FromString(data)
+    return papi__pb2.DiceUseItemRequest.FromString(data)
 def DiceDiscardItemRequest_deserializer(raw):
     data = deserialize(raw)
-    return ProtoApi__pb2.DiceDiscardItemRequest.FromString(data)
+    return papi__pb2.DiceDiscardItemRequest.FromString(data)
 def DicePurchaseItemRequest_deserializer(raw):
     data = deserialize(raw)
-    return ProtoApi__pb2.DicePurchaseItemRequest.FromString(data)
+    return papi__pb2.DicePurchaseItemRequest.FromString(data)
 def DiceSellItemRequest_deserializer(raw):
     data = deserialize(raw)
-    return ProtoApi__pb2.DiceSellItemRequest.FromString(data)
+    return papi__pb2.DiceSellItemRequest.FromString(data)
 def Empty_deserializer(raw):
     data = deserialize(raw)
-    return ProtoApi__pb2.Empty.FromString(data)
+    return papi__pb2.Empty.FromString(data)
 def DiceFinishStoryPanelRequest_deserializer(raw):
     data = deserialize(raw)
-    return ProtoApi__pb2.DiceFinishStoryPanelRequest.FromString(data)
+    return papi__pb2.DiceFinishStoryPanelRequest.FromString(data)
 def DiceUseStaminaRecoveryItemRequest_deserializer(raw):
     data = deserialize(raw)
-    return ProtoApi__pb2.DiceUseStaminaRecoveryItemRequest.FromString(data)
+    return papi__pb2.DiceUseStaminaRecoveryItemRequest.FromString(data)
 def DiceListDeckRequest_deserializer(raw):
     data = deserialize(raw)
-    return ProtoApi__pb2.DiceListDeckRequest.FromString(data)
+    return papi__pb2.DiceListDeckRequest.FromString(data)
 def DiceStartQuestRequest_deserializer(raw):
     data = deserialize(raw)
-    return ProtoApi__pb2.DiceStartQuestRequest.FromString(data)
+    return papi__pb2.DiceStartQuestRequest.FromString(data)
 def DiceStartGoalQuestRequest_deserializer(raw):
     data = deserialize(raw)
-    return ProtoApi__pb2.DiceStartGoalQuestRequest.FromString(data)
+    return papi__pb2.DiceStartGoalQuestRequest.FromString(data)
 def DiceChooseLiveBonusRequest_deserializer(raw):
     data = deserialize(raw)
-    return ProtoApi__pb2.DiceChooseLiveBonusRequest.FromString(data)
+    return papi__pb2.DiceChooseLiveBonusRequest.FromString(data)
 def Empty_deserializer(raw):
     data = deserialize(raw)
-    return ProtoApi__pb2.Empty.FromString(data)
+    return papi__pb2.Empty.FromString(data)
 def DiceSaveDeckRequest_deserializer(raw):
     data = deserialize(raw)
-    return ProtoApi__pb2.DiceSaveDeckRequest.FromString(data)
+    return papi__pb2.DiceSaveDeckRequest.FromString(data)
 def DivisionListResponse_deserializer(raw):
     data = deserialize(raw)
-    return ProtoApi__pb2.DivisionListResponse.FromString(data)
+    return papi__pb2.DivisionListResponse.FromString(data)
 def DivisionMoveResponse_deserializer(raw):
     data = deserialize(raw)
-    return ProtoApi__pb2.DivisionMoveResponse.FromString(data)
+    return papi__pb2.DivisionMoveResponse.FromString(data)
 def Empty_deserializer(raw):
     data = deserialize(raw)
-    return ProtoApi__pb2.Empty.FromString(data)
+    return papi__pb2.Empty.FromString(data)
 def DivisionMoveRequest_deserializer(raw):
     data = deserialize(raw)
-    return ProtoApi__pb2.DivisionMoveRequest.FromString(data)
+    return papi__pb2.DivisionMoveRequest.FromString(data)
 def DokanListResponse_deserializer(raw):
     data = deserialize(raw)
-    return ProtoApi__pb2.DokanListResponse.FromString(data)
+    return papi__pb2.DokanListResponse.FromString(data)
 def DokanSetWathcedResponse_deserializer(raw):
     data = deserialize(raw)
-    return ProtoApi__pb2.DokanSetWathcedResponse.FromString(data)
+    return papi__pb2.DokanSetWathcedResponse.FromString(data)
 def DokanOutputWatchedLogResponse_deserializer(raw):
     data = deserialize(raw)
-    return ProtoApi__pb2.DokanOutputWatchedLogResponse.FromString(data)
+    return papi__pb2.DokanOutputWatchedLogResponse.FromString(data)
 def Empty_deserializer(raw):
     data = deserialize(raw)
-    return ProtoApi__pb2.Empty.FromString(data)
+    return papi__pb2.Empty.FromString(data)
 def DokanSetWatchedRequest_deserializer(raw):
     data = deserialize(raw)
-    return ProtoApi__pb2.DokanSetWatchedRequest.FromString(data)
+    return papi__pb2.DokanSetWatchedRequest.FromString(data)
 def DokanOutputWatchedLogRequest_deserializer(raw):
     data = deserialize(raw)
-    return ProtoApi__pb2.DokanOutputWatchedLogRequest.FromString(data)
+    return papi__pb2.DokanOutputWatchedLogRequest.FromString(data)
 def DreamTopResponse_deserializer(raw):
     data = deserialize(raw)
-    return ProtoApi__pb2.DreamTopResponse.FromString(data)
+    return papi__pb2.DreamTopResponse.FromString(data)
 def DreamListMaterialPhotoResponse_deserializer(raw):
     data = deserialize(raw)
-    return ProtoApi__pb2.DreamListMaterialPhotoResponse.FromString(data)
+    return papi__pb2.DreamListMaterialPhotoResponse.FromString(data)
 def DreamListQuestResponse_deserializer(raw):
     data = deserialize(raw)
-    return ProtoApi__pb2.DreamListQuestResponse.FromString(data)
+    return papi__pb2.DreamListQuestResponse.FromString(data)
 def DreamGenerateAreaResponse_deserializer(raw):
     data = deserialize(raw)
-    return ProtoApi__pb2.DreamGenerateAreaResponse.FromString(data)
+    return papi__pb2.DreamGenerateAreaResponse.FromString(data)
 def DreamStartQuestResponse_deserializer(raw):
     data = deserialize(raw)
-    return ProtoApi__pb2.DreamStartQuestResponse.FromString(data)
+    return papi__pb2.DreamStartQuestResponse.FromString(data)
 def DreamSkipQuestResponse_deserializer(raw):
     data = deserialize(raw)
-    return ProtoApi__pb2.DreamSkipQuestResponse.FromString(data)
+    return papi__pb2.DreamSkipQuestResponse.FromString(data)
 def DreamResetAreaResponse_deserializer(raw):
     data = deserialize(raw)
-    return ProtoApi__pb2.DreamResetAreaResponse.FromString(data)
+    return papi__pb2.DreamResetAreaResponse.FromString(data)
 def Empty_deserializer(raw):
     data = deserialize(raw)
-    return ProtoApi__pb2.Empty.FromString(data)
+    return papi__pb2.Empty.FromString(data)
 def DreamListMaterialPhotoRequest_deserializer(raw):
     data = deserialize(raw)
-    return ProtoApi__pb2.DreamListMaterialPhotoRequest.FromString(data)
+    return papi__pb2.DreamListMaterialPhotoRequest.FromString(data)
 def DreamListQuestRequest_deserializer(raw):
     data = deserialize(raw)
-    return ProtoApi__pb2.DreamListQuestRequest.FromString(data)
+    return papi__pb2.DreamListQuestRequest.FromString(data)
 def DreamGenerateAreaRequest_deserializer(raw):
     data = deserialize(raw)
-    return ProtoApi__pb2.DreamGenerateAreaRequest.FromString(data)
+    return papi__pb2.DreamGenerateAreaRequest.FromString(data)
 def DreamStartQuestRequest_deserializer(raw):
     data = deserialize(raw)
-    return ProtoApi__pb2.DreamStartQuestRequest.FromString(data)
+    return papi__pb2.DreamStartQuestRequest.FromString(data)
 def DreamSkipQuestRequest_deserializer(raw):
     data = deserialize(raw)
-    return ProtoApi__pb2.DreamSkipQuestRequest.FromString(data)
+    return papi__pb2.DreamSkipQuestRequest.FromString(data)
 def DreamResetAreaRequest_deserializer(raw):
     data = deserialize(raw)
-    return ProtoApi__pb2.DreamResetAreaRequest.FromString(data)
+    return papi__pb2.DreamResetAreaRequest.FromString(data)
 def DutyTopResponse_deserializer(raw):
     data = deserialize(raw)
-    return ProtoApi__pb2.DutyTopResponse.FromString(data)
+    return papi__pb2.DutyTopResponse.FromString(data)
 def DutyExchangeRewardResponse_deserializer(raw):
     data = deserialize(raw)
-    return ProtoApi__pb2.DutyExchangeRewardResponse.FromString(data)
+    return papi__pb2.DutyExchangeRewardResponse.FromString(data)
 def DutyReceiveTotalObtainRewardResponse_deserializer(raw):
     data = deserialize(raw)
-    return ProtoApi__pb2.DutyReceiveTotalObtainRewardResponse.FromString(data)
+    return papi__pb2.DutyReceiveTotalObtainRewardResponse.FromString(data)
 def DutyTopRequest_deserializer(raw):
     data = deserialize(raw)
-    return ProtoApi__pb2.DutyTopRequest.FromString(data)
+    return papi__pb2.DutyTopRequest.FromString(data)
 def DutyExchangeRewardRequest_deserializer(raw):
     data = deserialize(raw)
-    return ProtoApi__pb2.DutyExchangeRewardRequest.FromString(data)
+    return papi__pb2.DutyExchangeRewardRequest.FromString(data)
 def DutyReceiveTotalObtainRewardRequest_deserializer(raw):
     data = deserialize(raw)
-    return ProtoApi__pb2.DutyReceiveTotalObtainRewardRequest.FromString(data)
+    return papi__pb2.DutyReceiveTotalObtainRewardRequest.FromString(data)
 def ExchangeListResponse_deserializer(raw):
     data = deserialize(raw)
-    return ProtoApi__pb2.ExchangeListResponse.FromString(data)
+    return papi__pb2.ExchangeListResponse.FromString(data)
 def ExchangeExecuteResponse_deserializer(raw):
     data = deserialize(raw)
-    return ProtoApi__pb2.ExchangeExecuteResponse.FromString(data)
+    return papi__pb2.ExchangeExecuteResponse.FromString(data)
 def ExchangeTryOnResponse_deserializer(raw):
     data = deserialize(raw)
-    return ProtoApi__pb2.ExchangeTryOnResponse.FromString(data)
+    return papi__pb2.ExchangeTryOnResponse.FromString(data)
 def Empty_deserializer(raw):
     data = deserialize(raw)
-    return ProtoApi__pb2.Empty.FromString(data)
+    return papi__pb2.Empty.FromString(data)
 def ExchangeExecuteRequest_deserializer(raw):
     data = deserialize(raw)
-    return ProtoApi__pb2.ExchangeExecuteRequest.FromString(data)
+    return papi__pb2.ExchangeExecuteRequest.FromString(data)
 def ExchangeTryOnRequest_deserializer(raw):
     data = deserialize(raw)
-    return ProtoApi__pb2.ExchangeTryOnRequest.FromString(data)
+    return papi__pb2.ExchangeTryOnRequest.FromString(data)
 def ExerciseTopResponse_deserializer(raw):
     data = deserialize(raw)
-    return ProtoApi__pb2.ExerciseTopResponse.FromString(data)
+    return papi__pb2.ExerciseTopResponse.FromString(data)
 def ExerciseSaveDeckResponse_deserializer(raw):
     data = deserialize(raw)
-    return ProtoApi__pb2.ExerciseSaveDeckResponse.FromString(data)
+    return papi__pb2.ExerciseSaveDeckResponse.FromString(data)
 def ExerciseStartResponse_deserializer(raw):
     data = deserialize(raw)
-    return ProtoApi__pb2.ExerciseStartResponse.FromString(data)
+    return papi__pb2.ExerciseStartResponse.FromString(data)
 def ExerciseListAssetResponse_deserializer(raw):
     data = deserialize(raw)
-    return ProtoApi__pb2.ExerciseListAssetResponse.FromString(data)
+    return papi__pb2.ExerciseListAssetResponse.FromString(data)
 def Empty_deserializer(raw):
     data = deserialize(raw)
-    return ProtoApi__pb2.Empty.FromString(data)
+    return papi__pb2.Empty.FromString(data)
 def ExerciseSaveDeckRequest_deserializer(raw):
     data = deserialize(raw)
-    return ProtoApi__pb2.ExerciseSaveDeckRequest.FromString(data)
+    return papi__pb2.ExerciseSaveDeckRequest.FromString(data)
 def ExerciseStartRequest_deserializer(raw):
     data = deserialize(raw)
-    return ProtoApi__pb2.ExerciseStartRequest.FromString(data)
+    return papi__pb2.ExerciseStartRequest.FromString(data)
 def ExerciseListAssetRequest_deserializer(raw):
     data = deserialize(raw)
-    return ProtoApi__pb2.ExerciseListAssetRequest.FromString(data)
+    return papi__pb2.ExerciseListAssetRequest.FromString(data)
 def ForumListThreadResponse_deserializer(raw):
     data = deserialize(raw)
-    return ProtoApi__pb2.ForumListThreadResponse.FromString(data)
+    return papi__pb2.ForumListThreadResponse.FromString(data)
 def ForumListThreadReplyResponse_deserializer(raw):
     data = deserialize(raw)
-    return ProtoApi__pb2.ForumListThreadReplyResponse.FromString(data)
+    return papi__pb2.ForumListThreadReplyResponse.FromString(data)
 def ForumCreateThreadResponse_deserializer(raw):
     data = deserialize(raw)
-    return ProtoApi__pb2.ForumCreateThreadResponse.FromString(data)
+    return papi__pb2.ForumCreateThreadResponse.FromString(data)
 def ForumSendThreadReplyResponse_deserializer(raw):
     data = deserialize(raw)
-    return ProtoApi__pb2.ForumSendThreadReplyResponse.FromString(data)
+    return papi__pb2.ForumSendThreadReplyResponse.FromString(data)
 def ForumLikeReplyResponse_deserializer(raw):
     data = deserialize(raw)
-    return ProtoApi__pb2.ForumLikeReplyResponse.FromString(data)
+    return papi__pb2.ForumLikeReplyResponse.FromString(data)
 def ForumDislikeReplyResponse_deserializer(raw):
     data = deserialize(raw)
-    return ProtoApi__pb2.ForumDislikeReplyResponse.FromString(data)
+    return papi__pb2.ForumDislikeReplyResponse.FromString(data)
 def ForumBookmarkThreadResponse_deserializer(raw):
     data = deserialize(raw)
-    return ProtoApi__pb2.ForumBookmarkThreadResponse.FromString(data)
+    return papi__pb2.ForumBookmarkThreadResponse.FromString(data)
 def ForumUnbookmarkThreadResponse_deserializer(raw):
     data = deserialize(raw)
-    return ProtoApi__pb2.ForumUnbookmarkThreadResponse.FromString(data)
+    return papi__pb2.ForumUnbookmarkThreadResponse.FromString(data)
 def ForumBlockUserResponse_deserializer(raw):
     data = deserialize(raw)
-    return ProtoApi__pb2.ForumBlockUserResponse.FromString(data)
+    return papi__pb2.ForumBlockUserResponse.FromString(data)
 def Empty_deserializer(raw):
     data = deserialize(raw)
-    return ProtoApi__pb2.Empty.FromString(data)
+    return papi__pb2.Empty.FromString(data)
 def ForumListThreadReplyRequest_deserializer(raw):
     data = deserialize(raw)
-    return ProtoApi__pb2.ForumListThreadReplyRequest.FromString(data)
+    return papi__pb2.ForumListThreadReplyRequest.FromString(data)
 def ForumCreateThreadRequest_deserializer(raw):
     data = deserialize(raw)
-    return ProtoApi__pb2.ForumCreateThreadRequest.FromString(data)
+    return papi__pb2.ForumCreateThreadRequest.FromString(data)
 def ForumSendThreadReplyRequest_deserializer(raw):
     data = deserialize(raw)
-    return ProtoApi__pb2.ForumSendThreadReplyRequest.FromString(data)
+    return papi__pb2.ForumSendThreadReplyRequest.FromString(data)
 def ForumLikeReplyRequest_deserializer(raw):
     data = deserialize(raw)
-    return ProtoApi__pb2.ForumLikeReplyRequest.FromString(data)
+    return papi__pb2.ForumLikeReplyRequest.FromString(data)
 def ForumDislikeReplyRequest_deserializer(raw):
     data = deserialize(raw)
-    return ProtoApi__pb2.ForumDislikeReplyRequest.FromString(data)
+    return papi__pb2.ForumDislikeReplyRequest.FromString(data)
 def ForumBookmarkThreadRequest_deserializer(raw):
     data = deserialize(raw)
-    return ProtoApi__pb2.ForumBookmarkThreadRequest.FromString(data)
+    return papi__pb2.ForumBookmarkThreadRequest.FromString(data)
 def ForumUnbookmarkThreadRequest_deserializer(raw):
     data = deserialize(raw)
-    return ProtoApi__pb2.ForumUnbookmarkThreadRequest.FromString(data)
+    return papi__pb2.ForumUnbookmarkThreadRequest.FromString(data)
 def ForumBlockUserRequest_deserializer(raw):
     data = deserialize(raw)
-    return ProtoApi__pb2.ForumBlockUserRequest.FromString(data)
+    return papi__pb2.ForumBlockUserRequest.FromString(data)
 def FriendListResponse_deserializer(raw):
     data = deserialize(raw)
-    return ProtoApi__pb2.FriendListResponse.FromString(data)
+    return papi__pb2.FriendListResponse.FromString(data)
 def FriendDeleteResponse_deserializer(raw):
     data = deserialize(raw)
-    return ProtoApi__pb2.FriendDeleteResponse.FromString(data)
+    return papi__pb2.FriendDeleteResponse.FromString(data)
 def FriendApplyResponse_deserializer(raw):
     data = deserialize(raw)
-    return ProtoApi__pb2.FriendApplyResponse.FromString(data)
+    return papi__pb2.FriendApplyResponse.FromString(data)
 def FriendApproveResponse_deserializer(raw):
     data = deserialize(raw)
-    return ProtoApi__pb2.FriendApproveResponse.FromString(data)
+    return papi__pb2.FriendApproveResponse.FromString(data)
 def FriendCancelResponse_deserializer(raw):
     data = deserialize(raw)
-    return ProtoApi__pb2.FriendCancelResponse.FromString(data)
+    return papi__pb2.FriendCancelResponse.FromString(data)
 def FriendCancelAllResponse_deserializer(raw):
     data = deserialize(raw)
-    return ProtoApi__pb2.FriendCancelAllResponse.FromString(data)
+    return papi__pb2.FriendCancelAllResponse.FromString(data)
 def FriendRejectResponse_deserializer(raw):
     data = deserialize(raw)
-    return ProtoApi__pb2.FriendRejectResponse.FromString(data)
+    return papi__pb2.FriendRejectResponse.FromString(data)
 def FriendListApplyingResponse_deserializer(raw):
     data = deserialize(raw)
-    return ProtoApi__pb2.FriendListApplyingResponse.FromString(data)
+    return papi__pb2.FriendListApplyingResponse.FromString(data)
 def FriendListAppliedResponse_deserializer(raw):
     data = deserialize(raw)
-    return ProtoApi__pb2.FriendListAppliedResponse.FromString(data)
+    return papi__pb2.FriendListAppliedResponse.FromString(data)
 def FriendSearchResponse_deserializer(raw):
     data = deserialize(raw)
-    return ProtoApi__pb2.FriendSearchResponse.FromString(data)
+    return papi__pb2.FriendSearchResponse.FromString(data)
 def Empty_deserializer(raw):
     data = deserialize(raw)
-    return ProtoApi__pb2.Empty.FromString(data)
+    return papi__pb2.Empty.FromString(data)
 def FriendDeleteRequest_deserializer(raw):
     data = deserialize(raw)
-    return ProtoApi__pb2.FriendDeleteRequest.FromString(data)
+    return papi__pb2.FriendDeleteRequest.FromString(data)
 def FriendApplyRequest_deserializer(raw):
     data = deserialize(raw)
-    return ProtoApi__pb2.FriendApplyRequest.FromString(data)
+    return papi__pb2.FriendApplyRequest.FromString(data)
 def FriendApproveRequest_deserializer(raw):
     data = deserialize(raw)
-    return ProtoApi__pb2.FriendApproveRequest.FromString(data)
+    return papi__pb2.FriendApproveRequest.FromString(data)
 def FriendCancelRequest_deserializer(raw):
     data = deserialize(raw)
-    return ProtoApi__pb2.FriendCancelRequest.FromString(data)
+    return papi__pb2.FriendCancelRequest.FromString(data)
 def Empty_deserializer(raw):
     data = deserialize(raw)
-    return ProtoApi__pb2.Empty.FromString(data)
+    return papi__pb2.Empty.FromString(data)
 def FriendRejectRequest_deserializer(raw):
     data = deserialize(raw)
-    return ProtoApi__pb2.FriendRejectRequest.FromString(data)
+    return papi__pb2.FriendRejectRequest.FromString(data)
 def Empty_deserializer(raw):
     data = deserialize(raw)
-    return ProtoApi__pb2.Empty.FromString(data)
+    return papi__pb2.Empty.FromString(data)
 def Empty_deserializer(raw):
     data = deserialize(raw)
-    return ProtoApi__pb2.Empty.FromString(data)
+    return papi__pb2.Empty.FromString(data)
 def Empty_deserializer(raw):
     data = deserialize(raw)
-    return ProtoApi__pb2.Empty.FromString(data)
+    return papi__pb2.Empty.FromString(data)
 def GachaListResponse_deserializer(raw):
     data = deserialize(raw)
-    return ProtoApi__pb2.GachaListResponse.FromString(data)
+    return papi__pb2.GachaListResponse.FromString(data)
 def GachaDrawResponse_deserializer(raw):
     data = deserialize(raw)
-    return ProtoApi__pb2.GachaDrawResponse.FromString(data)
+    return papi__pb2.GachaDrawResponse.FromString(data)
 def GachaExchangeResponse_deserializer(raw):
     data = deserialize(raw)
-    return ProtoApi__pb2.GachaExchangeResponse.FromString(data)
+    return papi__pb2.GachaExchangeResponse.FromString(data)
 def GachaProbabilityResponse_deserializer(raw):
     data = deserialize(raw)
-    return ProtoApi__pb2.GachaProbabilityResponse.FromString(data)
+    return papi__pb2.GachaProbabilityResponse.FromString(data)
 def GachaHistoryResponse_deserializer(raw):
     data = deserialize(raw)
-    return ProtoApi__pb2.GachaHistoryResponse.FromString(data)
+    return papi__pb2.GachaHistoryResponse.FromString(data)
 def GachaSelectCardResponse_deserializer(raw):
     data = deserialize(raw)
-    return ProtoApi__pb2.GachaSelectCardResponse.FromString(data)
+    return papi__pb2.GachaSelectCardResponse.FromString(data)
 def GachaReceiveFreePremiumGachaTicketResponse_deserializer(raw):
     data = deserialize(raw)
-    return ProtoApi__pb2.GachaReceiveFreePremiumGachaTicketResponse.FromString(data)
+    return papi__pb2.GachaReceiveFreePremiumGachaTicketResponse.FromString(data)
 def Empty_deserializer(raw):
     data = deserialize(raw)
-    return ProtoApi__pb2.Empty.FromString(data)
+    return papi__pb2.Empty.FromString(data)
 def GachaDrawRequest_deserializer(raw):
     data = deserialize(raw)
-    return ProtoApi__pb2.GachaDrawRequest.FromString(data)
+    return papi__pb2.GachaDrawRequest.FromString(data)
 def GachaExchangeRequest_deserializer(raw):
     data = deserialize(raw)
-    return ProtoApi__pb2.GachaExchangeRequest.FromString(data)
+    return papi__pb2.GachaExchangeRequest.FromString(data)
 def GachaProbabilityRequest_deserializer(raw):
     data = deserialize(raw)
-    return ProtoApi__pb2.GachaProbabilityRequest.FromString(data)
+    return papi__pb2.GachaProbabilityRequest.FromString(data)
 def GachaHistoryRequest_deserializer(raw):
     data = deserialize(raw)
-    return ProtoApi__pb2.GachaHistoryRequest.FromString(data)
+    return papi__pb2.GachaHistoryRequest.FromString(data)
 def GachaSelectCardRequest_deserializer(raw):
     data = deserialize(raw)
-    return ProtoApi__pb2.GachaSelectCardRequest.FromString(data)
+    return papi__pb2.GachaSelectCardRequest.FromString(data)
 def GachaReceiveFreePremiumGachaTicketRequest_deserializer(raw):
     data = deserialize(raw)
-    return ProtoApi__pb2.GachaReceiveFreePremiumGachaTicketRequest.FromString(data)
+    return papi__pb2.GachaReceiveFreePremiumGachaTicketRequest.FromString(data)
 def GiftListResponse_deserializer(raw):
     data = deserialize(raw)
-    return ProtoApi__pb2.GiftListResponse.FromString(data)
+    return papi__pb2.GiftListResponse.FromString(data)
 def GiftReceiveResponse_deserializer(raw):
     data = deserialize(raw)
-    return ProtoApi__pb2.GiftReceiveResponse.FromString(data)
+    return papi__pb2.GiftReceiveResponse.FromString(data)
 def GiftHistoryListResponse_deserializer(raw):
     data = deserialize(raw)
-    return ProtoApi__pb2.GiftHistoryListResponse.FromString(data)
+    return papi__pb2.GiftHistoryListResponse.FromString(data)
 def GiftListRequest_deserializer(raw):
     data = deserialize(raw)
-    return ProtoApi__pb2.GiftListRequest.FromString(data)
+    return papi__pb2.GiftListRequest.FromString(data)
 def GiftReceiveRequest_deserializer(raw):
     data = deserialize(raw)
-    return ProtoApi__pb2.GiftReceiveRequest.FromString(data)
+    return papi__pb2.GiftReceiveRequest.FromString(data)
 def Empty_deserializer(raw):
     data = deserialize(raw)
-    return ProtoApi__pb2.Empty.FromString(data)
+    return papi__pb2.Empty.FromString(data)
 def GppReceiveRewardResponse_deserializer(raw):
     data = deserialize(raw)
-    return ProtoApi__pb2.GppReceiveRewardResponse.FromString(data)
+    return papi__pb2.GppReceiveRewardResponse.FromString(data)
 def GppReceiveRewardRequest_deserializer(raw):
     data = deserialize(raw)
-    return ProtoApi__pb2.GppReceiveRewardRequest.FromString(data)
+    return papi__pb2.GppReceiveRewardRequest.FromString(data)
 def GuildListResponse_deserializer(raw):
     data = deserialize(raw)
-    return ProtoApi__pb2.GuildListResponse.FromString(data)
+    return papi__pb2.GuildListResponse.FromString(data)
 def GuildTopResponse_deserializer(raw):
     data = deserialize(raw)
-    return ProtoApi__pb2.GuildTopResponse.FromString(data)
+    return papi__pb2.GuildTopResponse.FromString(data)
 def GuildJoinResponse_deserializer(raw):
     data = deserialize(raw)
-    return ProtoApi__pb2.GuildJoinResponse.FromString(data)
+    return papi__pb2.GuildJoinResponse.FromString(data)
 def Empty_deserializer(raw):
     data = deserialize(raw)
-    return ProtoApi__pb2.Empty.FromString(data)
+    return papi__pb2.Empty.FromString(data)
 def Empty_deserializer(raw):
     data = deserialize(raw)
-    return ProtoApi__pb2.Empty.FromString(data)
+    return papi__pb2.Empty.FromString(data)
 def GuildJoinRequest_deserializer(raw):
     data = deserialize(raw)
-    return ProtoApi__pb2.GuildJoinRequest.FromString(data)
+    return papi__pb2.GuildJoinRequest.FromString(data)
 def GvgTopResponse_deserializer(raw):
     data = deserialize(raw)
-    return ProtoApi__pb2.GvgTopResponse.FromString(data)
+    return papi__pb2.GvgTopResponse.FromString(data)
 def GvgListOpponentResponse_deserializer(raw):
     data = deserialize(raw)
-    return ProtoApi__pb2.GvgListOpponentResponse.FromString(data)
+    return papi__pb2.GvgListOpponentResponse.FromString(data)
 def GvgListRankingResponse_deserializer(raw):
     data = deserialize(raw)
-    return ProtoApi__pb2.GvgListRankingResponse.FromString(data)
+    return papi__pb2.GvgListRankingResponse.FromString(data)
 def GvgStartResponse_deserializer(raw):
     data = deserialize(raw)
-    return ProtoApi__pb2.GvgStartResponse.FromString(data)
+    return papi__pb2.GvgStartResponse.FromString(data)
 def GvgListAssetResponse_deserializer(raw):
     data = deserialize(raw)
-    return ProtoApi__pb2.GvgListAssetResponse.FromString(data)
+    return papi__pb2.GvgListAssetResponse.FromString(data)
 def Empty_deserializer(raw):
     data = deserialize(raw)
-    return ProtoApi__pb2.Empty.FromString(data)
+    return papi__pb2.Empty.FromString(data)
 def GvgListOpponentRequest_deserializer(raw):
     data = deserialize(raw)
-    return ProtoApi__pb2.GvgListOpponentRequest.FromString(data)
+    return papi__pb2.GvgListOpponentRequest.FromString(data)
 def GvgListRankingRequest_deserializer(raw):
     data = deserialize(raw)
-    return ProtoApi__pb2.GvgListRankingRequest.FromString(data)
+    return papi__pb2.GvgListRankingRequest.FromString(data)
 def GvgStartRequest_deserializer(raw):
     data = deserialize(raw)
-    return ProtoApi__pb2.GvgStartRequest.FromString(data)
+    return papi__pb2.GvgStartRequest.FromString(data)
 def GvgListAssetRequest_deserializer(raw):
     data = deserialize(raw)
-    return ProtoApi__pb2.GvgListAssetRequest.FromString(data)
+    return papi__pb2.GvgListAssetRequest.FromString(data)
 def HairCheckResponse_deserializer(raw):
     data = deserialize(raw)
-    return ProtoApi__pb2.HairCheckResponse.FromString(data)
+    return papi__pb2.HairCheckResponse.FromString(data)
 def HairCheckRequest_deserializer(raw):
     data = deserialize(raw)
-    return ProtoApi__pb2.HairCheckRequest.FromString(data)
+    return papi__pb2.HairCheckRequest.FromString(data)
 def HealthCheckResponse_deserializer(raw):
     data = deserialize(raw)
-    return ProtoApi__pb2.HealthCheckResponse.FromString(data)
+    return papi__pb2.HealthCheckResponse.FromString(data)
 def HealthCheckRequest_deserializer(raw):
     data = deserialize(raw)
-    return ProtoApi__pb2.HealthCheckRequest.FromString(data)
+    return papi__pb2.HealthCheckRequest.FromString(data)
 def HierarchyTopResponse_deserializer(raw):
     data = deserialize(raw)
-    return ProtoApi__pb2.HierarchyTopResponse.FromString(data)
+    return papi__pb2.HierarchyTopResponse.FromString(data)
 def HierarchyRankingResponse_deserializer(raw):
     data = deserialize(raw)
-    return ProtoApi__pb2.HierarchyRankingResponse.FromString(data)
+    return papi__pb2.HierarchyRankingResponse.FromString(data)
 def HierarchyRewardsReceiveResponse_deserializer(raw):
     data = deserialize(raw)
-    return ProtoApi__pb2.HierarchyRewardsReceiveResponse.FromString(data)
+    return papi__pb2.HierarchyRewardsReceiveResponse.FromString(data)
 def HierarchyDivisionRewardsReceiveResponse_deserializer(raw):
     data = deserialize(raw)
-    return ProtoApi__pb2.HierarchyDivisionRewardsReceiveResponse.FromString(data)
+    return papi__pb2.HierarchyDivisionRewardsReceiveResponse.FromString(data)
 def Empty_deserializer(raw):
     data = deserialize(raw)
-    return ProtoApi__pb2.Empty.FromString(data)
+    return papi__pb2.Empty.FromString(data)
 def Empty_deserializer(raw):
     data = deserialize(raw)
-    return ProtoApi__pb2.Empty.FromString(data)
+    return papi__pb2.Empty.FromString(data)
 def HierarchyRewardsReceiveRequest_deserializer(raw):
     data = deserialize(raw)
-    return ProtoApi__pb2.HierarchyRewardsReceiveRequest.FromString(data)
+    return papi__pb2.HierarchyRewardsReceiveRequest.FromString(data)
 def HierarchyDivisionRewardsReceiveRequest_deserializer(raw):
     data = deserialize(raw)
-    return ProtoApi__pb2.HierarchyDivisionRewardsReceiveRequest.FromString(data)
+    return papi__pb2.HierarchyDivisionRewardsReceiveRequest.FromString(data)
 def HomeEnterResponse_deserializer(raw):
     data = deserialize(raw)
-    return ProtoApi__pb2.HomeEnterResponse.FromString(data)
+    return papi__pb2.HomeEnterResponse.FromString(data)
 def HomeLoginResponse_deserializer(raw):
     data = deserialize(raw)
-    return ProtoApi__pb2.HomeLoginResponse.FromString(data)
+    return papi__pb2.HomeLoginResponse.FromString(data)
 def HomeReadTalkResponse_deserializer(raw):
     data = deserialize(raw)
-    return ProtoApi__pb2.HomeReadTalkResponse.FromString(data)
+    return papi__pb2.HomeReadTalkResponse.FromString(data)
 def HomeSetReviewResponse_deserializer(raw):
     data = deserialize(raw)
-    return ProtoApi__pb2.HomeSetReviewResponse.FromString(data)
+    return papi__pb2.HomeSetReviewResponse.FromString(data)
 def HomeSetCharacterPositionResponse_deserializer(raw):
     data = deserialize(raw)
-    return ProtoApi__pb2.HomeSetCharacterPositionResponse.FromString(data)
+    return papi__pb2.HomeSetCharacterPositionResponse.FromString(data)
 def HomeEnterRequest_deserializer(raw):
     data = deserialize(raw)
-    return ProtoApi__pb2.HomeEnterRequest.FromString(data)
+    return papi__pb2.HomeEnterRequest.FromString(data)
 def HomeLoginRequest_deserializer(raw):
     data = deserialize(raw)
-    return ProtoApi__pb2.HomeLoginRequest.FromString(data)
+    return papi__pb2.HomeLoginRequest.FromString(data)
 def HomeReadTalkRequest_deserializer(raw):
     data = deserialize(raw)
-    return ProtoApi__pb2.HomeReadTalkRequest.FromString(data)
+    return papi__pb2.HomeReadTalkRequest.FromString(data)
 def Empty_deserializer(raw):
     data = deserialize(raw)
-    return ProtoApi__pb2.Empty.FromString(data)
+    return papi__pb2.Empty.FromString(data)
 def HomeSetCharacterPositionRequest_deserializer(raw):
     data = deserialize(raw)
-    return ProtoApi__pb2.HomeSetCharacterPositionRequest.FromString(data)
+    return papi__pb2.HomeSetCharacterPositionRequest.FromString(data)
 def InviteTopResponse_deserializer(raw):
     data = deserialize(raw)
-    return ProtoApi__pb2.InviteTopResponse.FromString(data)
+    return papi__pb2.InviteTopResponse.FromString(data)
 def InviteReceiveHostRewardsResponse_deserializer(raw):
     data = deserialize(raw)
-    return ProtoApi__pb2.InviteReceiveHostRewardsResponse.FromString(data)
+    return papi__pb2.InviteReceiveHostRewardsResponse.FromString(data)
 def InviteEnterCodeResponse_deserializer(raw):
     data = deserialize(raw)
-    return ProtoApi__pb2.InviteEnterCodeResponse.FromString(data)
+    return papi__pb2.InviteEnterCodeResponse.FromString(data)
 def Empty_deserializer(raw):
     data = deserialize(raw)
-    return ProtoApi__pb2.Empty.FromString(data)
+    return papi__pb2.Empty.FromString(data)
 def InviteReceiveHostRewardsRequest_deserializer(raw):
     data = deserialize(raw)
-    return ProtoApi__pb2.InviteReceiveHostRewardsRequest.FromString(data)
+    return papi__pb2.InviteReceiveHostRewardsRequest.FromString(data)
 def InviteEnterCodeRequest_deserializer(raw):
     data = deserialize(raw)
-    return ProtoApi__pb2.InviteEnterCodeRequest.FromString(data)
+    return papi__pb2.InviteEnterCodeRequest.FromString(data)
 def ItemSellResponse_deserializer(raw):
     data = deserialize(raw)
-    return ProtoApi__pb2.ItemSellResponse.FromString(data)
+    return papi__pb2.ItemSellResponse.FromString(data)
 def ItemSellRequest_deserializer(raw):
     data = deserialize(raw)
-    return ProtoApi__pb2.ItemSellRequest.FromString(data)
+    return papi__pb2.ItemSellRequest.FromString(data)
 def LadderTopResponse_deserializer(raw):
     data = deserialize(raw)
-    return ProtoApi__pb2.LadderTopResponse.FromString(data)
+    return papi__pb2.LadderTopResponse.FromString(data)
 def LadderPanelReachResponse_deserializer(raw):
     data = deserialize(raw)
-    return ProtoApi__pb2.LadderPanelReachResponse.FromString(data)
+    return papi__pb2.LadderPanelReachResponse.FromString(data)
 def LadderTopRequest_deserializer(raw):
     data = deserialize(raw)
-    return ProtoApi__pb2.LadderTopRequest.FromString(data)
+    return papi__pb2.LadderTopRequest.FromString(data)
 def LadderPanelReachRequest_deserializer(raw):
     data = deserialize(raw)
-    return ProtoApi__pb2.LadderPanelReachRequest.FromString(data)
+    return papi__pb2.LadderPanelReachRequest.FromString(data)
 def LeagueTopResponse_deserializer(raw):
     data = deserialize(raw)
-    return ProtoApi__pb2.LeagueTopResponse.FromString(data)
+    return papi__pb2.LeagueTopResponse.FromString(data)
 def LeagueGetLiveResultResponse_deserializer(raw):
     data = deserialize(raw)
-    return ProtoApi__pb2.LeagueGetLiveResultResponse.FromString(data)
+    return papi__pb2.LeagueGetLiveResultResponse.FromString(data)
 def LeagueSaveDeckResponse_deserializer(raw):
     data = deserialize(raw)
-    return ProtoApi__pb2.LeagueSaveDeckResponse.FromString(data)
+    return papi__pb2.LeagueSaveDeckResponse.FromString(data)
 def LeagueGetLastSeasonResultResponse_deserializer(raw):
     data = deserialize(raw)
-    return ProtoApi__pb2.LeagueGetLastSeasonResultResponse.FromString(data)
+    return papi__pb2.LeagueGetLastSeasonResultResponse.FromString(data)
 def LeagueListPointRankingResponse_deserializer(raw):
     data = deserialize(raw)
-    return ProtoApi__pb2.LeagueListPointRankingResponse.FromString(data)
+    return papi__pb2.LeagueListPointRankingResponse.FromString(data)
 def LeagueListCardHighestScoreRankingResponse_deserializer(raw):
     data = deserialize(raw)
-    return ProtoApi__pb2.LeagueListCardHighestScoreRankingResponse.FromString(data)
+    return papi__pb2.LeagueListCardHighestScoreRankingResponse.FromString(data)
 def LeagueListCardSkillRateRankingResponse_deserializer(raw):
     data = deserialize(raw)
-    return ProtoApi__pb2.LeagueListCardSkillRateRankingResponse.FromString(data)
+    return papi__pb2.LeagueListCardSkillRateRankingResponse.FromString(data)
 def LeagueListCardMvpRankingResponse_deserializer(raw):
     data = deserialize(raw)
-    return ProtoApi__pb2.LeagueListCardMvpRankingResponse.FromString(data)
+    return papi__pb2.LeagueListCardMvpRankingResponse.FromString(data)
 def LeagueGetDailyDetailResponse_deserializer(raw):
     data = deserialize(raw)
-    return ProtoApi__pb2.LeagueGetDailyDetailResponse.FromString(data)
+    return papi__pb2.LeagueGetDailyDetailResponse.FromString(data)
 def Empty_deserializer(raw):
     data = deserialize(raw)
-    return ProtoApi__pb2.Empty.FromString(data)
+    return papi__pb2.Empty.FromString(data)
 def LeagueGetLiveResultRequest_deserializer(raw):
     data = deserialize(raw)
-    return ProtoApi__pb2.LeagueGetLiveResultRequest.FromString(data)
+    return papi__pb2.LeagueGetLiveResultRequest.FromString(data)
 def LeagueSaveDeckRequest_deserializer(raw):
     data = deserialize(raw)
-    return ProtoApi__pb2.LeagueSaveDeckRequest.FromString(data)
+    return papi__pb2.LeagueSaveDeckRequest.FromString(data)
 def Empty_deserializer(raw):
     data = deserialize(raw)
-    return ProtoApi__pb2.Empty.FromString(data)
+    return papi__pb2.Empty.FromString(data)
 def LeagueListPointRankingRequest_deserializer(raw):
     data = deserialize(raw)
-    return ProtoApi__pb2.LeagueListPointRankingRequest.FromString(data)
+    return papi__pb2.LeagueListPointRankingRequest.FromString(data)
 def LeagueListCardHighestScoreRankingRequest_deserializer(raw):
     data = deserialize(raw)
-    return ProtoApi__pb2.LeagueListCardHighestScoreRankingRequest.FromString(data)
+    return papi__pb2.LeagueListCardHighestScoreRankingRequest.FromString(data)
 def LeagueListCardSkillRateRankingRequest_deserializer(raw):
     data = deserialize(raw)
-    return ProtoApi__pb2.LeagueListCardSkillRateRankingRequest.FromString(data)
+    return papi__pb2.LeagueListCardSkillRateRankingRequest.FromString(data)
 def LeagueListCardMvpRankingRequest_deserializer(raw):
     data = deserialize(raw)
-    return ProtoApi__pb2.LeagueListCardMvpRankingRequest.FromString(data)
+    return papi__pb2.LeagueListCardMvpRankingRequest.FromString(data)
 def LeagueGetDailyDetailRequest_deserializer(raw):
     data = deserialize(raw)
-    return ProtoApi__pb2.LeagueGetDailyDetailRequest.FromString(data)
+    return papi__pb2.LeagueGetDailyDetailRequest.FromString(data)
 def LoginBonusListResponse_deserializer(raw):
     data = deserialize(raw)
-    return ProtoApi__pb2.LoginBonusListResponse.FromString(data)
+    return papi__pb2.LoginBonusListResponse.FromString(data)
 def LoginBonusReceiveResponse_deserializer(raw):
     data = deserialize(raw)
-    return ProtoApi__pb2.LoginBonusReceiveResponse.FromString(data)
+    return papi__pb2.LoginBonusReceiveResponse.FromString(data)
 def Empty_deserializer(raw):
     data = deserialize(raw)
-    return ProtoApi__pb2.Empty.FromString(data)
+    return papi__pb2.Empty.FromString(data)
 def LoginBonusReceiveRequest_deserializer(raw):
     data = deserialize(raw)
-    return ProtoApi__pb2.LoginBonusReceiveRequest.FromString(data)
+    return papi__pb2.LoginBonusReceiveRequest.FromString(data)
 def LoveTitleResponse_deserializer(raw):
     data = deserialize(raw)
-    return ProtoApi__pb2.LoveTitleResponse.FromString(data)
+    return papi__pb2.LoveTitleResponse.FromString(data)
 def LoveTitleExtraResponse_deserializer(raw):
     data = deserialize(raw)
-    return ProtoApi__pb2.LoveTitleExtraResponse.FromString(data)
+    return papi__pb2.LoveTitleExtraResponse.FromString(data)
 def LoveRegisterResponse_deserializer(raw):
     data = deserialize(raw)
-    return ProtoApi__pb2.LoveRegisterResponse.FromString(data)
+    return papi__pb2.LoveRegisterResponse.FromString(data)
 def LoveTopResponse_deserializer(raw):
     data = deserialize(raw)
-    return ProtoApi__pb2.LoveTopResponse.FromString(data)
+    return papi__pb2.LoveTopResponse.FromString(data)
 def LoveStartResponse_deserializer(raw):
     data = deserialize(raw)
-    return ProtoApi__pb2.LoveStartResponse.FromString(data)
+    return papi__pb2.LoveStartResponse.FromString(data)
 def LoveRestartResponse_deserializer(raw):
     data = deserialize(raw)
-    return ProtoApi__pb2.LoveRestartResponse.FromString(data)
+    return papi__pb2.LoveRestartResponse.FromString(data)
 def LoveFinishResponse_deserializer(raw):
     data = deserialize(raw)
-    return ProtoApi__pb2.LoveFinishResponse.FromString(data)
+    return papi__pb2.LoveFinishResponse.FromString(data)
 def LoveResetReadingStoryStatusResponse_deserializer(raw):
     data = deserialize(raw)
-    return ProtoApi__pb2.LoveResetReadingStoryStatusResponse.FromString(data)
+    return papi__pb2.LoveResetReadingStoryStatusResponse.FromString(data)
 def LovePresentResponse_deserializer(raw):
     data = deserialize(raw)
-    return ProtoApi__pb2.LovePresentResponse.FromString(data)
+    return papi__pb2.LovePresentResponse.FromString(data)
 def LoveSaveResponse_deserializer(raw):
     data = deserialize(raw)
-    return ProtoApi__pb2.LoveSaveResponse.FromString(data)
+    return papi__pb2.LoveSaveResponse.FromString(data)
 def LoveUpdateSaveNameResponse_deserializer(raw):
     data = deserialize(raw)
-    return ProtoApi__pb2.LoveUpdateSaveNameResponse.FromString(data)
+    return papi__pb2.LoveUpdateSaveNameResponse.FromString(data)
 def LoveLoadResponse_deserializer(raw):
     data = deserialize(raw)
-    return ProtoApi__pb2.LoveLoadResponse.FromString(data)
+    return papi__pb2.LoveLoadResponse.FromString(data)
 def LoveResetResponse_deserializer(raw):
     data = deserialize(raw)
-    return ProtoApi__pb2.LoveResetResponse.FromString(data)
+    return papi__pb2.LoveResetResponse.FromString(data)
 def LoveReceiveLessonRewardResponse_deserializer(raw):
     data = deserialize(raw)
-    return ProtoApi__pb2.LoveReceiveLessonRewardResponse.FromString(data)
+    return papi__pb2.LoveReceiveLessonRewardResponse.FromString(data)
 def LovePromoteLessonResponse_deserializer(raw):
     data = deserialize(raw)
-    return ProtoApi__pb2.LovePromoteLessonResponse.FromString(data)
+    return papi__pb2.LovePromoteLessonResponse.FromString(data)
 def LoveUpdateNameResponse_deserializer(raw):
     data = deserialize(raw)
-    return ProtoApi__pb2.LoveUpdateNameResponse.FromString(data)
+    return papi__pb2.LoveUpdateNameResponse.FromString(data)
 def LoveGetMainCharacterResponse_deserializer(raw):
     data = deserialize(raw)
-    return ProtoApi__pb2.LoveGetMainCharacterResponse.FromString(data)
+    return papi__pb2.LoveGetMainCharacterResponse.FromString(data)
 def Empty_deserializer(raw):
     data = deserialize(raw)
-    return ProtoApi__pb2.Empty.FromString(data)
+    return papi__pb2.Empty.FromString(data)
 def LoveTitleExtraRequest_deserializer(raw):
     data = deserialize(raw)
-    return ProtoApi__pb2.LoveTitleExtraRequest.FromString(data)
+    return papi__pb2.LoveTitleExtraRequest.FromString(data)
 def LoveRegisterRequest_deserializer(raw):
     data = deserialize(raw)
-    return ProtoApi__pb2.LoveRegisterRequest.FromString(data)
+    return papi__pb2.LoveRegisterRequest.FromString(data)
 def LoveTopRequest_deserializer(raw):
     data = deserialize(raw)
-    return ProtoApi__pb2.LoveTopRequest.FromString(data)
+    return papi__pb2.LoveTopRequest.FromString(data)
 def LoveStartRequest_deserializer(raw):
     data = deserialize(raw)
-    return ProtoApi__pb2.LoveStartRequest.FromString(data)
+    return papi__pb2.LoveStartRequest.FromString(data)
 def LoveRestartRequest_deserializer(raw):
     data = deserialize(raw)
-    return ProtoApi__pb2.LoveRestartRequest.FromString(data)
+    return papi__pb2.LoveRestartRequest.FromString(data)
 def LoveFinishRequest_deserializer(raw):
     data = deserialize(raw)
-    return ProtoApi__pb2.LoveFinishRequest.FromString(data)
+    return papi__pb2.LoveFinishRequest.FromString(data)
 def LoveResetReadingStoryStatusRequest_deserializer(raw):
     data = deserialize(raw)
-    return ProtoApi__pb2.LoveResetReadingStoryStatusRequest.FromString(data)
+    return papi__pb2.LoveResetReadingStoryStatusRequest.FromString(data)
 def LovePresentRequest_deserializer(raw):
     data = deserialize(raw)
-    return ProtoApi__pb2.LovePresentRequest.FromString(data)
+    return papi__pb2.LovePresentRequest.FromString(data)
 def LoveSaveRequest_deserializer(raw):
     data = deserialize(raw)
-    return ProtoApi__pb2.LoveSaveRequest.FromString(data)
+    return papi__pb2.LoveSaveRequest.FromString(data)
 def LoveUpdateSaveNameRequest_deserializer(raw):
     data = deserialize(raw)
-    return ProtoApi__pb2.LoveUpdateSaveNameRequest.FromString(data)
+    return papi__pb2.LoveUpdateSaveNameRequest.FromString(data)
 def LoveLoadRequest_deserializer(raw):
     data = deserialize(raw)
-    return ProtoApi__pb2.LoveLoadRequest.FromString(data)
+    return papi__pb2.LoveLoadRequest.FromString(data)
 def LoveResetRequest_deserializer(raw):
     data = deserialize(raw)
-    return ProtoApi__pb2.LoveResetRequest.FromString(data)
+    return papi__pb2.LoveResetRequest.FromString(data)
 def LoveReceiveLessonRewardRequest_deserializer(raw):
     data = deserialize(raw)
-    return ProtoApi__pb2.LoveReceiveLessonRewardRequest.FromString(data)
+    return papi__pb2.LoveReceiveLessonRewardRequest.FromString(data)
 def LovePromoteLessonRequest_deserializer(raw):
     data = deserialize(raw)
-    return ProtoApi__pb2.LovePromoteLessonRequest.FromString(data)
+    return papi__pb2.LovePromoteLessonRequest.FromString(data)
 def LoveUpdateNameRequest_deserializer(raw):
     data = deserialize(raw)
-    return ProtoApi__pb2.LoveUpdateNameRequest.FromString(data)
+    return papi__pb2.LoveUpdateNameRequest.FromString(data)
 def LoveGetMainCharacterRequest_deserializer(raw):
     data = deserialize(raw)
-    return ProtoApi__pb2.LoveGetMainCharacterRequest.FromString(data)
+    return papi__pb2.LoveGetMainCharacterRequest.FromString(data)
 def MarathonTopResponse_deserializer(raw):
     data = deserialize(raw)
-    return ProtoApi__pb2.MarathonTopResponse.FromString(data)
+    return papi__pb2.MarathonTopResponse.FromString(data)
 def MarathonQuestUnlockResponse_deserializer(raw):
     data = deserialize(raw)
-    return ProtoApi__pb2.MarathonQuestUnlockResponse.FromString(data)
+    return papi__pb2.MarathonQuestUnlockResponse.FromString(data)
 def MarathonQuestStartResponse_deserializer(raw):
     data = deserialize(raw)
-    return ProtoApi__pb2.MarathonQuestStartResponse.FromString(data)
+    return papi__pb2.MarathonQuestStartResponse.FromString(data)
 def MarathonQuestListAssetResponse_deserializer(raw):
     data = deserialize(raw)
-    return ProtoApi__pb2.MarathonQuestListAssetResponse.FromString(data)
+    return papi__pb2.MarathonQuestListAssetResponse.FromString(data)
 def MarathonUseQuestStaminaRecoveryItemResponse_deserializer(raw):
     data = deserialize(raw)
-    return ProtoApi__pb2.MarathonUseQuestStaminaRecoveryItemResponse.FromString(data)
+    return papi__pb2.MarathonUseQuestStaminaRecoveryItemResponse.FromString(data)
 def MarathonListDeckResponse_deserializer(raw):
     data = deserialize(raw)
-    return ProtoApi__pb2.MarathonListDeckResponse.FromString(data)
+    return papi__pb2.MarathonListDeckResponse.FromString(data)
 def MarathonDeckSaveResponse_deserializer(raw):
     data = deserialize(raw)
-    return ProtoApi__pb2.MarathonDeckSaveResponse.FromString(data)
+    return papi__pb2.MarathonDeckSaveResponse.FromString(data)
 def MarathonBuddyDeckResponse_deserializer(raw):
     data = deserialize(raw)
-    return ProtoApi__pb2.MarathonBuddyDeckResponse.FromString(data)
+    return papi__pb2.MarathonBuddyDeckResponse.FromString(data)
 def MarathonBoxGachaDrawResponse_deserializer(raw):
     data = deserialize(raw)
-    return ProtoApi__pb2.MarathonBoxGachaDrawResponse.FromString(data)
+    return papi__pb2.MarathonBoxGachaDrawResponse.FromString(data)
 def MarathonBoxGachaResetResponse_deserializer(raw):
     data = deserialize(raw)
-    return ProtoApi__pb2.MarathonBoxGachaResetResponse.FromString(data)
+    return papi__pb2.MarathonBoxGachaResetResponse.FromString(data)
 def MarathonRaidListResponse_deserializer(raw):
     data = deserialize(raw)
-    return ProtoApi__pb2.MarathonRaidListResponse.FromString(data)
+    return papi__pb2.MarathonRaidListResponse.FromString(data)
 def MarathonRaidCheckProgressResponse_deserializer(raw):
     data = deserialize(raw)
-    return ProtoApi__pb2.MarathonRaidCheckProgressResponse.FromString(data)
+    return papi__pb2.MarathonRaidCheckProgressResponse.FromString(data)
 def MarathonRaidListHistoryResponse_deserializer(raw):
     data = deserialize(raw)
-    return ProtoApi__pb2.MarathonRaidListHistoryResponse.FromString(data)
+    return papi__pb2.MarathonRaidListHistoryResponse.FromString(data)
 def MarathonRaidGetHistoryDetailResponse_deserializer(raw):
     data = deserialize(raw)
-    return ProtoApi__pb2.MarathonRaidGetHistoryDetailResponse.FromString(data)
+    return papi__pb2.MarathonRaidGetHistoryDetailResponse.FromString(data)
 def MarathonRaidListRankingResponse_deserializer(raw):
     data = deserialize(raw)
-    return ProtoApi__pb2.MarathonRaidListRankingResponse.FromString(data)
+    return papi__pb2.MarathonRaidListRankingResponse.FromString(data)
 def MarathonRaidStartResponse_deserializer(raw):
     data = deserialize(raw)
-    return ProtoApi__pb2.MarathonRaidStartResponse.FromString(data)
+    return papi__pb2.MarathonRaidStartResponse.FromString(data)
 def MarathonRaidJoinResponse_deserializer(raw):
     data = deserialize(raw)
-    return ProtoApi__pb2.MarathonRaidJoinResponse.FromString(data)
+    return papi__pb2.MarathonRaidJoinResponse.FromString(data)
 def MarathonRaidFinishResponse_deserializer(raw):
     data = deserialize(raw)
-    return ProtoApi__pb2.MarathonRaidFinishResponse.FromString(data)
+    return papi__pb2.MarathonRaidFinishResponse.FromString(data)
 def MarathonUseRaidStaminaRecoveryItemResponse_deserializer(raw):
     data = deserialize(raw)
-    return ProtoApi__pb2.MarathonUseRaidStaminaRecoveryItemResponse.FromString(data)
+    return papi__pb2.MarathonUseRaidStaminaRecoveryItemResponse.FromString(data)
 def MarathonListRaidDeckResponse_deserializer(raw):
     data = deserialize(raw)
-    return ProtoApi__pb2.MarathonListRaidDeckResponse.FromString(data)
+    return papi__pb2.MarathonListRaidDeckResponse.FromString(data)
 def MarathonRaidDeckSaveResponse_deserializer(raw):
     data = deserialize(raw)
-    return ProtoApi__pb2.MarathonRaidDeckSaveResponse.FromString(data)
+    return papi__pb2.MarathonRaidDeckSaveResponse.FromString(data)
 def MarathonTopRequest_deserializer(raw):
     data = deserialize(raw)
-    return ProtoApi__pb2.MarathonTopRequest.FromString(data)
+    return papi__pb2.MarathonTopRequest.FromString(data)
 def MarathonQuestUnlockRequest_deserializer(raw):
     data = deserialize(raw)
-    return ProtoApi__pb2.MarathonQuestUnlockRequest.FromString(data)
+    return papi__pb2.MarathonQuestUnlockRequest.FromString(data)
 def MarathonQuestStartRequest_deserializer(raw):
     data = deserialize(raw)
-    return ProtoApi__pb2.MarathonQuestStartRequest.FromString(data)
+    return papi__pb2.MarathonQuestStartRequest.FromString(data)
 def MarathonQuestListAssetRequest_deserializer(raw):
     data = deserialize(raw)
-    return ProtoApi__pb2.MarathonQuestListAssetRequest.FromString(data)
+    return papi__pb2.MarathonQuestListAssetRequest.FromString(data)
 def MarathonUseQuestStaminaRecoveryItemRequest_deserializer(raw):
     data = deserialize(raw)
-    return ProtoApi__pb2.MarathonUseQuestStaminaRecoveryItemRequest.FromString(data)
+    return papi__pb2.MarathonUseQuestStaminaRecoveryItemRequest.FromString(data)
 def MarathonListDeckRequest_deserializer(raw):
     data = deserialize(raw)
-    return ProtoApi__pb2.MarathonListDeckRequest.FromString(data)
+    return papi__pb2.MarathonListDeckRequest.FromString(data)
 def MarathonDeckSaveRequest_deserializer(raw):
     data = deserialize(raw)
-    return ProtoApi__pb2.MarathonDeckSaveRequest.FromString(data)
+    return papi__pb2.MarathonDeckSaveRequest.FromString(data)
 def MarathonBuddyDeckRequest_deserializer(raw):
     data = deserialize(raw)
-    return ProtoApi__pb2.MarathonBuddyDeckRequest.FromString(data)
+    return papi__pb2.MarathonBuddyDeckRequest.FromString(data)
 def MarathonBoxGachaDrawRequest_deserializer(raw):
     data = deserialize(raw)
-    return ProtoApi__pb2.MarathonBoxGachaDrawRequest.FromString(data)
+    return papi__pb2.MarathonBoxGachaDrawRequest.FromString(data)
 def MarathonBoxGachaResetRequest_deserializer(raw):
     data = deserialize(raw)
-    return ProtoApi__pb2.MarathonBoxGachaResetRequest.FromString(data)
+    return papi__pb2.MarathonBoxGachaResetRequest.FromString(data)
 def MarathonRaidListRequest_deserializer(raw):
     data = deserialize(raw)
-    return ProtoApi__pb2.MarathonRaidListRequest.FromString(data)
+    return papi__pb2.MarathonRaidListRequest.FromString(data)
 def MarathonRaidCheckProgressRequest_deserializer(raw):
     data = deserialize(raw)
-    return ProtoApi__pb2.MarathonRaidCheckProgressRequest.FromString(data)
+    return papi__pb2.MarathonRaidCheckProgressRequest.FromString(data)
 def MarathonRaidListHistoryRequest_deserializer(raw):
     data = deserialize(raw)
-    return ProtoApi__pb2.MarathonRaidListHistoryRequest.FromString(data)
+    return papi__pb2.MarathonRaidListHistoryRequest.FromString(data)
 def MarathonRaidGetHistoryDetailRequest_deserializer(raw):
     data = deserialize(raw)
-    return ProtoApi__pb2.MarathonRaidGetHistoryDetailRequest.FromString(data)
+    return papi__pb2.MarathonRaidGetHistoryDetailRequest.FromString(data)
 def MarathonRaidListRankingRequest_deserializer(raw):
     data = deserialize(raw)
-    return ProtoApi__pb2.MarathonRaidListRankingRequest.FromString(data)
+    return papi__pb2.MarathonRaidListRankingRequest.FromString(data)
 def MarathonRaidStartRequest_deserializer(raw):
     data = deserialize(raw)
-    return ProtoApi__pb2.MarathonRaidStartRequest.FromString(data)
+    return papi__pb2.MarathonRaidStartRequest.FromString(data)
 def MarathonRaidJoinRequest_deserializer(raw):
     data = deserialize(raw)
-    return ProtoApi__pb2.MarathonRaidJoinRequest.FromString(data)
+    return papi__pb2.MarathonRaidJoinRequest.FromString(data)
 def MarathonRaidFinishRequest_deserializer(raw):
     data = deserialize(raw)
-    return ProtoApi__pb2.MarathonRaidFinishRequest.FromString(data)
+    return papi__pb2.MarathonRaidFinishRequest.FromString(data)
 def MarathonUseRaidStaminaRecoveryItemRequest_deserializer(raw):
     data = deserialize(raw)
-    return ProtoApi__pb2.MarathonUseRaidStaminaRecoveryItemRequest.FromString(data)
+    return papi__pb2.MarathonUseRaidStaminaRecoveryItemRequest.FromString(data)
 def MarathonListRaidDeckRequest_deserializer(raw):
     data = deserialize(raw)
-    return ProtoApi__pb2.MarathonListRaidDeckRequest.FromString(data)
+    return papi__pb2.MarathonListRaidDeckRequest.FromString(data)
 def MarathonRaidDeckSaveRequest_deserializer(raw):
     data = deserialize(raw)
-    return ProtoApi__pb2.MarathonRaidDeckSaveRequest.FromString(data)
+    return papi__pb2.MarathonRaidDeckSaveRequest.FromString(data)
 def MarketListItemResponse_deserializer(raw):
     data = deserialize(raw)
-    return ProtoApi__pb2.MarketListItemResponse.FromString(data)
+    return papi__pb2.MarketListItemResponse.FromString(data)
 def MarketResetResponse_deserializer(raw):
     data = deserialize(raw)
-    return ProtoApi__pb2.MarketResetResponse.FromString(data)
+    return papi__pb2.MarketResetResponse.FromString(data)
 def MarketPurchaseResponse_deserializer(raw):
     data = deserialize(raw)
-    return ProtoApi__pb2.MarketPurchaseResponse.FromString(data)
+    return papi__pb2.MarketPurchaseResponse.FromString(data)
 def Empty_deserializer(raw):
     data = deserialize(raw)
-    return ProtoApi__pb2.Empty.FromString(data)
+    return papi__pb2.Empty.FromString(data)
 def MarketResetRequest_deserializer(raw):
     data = deserialize(raw)
-    return ProtoApi__pb2.MarketResetRequest.FromString(data)
+    return papi__pb2.MarketResetRequest.FromString(data)
 def MarketPurchaseRequest_deserializer(raw):
     data = deserialize(raw)
-    return ProtoApi__pb2.MarketPurchaseRequest.FromString(data)
+    return papi__pb2.MarketPurchaseRequest.FromString(data)
 def MasterGetResponse_deserializer(raw):
     data = deserialize(raw)
-    return ProtoApi__pb2.MasterGetResponse.FromString(data)
+    return papi__pb2.MasterGetResponse.FromString(data)
 def MasterRuleResponse_deserializer(raw):
     data = deserialize(raw)
-    return ProtoApi__pb2.MasterRuleResponse.FromString(data)
+    return papi__pb2.MasterRuleResponse.FromString(data)
 def MasterGetInquiryTemplateResponse_deserializer(raw):
     data = deserialize(raw)
-    return ProtoApi__pb2.MasterGetInquiryTemplateResponse.FromString(data)
+    return papi__pb2.MasterGetInquiryTemplateResponse.FromString(data)
 def MasterGetHelpCategoryResponse_deserializer(raw):
     data = deserialize(raw)
-    return ProtoApi__pb2.MasterGetHelpCategoryResponse.FromString(data)
+    return papi__pb2.MasterGetHelpCategoryResponse.FromString(data)
 def Empty_deserializer(raw):
     data = deserialize(raw)
-    return ProtoApi__pb2.Empty.FromString(data)
+    return papi__pb2.Empty.FromString(data)
 def MasterRuleRequest_deserializer(raw):
     data = deserialize(raw)
-    return ProtoApi__pb2.MasterRuleRequest.FromString(data)
+    return papi__pb2.MasterRuleRequest.FromString(data)
 def MasterGetInquiryTemplateRequest_deserializer(raw):
     data = deserialize(raw)
-    return ProtoApi__pb2.MasterGetInquiryTemplateRequest.FromString(data)
+    return papi__pb2.MasterGetInquiryTemplateRequest.FromString(data)
 def MasterGetHelpCategoryRequest_deserializer(raw):
     data = deserialize(raw)
-    return ProtoApi__pb2.MasterGetHelpCategoryRequest.FromString(data)
+    return papi__pb2.MasterGetHelpCategoryRequest.FromString(data)
 def MessageListGroupResponse_deserializer(raw):
     data = deserialize(raw)
-    return ProtoApi__pb2.MessageListGroupResponse.FromString(data)
+    return papi__pb2.MessageListGroupResponse.FromString(data)
 def MessageTimelineResponse_deserializer(raw):
     data = deserialize(raw)
-    return ProtoApi__pb2.MessageTimelineResponse.FromString(data)
+    return papi__pb2.MessageTimelineResponse.FromString(data)
 def MessageReceiveResponse_deserializer(raw):
     data = deserialize(raw)
-    return ProtoApi__pb2.MessageReceiveResponse.FromString(data)
+    return papi__pb2.MessageReceiveResponse.FromString(data)
 def MessageSaveResponse_deserializer(raw):
     data = deserialize(raw)
-    return ProtoApi__pb2.MessageSaveResponse.FromString(data)
+    return papi__pb2.MessageSaveResponse.FromString(data)
 def MessageFinishResponse_deserializer(raw):
     data = deserialize(raw)
-    return ProtoApi__pb2.MessageFinishResponse.FromString(data)
+    return papi__pb2.MessageFinishResponse.FromString(data)
 def MessageSaveHistoryResponse_deserializer(raw):
     data = deserialize(raw)
-    return ProtoApi__pb2.MessageSaveHistoryResponse.FromString(data)
+    return papi__pb2.MessageSaveHistoryResponse.FromString(data)
 def Empty_deserializer(raw):
     data = deserialize(raw)
-    return ProtoApi__pb2.Empty.FromString(data)
+    return papi__pb2.Empty.FromString(data)
 def MessageTimelineRequest_deserializer(raw):
     data = deserialize(raw)
-    return ProtoApi__pb2.MessageTimelineRequest.FromString(data)
+    return papi__pb2.MessageTimelineRequest.FromString(data)
 def MessageReceiveRequest_deserializer(raw):
     data = deserialize(raw)
-    return ProtoApi__pb2.MessageReceiveRequest.FromString(data)
+    return papi__pb2.MessageReceiveRequest.FromString(data)
 def MessageSaveRequest_deserializer(raw):
     data = deserialize(raw)
-    return ProtoApi__pb2.MessageSaveRequest.FromString(data)
+    return papi__pb2.MessageSaveRequest.FromString(data)
 def MessageFinishRequest_deserializer(raw):
     data = deserialize(raw)
-    return ProtoApi__pb2.MessageFinishRequest.FromString(data)
+    return papi__pb2.MessageFinishRequest.FromString(data)
 def MessageSaveHistoryRequest_deserializer(raw):
     data = deserialize(raw)
-    return ProtoApi__pb2.MessageSaveHistoryRequest.FromString(data)
+    return papi__pb2.MessageSaveHistoryRequest.FromString(data)
 def MigrationListResponse_deserializer(raw):
     data = deserialize(raw)
-    return ProtoApi__pb2.MigrationListResponse.FromString(data)
+    return papi__pb2.MigrationListResponse.FromString(data)
 def MigrationExecuteResponse_deserializer(raw):
     data = deserialize(raw)
-    return ProtoApi__pb2.MigrationExecuteResponse.FromString(data)
+    return papi__pb2.MigrationExecuteResponse.FromString(data)
 def MigrationSetPasswordResponse_deserializer(raw):
     data = deserialize(raw)
-    return ProtoApi__pb2.MigrationSetPasswordResponse.FromString(data)
+    return papi__pb2.MigrationSetPasswordResponse.FromString(data)
 def MigrationMigrateResponse_deserializer(raw):
     data = deserialize(raw)
-    return ProtoApi__pb2.MigrationMigrateResponse.FromString(data)
+    return papi__pb2.MigrationMigrateResponse.FromString(data)
 def MigrationLinkResponse_deserializer(raw):
     data = deserialize(raw)
-    return ProtoApi__pb2.MigrationLinkResponse.FromString(data)
+    return papi__pb2.MigrationLinkResponse.FromString(data)
 def MigrationMigrateResponse_deserializer(raw):
     data = deserialize(raw)
-    return ProtoApi__pb2.MigrationMigrateResponse.FromString(data)
+    return papi__pb2.MigrationMigrateResponse.FromString(data)
 def MigrationLinkResponse_deserializer(raw):
     data = deserialize(raw)
-    return ProtoApi__pb2.MigrationLinkResponse.FromString(data)
+    return papi__pb2.MigrationLinkResponse.FromString(data)
 def MigrationMigrateResponse_deserializer(raw):
     data = deserialize(raw)
-    return ProtoApi__pb2.MigrationMigrateResponse.FromString(data)
+    return papi__pb2.MigrationMigrateResponse.FromString(data)
 def RequestTwitterOAuthTokenResponse_deserializer(raw):
     data = deserialize(raw)
-    return ProtoApi__pb2.RequestTwitterOAuthTokenResponse.FromString(data)
+    return papi__pb2.RequestTwitterOAuthTokenResponse.FromString(data)
 def MigrationLinkResponse_deserializer(raw):
     data = deserialize(raw)
-    return ProtoApi__pb2.MigrationLinkResponse.FromString(data)
+    return papi__pb2.MigrationLinkResponse.FromString(data)
 def MigrationMigrateResponse_deserializer(raw):
     data = deserialize(raw)
-    return ProtoApi__pb2.MigrationMigrateResponse.FromString(data)
+    return papi__pb2.MigrationMigrateResponse.FromString(data)
 def MigrationUnlinkResponse_deserializer(raw):
     data = deserialize(raw)
-    return ProtoApi__pb2.MigrationUnlinkResponse.FromString(data)
+    return papi__pb2.MigrationUnlinkResponse.FromString(data)
 def Empty_deserializer(raw):
     data = deserialize(raw)
-    return ProtoApi__pb2.Empty.FromString(data)
+    return papi__pb2.Empty.FromString(data)
 def MigrationExecuteRequest_deserializer(raw):
     data = deserialize(raw)
-    return ProtoApi__pb2.MigrationExecuteRequest.FromString(data)
+    return papi__pb2.MigrationExecuteRequest.FromString(data)
 def MigrationSetPasswordRequest_deserializer(raw):
     data = deserialize(raw)
-    return ProtoApi__pb2.MigrationSetPasswordRequest.FromString(data)
+    return papi__pb2.MigrationSetPasswordRequest.FromString(data)
 def MigrationMigratePasswordRequest_deserializer(raw):
     data = deserialize(raw)
-    return ProtoApi__pb2.MigrationMigratePasswordRequest.FromString(data)
+    return papi__pb2.MigrationMigratePasswordRequest.FromString(data)
 def MigrationLinkAppleRequest_deserializer(raw):
     data = deserialize(raw)
-    return ProtoApi__pb2.MigrationLinkAppleRequest.FromString(data)
+    return papi__pb2.MigrationLinkAppleRequest.FromString(data)
 def MigrationMigrateAppleRequest_deserializer(raw):
     data = deserialize(raw)
-    return ProtoApi__pb2.MigrationMigrateAppleRequest.FromString(data)
+    return papi__pb2.MigrationMigrateAppleRequest.FromString(data)
 def MigrationLinkGoogleRequest_deserializer(raw):
     data = deserialize(raw)
-    return ProtoApi__pb2.MigrationLinkGoogleRequest.FromString(data)
+    return papi__pb2.MigrationLinkGoogleRequest.FromString(data)
 def MigrationMigrateGoogleRequest_deserializer(raw):
     data = deserialize(raw)
-    return ProtoApi__pb2.MigrationMigrateGoogleRequest.FromString(data)
+    return papi__pb2.MigrationMigrateGoogleRequest.FromString(data)
 def RequestTwitterOAuthTokenRequest_deserializer(raw):
     data = deserialize(raw)
-    return ProtoApi__pb2.RequestTwitterOAuthTokenRequest.FromString(data)
+    return papi__pb2.RequestTwitterOAuthTokenRequest.FromString(data)
 def MigrationLinkTwitterRequest_deserializer(raw):
     data = deserialize(raw)
-    return ProtoApi__pb2.MigrationLinkTwitterRequest.FromString(data)
+    return papi__pb2.MigrationLinkTwitterRequest.FromString(data)
 def MigrationMigrateTwitterRequest_deserializer(raw):
     data = deserialize(raw)
-    return ProtoApi__pb2.MigrationMigrateTwitterRequest.FromString(data)
+    return papi__pb2.MigrationMigrateTwitterRequest.FromString(data)
 def MigrationUnlinkRequest_deserializer(raw):
     data = deserialize(raw)
-    return ProtoApi__pb2.MigrationUnlinkRequest.FromString(data)
+    return papi__pb2.MigrationUnlinkRequest.FromString(data)
 def MissionListResponse_deserializer(raw):
     data = deserialize(raw)
-    return ProtoApi__pb2.MissionListResponse.FromString(data)
+    return papi__pb2.MissionListResponse.FromString(data)
 def MissionReceiveResponse_deserializer(raw):
     data = deserialize(raw)
-    return ProtoApi__pb2.MissionReceiveResponse.FromString(data)
+    return papi__pb2.MissionReceiveResponse.FromString(data)
 def MissionURLTransitionResponse_deserializer(raw):
     data = deserialize(raw)
-    return ProtoApi__pb2.MissionURLTransitionResponse.FromString(data)
+    return papi__pb2.MissionURLTransitionResponse.FromString(data)
 def MissionEventResponse_deserializer(raw):
     data = deserialize(raw)
-    return ProtoApi__pb2.MissionEventResponse.FromString(data)
+    return papi__pb2.MissionEventResponse.FromString(data)
 def Empty_deserializer(raw):
     data = deserialize(raw)
-    return ProtoApi__pb2.Empty.FromString(data)
+    return papi__pb2.Empty.FromString(data)
 def MissionReceiveRequest_deserializer(raw):
     data = deserialize(raw)
-    return ProtoApi__pb2.MissionReceiveRequest.FromString(data)
+    return papi__pb2.MissionReceiveRequest.FromString(data)
 def MissionURLTransitionRequest_deserializer(raw):
     data = deserialize(raw)
-    return ProtoApi__pb2.MissionURLTransitionRequest.FromString(data)
+    return papi__pb2.MissionURLTransitionRequest.FromString(data)
 def MissionEventRequest_deserializer(raw):
     data = deserialize(raw)
-    return ProtoApi__pb2.MissionEventRequest.FromString(data)
+    return papi__pb2.MissionEventRequest.FromString(data)
 def MosaicTopResponse_deserializer(raw):
     data = deserialize(raw)
-    return ProtoApi__pb2.MosaicTopResponse.FromString(data)
+    return papi__pb2.MosaicTopResponse.FromString(data)
 def MosaicExchangeResponse_deserializer(raw):
     data = deserialize(raw)
-    return ProtoApi__pb2.MosaicExchangeResponse.FromString(data)
+    return papi__pb2.MosaicExchangeResponse.FromString(data)
 def MosaicReceiveTotalConsumptionRewardResponse_deserializer(raw):
     data = deserialize(raw)
-    return ProtoApi__pb2.MosaicReceiveTotalConsumptionRewardResponse.FromString(data)
+    return papi__pb2.MosaicReceiveTotalConsumptionRewardResponse.FromString(data)
 def MosaicTopRequest_deserializer(raw):
     data = deserialize(raw)
-    return ProtoApi__pb2.MosaicTopRequest.FromString(data)
+    return papi__pb2.MosaicTopRequest.FromString(data)
 def MosaicExchangeRequest_deserializer(raw):
     data = deserialize(raw)
-    return ProtoApi__pb2.MosaicExchangeRequest.FromString(data)
+    return papi__pb2.MosaicExchangeRequest.FromString(data)
 def MosaicReceiveTotalConsumptionRewardRequest_deserializer(raw):
     data = deserialize(raw)
-    return ProtoApi__pb2.MosaicReceiveTotalConsumptionRewardRequest.FromString(data)
+    return papi__pb2.MosaicReceiveTotalConsumptionRewardRequest.FromString(data)
 def NoticeListResponse_deserializer(raw):
     data = deserialize(raw)
-    return ProtoApi__pb2.NoticeListResponse.FromString(data)
+    return papi__pb2.NoticeListResponse.FromString(data)
 def NoticeFetchResponse_deserializer(raw):
     data = deserialize(raw)
-    return ProtoApi__pb2.NoticeFetchResponse.FromString(data)
+    return papi__pb2.NoticeFetchResponse.FromString(data)
 def NoticeGetResponse_deserializer(raw):
     data = deserialize(raw)
-    return ProtoApi__pb2.NoticeGetResponse.FromString(data)
+    return papi__pb2.NoticeGetResponse.FromString(data)
 def Empty_deserializer(raw):
     data = deserialize(raw)
-    return ProtoApi__pb2.Empty.FromString(data)
+    return papi__pb2.Empty.FromString(data)
 def NoticeFetchRequest_deserializer(raw):
     data = deserialize(raw)
-    return ProtoApi__pb2.NoticeFetchRequest.FromString(data)
+    return papi__pb2.NoticeFetchRequest.FromString(data)
 def NoticeGetRequest_deserializer(raw):
     data = deserialize(raw)
-    return ProtoApi__pb2.NoticeGetRequest.FromString(data)
+    return papi__pb2.NoticeGetRequest.FromString(data)
 def PhotoContestTopResponse_deserializer(raw):
     data = deserialize(raw)
-    return ProtoApi__pb2.PhotoContestTopResponse.FromString(data)
+    return papi__pb2.PhotoContestTopResponse.FromString(data)
 def PhotoContestListPhotoResponse_deserializer(raw):
     data = deserialize(raw)
-    return ProtoApi__pb2.PhotoContestListPhotoResponse.FromString(data)
+    return papi__pb2.PhotoContestListPhotoResponse.FromString(data)
 def PhotoContestRankingResponse_deserializer(raw):
     data = deserialize(raw)
-    return ProtoApi__pb2.PhotoContestRankingResponse.FromString(data)
+    return papi__pb2.PhotoContestRankingResponse.FromString(data)
 def PhotoContestReceiveSectionRewardsResponse_deserializer(raw):
     data = deserialize(raw)
-    return ProtoApi__pb2.PhotoContestReceiveSectionRewardsResponse.FromString(data)
+    return papi__pb2.PhotoContestReceiveSectionRewardsResponse.FromString(data)
 def PhotoContestCheckShootingResponse_deserializer(raw):
     data = deserialize(raw)
-    return ProtoApi__pb2.PhotoContestCheckShootingResponse.FromString(data)
+    return papi__pb2.PhotoContestCheckShootingResponse.FromString(data)
 def PhotoContestSubmitShootingResponse_deserializer(raw):
     data = deserialize(raw)
-    return ProtoApi__pb2.PhotoContestSubmitShootingResponse.FromString(data)
+    return papi__pb2.PhotoContestSubmitShootingResponse.FromString(data)
 def PhotoContestCreateShootingResponse_deserializer(raw):
     data = deserialize(raw)
-    return ProtoApi__pb2.PhotoContestCreateShootingResponse.FromString(data)
+    return papi__pb2.PhotoContestCreateShootingResponse.FromString(data)
 def PhotoContestTopRequest_deserializer(raw):
     data = deserialize(raw)
-    return ProtoApi__pb2.PhotoContestTopRequest.FromString(data)
+    return papi__pb2.PhotoContestTopRequest.FromString(data)
 def PhotoContestListPhotoRequest_deserializer(raw):
     data = deserialize(raw)
-    return ProtoApi__pb2.PhotoContestListPhotoRequest.FromString(data)
+    return papi__pb2.PhotoContestListPhotoRequest.FromString(data)
 def PhotoContestRankingRequest_deserializer(raw):
     data = deserialize(raw)
-    return ProtoApi__pb2.PhotoContestRankingRequest.FromString(data)
+    return papi__pb2.PhotoContestRankingRequest.FromString(data)
 def PhotoContestReceiveSectionRewardsRequest_deserializer(raw):
     data = deserialize(raw)
-    return ProtoApi__pb2.PhotoContestReceiveSectionRewardsRequest.FromString(data)
+    return papi__pb2.PhotoContestReceiveSectionRewardsRequest.FromString(data)
 def PhotoContestCheckShootingRequest_deserializer(raw):
     data = deserialize(raw)
-    return ProtoApi__pb2.PhotoContestCheckShootingRequest.FromString(data)
+    return papi__pb2.PhotoContestCheckShootingRequest.FromString(data)
 def PhotoContestSubmitShootingRequest_deserializer(raw):
     data = deserialize(raw)
-    return ProtoApi__pb2.PhotoContestSubmitShootingRequest.FromString(data)
+    return papi__pb2.PhotoContestSubmitShootingRequest.FromString(data)
 def PhotoContestCreateShootingRequest_deserializer(raw):
     data = deserialize(raw)
-    return ProtoApi__pb2.PhotoContestCreateShootingRequest.FromString(data)
+    return papi__pb2.PhotoContestCreateShootingRequest.FromString(data)
 def PhotoSwitchLockResponse_deserializer(raw):
     data = deserialize(raw)
-    return ProtoApi__pb2.PhotoSwitchLockResponse.FromString(data)
+    return papi__pb2.PhotoSwitchLockResponse.FromString(data)
 def PhotoDeleteResponse_deserializer(raw):
     data = deserialize(raw)
-    return ProtoApi__pb2.PhotoDeleteResponse.FromString(data)
+    return papi__pb2.PhotoDeleteResponse.FromString(data)
 def PhotoEnhanceResponse_deserializer(raw):
     data = deserialize(raw)
-    return ProtoApi__pb2.PhotoEnhanceResponse.FromString(data)
+    return papi__pb2.PhotoEnhanceResponse.FromString(data)
 def PhotoRerollResponse_deserializer(raw):
     data = deserialize(raw)
-    return ProtoApi__pb2.PhotoRerollResponse.FromString(data)
+    return papi__pb2.PhotoRerollResponse.FromString(data)
 def PhotoRetouchResponse_deserializer(raw):
     data = deserialize(raw)
-    return ProtoApi__pb2.PhotoRetouchResponse.FromString(data)
+    return papi__pb2.PhotoRetouchResponse.FromString(data)
 def PhotoUpdateResponse_deserializer(raw):
     data = deserialize(raw)
-    return ProtoApi__pb2.PhotoUpdateResponse.FromString(data)
+    return papi__pb2.PhotoUpdateResponse.FromString(data)
 def PhotoReportResponse_deserializer(raw):
     data = deserialize(raw)
-    return ProtoApi__pb2.PhotoReportResponse.FromString(data)
+    return papi__pb2.PhotoReportResponse.FromString(data)
 def PhotoGetImageUrlResponse_deserializer(raw):
     data = deserialize(raw)
-    return ProtoApi__pb2.PhotoGetImageUrlResponse.FromString(data)
+    return papi__pb2.PhotoGetImageUrlResponse.FromString(data)
 def PhotoCheckShootingResponse_deserializer(raw):
     data = deserialize(raw)
-    return ProtoApi__pb2.PhotoCheckShootingResponse.FromString(data)
+    return papi__pb2.PhotoCheckShootingResponse.FromString(data)
 def PhotoCreateShootingsResponse_deserializer(raw):
     data = deserialize(raw)
-    return ProtoApi__pb2.PhotoCreateShootingsResponse.FromString(data)
+    return papi__pb2.PhotoCreateShootingsResponse.FromString(data)
 def PhotoListShootingResponse_deserializer(raw):
     data = deserialize(raw)
-    return ProtoApi__pb2.PhotoListShootingResponse.FromString(data)
+    return papi__pb2.PhotoListShootingResponse.FromString(data)
 def PhotoExtendLimitResponse_deserializer(raw):
     data = deserialize(raw)
-    return ProtoApi__pb2.PhotoExtendLimitResponse.FromString(data)
+    return papi__pb2.PhotoExtendLimitResponse.FromString(data)
 def PhotoSaleRecipeResponse_deserializer(raw):
     data = deserialize(raw)
-    return ProtoApi__pb2.PhotoSaleRecipeResponse.FromString(data)
+    return papi__pb2.PhotoSaleRecipeResponse.FromString(data)
 def PhotoListSpecialShootingResponse_deserializer(raw):
     data = deserialize(raw)
-    return ProtoApi__pb2.PhotoListSpecialShootingResponse.FromString(data)
+    return papi__pb2.PhotoListSpecialShootingResponse.FromString(data)
 def PhotoCheckSpecialShootingResponse_deserializer(raw):
     data = deserialize(raw)
-    return ProtoApi__pb2.PhotoCheckSpecialShootingResponse.FromString(data)
+    return papi__pb2.PhotoCheckSpecialShootingResponse.FromString(data)
 def PhotoCreateSpecialShootingsResponse_deserializer(raw):
     data = deserialize(raw)
-    return ProtoApi__pb2.PhotoCreateSpecialShootingsResponse.FromString(data)
+    return papi__pb2.PhotoCreateSpecialShootingsResponse.FromString(data)
 def GetDreamBasePhotoEnhanceLevelInfosResponse_deserializer(raw):
     data = deserialize(raw)
-    return ProtoApi__pb2.GetDreamBasePhotoEnhanceLevelInfosResponse.FromString(data)
+    return papi__pb2.GetDreamBasePhotoEnhanceLevelInfosResponse.FromString(data)
 def PhotoActivateStoryEpisodeShootingResponse_deserializer(raw):
     data = deserialize(raw)
-    return ProtoApi__pb2.PhotoActivateStoryEpisodeShootingResponse.FromString(data)
+    return papi__pb2.PhotoActivateStoryEpisodeShootingResponse.FromString(data)
 def PhotoCheckStoryEpisodeShootingResponse_deserializer(raw):
     data = deserialize(raw)
-    return ProtoApi__pb2.PhotoCheckStoryEpisodeShootingResponse.FromString(data)
+    return papi__pb2.PhotoCheckStoryEpisodeShootingResponse.FromString(data)
 def PhotoCheckCardStoryShootingResponse_deserializer(raw):
     data = deserialize(raw)
-    return ProtoApi__pb2.PhotoCheckCardStoryShootingResponse.FromString(data)
+    return papi__pb2.PhotoCheckCardStoryShootingResponse.FromString(data)
 def PhotoCreateStoryEpisodeShootingsResponse_deserializer(raw):
     data = deserialize(raw)
-    return ProtoApi__pb2.PhotoCreateStoryEpisodeShootingsResponse.FromString(data)
+    return papi__pb2.PhotoCreateStoryEpisodeShootingsResponse.FromString(data)
 def PhotoCreateCardStoryShootingsResponse_deserializer(raw):
     data = deserialize(raw)
-    return ProtoApi__pb2.PhotoCreateCardStoryShootingsResponse.FromString(data)
+    return papi__pb2.PhotoCreateCardStoryShootingsResponse.FromString(data)
 def PhotoCheckExpressionShootingResponse_deserializer(raw):
     data = deserialize(raw)
-    return ProtoApi__pb2.PhotoCheckExpressionShootingResponse.FromString(data)
+    return papi__pb2.PhotoCheckExpressionShootingResponse.FromString(data)
 def PhotoCreateExpressionShootingsResponse_deserializer(raw):
     data = deserialize(raw)
-    return ProtoApi__pb2.PhotoCreateExpressionShootingsResponse.FromString(data)
+    return papi__pb2.PhotoCreateExpressionShootingsResponse.FromString(data)
 def PhotoSwitchLockRequest_deserializer(raw):
     data = deserialize(raw)
-    return ProtoApi__pb2.PhotoSwitchLockRequest.FromString(data)
+    return papi__pb2.PhotoSwitchLockRequest.FromString(data)
 def PhotoDeleteRequest_deserializer(raw):
     data = deserialize(raw)
-    return ProtoApi__pb2.PhotoDeleteRequest.FromString(data)
+    return papi__pb2.PhotoDeleteRequest.FromString(data)
 def PhotoEnhanceRequest_deserializer(raw):
     data = deserialize(raw)
-    return ProtoApi__pb2.PhotoEnhanceRequest.FromString(data)
+    return papi__pb2.PhotoEnhanceRequest.FromString(data)
 def PhotoRerollRequest_deserializer(raw):
     data = deserialize(raw)
-    return ProtoApi__pb2.PhotoRerollRequest.FromString(data)
+    return papi__pb2.PhotoRerollRequest.FromString(data)
 def PhotoRetouchRequest_deserializer(raw):
     data = deserialize(raw)
-    return ProtoApi__pb2.PhotoRetouchRequest.FromString(data)
+    return papi__pb2.PhotoRetouchRequest.FromString(data)
 def PhotoUpdateRequest_deserializer(raw):
     data = deserialize(raw)
-    return ProtoApi__pb2.PhotoUpdateRequest.FromString(data)
+    return papi__pb2.PhotoUpdateRequest.FromString(data)
 def Empty_deserializer(raw):
     data = deserialize(raw)
-    return ProtoApi__pb2.Empty.FromString(data)
+    return papi__pb2.Empty.FromString(data)
 def PhotoGetImageUrlRequest_deserializer(raw):
     data = deserialize(raw)
-    return ProtoApi__pb2.PhotoGetImageUrlRequest.FromString(data)
+    return papi__pb2.PhotoGetImageUrlRequest.FromString(data)
 def PhotoCheckShootingRequest_deserializer(raw):
     data = deserialize(raw)
-    return ProtoApi__pb2.PhotoCheckShootingRequest.FromString(data)
+    return papi__pb2.PhotoCheckShootingRequest.FromString(data)
 def PhotoCreateShootingsRequest_deserializer(raw):
     data = deserialize(raw)
-    return ProtoApi__pb2.PhotoCreateShootingsRequest.FromString(data)
+    return papi__pb2.PhotoCreateShootingsRequest.FromString(data)
 def Empty_deserializer(raw):
     data = deserialize(raw)
-    return ProtoApi__pb2.Empty.FromString(data)
+    return papi__pb2.Empty.FromString(data)
 def Empty_deserializer(raw):
     data = deserialize(raw)
-    return ProtoApi__pb2.Empty.FromString(data)
+    return papi__pb2.Empty.FromString(data)
 def PhotoSaleRecipeRequest_deserializer(raw):
     data = deserialize(raw)
-    return ProtoApi__pb2.PhotoSaleRecipeRequest.FromString(data)
+    return papi__pb2.PhotoSaleRecipeRequest.FromString(data)
 def PhotoListSpecialShootingRequest_deserializer(raw):
     data = deserialize(raw)
-    return ProtoApi__pb2.PhotoListSpecialShootingRequest.FromString(data)
+    return papi__pb2.PhotoListSpecialShootingRequest.FromString(data)
 def PhotoCheckSpecialShootingRequest_deserializer(raw):
     data = deserialize(raw)
-    return ProtoApi__pb2.PhotoCheckSpecialShootingRequest.FromString(data)
+    return papi__pb2.PhotoCheckSpecialShootingRequest.FromString(data)
 def PhotoCreateSpecialShootingsRequest_deserializer(raw):
     data = deserialize(raw)
-    return ProtoApi__pb2.PhotoCreateSpecialShootingsRequest.FromString(data)
+    return papi__pb2.PhotoCreateSpecialShootingsRequest.FromString(data)
 def GetDreamBasePhotoEnhanceLevelInfosRequest_deserializer(raw):
     data = deserialize(raw)
-    return ProtoApi__pb2.GetDreamBasePhotoEnhanceLevelInfosRequest.FromString(data)
+    return papi__pb2.GetDreamBasePhotoEnhanceLevelInfosRequest.FromString(data)
 def PhotoActivateStoryEpisodeShootingRequest_deserializer(raw):
     data = deserialize(raw)
-    return ProtoApi__pb2.PhotoActivateStoryEpisodeShootingRequest.FromString(data)
+    return papi__pb2.PhotoActivateStoryEpisodeShootingRequest.FromString(data)
 def PhotoCheckStoryEpisodeShootingRequest_deserializer(raw):
     data = deserialize(raw)
-    return ProtoApi__pb2.PhotoCheckStoryEpisodeShootingRequest.FromString(data)
+    return papi__pb2.PhotoCheckStoryEpisodeShootingRequest.FromString(data)
 def PhotoCheckCardStoryShootingRequest_deserializer(raw):
     data = deserialize(raw)
-    return ProtoApi__pb2.PhotoCheckCardStoryShootingRequest.FromString(data)
+    return papi__pb2.PhotoCheckCardStoryShootingRequest.FromString(data)
 def PhotoCreateStoryEpisodeShootingsRequest_deserializer(raw):
     data = deserialize(raw)
-    return ProtoApi__pb2.PhotoCreateStoryEpisodeShootingsRequest.FromString(data)
+    return papi__pb2.PhotoCreateStoryEpisodeShootingsRequest.FromString(data)
 def PhotoCreateCardStoryShootingsRequest_deserializer(raw):
     data = deserialize(raw)
-    return ProtoApi__pb2.PhotoCreateCardStoryShootingsRequest.FromString(data)
+    return papi__pb2.PhotoCreateCardStoryShootingsRequest.FromString(data)
 def PhotoCheckExpressionShootingRequest_deserializer(raw):
     data = deserialize(raw)
-    return ProtoApi__pb2.PhotoCheckExpressionShootingRequest.FromString(data)
+    return papi__pb2.PhotoCheckExpressionShootingRequest.FromString(data)
 def PhotoCreateExpressionShootingsRequest_deserializer(raw):
     data = deserialize(raw)
-    return ProtoApi__pb2.PhotoCreateExpressionShootingsRequest.FromString(data)
+    return papi__pb2.PhotoCreateExpressionShootingsRequest.FromString(data)
 def ProfileTopResponse_deserializer(raw):
     data = deserialize(raw)
-    return ProtoApi__pb2.ProfileTopResponse.FromString(data)
+    return papi__pb2.ProfileTopResponse.FromString(data)
 def ProfileFindUserResponse_deserializer(raw):
     data = deserialize(raw)
-    return ProtoApi__pb2.ProfileFindUserResponse.FromString(data)
+    return papi__pb2.ProfileFindUserResponse.FromString(data)
 def ProfileUpdateNameResponse_deserializer(raw):
     data = deserialize(raw)
-    return ProtoApi__pb2.ProfileUpdateNameResponse.FromString(data)
+    return papi__pb2.ProfileUpdateNameResponse.FromString(data)
 def ProfileUpdateMessageResponse_deserializer(raw):
     data = deserialize(raw)
-    return ProtoApi__pb2.ProfileUpdateMessageResponse.FromString(data)
+    return papi__pb2.ProfileUpdateMessageResponse.FromString(data)
 def ProfileUpdateBackgroundResponse_deserializer(raw):
     data = deserialize(raw)
-    return ProtoApi__pb2.ProfileUpdateBackgroundResponse.FromString(data)
+    return papi__pb2.ProfileUpdateBackgroundResponse.FromString(data)
 def ProfileUpdateFavoriteCharactersResponse_deserializer(raw):
     data = deserialize(raw)
-    return ProtoApi__pb2.ProfileUpdateFavoriteCharactersResponse.FromString(data)
+    return papi__pb2.ProfileUpdateFavoriteCharactersResponse.FromString(data)
 def ProfileUpdateDecorationResponse_deserializer(raw):
     data = deserialize(raw)
-    return ProtoApi__pb2.ProfileUpdateDecorationResponse.FromString(data)
+    return papi__pb2.ProfileUpdateDecorationResponse.FromString(data)
 def ProfileUpdateEmblemResponse_deserializer(raw):
     data = deserialize(raw)
-    return ProtoApi__pb2.ProfileUpdateEmblemResponse.FromString(data)
+    return papi__pb2.ProfileUpdateEmblemResponse.FromString(data)
 def ProfileUpdateLayoutResponse_deserializer(raw):
     data = deserialize(raw)
-    return ProtoApi__pb2.ProfileUpdateLayoutResponse.FromString(data)
+    return papi__pb2.ProfileUpdateLayoutResponse.FromString(data)
 def ProfileClearTwitterMissionResponse_deserializer(raw):
     data = deserialize(raw)
-    return ProtoApi__pb2.ProfileClearTwitterMissionResponse.FromString(data)
+    return papi__pb2.ProfileClearTwitterMissionResponse.FromString(data)
 def ProfileUpdateBuddyCardResponse_deserializer(raw):
     data = deserialize(raw)
-    return ProtoApi__pb2.ProfileUpdateBuddyCardResponse.FromString(data)
+    return papi__pb2.ProfileUpdateBuddyCardResponse.FromString(data)
 def ProfileUpdateBirthdayResponse_deserializer(raw):
     data = deserialize(raw)
-    return ProtoApi__pb2.ProfileUpdateBirthdayResponse.FromString(data)
+    return papi__pb2.ProfileUpdateBirthdayResponse.FromString(data)
 def Empty_deserializer(raw):
     data = deserialize(raw)
-    return ProtoApi__pb2.Empty.FromString(data)
+    return papi__pb2.Empty.FromString(data)
 def ProfileFindUserRequest_deserializer(raw):
     data = deserialize(raw)
-    return ProtoApi__pb2.ProfileFindUserRequest.FromString(data)
+    return papi__pb2.ProfileFindUserRequest.FromString(data)
 def ProfileUpdateNameRequest_deserializer(raw):
     data = deserialize(raw)
-    return ProtoApi__pb2.ProfileUpdateNameRequest.FromString(data)
+    return papi__pb2.ProfileUpdateNameRequest.FromString(data)
 def ProfileUpdateMessageRequest_deserializer(raw):
     data = deserialize(raw)
-    return ProtoApi__pb2.ProfileUpdateMessageRequest.FromString(data)
+    return papi__pb2.ProfileUpdateMessageRequest.FromString(data)
 def ProfileUpdateBackgroundRequest_deserializer(raw):
     data = deserialize(raw)
-    return ProtoApi__pb2.ProfileUpdateBackgroundRequest.FromString(data)
+    return papi__pb2.ProfileUpdateBackgroundRequest.FromString(data)
 def ProfileUpdateFavoriteCharactersRequest_deserializer(raw):
     data = deserialize(raw)
-    return ProtoApi__pb2.ProfileUpdateFavoriteCharactersRequest.FromString(data)
+    return papi__pb2.ProfileUpdateFavoriteCharactersRequest.FromString(data)
 def ProfileUpdateDecorationRequest_deserializer(raw):
     data = deserialize(raw)
-    return ProtoApi__pb2.ProfileUpdateDecorationRequest.FromString(data)
+    return papi__pb2.ProfileUpdateDecorationRequest.FromString(data)
 def ProfileUpdateEmblemRequest_deserializer(raw):
     data = deserialize(raw)
-    return ProtoApi__pb2.ProfileUpdateEmblemRequest.FromString(data)
+    return papi__pb2.ProfileUpdateEmblemRequest.FromString(data)
 def ProfileUpdateLayoutRequest_deserializer(raw):
     data = deserialize(raw)
-    return ProtoApi__pb2.ProfileUpdateLayoutRequest.FromString(data)
+    return papi__pb2.ProfileUpdateLayoutRequest.FromString(data)
 def Empty_deserializer(raw):
     data = deserialize(raw)
-    return ProtoApi__pb2.Empty.FromString(data)
+    return papi__pb2.Empty.FromString(data)
 def ProfileUpdateBuddyCardRequest_deserializer(raw):
     data = deserialize(raw)
-    return ProtoApi__pb2.ProfileUpdateBuddyCardRequest.FromString(data)
+    return papi__pb2.ProfileUpdateBuddyCardRequest.FromString(data)
 def ProfileUpdateBirthdayRequest_deserializer(raw):
     data = deserialize(raw)
-    return ProtoApi__pb2.ProfileUpdateBirthdayRequest.FromString(data)
+    return papi__pb2.ProfileUpdateBirthdayRequest.FromString(data)
 def PvpTopResponse_deserializer(raw):
     data = deserialize(raw)
-    return ProtoApi__pb2.PvpTopResponse.FromString(data)
+    return papi__pb2.PvpTopResponse.FromString(data)
 def PvpListOpponentResponse_deserializer(raw):
     data = deserialize(raw)
-    return ProtoApi__pb2.PvpListOpponentResponse.FromString(data)
+    return papi__pb2.PvpListOpponentResponse.FromString(data)
 def PvpListRankingResponse_deserializer(raw):
     data = deserialize(raw)
-    return ProtoApi__pb2.PvpListRankingResponse.FromString(data)
+    return papi__pb2.PvpListRankingResponse.FromString(data)
 def PvpStartResponse_deserializer(raw):
     data = deserialize(raw)
-    return ProtoApi__pb2.PvpStartResponse.FromString(data)
+    return papi__pb2.PvpStartResponse.FromString(data)
 def PvpListAssetResponse_deserializer(raw):
     data = deserialize(raw)
-    return ProtoApi__pb2.PvpListAssetResponse.FromString(data)
+    return papi__pb2.PvpListAssetResponse.FromString(data)
 def Empty_deserializer(raw):
     data = deserialize(raw)
-    return ProtoApi__pb2.Empty.FromString(data)
+    return papi__pb2.Empty.FromString(data)
 def PvpListOpponentRequest_deserializer(raw):
     data = deserialize(raw)
-    return ProtoApi__pb2.PvpListOpponentRequest.FromString(data)
+    return papi__pb2.PvpListOpponentRequest.FromString(data)
 def PvpListRankingRequest_deserializer(raw):
     data = deserialize(raw)
-    return ProtoApi__pb2.PvpListRankingRequest.FromString(data)
+    return papi__pb2.PvpListRankingRequest.FromString(data)
 def PvpStartRequest_deserializer(raw):
     data = deserialize(raw)
-    return ProtoApi__pb2.PvpStartRequest.FromString(data)
+    return papi__pb2.PvpStartRequest.FromString(data)
 def PvpListAssetRequest_deserializer(raw):
     data = deserialize(raw)
-    return ProtoApi__pb2.PvpListAssetRequest.FromString(data)
+    return papi__pb2.PvpListAssetRequest.FromString(data)
 def QuestTopResponse_deserializer(raw):
     data = deserialize(raw)
-    return ProtoApi__pb2.QuestTopResponse.FromString(data)
+    return papi__pb2.QuestTopResponse.FromString(data)
 def QuestListMainResponse_deserializer(raw):
     data = deserialize(raw)
-    return ProtoApi__pb2.QuestListMainResponse.FromString(data)
+    return papi__pb2.QuestListMainResponse.FromString(data)
 def QuestListDailyResponse_deserializer(raw):
     data = deserialize(raw)
-    return ProtoApi__pb2.QuestListDailyResponse.FromString(data)
+    return papi__pb2.QuestListDailyResponse.FromString(data)
 def QuestListContestResponse_deserializer(raw):
     data = deserialize(raw)
-    return ProtoApi__pb2.QuestListContestResponse.FromString(data)
+    return papi__pb2.QuestListContestResponse.FromString(data)
 def QuestListTowerResponse_deserializer(raw):
     data = deserialize(raw)
-    return ProtoApi__pb2.QuestListTowerResponse.FromString(data)
+    return papi__pb2.QuestListTowerResponse.FromString(data)
 def QuestStartResponse_deserializer(raw):
     data = deserialize(raw)
-    return ProtoApi__pb2.QuestStartResponse.FromString(data)
+    return papi__pb2.QuestStartResponse.FromString(data)
 def QuestStartBulkDailyResponse_deserializer(raw):
     data = deserialize(raw)
-    return ProtoApi__pb2.QuestStartBulkDailyResponse.FromString(data)
+    return papi__pb2.QuestStartBulkDailyResponse.FromString(data)
 def QuestListTowerRankingResponse_deserializer(raw):
     data = deserialize(raw)
-    return ProtoApi__pb2.QuestListTowerRankingResponse.FromString(data)
+    return papi__pb2.QuestListTowerRankingResponse.FromString(data)
 def QuestListContestRankingResponse_deserializer(raw):
     data = deserialize(raw)
-    return ProtoApi__pb2.QuestListContestRankingResponse.FromString(data)
+    return papi__pb2.QuestListContestRankingResponse.FromString(data)
 def QuestListLatestClearResponse_deserializer(raw):
     data = deserialize(raw)
-    return ProtoApi__pb2.QuestListLatestClearResponse.FromString(data)
+    return papi__pb2.QuestListLatestClearResponse.FromString(data)
 def QuestListAssetResponse_deserializer(raw):
     data = deserialize(raw)
-    return ProtoApi__pb2.QuestListAssetResponse.FromString(data)
+    return papi__pb2.QuestListAssetResponse.FromString(data)
 def QuestGetLatestClearLiveResultResponse_deserializer(raw):
     data = deserialize(raw)
-    return ProtoApi__pb2.QuestGetLatestClearLiveResultResponse.FromString(data)
+    return papi__pb2.QuestGetLatestClearLiveResultResponse.FromString(data)
 def QuestGetRankingLiveResultResponse_deserializer(raw):
     data = deserialize(raw)
-    return ProtoApi__pb2.QuestGetRankingLiveResultResponse.FromString(data)
+    return papi__pb2.QuestGetRankingLiveResultResponse.FromString(data)
 def QuestTowerTopResponse_deserializer(raw):
     data = deserialize(raw)
-    return ProtoApi__pb2.QuestTowerTopResponse.FromString(data)
+    return papi__pb2.QuestTowerTopResponse.FromString(data)
 def OutputLiveResultDetailLogResponse_deserializer(raw):
     data = deserialize(raw)
-    return ProtoApi__pb2.OutputLiveResultDetailLogResponse.FromString(data)
+    return papi__pb2.OutputLiveResultDetailLogResponse.FromString(data)
 def Empty_deserializer(raw):
     data = deserialize(raw)
-    return ProtoApi__pb2.Empty.FromString(data)
+    return papi__pb2.Empty.FromString(data)
 def Empty_deserializer(raw):
     data = deserialize(raw)
-    return ProtoApi__pb2.Empty.FromString(data)
+    return papi__pb2.Empty.FromString(data)
 def Empty_deserializer(raw):
     data = deserialize(raw)
-    return ProtoApi__pb2.Empty.FromString(data)
+    return papi__pb2.Empty.FromString(data)
 def Empty_deserializer(raw):
     data = deserialize(raw)
-    return ProtoApi__pb2.Empty.FromString(data)
+    return papi__pb2.Empty.FromString(data)
 def Empty_deserializer(raw):
     data = deserialize(raw)
-    return ProtoApi__pb2.Empty.FromString(data)
+    return papi__pb2.Empty.FromString(data)
 def QuestStartRequest_deserializer(raw):
     data = deserialize(raw)
-    return ProtoApi__pb2.QuestStartRequest.FromString(data)
+    return papi__pb2.QuestStartRequest.FromString(data)
 def Empty_deserializer(raw):
     data = deserialize(raw)
-    return ProtoApi__pb2.Empty.FromString(data)
+    return papi__pb2.Empty.FromString(data)
 def QuestListTowerRankingRequest_deserializer(raw):
     data = deserialize(raw)
-    return ProtoApi__pb2.QuestListTowerRankingRequest.FromString(data)
+    return papi__pb2.QuestListTowerRankingRequest.FromString(data)
 def QuestListContestRankingRequest_deserializer(raw):
     data = deserialize(raw)
-    return ProtoApi__pb2.QuestListContestRankingRequest.FromString(data)
+    return papi__pb2.QuestListContestRankingRequest.FromString(data)
 def QuestListLatestClearRequest_deserializer(raw):
     data = deserialize(raw)
-    return ProtoApi__pb2.QuestListLatestClearRequest.FromString(data)
+    return papi__pb2.QuestListLatestClearRequest.FromString(data)
 def QuestListAssetRequest_deserializer(raw):
     data = deserialize(raw)
-    return ProtoApi__pb2.QuestListAssetRequest.FromString(data)
+    return papi__pb2.QuestListAssetRequest.FromString(data)
 def QuestGetLatestClearLiveResultRequest_deserializer(raw):
     data = deserialize(raw)
-    return ProtoApi__pb2.QuestGetLatestClearLiveResultRequest.FromString(data)
+    return papi__pb2.QuestGetLatestClearLiveResultRequest.FromString(data)
 def QuestGetRankingLiveResultRequest_deserializer(raw):
     data = deserialize(raw)
-    return ProtoApi__pb2.QuestGetRankingLiveResultRequest.FromString(data)
+    return papi__pb2.QuestGetRankingLiveResultRequest.FromString(data)
 def Empty_deserializer(raw):
     data = deserialize(raw)
-    return ProtoApi__pb2.Empty.FromString(data)
+    return papi__pb2.Empty.FromString(data)
 def OutputLiveResultDetailLogRequest_deserializer(raw):
     data = deserialize(raw)
-    return ProtoApi__pb2.OutputLiveResultDetailLogRequest.FromString(data)
+    return papi__pb2.OutputLiveResultDetailLogRequest.FromString(data)
 def RaceTopResponse_deserializer(raw):
     data = deserialize(raw)
-    return ProtoApi__pb2.RaceTopResponse.FromString(data)
+    return papi__pb2.RaceTopResponse.FromString(data)
 def RaceMovePanelResponse_deserializer(raw):
     data = deserialize(raw)
-    return ProtoApi__pb2.RaceMovePanelResponse.FromString(data)
+    return papi__pb2.RaceMovePanelResponse.FromString(data)
 def RaceReceiveActivityLessonResponse_deserializer(raw):
     data = deserialize(raw)
-    return ProtoApi__pb2.RaceReceiveActivityLessonResponse.FromString(data)
+    return papi__pb2.RaceReceiveActivityLessonResponse.FromString(data)
 def RaceEnhanceLiveBonusResponse_deserializer(raw):
     data = deserialize(raw)
-    return ProtoApi__pb2.RaceEnhanceLiveBonusResponse.FromString(data)
+    return papi__pb2.RaceEnhanceLiveBonusResponse.FromString(data)
 def RaceResetLiveBonusResponse_deserializer(raw):
     data = deserialize(raw)
-    return ProtoApi__pb2.RaceResetLiveBonusResponse.FromString(data)
+    return papi__pb2.RaceResetLiveBonusResponse.FromString(data)
 def RaceStartLivePanelQuestResponse_deserializer(raw):
     data = deserialize(raw)
-    return ProtoApi__pb2.RaceStartLivePanelQuestResponse.FromString(data)
+    return papi__pb2.RaceStartLivePanelQuestResponse.FromString(data)
 def RaceStartLiveAreaQuestResponse_deserializer(raw):
     data = deserialize(raw)
-    return ProtoApi__pb2.RaceStartLiveAreaQuestResponse.FromString(data)
+    return papi__pb2.RaceStartLiveAreaQuestResponse.FromString(data)
 def RaceQuestListAssetResponse_deserializer(raw):
     data = deserialize(raw)
-    return ProtoApi__pb2.RaceQuestListAssetResponse.FromString(data)
+    return papi__pb2.RaceQuestListAssetResponse.FromString(data)
 def RaceListDeckResponse_deserializer(raw):
     data = deserialize(raw)
-    return ProtoApi__pb2.RaceListDeckResponse.FromString(data)
+    return papi__pb2.RaceListDeckResponse.FromString(data)
 def RaceSaveDeckResponse_deserializer(raw):
     data = deserialize(raw)
-    return ProtoApi__pb2.RaceSaveDeckResponse.FromString(data)
+    return papi__pb2.RaceSaveDeckResponse.FromString(data)
 def RaceResetCardCoolTimeResponse_deserializer(raw):
     data = deserialize(raw)
-    return ProtoApi__pb2.RaceResetCardCoolTimeResponse.FromString(data)
+    return papi__pb2.RaceResetCardCoolTimeResponse.FromString(data)
 def RaceRankingResponse_deserializer(raw):
     data = deserialize(raw)
-    return ProtoApi__pb2.RaceRankingResponse.FromString(data)
+    return papi__pb2.RaceRankingResponse.FromString(data)
 def RaceTopRequest_deserializer(raw):
     data = deserialize(raw)
-    return ProtoApi__pb2.RaceTopRequest.FromString(data)
+    return papi__pb2.RaceTopRequest.FromString(data)
 def RaceMovePanelRequest_deserializer(raw):
     data = deserialize(raw)
-    return ProtoApi__pb2.RaceMovePanelRequest.FromString(data)
+    return papi__pb2.RaceMovePanelRequest.FromString(data)
 def RaceReceiveActivityLessonRequest_deserializer(raw):
     data = deserialize(raw)
-    return ProtoApi__pb2.RaceReceiveActivityLessonRequest.FromString(data)
+    return papi__pb2.RaceReceiveActivityLessonRequest.FromString(data)
 def RaceEnhanceLiveBonusRequest_deserializer(raw):
     data = deserialize(raw)
-    return ProtoApi__pb2.RaceEnhanceLiveBonusRequest.FromString(data)
+    return papi__pb2.RaceEnhanceLiveBonusRequest.FromString(data)
 def RaceResetLiveBonusRequest_deserializer(raw):
     data = deserialize(raw)
-    return ProtoApi__pb2.RaceResetLiveBonusRequest.FromString(data)
+    return papi__pb2.RaceResetLiveBonusRequest.FromString(data)
 def RaceStartLivePanelQuestRequest_deserializer(raw):
     data = deserialize(raw)
-    return ProtoApi__pb2.RaceStartLivePanelQuestRequest.FromString(data)
+    return papi__pb2.RaceStartLivePanelQuestRequest.FromString(data)
 def RaceStartLiveAreaQuestRequest_deserializer(raw):
     data = deserialize(raw)
-    return ProtoApi__pb2.RaceStartLiveAreaQuestRequest.FromString(data)
+    return papi__pb2.RaceStartLiveAreaQuestRequest.FromString(data)
 def RaceQuestListAssetRequest_deserializer(raw):
     data = deserialize(raw)
-    return ProtoApi__pb2.RaceQuestListAssetRequest.FromString(data)
+    return papi__pb2.RaceQuestListAssetRequest.FromString(data)
 def RaceListDeckRequest_deserializer(raw):
     data = deserialize(raw)
-    return ProtoApi__pb2.RaceListDeckRequest.FromString(data)
+    return papi__pb2.RaceListDeckRequest.FromString(data)
 def RaceSaveDeckRequest_deserializer(raw):
     data = deserialize(raw)
-    return ProtoApi__pb2.RaceSaveDeckRequest.FromString(data)
+    return papi__pb2.RaceSaveDeckRequest.FromString(data)
 def RaceResetCardCoolTimeRequest_deserializer(raw):
     data = deserialize(raw)
-    return ProtoApi__pb2.RaceResetCardCoolTimeRequest.FromString(data)
+    return papi__pb2.RaceResetCardCoolTimeRequest.FromString(data)
 def RaceRankingRequest_deserializer(raw):
     data = deserialize(raw)
-    return ProtoApi__pb2.RaceRankingRequest.FromString(data)
+    return papi__pb2.RaceRankingRequest.FromString(data)
 def RouletteTopResponse_deserializer(raw):
     data = deserialize(raw)
-    return ProtoApi__pb2.RouletteTopResponse.FromString(data)
+    return papi__pb2.RouletteTopResponse.FromString(data)
 def RouletteCheckResponse_deserializer(raw):
     data = deserialize(raw)
-    return ProtoApi__pb2.RouletteCheckResponse.FromString(data)
+    return papi__pb2.RouletteCheckResponse.FromString(data)
 def RouletteDrawResponse_deserializer(raw):
     data = deserialize(raw)
-    return ProtoApi__pb2.RouletteDrawResponse.FromString(data)
+    return papi__pb2.RouletteDrawResponse.FromString(data)
 def Empty_deserializer(raw):
     data = deserialize(raw)
-    return ProtoApi__pb2.Empty.FromString(data)
+    return papi__pb2.Empty.FromString(data)
 def RouletteCheckRequest_deserializer(raw):
     data = deserialize(raw)
-    return ProtoApi__pb2.RouletteCheckRequest.FromString(data)
+    return papi__pb2.RouletteCheckRequest.FromString(data)
 def RouletteDrawRequest_deserializer(raw):
     data = deserialize(raw)
-    return ProtoApi__pb2.RouletteDrawRequest.FromString(data)
+    return papi__pb2.RouletteDrawRequest.FromString(data)
 def SalaryGetPayslipResponse_deserializer(raw):
     data = deserialize(raw)
-    return ProtoApi__pb2.SalaryGetPayslipResponse.FromString(data)
+    return papi__pb2.SalaryGetPayslipResponse.FromString(data)
 def SalaryPayResponse_deserializer(raw):
     data = deserialize(raw)
-    return ProtoApi__pb2.SalaryPayResponse.FromString(data)
+    return papi__pb2.SalaryPayResponse.FromString(data)
 def SalaryGetPayslipRequest_deserializer(raw):
     data = deserialize(raw)
-    return ProtoApi__pb2.SalaryGetPayslipRequest.FromString(data)
+    return papi__pb2.SalaryGetPayslipRequest.FromString(data)
 def SalaryPayRequest_deserializer(raw):
     data = deserialize(raw)
-    return ProtoApi__pb2.SalaryPayRequest.FromString(data)
+    return papi__pb2.SalaryPayRequest.FromString(data)
 def SatelliteInitCodeResponse_deserializer(raw):
     data = deserialize(raw)
-    return ProtoApi__pb2.SatelliteInitCodeResponse.FromString(data)
+    return papi__pb2.SatelliteInitCodeResponse.FromString(data)
 def SatelliteInitCodeRequest_deserializer(raw):
     data = deserialize(raw)
-    return ProtoApi__pb2.SatelliteInitCodeRequest.FromString(data)
+    return papi__pb2.SatelliteInitCodeRequest.FromString(data)
 def ShelfTopResponse_deserializer(raw):
     data = deserialize(raw)
-    return ProtoApi__pb2.ShelfTopResponse.FromString(data)
+    return papi__pb2.ShelfTopResponse.FromString(data)
 def ShelfAlbumTopResponse_deserializer(raw):
     data = deserialize(raw)
-    return ProtoApi__pb2.ShelfAlbumTopResponse.FromString(data)
+    return papi__pb2.ShelfAlbumTopResponse.FromString(data)
 def ShelfCheckShootingResponse_deserializer(raw):
     data = deserialize(raw)
-    return ProtoApi__pb2.ShelfCheckShootingResponse.FromString(data)
+    return papi__pb2.ShelfCheckShootingResponse.FromString(data)
 def ShelfSavePhotoResponse_deserializer(raw):
     data = deserialize(raw)
-    return ProtoApi__pb2.ShelfSavePhotoResponse.FromString(data)
+    return papi__pb2.ShelfSavePhotoResponse.FromString(data)
 def ShelfSetPhotoResponse_deserializer(raw):
     data = deserialize(raw)
-    return ProtoApi__pb2.ShelfSetPhotoResponse.FromString(data)
+    return papi__pb2.ShelfSetPhotoResponse.FromString(data)
 def ShelfCreatePhotoResponse_deserializer(raw):
     data = deserialize(raw)
-    return ProtoApi__pb2.ShelfCreatePhotoResponse.FromString(data)
+    return papi__pb2.ShelfCreatePhotoResponse.FromString(data)
 def ShelfCreateAlbumPhotoResponse_deserializer(raw):
     data = deserialize(raw)
-    return ProtoApi__pb2.ShelfCreateAlbumPhotoResponse.FromString(data)
+    return papi__pb2.ShelfCreateAlbumPhotoResponse.FromString(data)
 def ShelfDeletePhotoResponse_deserializer(raw):
     data = deserialize(raw)
-    return ProtoApi__pb2.ShelfDeletePhotoResponse.FromString(data)
+    return papi__pb2.ShelfDeletePhotoResponse.FromString(data)
 def ShelfSwitchTemplateResponse_deserializer(raw):
     data = deserialize(raw)
-    return ProtoApi__pb2.ShelfSwitchTemplateResponse.FromString(data)
+    return papi__pb2.ShelfSwitchTemplateResponse.FromString(data)
 def ShelfUnsetPhotoResponse_deserializer(raw):
     data = deserialize(raw)
-    return ProtoApi__pb2.ShelfUnsetPhotoResponse.FromString(data)
+    return papi__pb2.ShelfUnsetPhotoResponse.FromString(data)
 def Empty_deserializer(raw):
     data = deserialize(raw)
-    return ProtoApi__pb2.Empty.FromString(data)
+    return papi__pb2.Empty.FromString(data)
 def ShelfAlbumTopRequest_deserializer(raw):
     data = deserialize(raw)
-    return ProtoApi__pb2.ShelfAlbumTopRequest.FromString(data)
+    return papi__pb2.ShelfAlbumTopRequest.FromString(data)
 def ShelfCheckShootingRequest_deserializer(raw):
     data = deserialize(raw)
-    return ProtoApi__pb2.ShelfCheckShootingRequest.FromString(data)
+    return papi__pb2.ShelfCheckShootingRequest.FromString(data)
 def ShelfSavePhotoRequest_deserializer(raw):
     data = deserialize(raw)
-    return ProtoApi__pb2.ShelfSavePhotoRequest.FromString(data)
+    return papi__pb2.ShelfSavePhotoRequest.FromString(data)
 def ShelfSetPhotoRequest_deserializer(raw):
     data = deserialize(raw)
-    return ProtoApi__pb2.ShelfSetPhotoRequest.FromString(data)
+    return papi__pb2.ShelfSetPhotoRequest.FromString(data)
 def ShelfCreatePhotoRequest_deserializer(raw):
     data = deserialize(raw)
-    return ProtoApi__pb2.ShelfCreatePhotoRequest.FromString(data)
+    return papi__pb2.ShelfCreatePhotoRequest.FromString(data)
 def ShelfCreateAlbumPhotoRequest_deserializer(raw):
     data = deserialize(raw)
-    return ProtoApi__pb2.ShelfCreateAlbumPhotoRequest.FromString(data)
+    return papi__pb2.ShelfCreateAlbumPhotoRequest.FromString(data)
 def ShelfDeletePhotoRequest_deserializer(raw):
     data = deserialize(raw)
-    return ProtoApi__pb2.ShelfDeletePhotoRequest.FromString(data)
+    return papi__pb2.ShelfDeletePhotoRequest.FromString(data)
 def ShelfSwitchTemplateRequest_deserializer(raw):
     data = deserialize(raw)
-    return ProtoApi__pb2.ShelfSwitchTemplateRequest.FromString(data)
+    return papi__pb2.ShelfSwitchTemplateRequest.FromString(data)
 def ShelfUnsetPhotoRequest_deserializer(raw):
     data = deserialize(raw)
-    return ProtoApi__pb2.ShelfUnsetPhotoRequest.FromString(data)
+    return papi__pb2.ShelfUnsetPhotoRequest.FromString(data)
 def ShopListResponse_deserializer(raw):
     data = deserialize(raw)
-    return ProtoApi__pb2.ShopListResponse.FromString(data)
+    return papi__pb2.ShopListResponse.FromString(data)
 def ShopListItemResponse_deserializer(raw):
     data = deserialize(raw)
-    return ProtoApi__pb2.ShopListItemResponse.FromString(data)
+    return papi__pb2.ShopListItemResponse.FromString(data)
 def ShopGetLoginBonusPackageItemResponse_deserializer(raw):
     data = deserialize(raw)
-    return ProtoApi__pb2.ShopGetLoginBonusPackageItemResponse.FromString(data)
+    return papi__pb2.ShopGetLoginBonusPackageItemResponse.FromString(data)
 def ShopGetConditionRewardPackageItemResponse_deserializer(raw):
     data = deserialize(raw)
-    return ProtoApi__pb2.ShopGetConditionRewardPackageItemResponse.FromString(data)
+    return papi__pb2.ShopGetConditionRewardPackageItemResponse.FromString(data)
 def ShopPurchaseResponse_deserializer(raw):
     data = deserialize(raw)
-    return ProtoApi__pb2.ShopPurchaseResponse.FromString(data)
+    return papi__pb2.ShopPurchaseResponse.FromString(data)
 def ShopRegisterPurchaseTransactionResponse_deserializer(raw):
     data = deserialize(raw)
-    return ProtoApi__pb2.ShopRegisterPurchaseTransactionResponse.FromString(data)
+    return papi__pb2.ShopRegisterPurchaseTransactionResponse.FromString(data)
 def ShopCancelPurchaseTransactionResponse_deserializer(raw):
     data = deserialize(raw)
-    return ProtoApi__pb2.ShopCancelPurchaseTransactionResponse.FromString(data)
+    return papi__pb2.ShopCancelPurchaseTransactionResponse.FromString(data)
 def ShopPurchaseStoneResponse_deserializer(raw):
     data = deserialize(raw)
-    return ProtoApi__pb2.ShopPurchaseStoneResponse.FromString(data)
+    return papi__pb2.ShopPurchaseStoneResponse.FromString(data)
 def ShopRecoverPurchaseStoneResponse_deserializer(raw):
     data = deserialize(raw)
-    return ProtoApi__pb2.ShopRecoverPurchaseStoneResponse.FromString(data)
+    return papi__pb2.ShopRecoverPurchaseStoneResponse.FromString(data)
 def ShopCheckPurchaseStoneResponse_deserializer(raw):
     data = deserialize(raw)
-    return ProtoApi__pb2.ShopCheckPurchaseStoneResponse.FromString(data)
+    return papi__pb2.ShopCheckPurchaseStoneResponse.FromString(data)
 def ShopRegisterBirthdayResponse_deserializer(raw):
     data = deserialize(raw)
-    return ProtoApi__pb2.ShopRegisterBirthdayResponse.FromString(data)
+    return papi__pb2.ShopRegisterBirthdayResponse.FromString(data)
 def ShopReceiveConditionRewardResponse_deserializer(raw):
     data = deserialize(raw)
-    return ProtoApi__pb2.ShopReceiveConditionRewardResponse.FromString(data)
+    return papi__pb2.ShopReceiveConditionRewardResponse.FromString(data)
 def ShopTryOnResponse_deserializer(raw):
     data = deserialize(raw)
-    return ProtoApi__pb2.ShopTryOnResponse.FromString(data)
+    return papi__pb2.ShopTryOnResponse.FromString(data)
 def Empty_deserializer(raw):
     data = deserialize(raw)
-    return ProtoApi__pb2.Empty.FromString(data)
+    return papi__pb2.Empty.FromString(data)
 def ShopListItemRequest_deserializer(raw):
     data = deserialize(raw)
-    return ProtoApi__pb2.ShopListItemRequest.FromString(data)
+    return papi__pb2.ShopListItemRequest.FromString(data)
 def ShopGetLoginBonusPackageItemRequest_deserializer(raw):
     data = deserialize(raw)
-    return ProtoApi__pb2.ShopGetLoginBonusPackageItemRequest.FromString(data)
+    return papi__pb2.ShopGetLoginBonusPackageItemRequest.FromString(data)
 def ShopGetConditionRewardPackageItemRequest_deserializer(raw):
     data = deserialize(raw)
-    return ProtoApi__pb2.ShopGetConditionRewardPackageItemRequest.FromString(data)
+    return papi__pb2.ShopGetConditionRewardPackageItemRequest.FromString(data)
 def ShopPurchaseRequest_deserializer(raw):
     data = deserialize(raw)
-    return ProtoApi__pb2.ShopPurchaseRequest.FromString(data)
+    return papi__pb2.ShopPurchaseRequest.FromString(data)
 def ShopRegisterPurchaseTransactionRequest_deserializer(raw):
     data = deserialize(raw)
-    return ProtoApi__pb2.ShopRegisterPurchaseTransactionRequest.FromString(data)
+    return papi__pb2.ShopRegisterPurchaseTransactionRequest.FromString(data)
 def ShopCancelPurchaseTransactionRequest_deserializer(raw):
     data = deserialize(raw)
-    return ProtoApi__pb2.ShopCancelPurchaseTransactionRequest.FromString(data)
+    return papi__pb2.ShopCancelPurchaseTransactionRequest.FromString(data)
 def ShopPurchaseStoneRequest_deserializer(raw):
     data = deserialize(raw)
-    return ProtoApi__pb2.ShopPurchaseStoneRequest.FromString(data)
+    return papi__pb2.ShopPurchaseStoneRequest.FromString(data)
 def ShopRecoverPurchaseStoneRequest_deserializer(raw):
     data = deserialize(raw)
-    return ProtoApi__pb2.ShopRecoverPurchaseStoneRequest.FromString(data)
+    return papi__pb2.ShopRecoverPurchaseStoneRequest.FromString(data)
 def ShopCheckPurchaseStoneRequest_deserializer(raw):
     data = deserialize(raw)
-    return ProtoApi__pb2.ShopCheckPurchaseStoneRequest.FromString(data)
+    return papi__pb2.ShopCheckPurchaseStoneRequest.FromString(data)
 def ShopRegisterBirthdayRequest_deserializer(raw):
     data = deserialize(raw)
-    return ProtoApi__pb2.ShopRegisterBirthdayRequest.FromString(data)
+    return papi__pb2.ShopRegisterBirthdayRequest.FromString(data)
 def ShopReceiveConditionRewardRequest_deserializer(raw):
     data = deserialize(raw)
-    return ProtoApi__pb2.ShopReceiveConditionRewardRequest.FromString(data)
+    return papi__pb2.ShopReceiveConditionRewardRequest.FromString(data)
 def ShopTryOnRequest_deserializer(raw):
     data = deserialize(raw)
-    return ProtoApi__pb2.ShopTryOnRequest.FromString(data)
+    return papi__pb2.ShopTryOnRequest.FromString(data)
 def ShowcaseTopResponse_deserializer(raw):
     data = deserialize(raw)
-    return ProtoApi__pb2.ShowcaseTopResponse.FromString(data)
+    return papi__pb2.ShowcaseTopResponse.FromString(data)
 def ShowcaseSaveResponse_deserializer(raw):
     data = deserialize(raw)
-    return ProtoApi__pb2.ShowcaseSaveResponse.FromString(data)
+    return papi__pb2.ShowcaseSaveResponse.FromString(data)
 def ShowcaseSaveDetailResponse_deserializer(raw):
     data = deserialize(raw)
-    return ProtoApi__pb2.ShowcaseSaveDetailResponse.FromString(data)
+    return papi__pb2.ShowcaseSaveDetailResponse.FromString(data)
 def ShowcaseSaveMysetResponse_deserializer(raw):
     data = deserialize(raw)
-    return ProtoApi__pb2.ShowcaseSaveMysetResponse.FromString(data)
+    return papi__pb2.ShowcaseSaveMysetResponse.FromString(data)
 def ShowcaseDeleteMysetResponse_deserializer(raw):
     data = deserialize(raw)
-    return ProtoApi__pb2.ShowcaseDeleteMysetResponse.FromString(data)
+    return papi__pb2.ShowcaseDeleteMysetResponse.FromString(data)
 def ShowcaseApplyMysetResponse_deserializer(raw):
     data = deserialize(raw)
-    return ProtoApi__pb2.ShowcaseApplyMysetResponse.FromString(data)
+    return papi__pb2.ShowcaseApplyMysetResponse.FromString(data)
 def ShowcaseRenameMysetResponse_deserializer(raw):
     data = deserialize(raw)
-    return ProtoApi__pb2.ShowcaseRenameMysetResponse.FromString(data)
+    return papi__pb2.ShowcaseRenameMysetResponse.FromString(data)
 def ShowcaseCheckThumbnailShootingResponse_deserializer(raw):
     data = deserialize(raw)
-    return ProtoApi__pb2.ShowcaseCheckThumbnailShootingResponse.FromString(data)
+    return papi__pb2.ShowcaseCheckThumbnailShootingResponse.FromString(data)
 def ShowcaseLikeResponse_deserializer(raw):
     data = deserialize(raw)
-    return ProtoApi__pb2.ShowcaseLikeResponse.FromString(data)
+    return papi__pb2.ShowcaseLikeResponse.FromString(data)
 def ShowcaseGetResponse_deserializer(raw):
     data = deserialize(raw)
-    return ProtoApi__pb2.ShowcaseGetResponse.FromString(data)
+    return papi__pb2.ShowcaseGetResponse.FromString(data)
 def ShowcaseGalleryTopResponse_deserializer(raw):
     data = deserialize(raw)
-    return ProtoApi__pb2.ShowcaseGalleryTopResponse.FromString(data)
+    return papi__pb2.ShowcaseGalleryTopResponse.FromString(data)
 def ShowcaseSearchFriendRecommendListResponse_deserializer(raw):
     data = deserialize(raw)
-    return ProtoApi__pb2.ShowcaseSearchFriendRecommendListResponse.FromString(data)
+    return papi__pb2.ShowcaseSearchFriendRecommendListResponse.FromString(data)
 def ShowcaseSearchHashtagListResponse_deserializer(raw):
     data = deserialize(raw)
-    return ProtoApi__pb2.ShowcaseSearchHashtagListResponse.FromString(data)
+    return papi__pb2.ShowcaseSearchHashtagListResponse.FromString(data)
 def ShowcaseDisplayResponse_deserializer(raw):
     data = deserialize(raw)
-    return ProtoApi__pb2.ShowcaseDisplayResponse.FromString(data)
+    return papi__pb2.ShowcaseDisplayResponse.FromString(data)
 def ShowcaseCheckShootingResponse_deserializer(raw):
     data = deserialize(raw)
-    return ProtoApi__pb2.ShowcaseCheckShootingResponse.FromString(data)
+    return papi__pb2.ShowcaseCheckShootingResponse.FromString(data)
 def ShowcaseCreatePhotoResponse_deserializer(raw):
     data = deserialize(raw)
-    return ProtoApi__pb2.ShowcaseCreatePhotoResponse.FromString(data)
+    return papi__pb2.ShowcaseCreatePhotoResponse.FromString(data)
 def Empty_deserializer(raw):
     data = deserialize(raw)
-    return ProtoApi__pb2.Empty.FromString(data)
+    return papi__pb2.Empty.FromString(data)
 def ShowcaseSaveRequest_deserializer(raw):
     data = deserialize(raw)
-    return ProtoApi__pb2.ShowcaseSaveRequest.FromString(data)
+    return papi__pb2.ShowcaseSaveRequest.FromString(data)
 def ShowcaseSaveDetailRequest_deserializer(raw):
     data = deserialize(raw)
-    return ProtoApi__pb2.ShowcaseSaveDetailRequest.FromString(data)
+    return papi__pb2.ShowcaseSaveDetailRequest.FromString(data)
 def ShowcaseSaveMysetRequest_deserializer(raw):
     data = deserialize(raw)
-    return ProtoApi__pb2.ShowcaseSaveMysetRequest.FromString(data)
+    return papi__pb2.ShowcaseSaveMysetRequest.FromString(data)
 def ShowcaseDeleteMysetRequest_deserializer(raw):
     data = deserialize(raw)
-    return ProtoApi__pb2.ShowcaseDeleteMysetRequest.FromString(data)
+    return papi__pb2.ShowcaseDeleteMysetRequest.FromString(data)
 def ShowcaseApplyMysetRequest_deserializer(raw):
     data = deserialize(raw)
-    return ProtoApi__pb2.ShowcaseApplyMysetRequest.FromString(data)
+    return papi__pb2.ShowcaseApplyMysetRequest.FromString(data)
 def ShowcaseRenameMysetRequest_deserializer(raw):
     data = deserialize(raw)
-    return ProtoApi__pb2.ShowcaseRenameMysetRequest.FromString(data)
+    return papi__pb2.ShowcaseRenameMysetRequest.FromString(data)
 def ShowcaseCheckThumbnailShootingRequest_deserializer(raw):
     data = deserialize(raw)
-    return ProtoApi__pb2.ShowcaseCheckThumbnailShootingRequest.FromString(data)
+    return papi__pb2.ShowcaseCheckThumbnailShootingRequest.FromString(data)
 def ShowcaseLikeRequest_deserializer(raw):
     data = deserialize(raw)
-    return ProtoApi__pb2.ShowcaseLikeRequest.FromString(data)
+    return papi__pb2.ShowcaseLikeRequest.FromString(data)
 def ShowcaseGetRequest_deserializer(raw):
     data = deserialize(raw)
-    return ProtoApi__pb2.ShowcaseGetRequest.FromString(data)
+    return papi__pb2.ShowcaseGetRequest.FromString(data)
 def Empty_deserializer(raw):
     data = deserialize(raw)
-    return ProtoApi__pb2.Empty.FromString(data)
+    return papi__pb2.Empty.FromString(data)
 def Empty_deserializer(raw):
     data = deserialize(raw)
-    return ProtoApi__pb2.Empty.FromString(data)
+    return papi__pb2.Empty.FromString(data)
 def ShowcaseSearchHashtagListRequest_deserializer(raw):
     data = deserialize(raw)
-    return ProtoApi__pb2.ShowcaseSearchHashtagListRequest.FromString(data)
+    return papi__pb2.ShowcaseSearchHashtagListRequest.FromString(data)
 def ShowcaseDisplayRequest_deserializer(raw):
     data = deserialize(raw)
-    return ProtoApi__pb2.ShowcaseDisplayRequest.FromString(data)
+    return papi__pb2.ShowcaseDisplayRequest.FromString(data)
 def ShowcaseCheckShootingRequest_deserializer(raw):
     data = deserialize(raw)
-    return ProtoApi__pb2.ShowcaseCheckShootingRequest.FromString(data)
+    return papi__pb2.ShowcaseCheckShootingRequest.FromString(data)
 def ShowcaseCreatePhotoRequest_deserializer(raw):
     data = deserialize(raw)
-    return ProtoApi__pb2.ShowcaseCreatePhotoRequest.FromString(data)
+    return papi__pb2.ShowcaseCreatePhotoRequest.FromString(data)
 def StaffTrainResponse_deserializer(raw):
     data = deserialize(raw)
-    return ProtoApi__pb2.StaffTrainResponse.FromString(data)
+    return papi__pb2.StaffTrainResponse.FromString(data)
 def StaffLevelLimitBreakResponse_deserializer(raw):
     data = deserialize(raw)
-    return ProtoApi__pb2.StaffLevelLimitBreakResponse.FromString(data)
+    return papi__pb2.StaffLevelLimitBreakResponse.FromString(data)
 def StaffTrainRequest_deserializer(raw):
     data = deserialize(raw)
-    return ProtoApi__pb2.StaffTrainRequest.FromString(data)
+    return papi__pb2.StaffTrainRequest.FromString(data)
 def StaffLevelLimitBreakRequest_deserializer(raw):
     data = deserialize(raw)
-    return ProtoApi__pb2.StaffLevelLimitBreakRequest.FromString(data)
+    return papi__pb2.StaffLevelLimitBreakRequest.FromString(data)
 def StoryReadResponse_deserializer(raw):
     data = deserialize(raw)
-    return ProtoApi__pb2.StoryReadResponse.FromString(data)
+    return papi__pb2.StoryReadResponse.FromString(data)
 def StoryReleaseEpisodeResponse_deserializer(raw):
     data = deserialize(raw)
-    return ProtoApi__pb2.StoryReleaseEpisodeResponse.FromString(data)
+    return papi__pb2.StoryReleaseEpisodeResponse.FromString(data)
 def StoryListEventResponse_deserializer(raw):
     data = deserialize(raw)
-    return ProtoApi__pb2.StoryListEventResponse.FromString(data)
+    return papi__pb2.StoryListEventResponse.FromString(data)
 def StoryReadEventResponse_deserializer(raw):
     data = deserialize(raw)
-    return ProtoApi__pb2.StoryReadEventResponse.FromString(data)
+    return papi__pb2.StoryReadEventResponse.FromString(data)
 def StoryListExtraResponse_deserializer(raw):
     data = deserialize(raw)
-    return ProtoApi__pb2.StoryListExtraResponse.FromString(data)
+    return papi__pb2.StoryListExtraResponse.FromString(data)
 def StoryReadExtraResponse_deserializer(raw):
     data = deserialize(raw)
-    return ProtoApi__pb2.StoryReadExtraResponse.FromString(data)
+    return papi__pb2.StoryReadExtraResponse.FromString(data)
 def StoryReadAnniversaryStoryResponse_deserializer(raw):
     data = deserialize(raw)
-    return ProtoApi__pb2.StoryReadAnniversaryStoryResponse.FromString(data)
+    return papi__pb2.StoryReadAnniversaryStoryResponse.FromString(data)
 def StoryReadCharacterCompanyEnjoyStoryResponse_deserializer(raw):
     data = deserialize(raw)
-    return ProtoApi__pb2.StoryReadCharacterCompanyEnjoyStoryResponse.FromString(data)
+    return papi__pb2.StoryReadCharacterCompanyEnjoyStoryResponse.FromString(data)
 def StoryReadRequest_deserializer(raw):
     data = deserialize(raw)
-    return ProtoApi__pb2.StoryReadRequest.FromString(data)
+    return papi__pb2.StoryReadRequest.FromString(data)
 def StoryReleaseEpisodeRequest_deserializer(raw):
     data = deserialize(raw)
-    return ProtoApi__pb2.StoryReleaseEpisodeRequest.FromString(data)
+    return papi__pb2.StoryReleaseEpisodeRequest.FromString(data)
 def Empty_deserializer(raw):
     data = deserialize(raw)
-    return ProtoApi__pb2.Empty.FromString(data)
+    return papi__pb2.Empty.FromString(data)
 def StoryReadEventRequest_deserializer(raw):
     data = deserialize(raw)
-    return ProtoApi__pb2.StoryReadEventRequest.FromString(data)
+    return papi__pb2.StoryReadEventRequest.FromString(data)
 def Empty_deserializer(raw):
     data = deserialize(raw)
-    return ProtoApi__pb2.Empty.FromString(data)
+    return papi__pb2.Empty.FromString(data)
 def StoryReadExtraRequest_deserializer(raw):
     data = deserialize(raw)
-    return ProtoApi__pb2.StoryReadExtraRequest.FromString(data)
+    return papi__pb2.StoryReadExtraRequest.FromString(data)
 def StoryReadAnniversaryStoryRequest_deserializer(raw):
     data = deserialize(raw)
-    return ProtoApi__pb2.StoryReadAnniversaryStoryRequest.FromString(data)
+    return papi__pb2.StoryReadAnniversaryStoryRequest.FromString(data)
 def StoryReadCharacterCompanyEnjoyStoryRequest_deserializer(raw):
     data = deserialize(raw)
-    return ProtoApi__pb2.StoryReadCharacterCompanyEnjoyStoryRequest.FromString(data)
+    return papi__pb2.StoryReadCharacterCompanyEnjoyStoryRequest.FromString(data)
 def SystemCheckResponse_deserializer(raw):
     data = deserialize(raw)
-    return ProtoApi__pb2.SystemCheckResponse.FromString(data)
+    return papi__pb2.SystemCheckResponse.FromString(data)
 def Empty_deserializer(raw):
     data = deserialize(raw)
-    return ProtoApi__pb2.Empty.FromString(data)
+    return papi__pb2.Empty.FromString(data)
 def Empty_deserializer(raw):
     data = deserialize(raw)
-    return ProtoApi__pb2.Empty.FromString(data)
+    return papi__pb2.Empty.FromString(data)
 def SystemCheckRequest_deserializer(raw):
     data = deserialize(raw)
-    return ProtoApi__pb2.SystemCheckRequest.FromString(data)
+    return papi__pb2.SystemCheckRequest.FromString(data)
 def Empty_deserializer(raw):
     data = deserialize(raw)
-    return ProtoApi__pb2.Empty.FromString(data)
+    return papi__pb2.Empty.FromString(data)
 def Empty_deserializer(raw):
     data = deserialize(raw)
-    return ProtoApi__pb2.Empty.FromString(data)
+    return papi__pb2.Empty.FromString(data)
 def TelephoneReceiveResponse_deserializer(raw):
     data = deserialize(raw)
-    return ProtoApi__pb2.TelephoneReceiveResponse.FromString(data)
+    return papi__pb2.TelephoneReceiveResponse.FromString(data)
 def TelephoneFinishesResponse_deserializer(raw):
     data = deserialize(raw)
-    return ProtoApi__pb2.TelephoneFinishesResponse.FromString(data)
+    return papi__pb2.TelephoneFinishesResponse.FromString(data)
 def TelephoneCallHistoryResponse_deserializer(raw):
     data = deserialize(raw)
-    return ProtoApi__pb2.TelephoneCallHistoryResponse.FromString(data)
+    return papi__pb2.TelephoneCallHistoryResponse.FromString(data)
 def TelephoneReceiveRequest_deserializer(raw):
     data = deserialize(raw)
-    return ProtoApi__pb2.TelephoneReceiveRequest.FromString(data)
+    return papi__pb2.TelephoneReceiveRequest.FromString(data)
 def TelephoneFinishesRequest_deserializer(raw):
     data = deserialize(raw)
-    return ProtoApi__pb2.TelephoneFinishesRequest.FromString(data)
+    return papi__pb2.TelephoneFinishesRequest.FromString(data)
 def TelephoneCallHistoryRequest_deserializer(raw):
     data = deserialize(raw)
-    return ProtoApi__pb2.TelephoneCallHistoryRequest.FromString(data)
+    return papi__pb2.TelephoneCallHistoryRequest.FromString(data)
 def TourTopResponse_deserializer(raw):
     data = deserialize(raw)
-    return ProtoApi__pb2.TourTopResponse.FromString(data)
+    return papi__pb2.TourTopResponse.FromString(data)
 def TourRankingResponse_deserializer(raw):
     data = deserialize(raw)
-    return ProtoApi__pb2.TourRankingResponse.FromString(data)
+    return papi__pb2.TourRankingResponse.FromString(data)
 def TourAreaTopResponse_deserializer(raw):
     data = deserialize(raw)
-    return ProtoApi__pb2.TourAreaTopResponse.FromString(data)
+    return papi__pb2.TourAreaTopResponse.FromString(data)
 def TourAreaActivityResponse_deserializer(raw):
     data = deserialize(raw)
-    return ProtoApi__pb2.TourAreaActivityResponse.FromString(data)
+    return papi__pb2.TourAreaActivityResponse.FromString(data)
 def TourAreaRefreshResponse_deserializer(raw):
     data = deserialize(raw)
-    return ProtoApi__pb2.TourAreaRefreshResponse.FromString(data)
+    return papi__pb2.TourAreaRefreshResponse.FromString(data)
 def TourAreaScoutResponse_deserializer(raw):
     data = deserialize(raw)
-    return ProtoApi__pb2.TourAreaScoutResponse.FromString(data)
+    return papi__pb2.TourAreaScoutResponse.FromString(data)
 def TourAreaLiveResponse_deserializer(raw):
     data = deserialize(raw)
-    return ProtoApi__pb2.TourAreaLiveResponse.FromString(data)
+    return papi__pb2.TourAreaLiveResponse.FromString(data)
 def TourAreaLiveBonusResponse_deserializer(raw):
     data = deserialize(raw)
-    return ProtoApi__pb2.TourAreaLiveBonusResponse.FromString(data)
+    return papi__pb2.TourAreaLiveBonusResponse.FromString(data)
 def TourAreaPvpResponse_deserializer(raw):
     data = deserialize(raw)
-    return ProtoApi__pb2.TourAreaPvpResponse.FromString(data)
+    return papi__pb2.TourAreaPvpResponse.FromString(data)
 def TourAreaClearResponse_deserializer(raw):
     data = deserialize(raw)
-    return ProtoApi__pb2.TourAreaClearResponse.FromString(data)
+    return papi__pb2.TourAreaClearResponse.FromString(data)
 def TourAreaNextResponse_deserializer(raw):
     data = deserialize(raw)
-    return ProtoApi__pb2.TourAreaNextResponse.FromString(data)
+    return papi__pb2.TourAreaNextResponse.FromString(data)
 def TourAreaRetireResponse_deserializer(raw):
     data = deserialize(raw)
-    return ProtoApi__pb2.TourAreaRetireResponse.FromString(data)
+    return papi__pb2.TourAreaRetireResponse.FromString(data)
 def TourDeckSaveResponse_deserializer(raw):
     data = deserialize(raw)
-    return ProtoApi__pb2.TourDeckSaveResponse.FromString(data)
+    return papi__pb2.TourDeckSaveResponse.FromString(data)
 def TourTopRequest_deserializer(raw):
     data = deserialize(raw)
-    return ProtoApi__pb2.TourTopRequest.FromString(data)
+    return papi__pb2.TourTopRequest.FromString(data)
 def TourRankingRequest_deserializer(raw):
     data = deserialize(raw)
-    return ProtoApi__pb2.TourRankingRequest.FromString(data)
+    return papi__pb2.TourRankingRequest.FromString(data)
 def TourAreaTopRequest_deserializer(raw):
     data = deserialize(raw)
-    return ProtoApi__pb2.TourAreaTopRequest.FromString(data)
+    return papi__pb2.TourAreaTopRequest.FromString(data)
 def TourAreaActivityRequest_deserializer(raw):
     data = deserialize(raw)
-    return ProtoApi__pb2.TourAreaActivityRequest.FromString(data)
+    return papi__pb2.TourAreaActivityRequest.FromString(data)
 def TourAreaRefreshRequest_deserializer(raw):
     data = deserialize(raw)
-    return ProtoApi__pb2.TourAreaRefreshRequest.FromString(data)
+    return papi__pb2.TourAreaRefreshRequest.FromString(data)
 def TourAreaScoutRequest_deserializer(raw):
     data = deserialize(raw)
-    return ProtoApi__pb2.TourAreaScoutRequest.FromString(data)
+    return papi__pb2.TourAreaScoutRequest.FromString(data)
 def TourAreaLiveRequest_deserializer(raw):
     data = deserialize(raw)
-    return ProtoApi__pb2.TourAreaLiveRequest.FromString(data)
+    return papi__pb2.TourAreaLiveRequest.FromString(data)
 def TourAreaLiveBonusRequest_deserializer(raw):
     data = deserialize(raw)
-    return ProtoApi__pb2.TourAreaLiveBonusRequest.FromString(data)
+    return papi__pb2.TourAreaLiveBonusRequest.FromString(data)
 def TourAreaPvpRequest_deserializer(raw):
     data = deserialize(raw)
-    return ProtoApi__pb2.TourAreaPvpRequest.FromString(data)
+    return papi__pb2.TourAreaPvpRequest.FromString(data)
 def TourAreaClearRequest_deserializer(raw):
     data = deserialize(raw)
-    return ProtoApi__pb2.TourAreaClearRequest.FromString(data)
+    return papi__pb2.TourAreaClearRequest.FromString(data)
 def TourAreaNextRequest_deserializer(raw):
     data = deserialize(raw)
-    return ProtoApi__pb2.TourAreaNextRequest.FromString(data)
+    return papi__pb2.TourAreaNextRequest.FromString(data)
 def TourAreaRetireRequest_deserializer(raw):
     data = deserialize(raw)
-    return ProtoApi__pb2.TourAreaRetireRequest.FromString(data)
+    return papi__pb2.TourAreaRetireRequest.FromString(data)
 def TourDeckSaveRequest_deserializer(raw):
     data = deserialize(raw)
-    return ProtoApi__pb2.TourDeckSaveRequest.FromString(data)
+    return papi__pb2.TourDeckSaveRequest.FromString(data)
 def TutorialInitResponse_deserializer(raw):
     data = deserialize(raw)
-    return ProtoApi__pb2.TutorialInitResponse.FromString(data)
+    return papi__pb2.TutorialInitResponse.FromString(data)
 def TutorialProgressResponse_deserializer(raw):
     data = deserialize(raw)
-    return ProtoApi__pb2.TutorialProgressResponse.FromString(data)
+    return papi__pb2.TutorialProgressResponse.FromString(data)
 def TutorialStartQuestResponse_deserializer(raw):
     data = deserialize(raw)
-    return ProtoApi__pb2.TutorialStartQuestResponse.FromString(data)
+    return papi__pb2.TutorialStartQuestResponse.FromString(data)
 def TutorialActivityStartFanEventResponse_deserializer(raw):
     data = deserialize(raw)
-    return ProtoApi__pb2.TutorialActivityStartFanEventResponse.FromString(data)
+    return papi__pb2.TutorialActivityStartFanEventResponse.FromString(data)
 def TutorialActivityReceivePromotionRewardResponse_deserializer(raw):
     data = deserialize(raw)
-    return ProtoApi__pb2.TutorialActivityReceivePromotionRewardResponse.FromString(data)
+    return papi__pb2.TutorialActivityReceivePromotionRewardResponse.FromString(data)
 def TutorialActivityReceiveLessonRewardResponse_deserializer(raw):
     data = deserialize(raw)
-    return ProtoApi__pb2.TutorialActivityReceiveLessonRewardResponse.FromString(data)
+    return papi__pb2.TutorialActivityReceiveLessonRewardResponse.FromString(data)
 def TutorialPhotoCreateShootingResponse_deserializer(raw):
     data = deserialize(raw)
-    return ProtoApi__pb2.TutorialPhotoCreateShootingResponse.FromString(data)
+    return papi__pb2.TutorialPhotoCreateShootingResponse.FromString(data)
 def TutorialSkipResponse_deserializer(raw):
     data = deserialize(raw)
-    return ProtoApi__pb2.TutorialSkipResponse.FromString(data)
+    return papi__pb2.TutorialSkipResponse.FromString(data)
 def TutorialInitRequest_deserializer(raw):
     data = deserialize(raw)
-    return ProtoApi__pb2.TutorialInitRequest.FromString(data)
+    return papi__pb2.TutorialInitRequest.FromString(data)
 def TutorialProgressRequest_deserializer(raw):
     data = deserialize(raw)
-    return ProtoApi__pb2.TutorialProgressRequest.FromString(data)
+    return papi__pb2.TutorialProgressRequest.FromString(data)
 def TutorialStartQuestRequest_deserializer(raw):
     data = deserialize(raw)
-    return ProtoApi__pb2.TutorialStartQuestRequest.FromString(data)
+    return papi__pb2.TutorialStartQuestRequest.FromString(data)
 def Empty_deserializer(raw):
     data = deserialize(raw)
-    return ProtoApi__pb2.Empty.FromString(data)
+    return papi__pb2.Empty.FromString(data)
 def Empty_deserializer(raw):
     data = deserialize(raw)
-    return ProtoApi__pb2.Empty.FromString(data)
+    return papi__pb2.Empty.FromString(data)
 def Empty_deserializer(raw):
     data = deserialize(raw)
-    return ProtoApi__pb2.Empty.FromString(data)
+    return papi__pb2.Empty.FromString(data)
 def TutorialPhotoCreateShootingRequest_deserializer(raw):
     data = deserialize(raw)
-    return ProtoApi__pb2.TutorialPhotoCreateShootingRequest.FromString(data)
+    return papi__pb2.TutorialPhotoCreateShootingRequest.FromString(data)
 def Empty_deserializer(raw):
     data = deserialize(raw)
-    return ProtoApi__pb2.Empty.FromString(data)
+    return papi__pb2.Empty.FromString(data)
 def UserGetResponse_deserializer(raw):
     data = deserialize(raw)
-    return ProtoApi__pb2.UserGetResponse.FromString(data)
+    return papi__pb2.UserGetResponse.FromString(data)
 def UserProvideExternalRewardResponse_deserializer(raw):
     data = deserialize(raw)
-    return ProtoApi__pb2.UserProvideExternalRewardResponse.FromString(data)
+    return papi__pb2.UserProvideExternalRewardResponse.FromString(data)
 def Empty_deserializer(raw):
     data = deserialize(raw)
-    return ProtoApi__pb2.Empty.FromString(data)
+    return papi__pb2.Empty.FromString(data)
 def UserProvideExternalRewardRequest_deserializer(raw):
     data = deserialize(raw)
-    return ProtoApi__pb2.UserProvideExternalRewardRequest.FromString(data)
+    return papi__pb2.UserProvideExternalRewardRequest.FromString(data)

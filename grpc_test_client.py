@@ -2,9 +2,9 @@ from concurrent import futures
 
 import grpc
 
-import ProtoApi_pb2 as apip
-import ProtoApi_grpc as apig
-import ProtoTransaction_pb2 as transp
+import papi_pb2 as apip
+import papi_grpc as apig
+import ptransaction_pb2 as transp
 import google.protobuf.empty_pb2 as empty
 
 

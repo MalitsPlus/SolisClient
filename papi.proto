@@ -1,10 +1,9 @@
 syntax = "proto3";
 package api;
-option go_package = "solis/pkg/proto/api";
-option csharp_namespace = "Solis.Common.Proto.Api";
-import "ProtoEnum.proto";
-import "ProtoMaster.proto";
-import "ProtoTransaction.proto";
+option go_package = "vibbit/solis/proto/papi";
+import "penum.proto";
+import "pmaster.proto";
+import "ptransaction.proto";
 
 message ActiveFanEvent {
   repeated string characterIds = 1;
@@ -80,9 +79,9 @@ message BacksideDeckCardDetailInfo {
   int32 skillLevel2 = 14;
   int32 skillLevel3 = 15;
   int32 liveAbilityLevel = 16;
-  master.Accessory part1Accessory = 17;
-  master.Accessory part2Accessory = 18;
-  repeated transaction.UserPhoto photos = 19;
+  pmaster.Accessory part1Accessory = 17;
+  pmaster.Accessory part2Accessory = 18;
+  repeated ptransaction.UserPhoto photos = 19;
   int32 staminaPermil = 20;
   bool supported = 21;
   string displayHairId = 22;
@@ -110,7 +109,7 @@ message BacksideDifficultyInfo {
   api.BacksidePracticeStageTotalResultInfo stageTotalResultInfo = 6;
   repeated api.BacksidePracticeStageInfo practiceStageInfos = 7;
   api.BacksideFinalStageInfo finalStageInfo = 8;
-  ProtoEnum.ResultRankType rewardReceivedRankType = 9;
+  penum.ResultRankType rewardReceivedRankType = 9;
   int32 rewardReceivedRankPlus = 10;
 }
 message BacksideFinalStageInfo {
@@ -138,7 +137,7 @@ message BacksidePanelGoalInfo {
   string stageId = 6;
   string backsideQuestSettingId = 7;
   int32 mentalThreshold = 8;
-  ProtoEnum.LiveSkipType liveSkipType = 9;
+  penum.LiveSkipType liveSkipType = 9;
 }
 message BacksidePanelLiveInfo {
   string musicId = 1;
@@ -149,7 +148,7 @@ message BacksidePanelLiveInfo {
   string stageId = 6;
   string backsideQuestSettingId = 7;
   int32 mentalThreshold = 8;
-  ProtoEnum.LiveSkipType liveSkipType = 9;
+  penum.LiveSkipType liveSkipType = 9;
 }
 message BacksidePanelPvpInfo {
   string musicId = 1;
@@ -161,7 +160,7 @@ message BacksidePanelPvpInfo {
   api.BacksideOpponentInfo opponentInfo = 7;
   string backsideQuestSettingId = 8;
   int32 mentalThreshold = 9;
-  ProtoEnum.LiveSkipType liveSkipType = 10;
+  penum.LiveSkipType liveSkipType = 10;
 }
 message BacksidePracticeStageInfo {
   int32 number = 1;
@@ -190,7 +189,7 @@ message Banner {
   string id = 1;
   string assetId = 2;
   string text = 3;
-  ProtoEnum.LinkType linkType = 4;
+  penum.LinkType linkType = 4;
   string linkDetail = 5;
   int32 order = 6;
   string viewConditionId = 7;
@@ -202,7 +201,7 @@ message BirthdayInfo {
 }
 message BoxGachaItem {
   int32 order = 1;
-  ProtoEnum.BoxGachaItemType itemType = 2;
+  penum.BoxGachaItemType itemType = 2;
   string rewardId = 3;
   string liveBonusGroupId = 4;
   int32 initialStock = 5;
@@ -220,7 +219,7 @@ message BuddyCardInfo {
 message CompanyBulkReceiveEnjoyResult {
   string characterId = 1;
   int64 beforeCharacterEnjoyPoint = 2;
-  repeated transaction.RewardResult enjoyCharacterLevelRewardResults = 3;
+  repeated ptransaction.RewardResult enjoyCharacterLevelRewardResults = 3;
 }
 message CompanyEnjoyCharacterLevelInfo {
   string characterId = 1;
@@ -266,7 +265,7 @@ message CompanyTrustLevelInfo {
   bool isAlreadyReceived = 3;
 }
 message DeckPositionCharacter {
-  transaction.UserDeckPosition userDeckPosition = 1;
+  ptransaction.UserDeckPosition userDeckPosition = 1;
   string characterId = 2;
   string displayCharacterId = 3;
   string displayCostumeId = 4;
@@ -274,7 +273,7 @@ message DeckPositionCharacter {
 }
 message DiceAccessoryInfo {
   string accessoryId = 1;
-  ProtoEnum.AccessoryCategoryType categoryType = 2;
+  penum.AccessoryCategoryType categoryType = 2;
   int32 param1Permil = 3;
   int32 param1Value = 4;
   int32 param2Permil = 5;
@@ -289,7 +288,7 @@ message DiceDailyRewardInfo {
 message DiceDailyRewardResultInfo {
   int32 movedPanelCount = 1;
   string medalItemId = 2;
-  repeated transaction.RewardResult rewardResults = 3;
+  repeated ptransaction.RewardResult rewardResults = 3;
   repeated api.DiceLiveBonus liveBonuses = 4;
   repeated api.DiceDailyRewardInfo dailyRewardInfos = 5;
   int32 rank = 6;
@@ -323,13 +322,13 @@ message DicePhotoAbilityInfo {
   int64 effectValue = 2;
 }
 message DiceQuestInfo {
-  ProtoEnum.DiceQuestDifficultyType difficultyType = 1;
+  penum.DiceQuestDifficultyType difficultyType = 1;
   bool cleared = 2;
   int64 highestScore = 3;
-  ProtoEnum.ResultRankType highestScoreRankType = 4;
+  penum.ResultRankType highestScoreRankType = 4;
   int32 highestScoreRankPlus = 5;
   string name = 6;
-  ProtoEnum.LiveType liveType = 7;
+  penum.LiveType liveType = 7;
   int64 clearScore = 8;
   api.QuestOpponentInfo opponentInfo = 9;
   int32 difficultyLevel = 10;
@@ -337,11 +336,11 @@ message DiceQuestInfo {
   string stageId = 12;
   string musicId = 13;
   string musicChartPatternId = 14;
-  ProtoEnum.AttributeType position1AttributeType = 15;
-  ProtoEnum.AttributeType position2AttributeType = 16;
-  ProtoEnum.AttributeType position3AttributeType = 17;
-  ProtoEnum.AttributeType position4AttributeType = 18;
-  ProtoEnum.AttributeType position5AttributeType = 19;
+  penum.AttributeType position1AttributeType = 15;
+  penum.AttributeType position2AttributeType = 16;
+  penum.AttributeType position3AttributeType = 17;
+  penum.AttributeType position4AttributeType = 18;
+  penum.AttributeType position5AttributeType = 19;
   int32 activeSkillWeightPermil = 20;
   int32 specialSkillWeightPermil = 21;
   int32 skillStaminaWeightPermil = 22;
@@ -352,7 +351,7 @@ message DiceQuestInfo {
   string questPressureId = 27;
   string questCharacterAdvantageId = 28;
   string questAudienceAdvantageId = 29;
-  ProtoEnum.MoodType moodType = 30;
+  penum.MoodType moodType = 30;
   string liveBonusGroupId = 31;
   int32 maxCapacity = 32;
   int32 mentalThreshold = 33;
@@ -360,7 +359,7 @@ message DiceQuestInfo {
   api.DiceItem obtainDiceItem = 35;
   api.DiceLiveBonus obtainLiveBonus = 36;
   int64 obtainMoneyAmount = 37;
-  ProtoEnum.LiveSkipType liveSkipType = 38;
+  penum.LiveSkipType liveSkipType = 38;
 }
 message DiceRankingRewardInfo {
   int32 rankFrom = 1;
@@ -380,17 +379,17 @@ message DivisionInfo {
 }
 message DokanInfo {
   string id = 1;
-  ProtoEnum.DokanType type = 2;
+  penum.DokanType type = 2;
   string advAssetId = 3;
   api.NoticeInfo noticeInfo = 4;
   api.ShopItem shopItem = 5;
   string assetId = 6;
   string description = 7;
   string name = 8;
-  ProtoEnum.ShopType shopType = 9;
+  penum.ShopType shopType = 9;
   string storyId = 10;
   string linkTitle = 11;
-  ProtoEnum.LinkType linkType = 12;
+  penum.LinkType linkType = 12;
   string linkDetail = 13;
 }
 message DreamAreaAttributeInfo {
@@ -401,7 +400,7 @@ message DreamAreaAttributeInfo {
   int32 beatDanceWeightPermil = 5;
   int32 beatVocalWeightPermil = 6;
   int32 beatVisualWeightPermil = 7;
-  ProtoEnum.AttributeType attributeType = 8;
+  penum.AttributeType attributeType = 8;
   string questPressureId = 9;
 }
 message DreamBasePhotoEnhanceLevelEffectValueInfo {
@@ -415,11 +414,11 @@ message DreamQuestInfo {
   int32 difficultyLevel = 4;
   string name = 5;
   string musicChartPatternId = 6;
-  ProtoEnum.AttributeType position1AttributeType = 7;
-  ProtoEnum.AttributeType position2AttributeType = 8;
-  ProtoEnum.AttributeType position3AttributeType = 9;
-  ProtoEnum.AttributeType position4AttributeType = 10;
-  ProtoEnum.AttributeType position5AttributeType = 11;
+  penum.AttributeType position1AttributeType = 7;
+  penum.AttributeType position2AttributeType = 8;
+  penum.AttributeType position3AttributeType = 9;
+  penum.AttributeType position4AttributeType = 10;
+  penum.AttributeType position5AttributeType = 11;
   int32 activeSkillWeightPermil = 12;
   int32 specialSkillWeightPermil = 13;
   int32 skillStaminaWeightPermil = 14;
@@ -434,7 +433,7 @@ message DreamQuestInfo {
   string questAudienceAdvantageId = 23;
   int64 clearScore = 24;
   string liveBonusGroupId = 25;
-  ProtoEnum.LiveSkipType liveSkipType = 26;
+  penum.LiveSkipType liveSkipType = 26;
   bool cleared = 27;
   bool isPlayable = 28;
   bool isSkipAvailable = 29;
@@ -533,7 +532,7 @@ message EventButtonDisplayInfo {
 message EventMissionInfo {
   string id = 1;
   bool unlocked = 2;
-  repeated transaction.UserMission userMissions = 8;
+  repeated ptransaction.UserMission userMissions = 8;
 }
 message EventStoryInfo {
   string id = 1;
@@ -543,13 +542,13 @@ message ExchangeBooth {
   string id = 1;
   string name = 2;
   string bannerAssetId = 3;
-  ProtoEnum.ResourceType requiredResourceType = 4;
+  penum.ResourceType requiredResourceType = 4;
   string requiredResourceId = 5;
-  ProtoEnum.ResetTimingType resetTimingType = 6;
+  penum.ResetTimingType resetTimingType = 6;
   int64 nextResetTime = 7;
   bool unlocked = 8;
   int64 endTime = 9;
-  ProtoEnum.LinkType linkType = 10;
+  penum.LinkType linkType = 10;
   string linkDetail = 11;
   int32 order = 12;
   bool limited = 13;
@@ -565,7 +564,7 @@ message ExchangeItem {
   string id = 1;
   string assetId = 2;
   string rewardId = 3;
-  ProtoEnum.ResetTimingType resetTimingType = 4;
+  penum.ResetTimingType resetTimingType = 4;
   int64 nextResetTime = 5;
   bool unlocked = 6;
   string name = 7;
@@ -593,10 +592,10 @@ message ExerciseInfo {
 message ExerciseStartResponse {
   string questId = 1;
   api.LiveResult result = 2;
-  ProtoEnum.ResultRankType rankType = 3;
+  penum.ResultRankType rankType = 3;
   int32 rankPlus = 4;
   repeated api.QuestRankPattern rankPatterns = 5;
-  repeated transaction.RewardResult clearRewards = 6;
+  repeated ptransaction.RewardResult clearRewards = 6;
   api.CommonResponse commonResponse = 9999;
 }
 message ExternalRewardInfo {
@@ -618,7 +617,7 @@ message FanEvent {
   string id = 1;
   string name = 2;
   string subName = 3;
-  ProtoEnum.ActivityFanEventType type = 4;
+  penum.ActivityFanEventType type = 4;
   string unlockConditionId = 5;
   bool isUnlocked = 6;
   string activityPerformanceId = 7;
@@ -654,7 +653,7 @@ message FanEventProgress {
   string activityFanEventId = 1;
   string activityFanEventName = 2;
   string activityFanEventSubName = 3;
-  ProtoEnum.ActivityFanEventType activityFanEventType = 4;
+  penum.ActivityFanEventType activityFanEventType = 4;
   int32 activityFanEventLevel = 5;
   repeated api.FanEventCharacterInfo characters = 6;
   int64 startTime = 7;
@@ -682,7 +681,7 @@ message FanEventRankingInfo {
 message FavoriteCardInfo {
   string cardId = 1;
   int32 rarity = 2;
-  ProtoEnum.CardDisplayType displayType = 3;
+  penum.CardDisplayType displayType = 3;
   int32 evolutionLevel = 4;
 }
 message GachaButtonInfo {
@@ -700,7 +699,7 @@ message GachaContinuousInfo {
 message GachaContinuousResult {
   int32 totalDrawCount = 1;
   repeated string cardIds = 2;
-  ProtoEnum.GachaContinuousResultType resultType = 3;
+  penum.GachaContinuousResultType resultType = 3;
   api.ExternalRewardInfo externalRewardInfo = 4;
 }
 message GachaExchangeInfo {
@@ -709,10 +708,10 @@ message GachaExchangeInfo {
   int64 exchangedTime = 3;
 }
 message GachaHistory {
-  ProtoEnum.GachaType gachaType = 1;
+  penum.GachaType gachaType = 1;
   int64 drawTime = 2;
   string gachaId = 3;
-  ProtoEnum.ResourceType resourceType = 4;
+  penum.ResourceType resourceType = 4;
   string resourceId = 5;
   int32 amount = 6;
 }
@@ -721,18 +720,18 @@ message GachaInfo {
   bool unlocked = 2;
   repeated api.GachaButtonInfo buttons = 3;
   repeated api.GachaExchangeInfo exchanges = 4;
-  repeated transaction.Reward itemGachaRewards = 5;
+  repeated ptransaction.Reward itemGachaRewards = 5;
   api.NoticeInfo noticeInfo = 6;
   repeated string selectedCardIds = 7;
   api.GachaPremiumInfo premiumInfo = 8;
   api.GachaContinuousInfo continuousInfo = 9;
   api.GachaStampInfo stampInfo = 10;
-  repeated transaction.Reward showcaseToyGachaRewards = 11;
+  repeated ptransaction.Reward showcaseToyGachaRewards = 11;
 }
 message GachaPremiumInfo {
   int32 fixedPremiumRewardRequiredDrawCount = 1;
   repeated string premiumRewardIds = 2;
-  repeated transaction.Reward featuredRewards = 3;
+  repeated ptransaction.Reward featuredRewards = 3;
   string freeGachaTicketItemId = 4;
   bool isFreeGachaTicketReceivable = 5;
 }
@@ -761,7 +760,7 @@ message GuildGvgSeasonMatchResult {
   string opponentGuildId = 2;
   int64 point = 3;
   int64 opponentPoint = 4;
-  ProtoEnum.GvgMatchResultType resultType = 5;
+  penum.GvgMatchResultType resultType = 5;
   api.GuildGvgMatchRankInfo mvpInfo = 6;
 }
 message GuildParam {
@@ -805,7 +804,7 @@ message GvgSeasonMatchInfo {
   string opponentGuildId = 2;
   int64 point = 3;
   int64 opponentPoint = 4;
-  ProtoEnum.GvgMatchResultType resultType = 5;
+  penum.GvgMatchResultType resultType = 5;
   int32 memberAmountWeightPermil = 6;
   int32 opponentMemberAmountWeightPermil = 7;
 }
@@ -921,7 +920,7 @@ message HomeEnterResponse {
   bool isRemainingDiary = 12;
   api.NotiShopItem notiStoneShopItem = 13;
   api.NotiShopItem notiNormalShopItem = 14;
-  transaction.Payslip payslip = 15;
+  ptransaction.Payslip payslip = 15;
   string currentMainAreaId = 16;
   api.HomeEventInfo eventInfo = 17;
   api.HomePvpInfo pvpInfo = 18;
@@ -979,7 +978,7 @@ message HomeGeneralEventInfo {
   string id = 1;
   string assetId = 2;
   string text = 3;
-  ProtoEnum.LinkType linkType = 4;
+  penum.LinkType linkType = 4;
   string linkDetail = 5;
   int32 order = 6;
   string viewConditionId = 7;
@@ -1012,7 +1011,7 @@ message HomeLoveEventInfo {
   bool isLessonRewardMax = 11;
   bool isUnplayed = 12;
   bool hasHiddenFavorabilityObtainItem = 13;
-  ProtoEnum.LoveBaseType baseType = 14;
+  penum.LoveBaseType baseType = 14;
   string limitedExtraTitleAssetId = 15;
 }
 message HomeLoveInfo {
@@ -1041,7 +1040,7 @@ message HomeMarathonInfo {
   bool hasFinishedRaidQuest = 14;
   bool isRaidHostEnable = 15;
   int32 reachableLadderPanelCount = 16;
-  ProtoEnum.MarathonType type = 17;
+  penum.MarathonType type = 17;
   string ladderId = 18;
 }
 message HomeMosaicInfo {
@@ -1137,7 +1136,7 @@ message LadderInfo {
   string backgroundAssetId = 14;
 }
 message LadderPanel {
-  ProtoEnum.LadderPanelType type = 1;
+  penum.LadderPanelType type = 1;
   string messageId = 2;
   string rewardId = 3;
   int32 requiredPointItemAmount = 4;
@@ -1192,7 +1191,7 @@ message LeagueNewsInfo {
   string thumbnailAssetId = 13;
   int32 thumbnailShootMillisecond = 14;
   repeated int32 thumbnailEffectShootMilliseconds = 15;
-  ProtoEnum.LeagueDeckType mvpDeckType = 16;
+  penum.LeagueDeckType mvpDeckType = 16;
   string mvpCardId = 17;
   api.LeagueSeasonCardResultInfo mvpSeasonCardResultInfo = 18;
   string mvpMusicId = 19;
@@ -1233,11 +1232,11 @@ message LiveBattleQuestInfo {
   string stageId = 2;
   string musicId = 3;
   string musicChartPatternId = 4;
-  ProtoEnum.AttributeType position1AttributeType = 5;
-  ProtoEnum.AttributeType position2AttributeType = 6;
-  ProtoEnum.AttributeType position3AttributeType = 7;
-  ProtoEnum.AttributeType position4AttributeType = 8;
-  ProtoEnum.AttributeType position5AttributeType = 9;
+  penum.AttributeType position1AttributeType = 5;
+  penum.AttributeType position2AttributeType = 6;
+  penum.AttributeType position3AttributeType = 7;
+  penum.AttributeType position4AttributeType = 8;
+  penum.AttributeType position5AttributeType = 9;
   int32 activeSkillWeightPermil = 10;
   int32 specialSkillWeightPermil = 11;
   int32 skillStaminaWeightPermil = 12;
@@ -1250,9 +1249,9 @@ message LiveBattleQuestInfo {
   string questPressureId = 19;
   string questCharacterAdvantageId = 20;
   string questAudienceAdvantageId = 21;
-  ProtoEnum.MoodType moodType = 22;
+  penum.MoodType moodType = 22;
   string liveBonusGroupId = 23;
-  ProtoEnum.LiveSkipType liveSkipType = 24;
+  penum.LiveSkipType liveSkipType = 24;
 }
 message LiveCardInfo {
   int32 position = 1;
@@ -1300,7 +1299,7 @@ message LiveDeckCardSkill {
   int32 index = 1;
   string skillId = 2;
   int32 skillLevel = 3;
-  ProtoEnum.SkillPossessionType possessionType = 4;
+  penum.SkillPossessionType possessionType = 4;
   string liveAbilityId = 5;
   int32 liveAbilityLevel = 6;
   repeated string rewrittenEfficacyIds = 1001;
@@ -1331,7 +1330,7 @@ message LoveInfo {
   string costumeId = 4;
   int64 lastPlayTime = 5;
   repeated api.LoveStoryEndInfo storyEndInfos = 6;
-  ProtoEnum.LoveType type = 7;
+  penum.LoveType type = 7;
   int64 startTime = 8;
   int64 endTime = 9;
   string unlockConditionId = 10;
@@ -1344,7 +1343,7 @@ message LoveInfo {
   bool hasHiddenFavorabilityObtainItem = 17;
   int32 order = 18;
   api.LoveMainCharacterInfo mainCharacterInfo = 19;
-  ProtoEnum.LoveBaseType baseType = 20;
+  penum.LoveBaseType baseType = 20;
   bool isHideManagerVoiceSwitch = 21;
 }
 message LoveItemInfo {
@@ -1394,7 +1393,7 @@ message LoveTopResponse {
 }
 message MarathonAccessoryInfo {
   string accessoryId = 1;
-  ProtoEnum.AccessoryCategoryType categoryType = 2;
+  penum.AccessoryCategoryType categoryType = 2;
   int32 param1Permil = 3;
   int32 param1Value = 4;
   int32 param2Permil = 5;
@@ -1423,7 +1422,7 @@ message MarathonInfo {
   api.NoticeInfo noticeInfo = 12;
   string staminaRecoveryItemId = 13;
   string questUnlockItemId = 14;
-  ProtoEnum.MarathonType type = 15;
+  penum.MarathonType type = 15;
   string raidStaminaRecoveryItemId = 16;
   int32 initialRaidStamina = 17;
   int32 raidStaminaRecoveryMinutes = 18;
@@ -1455,10 +1454,10 @@ message MarathonQuestStartResponse {
   int32 marathonQuestDifficultyNumber = 3;
   api.LiveResult result = 4;
   api.QuestReward reward = 5;
-  ProtoEnum.ResultRankType rankType = 6;
+  penum.ResultRankType rankType = 6;
   int32 rankPlus = 7;
   repeated api.QuestRankPattern rankPatterns = 8;
-  ProtoEnum.ResultRankType highestClearRankType = 9;
+  penum.ResultRankType highestClearRankType = 9;
   int64 highestScore = 10;
   int32 addMarathonPoint = 11;
   api.FriendApplyToBuddyInfo friendApplyToBuddyInfo = 12;
@@ -1477,7 +1476,7 @@ message MarathonRaidJoinResponse {
   int32 difficultyNumber = 2;
   int32 difficultyLevel = 3;
   api.LiveResult result = 4;
-  repeated transaction.RewardResult joinRewards = 5;
+  repeated ptransaction.RewardResult joinRewards = 5;
   int64 raidEndTime = 6;
   api.MarathonRaidResult raidResult = 7;
   int64 beforeScore = 8;
@@ -1495,11 +1494,11 @@ message MarathonRaidQuest {
   string unlockDescription = 6;
   string musicId = 8;
   string musicChartPatternId = 9;
-  ProtoEnum.AttributeType position1AttributeType = 10;
-  ProtoEnum.AttributeType position2AttributeType = 11;
-  ProtoEnum.AttributeType position3AttributeType = 12;
-  ProtoEnum.AttributeType position4AttributeType = 13;
-  ProtoEnum.AttributeType position5AttributeType = 14;
+  penum.AttributeType position1AttributeType = 10;
+  penum.AttributeType position2AttributeType = 11;
+  penum.AttributeType position3AttributeType = 12;
+  penum.AttributeType position4AttributeType = 13;
+  penum.AttributeType position5AttributeType = 14;
   int32 activeSkillWeightPermil = 15;
   int32 specialSkillWeightPermil = 16;
   int32 skillStaminaWeightPermil = 17;
@@ -1510,7 +1509,7 @@ message MarathonRaidQuest {
   string questPressureId = 22;
   string questCharacterAdvantageId = 23;
   string questAudienceAdvantageId = 24;
-  ProtoEnum.MoodType moodType = 25;
+  penum.MoodType moodType = 25;
   int32 maxCapacity = 26;
   string liveBonusGroupId = 27;
   bool unlocked = 28;
@@ -1531,7 +1530,7 @@ message MarathonRaidQuestDifficulty {
   int32 rewardCardExp = 12;
   bool cleared = 13;
   bool unlocked = 14;
-  ProtoEnum.LiveSkipType liveSkipType = 15;
+  penum.LiveSkipType liveSkipType = 15;
 }
 message MarathonRaidRankedUser {
   int32 rank = 1;
@@ -1548,7 +1547,7 @@ message MarathonRaidStartResponse {
   int32 difficultyLevel = 3;
   api.LiveResult result = 4;
   api.QuestReward reward = 5;
-  repeated transaction.RewardResult hostRewards = 6;
+  repeated ptransaction.RewardResult hostRewards = 6;
   int64 raidEndTime = 7;
   api.MarathonRaidResult raidResult = 8;
   int64 beforeScore = 9;
@@ -1558,7 +1557,7 @@ message MarathonRaidStartResponse {
 }
 message MarketItem {
   int32 number = 1;
-  ProtoEnum.ResourceType consumptionResourceType = 2;
+  penum.ResourceType consumptionResourceType = 2;
   int32 baseAmount = 3;
   int32 discountAmount = 4;
   string rewardId = 5;
@@ -1628,7 +1627,7 @@ message PhotoContestInfo {
   repeated api.PhotoContestActivity activities = 16;
   repeated api.PhotoContestQuestMusic musics = 17;
   repeated api.PhotoContestQuestStage stages = 18;
-  repeated transaction.RewardResult dailyRewardResults = 19;
+  repeated ptransaction.RewardResult dailyRewardResults = 19;
   int32 onceShootingSubmitLimitCount = 20;
   int64 currentPhotoAmount = 21;
   string submittingItemId = 22;
@@ -1641,7 +1640,7 @@ message PhotoContestPhotoInfo {
   bool isBest = 4;
   int64 shootingTime = 5;
   int64 fixedCreatePhotoRarity = 6;
-  ProtoEnum.PhotoContestEvaluationRankType evaluationRankType = 7;
+  penum.PhotoContestEvaluationRankType evaluationRankType = 7;
 }
 message PhotoContestQuestMusic {
   string id = 1;
@@ -1686,7 +1685,7 @@ message PhotoContestSubmitShootingResponse {
   string nextPhotoImageId = 5;
   repeated string newCanReceiveSectionRewardIds = 7;
   int64 rank = 8;
-  ProtoEnum.PhotoContestEvaluationRankType evaluationRankType = 9;
+  penum.PhotoContestEvaluationRankType evaluationRankType = 9;
   repeated api.PhotoContestSectionBaseGuideInfo baseGuideInfos = 10;
   repeated api.PhotoContestSectionAdvanceGuideInfo advanceGuideInfos = 11;
   int64 fixedCreatePhotoRarity = 12;
@@ -1725,13 +1724,13 @@ message ProfileFindUserResponse {
   string message = 11;
   int32 birthMonth = 12;
   int32 birthDay = 13;
-  ProtoEnum.ProfileBackgroundType backgroundType = 14;
-  ProtoEnum.ProfileLayoutType layoutType = 15;
+  penum.ProfileBackgroundType backgroundType = 14;
+  penum.ProfileLayoutType layoutType = 15;
   string hierarchyCurrentDetailGradeId = 16;
   int32 hierarchyCurrentRank = 17;
   string decorationId = 18;
-  ProtoEnum.ProfileInformationType informationType = 19;
-  ProtoEnum.ProfileColorType colorType = 20;
+  penum.ProfileInformationType informationType = 19;
+  penum.ProfileColorType colorType = 20;
   api.CommonResponse commonResponse = 9999;
 }
 message ProfileInfo {
@@ -1743,12 +1742,12 @@ message ProfileInfo {
   api.FavoriteCardInfo favoriteCard = 6;
   api.FavoritePhotoInfo favoritePhoto = 7;
   repeated string favoriteCharacterIds = 8;
-  ProtoEnum.ProfileBackgroundType backgroundType = 9;
-  ProtoEnum.ProfileLayoutType layoutType = 10;
+  penum.ProfileBackgroundType backgroundType = 9;
+  penum.ProfileLayoutType layoutType = 10;
   int64 lastLoginTime = 11;
   string decorationId = 12;
-  ProtoEnum.ProfileInformationType informationType = 13;
-  ProtoEnum.ProfileColorType colorType = 14;
+  penum.ProfileInformationType informationType = 13;
+  penum.ProfileColorType colorType = 14;
   api.BuddyCardInfo buddyCardInfo = 15;
 }
 message ProfileTopResponse {
@@ -1828,7 +1827,7 @@ message QuestBulkDailyDeckPositionInfo {
 message QuestBulkDailyInfo {
   string questId = 1;
   repeated api.QuestBulkDailyDeckPositionInfo deckPositions = 2;
-  ProtoEnum.ResultRankType rankType = 3;
+  penum.ResultRankType rankType = 3;
   int32 rankPlus = 4;
 }
 message QuestBulkDailyResultInfo {
@@ -1836,7 +1835,7 @@ message QuestBulkDailyResultInfo {
   int32 playCount = 2;
   repeated api.QuestBulkDailyDeckPositionInfo deckPositions = 3;
   api.QuestReward reward = 4;
-  ProtoEnum.ResultRankType rankType = 5;
+  penum.ResultRankType rankType = 5;
   int32 rankPlus = 6;
 }
 message QuestClearInfo {
@@ -1846,7 +1845,7 @@ message QuestClearInfo {
   repeated api.LiveCardInfo cards = 4;
   string emblemId = 5;
   string userId = 6;
-  ProtoEnum.ResultRankType rankType = 7;
+  penum.ResultRankType rankType = 7;
   int32 plus = 8;
   bool isLiveResultDetailAvailable = 9;
 }
@@ -1865,7 +1864,7 @@ message QuestInfo {
   string questId = 1;
   bool cleared = 2;
   int64 highestScore = 3;
-  ProtoEnum.ResultRankType rankType = 4;
+  penum.ResultRankType rankType = 4;
   int32 plus = 5;
   int32 highestRank = 6;
   bool isPlayable = 7;
@@ -1890,7 +1889,7 @@ message QuestStartResponse {
   string questId = 1;
   api.LiveResult result = 2;
   api.QuestReward reward = 3;
-  ProtoEnum.ResultRankType rankType = 4;
+  penum.ResultRankType rankType = 4;
   int32 rankPlus = 5;
   repeated api.QuestRankPattern rankPatterns = 6;
   int32 highestRank = 7;
@@ -1930,7 +1929,7 @@ message QuestTowerRankInfo {
 }
 message RaceAccessoryInfo {
   string accessoryId = 1;
-  ProtoEnum.AccessoryCategoryType categoryType = 2;
+  penum.AccessoryCategoryType categoryType = 2;
   int32 param1Permil = 3;
   int32 param1Value = 4;
   int32 param2Permil = 5;
@@ -2072,12 +2071,12 @@ message ShopConditionReward {
   int32 number = 1;
   string conditionId = 2;
   string rewardId = 3;
-  ProtoEnum.ShopConditionRewardStatusType statusType = 4;
+  penum.ShopConditionRewardStatusType statusType = 4;
 }
 message ShopInfo {
   string id = 1;
   string name = 2;
-  ProtoEnum.ShopType type = 3;
+  penum.ShopType type = 3;
   int32 order = 4;
   string colorCode = 5;
   string backgroundColorCode = 6;
@@ -2085,7 +2084,7 @@ message ShopInfo {
   string viewConditionId = 8;
   string thumbnailAssetId = 9;
   string costumeId = 10;
-  ProtoEnum.ResetTimingType resetTimingType = 11;
+  penum.ResetTimingType resetTimingType = 11;
   int64 nextResetTime = 12;
   bool isPurchased = 101;
   int32 progress = 102;
@@ -2105,7 +2104,7 @@ message ShopItem {
   int32 order = 10;
   string viewConditionId = 11;
   string pushSegment = 12;
-  ProtoEnum.ResetTimingType resetTimingType = 13;
+  penum.ResetTimingType resetTimingType = 13;
   int64 nextResetTime = 14;
   string unlockConditionId = 15;
   bool unlocked = 16;
@@ -2173,7 +2172,7 @@ message SpecialPhotoActivityInfo {
   string forceCostumeTypeId = 9;
   repeated string characterIds = 10;
   string unlockConditionId = 11;
-  ProtoEnum.PhotoShootingActionType actionType = 12;
+  penum.PhotoShootingActionType actionType = 12;
   string viewConditionId = 13;
 }
 message SpecialPhotoQuestMusicInfo {
@@ -2200,7 +2199,7 @@ message SpecialPhotoShootingInfo {
   string unlockConditionId = 3;
 }
 message StoryReadAnniversaryStoryResponse {
-  repeated transaction.RewardResult rewards = 1;
+  repeated ptransaction.RewardResult rewards = 1;
   string newTitleBackgroundId = 2;
   api.CommonResponse commonResponse = 9999;
 }
@@ -2238,7 +2237,7 @@ message TourEffectLive {
   string rewardId = 8;
   int32 difficultyLevel = 9;
   string tourQuestSettingId = 10;
-  ProtoEnum.LiveSkipType liveSkipType = 11;
+  penum.LiveSkipType liveSkipType = 11;
 }
 message TourEffectPvp {
   string musicId = 1;
@@ -2252,7 +2251,7 @@ message TourEffectPvp {
   api.TourScoutInfo scoutInfo = 9;
   string rewardId = 10;
   string tourQuestSettingId = 11;
-  ProtoEnum.LiveSkipType liveSkipType = 12;
+  penum.LiveSkipType liveSkipType = 12;
 }
 message TourEffectRefresh {
   int32 amountPermil = 1;
@@ -2286,7 +2285,7 @@ message UserHierarchyInfo {
 message AccessoryEnhanceRequest {
   string accessoryId = 1;
   int32 count = 2;
-  ProtoEnum.AccessoryEnhanceMaterialType materialType = 3;
+  penum.AccessoryEnhanceMaterialType materialType = 3;
 }
 message AccessoryEnhanceResponse {
   bool isUnsetLeague = 2;
@@ -2340,14 +2339,14 @@ message ActivitySaveFanEventResponse {
 }
 message ActivityFinishFanEventResponse {
   int32 activityPoint = 1;
-  ProtoEnum.ResultRankType rankType = 2;
+  penum.ResultRankType rankType = 2;
   int32 plus = 3;
-  repeated transaction.Reward rewards = 4;
+  repeated ptransaction.Reward rewards = 4;
   repeated api.FanEventRankPattern rankPatterns = 5;
   api.ActivityLevelProgress activityLevelProgress = 6;
   repeated api.ActivityCharacterInfo characters = 7;
   repeated api.ActivityCampaignEffect campaignEffects = 8;
-  repeated transaction.Reward campaignDropRewards = 9;
+  repeated ptransaction.Reward campaignDropRewards = 9;
   api.CommonResponse commonResponse = 9999;
 }
 message ActivityGetFanEventRankingRequest {
@@ -2382,13 +2381,13 @@ message ActivityUsePromotionItemResponse {
   api.CommonResponse commonResponse = 9999;
 }
 message ActivityReceivePromotionRewardResponse {
-  repeated transaction.Reward rewards = 1;
-  repeated transaction.Reward bonusRewards = 2;
+  repeated ptransaction.Reward rewards = 1;
+  repeated ptransaction.Reward bonusRewards = 2;
   int32 completedStep = 3;
   api.PromotionProgress progress = 4;
   api.ActivityLevelProgress activityLevelProgress = 5;
   repeated api.ActivityCampaignEffect campaignEffects = 6;
-  repeated transaction.Reward campaignDropRewards = 7;
+  repeated ptransaction.Reward campaignDropRewards = 7;
   api.CommonResponse commonResponse = 9999;
 }
 message ActivityFetchPromotionStepsRequest {
@@ -2399,13 +2398,13 @@ message ActivityFetchPromotionStepsResponse {
   api.CommonResponse commonResponse = 9999;
 }
 message ActivityFinishPromotionResponse {
-  repeated transaction.Reward rewards = 1;
-  repeated transaction.Reward bonusRewards = 2;
+  repeated ptransaction.Reward rewards = 1;
+  repeated ptransaction.Reward bonusRewards = 2;
   api.ActivityLevelProgress activityLevelProgress = 3;
   int32 totalSteps = 4;
   repeated api.ActivityCharacterInfo characters = 5;
   repeated api.ActivityCampaignEffect campaignEffects = 6;
-  repeated transaction.Reward campaignDropRewards = 7;
+  repeated ptransaction.Reward campaignDropRewards = 7;
   api.CommonResponse commonResponse = 9999;
 }
 message ActivityStartRefreshRequest {
@@ -2437,10 +2436,10 @@ message ActivityFinishRefreshResponse {
   api.CommonResponse commonResponse = 9999;
 }
 message ActivityReceiveLessonRewardResponse {
-  repeated transaction.Reward rewards = 1;
+  repeated ptransaction.Reward rewards = 1;
   api.ActivityLessonProgress progress = 2;
   repeated api.ActivityCampaignEffect campaignEffects = 3;
-  repeated transaction.Reward campaignDropRewards = 4;
+  repeated ptransaction.Reward campaignDropRewards = 4;
   api.CommonResponse commonResponse = 9999;
 }
 message ActivityPromoteLessonRequest {
@@ -2448,10 +2447,10 @@ message ActivityPromoteLessonRequest {
   string useItemId = 2;
 }
 message ActivityPromoteLessonResponse {
-  repeated transaction.Reward rewards = 1;
+  repeated ptransaction.Reward rewards = 1;
   api.ActivityLessonProgress progress = 2;
   repeated api.ActivityCampaignEffect campaignEffects = 3;
-  repeated transaction.Reward campaignDropRewards = 4;
+  repeated ptransaction.Reward campaignDropRewards = 4;
   api.CommonResponse commonResponse = 9999;
 }
 message FanEventCharacterSteps {
@@ -2464,11 +2463,11 @@ message FanEventStep {
   repeated api.FanEventItemEffect itemEffects = 3;
 }
 message FanEventHappening {
-  ProtoEnum.ActivityFanEventHappeningType type = 1;
+  penum.ActivityFanEventHappeningType type = 1;
   string characterId = 2;
 }
 message FanEventItemEffect {
-  ProtoEnum.ItemType type = 1;
+  penum.ItemType type = 1;
   int32 value = 2;
 }
 message FanEventCharacterResult {
@@ -2485,20 +2484,20 @@ message PromotionStep {
   repeated api.ActivityPromotionReward rewards = 2;
 }
 message AdvertisementStartRequest {
-  ProtoEnum.WatchAdvertisementType watchAdType = 1;
+  penum.WatchAdvertisementType watchAdType = 1;
 }
 message AdvertisementStartResponse {
   api.CommonResponse commonResponse = 9999;
 }
 message AdvertisementEndRequest {
-  ProtoEnum.WatchAdvertisementType watchAdType = 1;
+  penum.WatchAdvertisementType watchAdType = 1;
 }
 message AdvertisementEndResponse {
   api.CommonResponse commonResponse = 9999;
 }
 message AnniversaryOutputTransitionLogRequest {
   string anniversaryId = 1;
-  ProtoEnum.AnniversaryTransitionActionType actionType = 2;
+  penum.AnniversaryTransitionActionType actionType = 2;
 }
 message AnniversaryOutputTransitionLogResponse {
   api.CommonResponse commonResponse = 9999;
@@ -2514,7 +2513,7 @@ message AuthLoginRequest {
 }
 message AuthLoginResponse {
   string gameAuthToken = 1;
-  transaction.UserPublic userPublic = 2;
+  ptransaction.UserPublic userPublic = 2;
   bool requiredFirebaseReauthenticate = 3;
 }
 message AuthDeleteResponse {
@@ -2609,7 +2608,7 @@ message BacksideStageDeckPositionChangeRequest {
   repeated api.BacksideDeckPositionInfo deckPositionInfos = 2;
 }
 message BacksideStageDeckPositionChangeResponse {
-  repeated transaction.UserCharacter deckUserCharacters = 1;
+  repeated ptransaction.UserCharacter deckUserCharacters = 1;
   api.BacksideStageDeckDetailInfo deckDetailInfo = 2;
   api.BacksideStageDeckDetailInfo scoreLiveDeckDetailInfo = 3;
   api.BacksideStageDeckDetailInfo battleLiveDeckDetailInfo = 4;
@@ -2618,7 +2617,7 @@ message BacksideStageDeckPositionChangeResponse {
 message BacksideInfo {
   string id = 1;
   string name = 2;
-  ProtoEnum.BacksideType type = 3;
+  penum.BacksideType type = 3;
   int64 startTime = 4;
   int64 endTime = 5;
   int64 aggregateEndTime = 6;
@@ -2640,31 +2639,31 @@ message BacksideInfo {
 message BacksideAreaInfo {
   string areaId = 1;
   string name = 2;
-  ProtoEnum.BacksideAreaType type = 3;
+  penum.BacksideAreaType type = 3;
   string assetId = 4;
   repeated api.BacksideDifficultyInfo backsideDifficultyInfos = 5;
   int32 currentDifficultyNumber = 6;
   int32 lastChallengeDifficultyNumber = 7;
-  ProtoEnum.BacksideDifficultyType difficultyType = 8;
+  penum.BacksideDifficultyType difficultyType = 8;
 }
 message BacksidePracticeStageTotalResultInfo {
-  ProtoEnum.BacksidePracticeRankType practiceRankType = 1;
+  penum.BacksidePracticeRankType practiceRankType = 1;
   int32 practiceRankPlus = 2;
   int64 practiceScore = 3;
   repeated api.BacksideLiveBonusInfo practiceLiveBonusInfos = 4;
 }
 message BacksidePracticeStageResultInfo {
-  ProtoEnum.BacksidePracticeRankType practiceRankType = 1;
+  penum.BacksidePracticeRankType practiceRankType = 1;
   int32 practiceRankPlus = 2;
   int64 practiceScore = 3;
   repeated api.BacksideDeckCardInfo deckCardInfos = 4;
   repeated api.BacksideLiveBonus liveBonuses = 5;
 }
 message BacksideFinalStageResultInfo {
-  ProtoEnum.BacksidePracticeRankType totalPracticeRankType = 1;
+  penum.BacksidePracticeRankType totalPracticeRankType = 1;
   int32 totalPracticeRankPlus = 2;
   int64 totalPracticeScore = 3;
-  ProtoEnum.ResultRankType finalRankType = 4;
+  penum.ResultRankType finalRankType = 4;
   int32 finalRankPlus = 5;
   int64 finalScore = 6;
   repeated api.BacksideDeckCardInfo deckCardInfos = 7;
@@ -2686,7 +2685,7 @@ message BacksideFinalStageHalfwayInfo {
 }
 message BacksideLiveBonusInfo {
   int32 stageNumber = 1;
-  ProtoEnum.BacksideStageType stageType = 2;
+  penum.BacksideStageType stageType = 2;
   string stageName = 3;
   repeated api.BacksideLiveBonus liveBonuses = 4;
 }
@@ -2704,7 +2703,7 @@ message BacksideStageInfo {
   repeated api.BacksideLiveBonusInfo allLiveBonusInfos = 6;
   repeated api.BacksideCardLiveAbilityInfo cardLiveAbilityInfos = 7;
   int64 totalPracticeScore = 8;
-  repeated transaction.UserCharacter deckUserCharacters = 9;
+  repeated ptransaction.UserCharacter deckUserCharacters = 9;
   api.BacksideStageDeckDetailInfo deckDetailInfo = 10;
   api.BacksideStageDeckDetailInfo scoreLiveDeckDetailInfo = 11;
   api.BacksideStageDeckDetailInfo battleLiveDeckDetailInfo = 12;
@@ -2716,7 +2715,7 @@ message BacksideStageProgressInfo {
   repeated api.BacksideLiveBonus liveBonuses = 4;
   api.BacksideExecPanelLocationInfo execPanelLocationInfo = 5;
   int64 totalPracticeScore = 6;
-  repeated transaction.UserCharacter deckUserCharacters = 7;
+  repeated ptransaction.UserCharacter deckUserCharacters = 7;
   api.BacksideStageDeckDetailInfo deckDetailInfo = 8;
   api.BacksideStageDeckDetailInfo scoreLiveDeckDetailInfo = 9;
   api.BacksideStageDeckDetailInfo battleLiveDeckDetailInfo = 10;
@@ -2725,8 +2724,8 @@ message BacksidePanelInfo {
   int32 pieceNumber = 1;
   int32 radiusNumber = 2;
   int32 panelNumber = 3;
-  ProtoEnum.BacksidePanelType panelType = 4;
-  ProtoEnum.BacksidePanelAttributeType panelAttributeType = 5;
+  penum.BacksidePanelType panelType = 4;
+  penum.BacksidePanelAttributeType panelAttributeType = 5;
   int32 panelRank = 6;
   api.BacksidePanelGoalInfo panelGoalInfo = 7;
   api.BacksidePanelLiveInfo panelLiveInfo = 8;
@@ -2746,41 +2745,41 @@ message BacksidePanelStaminaInfo {
 }
 message BacksideScheduleInfo {
   int32 actionCount = 1;
-  ProtoEnum.BacksidePanelType panelType = 2;
+  penum.BacksidePanelType panelType = 2;
 }
 message BacksideLiveInfo {
   api.LiveResult result = 1;
-  ProtoEnum.ResultRankType rankType = 2;
+  penum.ResultRankType rankType = 2;
   int32 rankPlus = 3;
   repeated api.QuestRankPattern rankPatterns = 4;
 }
 message BacksidePracticeStageClearInfo {
   string name = 1;
-  ProtoEnum.BacksidePracticeRankType practiceRankType = 2;
+  penum.BacksidePracticeRankType practiceRankType = 2;
   int32 practiceRankPlus = 3;
   int64 practiceScore = 4;
   repeated api.BacksideLiveBonus liveBonuses = 5;
-  ProtoEnum.BacksidePracticeRankType lastPracticeRankType = 6;
+  penum.BacksidePracticeRankType lastPracticeRankType = 6;
   int32 lastPracticeRankPlus = 7;
   int64 lastPracticeScore = 8;
   repeated api.BacksideLiveBonus lastLiveBonuses = 9;
-  repeated transaction.RewardResult firstClearRewardResults = 10;
-  repeated transaction.RewardResult firstPracticeRankRewardResults = 11;
-  repeated transaction.RewardResult loopPracticeRankRewardResults = 12;
+  repeated ptransaction.RewardResult firstClearRewardResults = 10;
+  repeated ptransaction.RewardResult firstPracticeRankRewardResults = 11;
+  repeated ptransaction.RewardResult loopPracticeRankRewardResults = 12;
 }
 message BacksideFinalStageClearInfo {
   string name = 1;
-  ProtoEnum.ResultRankType finalRankType = 2;
+  penum.ResultRankType finalRankType = 2;
   int32 finalRankPlus = 3;
   int64 finalScore = 4;
-  repeated transaction.RewardResult firstClearRewardResults = 5;
-  repeated transaction.RewardResult firstFinalRankRewardResults = 6;
+  repeated ptransaction.RewardResult firstClearRewardResults = 5;
+  repeated ptransaction.RewardResult firstFinalRankRewardResults = 6;
   bool isBest = 7;
   int64 newRank = 8;
   int64 practiceScore = 9;
   int64 totalPracticeScore = 10;
-  repeated transaction.RewardResult loopFinalRankRewardResults = 11;
-  repeated transaction.RewardResult difficultyAreaRewardResults = 12;
+  repeated ptransaction.RewardResult loopFinalRankRewardResults = 11;
+  repeated ptransaction.RewardResult difficultyAreaRewardResults = 12;
 }
 message BacksideSurpriseInfo {
   string advAssetId = 1;
@@ -2810,7 +2809,7 @@ message BirthdaySetWatchedResponse {
   api.CommonResponse commonResponse = 9999;
 }
 message BirthdayReceiveRewardResponse {
-  repeated transaction.RewardResult rewards = 1;
+  repeated ptransaction.RewardResult rewards = 1;
   api.CommonResponse commonResponse = 9999;
 }
 message BirthdayOutputWatchedLogRequest {
@@ -2862,7 +2861,7 @@ message CardResetRequest {
   string cardId = 1;
 }
 message CardResetResponse {
-  repeated transaction.Reward rewards = 1;
+  repeated ptransaction.Reward rewards = 1;
   api.CommonResponse commonResponse = 9999;
 }
 message CardSetSupportRequest {
@@ -2876,7 +2875,7 @@ message CardRemoveSupportRequest {
   int32 number = 1;
 }
 message CardRemoveSupportResponse {
-  repeated transaction.Reward rewards = 1;
+  repeated ptransaction.Reward rewards = 1;
   api.CommonResponse commonResponse = 9999;
 }
 message CardReleaseSupportRequest {
@@ -2894,7 +2893,7 @@ message CardRankUpResponse {
 }
 message CardUpdateDisplayTypeRequest {
   string cardId = 1;
-  ProtoEnum.CardDisplayType displayType = 2;
+  penum.CardDisplayType displayType = 2;
 }
 message CardUpdateDisplayTypeResponse {
   api.CommonResponse commonResponse = 9999;
@@ -2926,8 +2925,8 @@ message LiveUserDeck {
 }
 message LiveChart {
   int32 number = 1;
-  ProtoEnum.MusicChartType chartType = 2;
-  ProtoEnum.AttributeType attributeType = 3;
+  penum.MusicChartType chartType = 2;
+  penum.AttributeType attributeType = 3;
   repeated api.LiveBeat beats = 4;
   api.LiveSkill activatedSkill = 5;
   repeated api.LiveSkill activatedPassiveSkills = 6;
@@ -2957,13 +2956,13 @@ message LiveSkill {
 }
 message LiveSkillFailure {
   int32 cardIndex = 1;
-  ProtoEnum.SkillFailureType type = 2;
-  repeated ProtoEnum.SkillFailureType eachFailureTypes = 3;
+  penum.SkillFailureType type = 2;
+  repeated penum.SkillFailureType eachFailureTypes = 3;
 }
 message LiveSkillDetail {
   int32 efficacyIndex = 1;
   int64 value = 2;
-  ProtoEnum.StatusEffectType statusType = 3;
+  penum.StatusEffectType statusType = 3;
   repeated int32 targetCardIndexes = 4;
   int32 effectiveChartCount = 5;
   repeated api.LiveSkillDetailTargetCardInfo targetCardInfos = 6;
@@ -2990,8 +2989,8 @@ message LiveCardStatus {
   repeated api.LiveSkillStatus skillStatuses = 7;
 }
 message LiveCardStatusEffect {
-  ProtoEnum.StatusEffectType statusType = 1;
-  ProtoEnum.SkillEfficacyType skillEfficacyType = 2;
+  penum.StatusEffectType statusType = 1;
+  penum.SkillEfficacyType skillEfficacyType = 2;
   int64 value = 3;
   int32 grade = 4;
   int32 remainEffectedChartCount = 5;
@@ -3032,12 +3031,12 @@ message GvgOpponentInfo {
   repeated api.LiveBattleCardInfo cardInfos = 4;
 }
 message QuestRankPattern {
-  ProtoEnum.ResultRankType rankType = 1;
+  penum.ResultRankType rankType = 1;
   int32 plus = 2;
   int64 thresholdScore = 3;
 }
 message ActivityPromotionReward {
-  ProtoEnum.ResourceType resourceType = 1;
+  penum.ResourceType resourceType = 1;
   string resourceId = 2;
   int64 amount = 3;
   bool isRare = 4;
@@ -3049,13 +3048,13 @@ message AllProfileInfo {
 message FavoritePhotoInfo {
   string photoId = 1;
   string assetId = 2;
-  ProtoEnum.PhotoImageType imageType = 3;
+  penum.PhotoImageType imageType = 3;
 }
 message NoticeInfo {
   string id = 1;
   string title = 2;
   string bannerAssetId = 3;
-  ProtoEnum.LinkType linkType = 4;
+  penum.LinkType linkType = 4;
   string linkDetail = 5;
   bool displayNotification = 6;
   int64 startTime = 7;
@@ -3066,7 +3065,7 @@ message PaidJpy {
   int32 amount = 1;
 }
 message FanEventRankPattern {
-  ProtoEnum.ResultRankType rankType = 1;
+  penum.ResultRankType rankType = 1;
   int32 plus = 2;
   int32 thresholdPoint = 3;
 }
@@ -3081,7 +3080,7 @@ message ActivityLevelInfo {
   bool nextLevelLocked = 3;
 }
 message ActivityCampaignEffect {
-  ProtoEnum.ActivityCampaignEffectType type = 1;
+  penum.ActivityCampaignEffectType type = 1;
   int32 value = 2;
   int64 endTime = 3;
 }
@@ -3097,7 +3096,7 @@ message EventExchangeBoothInfo {
   string id = 1;
   string name = 2;
   string bannerAssetId = 3;
-  ProtoEnum.ResourceType requiredResourceType = 4;
+  penum.ResourceType requiredResourceType = 4;
   string requiredResourceId = 5;
 }
 message PvpSeasonInfo {
@@ -3141,13 +3140,13 @@ message HomeBirthdayInfo {
   bool isRemainingReceivableReward = 4;
 }
 message QuestReward {
-  repeated transaction.RewardResult clearRewards = 1;
-  repeated transaction.RewardResult scoreRankRewards = 2;
-  repeated transaction.RewardResult scoreRankAdditionalRewards = 3;
-  repeated transaction.Reward musicMasteryRewards = 4;
-  repeated transaction.Reward achievedRankRewards = 5;
+  repeated ptransaction.RewardResult clearRewards = 1;
+  repeated ptransaction.RewardResult scoreRankRewards = 2;
+  repeated ptransaction.RewardResult scoreRankAdditionalRewards = 3;
+  repeated ptransaction.Reward musicMasteryRewards = 4;
+  repeated ptransaction.Reward achievedRankRewards = 5;
   repeated api.QuestRewardCard rewardCards = 6;
-  repeated transaction.RewardResult campaignDropRewards = 7;
+  repeated ptransaction.RewardResult campaignDropRewards = 7;
 }
 message QuestOpponentInfo {
   string name = 1;
@@ -3155,8 +3154,8 @@ message QuestOpponentInfo {
   repeated api.LiveBattleCardInfo cardInfos = 3;
 }
 message BoxGachaDrawResult {
-  ProtoEnum.BoxGachaItemType itemType = 1;
-  repeated transaction.Reward rewards = 2;
+  penum.BoxGachaItemType itemType = 1;
+  repeated ptransaction.Reward rewards = 2;
   string liveBonusId = 3;
 }
 message UserDeckPosition {
@@ -3190,7 +3189,7 @@ message BirthdayRemindInfo {
   string assetId = 1;
   string description = 2;
   string linkTitle = 3;
-  ProtoEnum.LinkType linkType = 4;
+  penum.LinkType linkType = 4;
   string linkDetail = 5;
 }
 message MosaicProgressInfo {
@@ -3202,70 +3201,70 @@ message CommonResponse {
   api.DeletedData deletedData = 2;
 }
 message UpdatedData {
-  transaction.User user = 1;
-  repeated transaction.UserItem items = 2;
-  repeated transaction.UserCard cards = 3;
-  repeated transaction.UserCharacter characters = 4;
-  repeated transaction.UserCostume costumes = 5;
-  repeated transaction.UserAccessory accessories = 6;
-  repeated transaction.UserPhoto photos = 7;
-  repeated transaction.UserDeck decks = 8;
-  repeated transaction.UserDeckPosition deckPositions = 9;
-  repeated transaction.UserStory stories = 10;
-  repeated transaction.UserPoint points = 11;
-  repeated transaction.UserStaff staffs = 12;
-  repeated transaction.UserMessage messages = 13;
-  repeated transaction.UserTelephone telephones = 14;
-  repeated transaction.UserMission missions = 15;
-  transaction.UserProfile profile = 16;
-  repeated transaction.UserEmblem emblems = 17;
-  repeated transaction.UserCharacterMusic characterMusics = 18;
-  transaction.UserBalance balance = 19;
-  transaction.UserTotalCount totalCount = 20;
-  repeated transaction.UserArea areas = 21;
-  repeated transaction.UserQuest quests = 22;
-  repeated transaction.UserGachaButton gachaButtons = 23;
-  repeated transaction.UserHomeTalk homeTalks = 24;
-  transaction.UserPhotoReport photoReport = 25;
-  repeated transaction.UserCardSupport cardSupports = 26;
-  repeated transaction.UserMessageSchedule messageSchedules = 27;
-  repeated transaction.UserNotification notifications = 28;
-  transaction.UserHierarchy hierarchy = 29;
-  repeated transaction.UserTutorial tutorials = 30;
-  repeated transaction.UserHomePosition homePositions = 31;
-  repeated transaction.UserMusic musics = 32;
-  repeated transaction.UserDecoration decorations = 33;
-  repeated transaction.UserPhotoRecipe photoRecipes = 34;
-  transaction.UserBuddy buddy = 35;
-  transaction.UserInvite invite = 36;
-  repeated transaction.UserHair hairs = 37;
-  transaction.UserActivityFanEventProgress activityFanEventProgress = 38;
-  repeated transaction.UserLove loves = 39;
-  repeated transaction.UserLeagueDeckPosition leagueDeckPositions = 40;
-  repeated transaction.UserDuty duties = 41;
-  repeated transaction.UserDutyPoint dutyPoints = 42;
-  transaction.UserCompany company = 43;
-  repeated transaction.UserShowcase showcases = 44;
-  transaction.UserShowcaseLike showcaseLike = 45;
-  repeated transaction.UserShowcaseMusic showcaseMusics = 46;
-  repeated transaction.UserShowcaseToy showcaseToys = 47;
-  repeated transaction.UserShowcaseMyset showcaseMysets = 48;
-  repeated transaction.UserTourArea tourAreas = 49;
-  repeated transaction.UserPhotoPose photoPoses = 50;
+  ptransaction.User user = 1;
+  repeated ptransaction.UserItem items = 2;
+  repeated ptransaction.UserCard cards = 3;
+  repeated ptransaction.UserCharacter characters = 4;
+  repeated ptransaction.UserCostume costumes = 5;
+  repeated ptransaction.UserAccessory accessories = 6;
+  repeated ptransaction.UserPhoto photos = 7;
+  repeated ptransaction.UserDeck decks = 8;
+  repeated ptransaction.UserDeckPosition deckPositions = 9;
+  repeated ptransaction.UserStory stories = 10;
+  repeated ptransaction.UserPoint points = 11;
+  repeated ptransaction.UserStaff staffs = 12;
+  repeated ptransaction.UserMessage messages = 13;
+  repeated ptransaction.UserTelephone telephones = 14;
+  repeated ptransaction.UserMission missions = 15;
+  ptransaction.UserProfile profile = 16;
+  repeated ptransaction.UserEmblem emblems = 17;
+  repeated ptransaction.UserCharacterMusic characterMusics = 18;
+  ptransaction.UserBalance balance = 19;
+  ptransaction.UserTotalCount totalCount = 20;
+  repeated ptransaction.UserArea areas = 21;
+  repeated ptransaction.UserQuest quests = 22;
+  repeated ptransaction.UserGachaButton gachaButtons = 23;
+  repeated ptransaction.UserHomeTalk homeTalks = 24;
+  ptransaction.UserPhotoReport photoReport = 25;
+  repeated ptransaction.UserCardSupport cardSupports = 26;
+  repeated ptransaction.UserMessageSchedule messageSchedules = 27;
+  repeated ptransaction.UserNotification notifications = 28;
+  ptransaction.UserHierarchy hierarchy = 29;
+  repeated ptransaction.UserTutorial tutorials = 30;
+  repeated ptransaction.UserHomePosition homePositions = 31;
+  repeated ptransaction.UserMusic musics = 32;
+  repeated ptransaction.UserDecoration decorations = 33;
+  repeated ptransaction.UserPhotoRecipe photoRecipes = 34;
+  ptransaction.UserBuddy buddy = 35;
+  ptransaction.UserInvite invite = 36;
+  repeated ptransaction.UserHair hairs = 37;
+  ptransaction.UserActivityFanEventProgress activityFanEventProgress = 38;
+  repeated ptransaction.UserLove loves = 39;
+  repeated ptransaction.UserLeagueDeckPosition leagueDeckPositions = 40;
+  repeated ptransaction.UserDuty duties = 41;
+  repeated ptransaction.UserDutyPoint dutyPoints = 42;
+  ptransaction.UserCompany company = 43;
+  repeated ptransaction.UserShowcase showcases = 44;
+  ptransaction.UserShowcaseLike showcaseLike = 45;
+  repeated ptransaction.UserShowcaseMusic showcaseMusics = 46;
+  repeated ptransaction.UserShowcaseToy showcaseToys = 47;
+  repeated ptransaction.UserShowcaseMyset showcaseMysets = 48;
+  repeated ptransaction.UserTourArea tourAreas = 49;
+  repeated ptransaction.UserPhotoPose photoPoses = 50;
 }
 message DeletedData {
-  repeated transaction.UserItem items = 1;
-  repeated transaction.UserAccessory accessories = 2;
-  repeated transaction.UserPhoto photos = 3;
-  repeated transaction.UserDeck decks = 4;
-  repeated transaction.UserDeckPosition deckPositions = 5;
-  repeated transaction.UserPoint points = 6;
-  repeated transaction.UserMessageSchedule messageSchedules = 7;
-  repeated transaction.UserStory stories = 9;
-  repeated transaction.UserPhotoRecipe photoRecipes = 10;
-  repeated transaction.UserLeagueDeckPosition leagueDeckPositions = 11;
-  repeated transaction.UserShowcaseMyset showcaseMysets = 12;
-  repeated transaction.UserTourArea tourAreas = 13;
+  repeated ptransaction.UserItem items = 1;
+  repeated ptransaction.UserAccessory accessories = 2;
+  repeated ptransaction.UserPhoto photos = 3;
+  repeated ptransaction.UserDeck decks = 4;
+  repeated ptransaction.UserDeckPosition deckPositions = 5;
+  repeated ptransaction.UserPoint points = 6;
+  repeated ptransaction.UserMessageSchedule messageSchedules = 7;
+  repeated ptransaction.UserStory stories = 9;
+  repeated ptransaction.UserPhotoRecipe photoRecipes = 10;
+  repeated ptransaction.UserLeagueDeckPosition leagueDeckPositions = 11;
+  repeated ptransaction.UserShowcaseMyset showcaseMysets = 12;
+  repeated ptransaction.UserTourArea tourAreas = 13;
 }
 message CompanyTopRequest {
   bool isSkipReportMissions = 1;
@@ -3280,14 +3279,14 @@ message CompanyReceiveGradeRewardsRequest {
   repeated string gradeIds = 1;
 }
 message CompanyReceiveGradeRewardsResponse {
-  repeated transaction.RewardResult results = 1;
+  repeated ptransaction.RewardResult results = 1;
   api.CommonResponse commonResponse = 9999;
 }
 message CompanyBulkReceiveMissionRequest {
   repeated string missionIds = 1;
 }
 message CompanyBulkReceiveMissionResponse {
-  repeated transaction.RewardResult results = 1;
+  repeated ptransaction.RewardResult results = 1;
   api.CommonResponse commonResponse = 9999;
 }
 message CompanyEnjoyCharacterTopRequest {
@@ -3313,7 +3312,7 @@ message CompanyReceiveEnjoyCharacterLevelRewardsRequest {
   repeated int32 levelKeys = 2;
 }
 message CompanyReceiveEnjoyCharacterLevelRewardsResponse {
-  repeated transaction.RewardResult results = 1;
+  repeated ptransaction.RewardResult results = 1;
   api.CommonResponse commonResponse = 9999;
 }
 message CompanyUseObtainEnjoyPointItemRequest {
@@ -3338,16 +3337,16 @@ message CompanyReceiveTrustLevelRewardsRequest {
   repeated int32 levelKeys = 1;
 }
 message CompanyReceiveTrustLevelRewardsResponse {
-  repeated transaction.RewardResult results = 1;
+  repeated ptransaction.RewardResult results = 1;
   api.CommonResponse commonResponse = 9999;
 }
 message CompanyTrustMissionInfo {
-  ProtoEnum.CompanyTrustMissionCategoryType categoryType = 1;
-  repeated transaction.UserMission userMissions = 2;
+  penum.CompanyTrustMissionCategoryType categoryType = 1;
+  repeated ptransaction.UserMission userMissions = 2;
 }
 message CompanyEnjoyCharacterMissionInfo {
-  ProtoEnum.CompanyEnjoyCharacterMissionCategoryType categoryType = 1;
-  repeated transaction.UserMission userMissions = 2;
+  penum.CompanyEnjoyCharacterMissionCategoryType categoryType = 1;
+  repeated ptransaction.UserMission userMissions = 2;
 }
 message CostumeSetRequest {
   string costumeId = 1;
@@ -3379,8 +3378,8 @@ message CostumeCheckBulkResponse {
 message DeckSaveRequest {
   int32 number = 1;
   string name = 2;
-  repeated transaction.UserDeckPosition userDeckPositions = 3;
-  ProtoEnum.DeckEditType deckEditType = 4;
+  repeated ptransaction.UserDeckPosition userDeckPositions = 3;
+  penum.DeckEditType deckEditType = 4;
   string questId = 5;
 }
 message DeckSaveResponse {
@@ -3399,7 +3398,7 @@ message DeckBuddyListResponse {
 }
 message DeckBuddyUserCardInfo {
   string userId = 1;
-  transaction.UserCard userCard = 2;
+  ptransaction.UserCard userCard = 2;
   string managerName = 3;
 }
 message DiaryGetInfosResponse {
@@ -3437,7 +3436,7 @@ message DiceAreaInfo {
 }
 message DicePanelInfo {
   int32 number = 1;
-  ProtoEnum.DicePanelType type = 2;
+  penum.DicePanelType type = 2;
   int32 value = 3;
   api.DiceLiveBonus liveBonus = 4;
   api.DiceStoryCharacterInfo forceStoryCharacterInfo = 5;
@@ -3467,7 +3466,7 @@ message DicePanelProgressInfo {
 }
 message DiceItem {
   string id = 1;
-  ProtoEnum.DiceItemType type = 2;
+  penum.DiceItemType type = 2;
   string name = 3;
   int32 value = 4;
   string assetId = 5;
@@ -3477,7 +3476,7 @@ message DiceItem {
 message DiceMovePanelResponse {
   int32 diceRoll = 1;
   api.DiceUserInfo userInfo = 2;
-  repeated transaction.RewardResult rewardResults = 3;
+  repeated ptransaction.RewardResult rewardResults = 3;
   repeated api.DiceQuestInfo questInfos = 4;
   api.CommonResponse commonResponse = 9999;
 }
@@ -3486,7 +3485,7 @@ message DiceUseItemRequest {
 }
 message DiceUseItemResponse {
   api.DiceUserInfo userInfo = 1;
-  repeated transaction.RewardResult rewardResults = 2;
+  repeated ptransaction.RewardResult rewardResults = 2;
   repeated api.DiceQuestInfo questInfos = 3;
   api.CommonResponse commonResponse = 9999;
 }
@@ -3564,7 +3563,7 @@ message DiceSellItemRequest {
 }
 message DiceSellItemResponse {
   api.DiceUserInfo userInfo = 1;
-  repeated transaction.RewardResult rewardResults = 2;
+  repeated ptransaction.RewardResult rewardResults = 2;
   api.CommonResponse commonResponse = 9999;
 }
 message DiceFinishShopPanelResponse {
@@ -3578,7 +3577,7 @@ message DiceFinishStoryPanelResponse {
   api.DiceUserInfo userInfo = 1;
   repeated api.DiceItem diceItems = 2;
   repeated api.DiceLiveBonus diceLiveBonuses = 3;
-  repeated transaction.RewardResult rewardResults = 4;
+  repeated ptransaction.RewardResult rewardResults = 4;
   api.CommonResponse commonResponse = 9999;
 }
 message DiceUseStaminaRecoveryItemRequest {
@@ -3589,16 +3588,16 @@ message DiceUseStaminaRecoveryItemResponse {
   api.CommonResponse commonResponse = 9999;
 }
 message DiceStartQuestRequest {
-  ProtoEnum.DiceQuestDifficultyType difficultyType = 1;
+  penum.DiceQuestDifficultyType difficultyType = 1;
   int32 deckNumber = 2;
   bool isSkip = 3;
 }
 message DiceStartQuestResponse {
   api.LiveResult result = 1;
-  ProtoEnum.ResultRankType rankType = 2;
+  penum.ResultRankType rankType = 2;
   int32 rankPlus = 3;
   repeated api.QuestRankPattern rankPatterns = 4;
-  repeated transaction.RewardResult rewardResults = 5;
+  repeated ptransaction.RewardResult rewardResults = 5;
   int32 liveMedalBonusPermil = 6;
   api.DiceUserInfo userInfo = 7;
   api.DiceItem diceItem = 8;
@@ -3608,17 +3607,17 @@ message DiceStartQuestResponse {
   api.CommonResponse commonResponse = 9999;
 }
 message DiceStartGoalQuestRequest {
-  ProtoEnum.DiceQuestDifficultyType difficultyType = 1;
+  penum.DiceQuestDifficultyType difficultyType = 1;
   int32 deckNumber = 2;
   bool isSkip = 3;
 }
 message DiceStartGoalQuestResponse {
   api.LiveResult result = 1;
-  ProtoEnum.ResultRankType rankType = 2;
+  penum.ResultRankType rankType = 2;
   int32 rankPlus = 3;
   repeated api.QuestRankPattern rankPatterns = 4;
   int32 afterRank = 5;
-  repeated transaction.RewardResult rewardResults = 6;
+  repeated ptransaction.RewardResult rewardResults = 6;
   int32 liveMedalBonusPermil = 7;
   api.DiceUserInfo userInfo = 8;
   int32 beforeRank = 9;
@@ -3627,7 +3626,7 @@ message DiceStartGoalQuestResponse {
   api.CommonResponse commonResponse = 9999;
 }
 message DiceListDeckRequest {
-  ProtoEnum.DiceQuestDifficultyType difficultyType = 1;
+  penum.DiceQuestDifficultyType difficultyType = 1;
 }
 message DiceListDeckResponse {
   repeated api.DiceDeckInfo deckInfos = 1;
@@ -3650,8 +3649,8 @@ message DiceListRankingResponse {
 message DiceSaveDeckRequest {
   int32 number = 1;
   string name = 2;
-  repeated transaction.UserDeckPosition userDeckPositions = 3;
-  ProtoEnum.DiceQuestDifficultyType difficultyType = 4;
+  repeated ptransaction.UserDeckPosition userDeckPositions = 3;
+  penum.DiceQuestDifficultyType difficultyType = 4;
 }
 message DiceSaveDeckResponse {
   api.DiceDeckInfo deckInfo = 1;
@@ -3659,7 +3658,7 @@ message DiceSaveDeckResponse {
 }
 message DivisionListResponse {
   repeated api.DivisionInfo divisions = 1;
-  ProtoEnum.DivisionCannotMoveReasonType reasonType = 2;
+  penum.DivisionCannotMoveReasonType reasonType = 2;
   api.CommonResponse commonResponse = 9999;
 }
 message DivisionMoveRequest {
@@ -3689,13 +3688,13 @@ message DokanOutputWatchedLogResponse {
 message DreamTopResponse {
   api.DreamSeasonInfo seasonInfo = 1;
   repeated api.DreamUserPhoto dreamUserPhotos = 2;
-  repeated transaction.RewardResult loginRewardResults = 3;
+  repeated ptransaction.RewardResult loginRewardResults = 3;
   repeated api.DokanInfo dokanInfos = 4;
   api.NoticeInfo growthPermilNoticeInfo = 5;
   api.CommonResponse commonResponse = 9999;
 }
 message DreamRankInfo {
-  ProtoEnum.DreamAreaRankType areaRankType = 1;
+  penum.DreamAreaRankType areaRankType = 1;
   int64 areaRankPlus = 2;
   string topColorCode = 3;
   string bottomColorCode = 4;
@@ -3704,7 +3703,7 @@ message DreamUserPhoto {
   string photoId = 1;
   int64 generatedTime = 2;
   int64 lastChallengedTime = 3;
-  ProtoEnum.DreamAreaRankType areaRankType = 4;
+  penum.DreamAreaRankType areaRankType = 4;
   int64 areaRankPlus = 5;
   int32 clearQuestNumber = 6;
   int32 maxQuestNumber = 7;
@@ -3724,7 +3723,7 @@ message DreamListMaterialPhotoResponse {
 }
 message DreamUserMaterialPhoto {
   string photoId = 1;
-  ProtoEnum.DreamAreaRankType areaRankType = 2;
+  penum.DreamAreaRankType areaRankType = 2;
   int64 areaRankPlus = 3;
   int32 maxQuestNumber = 4;
   repeated api.DreamUserPhotoAbility enhancePlanAbilities = 5;
@@ -3754,14 +3753,14 @@ message DreamStartQuestRequest {
   string basePhotoId = 1;
   int32 deckNumber = 2;
   bool isSkip = 3;
-  repeated transaction.UserDeckPosition userBuddyDeckPositions = 4;
+  repeated ptransaction.UserDeckPosition userBuddyDeckPositions = 4;
   string buddyDeckName = 5;
 }
 message DreamStartQuestResponse {
   api.LiveResult result = 1;
   int32 clearedQuestNumber = 2;
   int32 maxQuestNumber = 3;
-  repeated transaction.Reward musicMasteryRewards = 4;
+  repeated ptransaction.Reward musicMasteryRewards = 4;
   repeated api.DreamUserPhotoAbilityChangeInfo abilityChangeInfos = 5;
   api.FriendApplyToBuddyInfo friendApplyToBuddyInfo = 6;
   repeated api.QuestRankPattern rankPatterns = 7;
@@ -3795,14 +3794,14 @@ message DutyExchangeRewardRequest {
   int64 exchangeRewardNumber = 2;
 }
 message DutyExchangeRewardResponse {
-  repeated transaction.RewardResult rewardResults = 1;
+  repeated ptransaction.RewardResult rewardResults = 1;
   api.CommonResponse commonResponse = 9999;
 }
 message DutyReceiveTotalObtainRewardRequest {
   string dutyId = 1;
 }
 message DutyReceiveTotalObtainRewardResponse {
-  repeated transaction.RewardResult rewardResults = 1;
+  repeated ptransaction.RewardResult rewardResults = 1;
   api.CommonResponse commonResponse = 9999;
 }
 message DutyHomeActionInfo {
@@ -3817,7 +3816,7 @@ message ExchangeExecuteRequest {
   int32 count = 2;
 }
 message ExchangeExecuteResponse {
-  repeated transaction.RewardResult results = 1;
+  repeated ptransaction.RewardResult results = 1;
   api.ExchangeItem afterExchangeItem = 2;
   api.ExchangeBooth booth = 3;
   api.CommonResponse commonResponse = 9999;
@@ -3854,7 +3853,7 @@ message ExerciseListAssetResponse {
 }
 message ForumListThreadReplyRequest {
   string threadId = 1;
-  ProtoEnum.ForumListReplyRequestType requestType = 2;
+  penum.ForumListReplyRequestType requestType = 2;
   int32 replyId = 3;
 }
 message ForumCreateThreadRequest {
@@ -4006,17 +4005,17 @@ message GachaDrawRequest {
 }
 message GachaDrawResponse {
   api.GachaButtonInfo button = 1;
-  repeated transaction.Reward rewards = 2;
-  repeated transaction.ConsumptionResult consumptionResults = 3;
-  repeated transaction.RewardResult rewardResults = 4;
-  repeated transaction.RewardResult drawRewardResults = 5;
-  repeated transaction.Reward bonusRewards = 6;
+  repeated ptransaction.Reward rewards = 2;
+  repeated ptransaction.ConsumptionResult consumptionResults = 3;
+  repeated ptransaction.RewardResult rewardResults = 4;
+  repeated ptransaction.RewardResult drawRewardResults = 5;
+  repeated ptransaction.Reward bonusRewards = 6;
   api.GachaMovie gachaMovie = 9;
-  repeated transaction.Reward cardRewards = 10;
+  repeated ptransaction.Reward cardRewards = 10;
   api.GachaContinuousResult continuousResult = 11;
   api.GachaStampInfo stampInfo = 12;
-  repeated transaction.Reward stampRewards = 13;
-  repeated transaction.Reward pickupRewards = 14;
+  repeated ptransaction.Reward stampRewards = 13;
+  repeated ptransaction.Reward pickupRewards = 14;
   api.CommonResponse commonResponse = 9999;
 }
 message GachaExchangeRequest {
@@ -4025,8 +4024,8 @@ message GachaExchangeRequest {
 }
 message GachaExchangeResponse {
   api.GachaExchangeInfo exchange = 1;
-  repeated transaction.RewardResult rewardResults = 2;
-  repeated transaction.ConsumptionResult consumptionResults = 3;
+  repeated ptransaction.RewardResult rewardResults = 2;
+  repeated ptransaction.ConsumptionResult consumptionResults = 3;
   api.CommonResponse commonResponse = 9999;
 }
 message GachaProbabilityRequest {
@@ -4039,7 +4038,7 @@ message GachaProbabilityResponse {
   api.CommonResponse commonResponse = 9999;
 }
 message GachaHistoryRequest {
-  ProtoEnum.GachaType gachaType = 1;
+  penum.GachaType gachaType = 1;
 }
 message GachaHistoryResponse {
   repeated api.GachaHistory histories = 1;
@@ -4056,14 +4055,14 @@ message GachaReceiveFreePremiumGachaTicketRequest {
   string gachaId = 1;
 }
 message GachaReceiveFreePremiumGachaTicketResponse {
-  repeated transaction.RewardResult rewardResults = 1;
+  repeated ptransaction.RewardResult rewardResults = 1;
   api.CommonResponse commonResponse = 9999;
 }
 message RarityProbabilityInfo {
   int32 rarity = 1;
   int32 probability = 2;
   repeated api.ProbabilityInfo probabilityInfos = 3;
-  ProtoEnum.GachaRewardPatternType gachaRewardPatternType = 4;
+  penum.GachaRewardPatternType gachaRewardPatternType = 4;
   int32 individualProbability = 5;
 }
 message FixProbabilityInfo {
@@ -4071,7 +4070,7 @@ message FixProbabilityInfo {
   repeated api.RarityProbabilityInfo rarityProbabilityInfos = 2;
 }
 message ProbabilityInfo {
-  ProtoEnum.ResourceType resourceType = 1;
+  penum.ResourceType resourceType = 1;
   string resourceId = 2;
   int64 amount = 3;
   int32 probability = 4;
@@ -4079,7 +4078,7 @@ message ProbabilityInfo {
 }
 message GachaAnimation {
   string id = 1;
-  ProtoEnum.GachaAnimationEmbeddedType embeddedType = 2;
+  penum.GachaAnimationEmbeddedType embeddedType = 2;
   string assetId = 3;
 }
 message GachaMovie {
@@ -4089,18 +4088,18 @@ message GachaMovie {
 }
 message GiftListRequest {
   int32 offset = 1;
-  ProtoEnum.GiftSortType sortType = 3;
-  repeated ProtoEnum.GiftFilterType filters = 4;
+  penum.GiftSortType sortType = 3;
+  repeated penum.GiftFilterType filters = 4;
   bool desc = 5;
 }
 message GiftListResponse {
-  repeated transaction.UserGift gifts = 1;
+  repeated ptransaction.UserGift gifts = 1;
   bool hasNext = 2;
   int32 count = 3;
   api.CommonResponse commonResponse = 9999;
 }
 message GiftCountRequest {
-  repeated ProtoEnum.GiftFilterType filters = 1;
+  repeated penum.GiftFilterType filters = 1;
 }
 message GiftCountResponse {
   int32 count = 1;
@@ -4110,7 +4109,7 @@ message GiftReceiveRequest {
   repeated string giftIds = 1;
 }
 message GiftReceiveResponse {
-  repeated transaction.RewardResult results = 1;
+  repeated ptransaction.RewardResult results = 1;
   bool hasUnreceivedGift = 2;
   repeated string receivedGiftIds = 3;
   repeated string unreceivedGiftIds = 4;
@@ -4118,7 +4117,7 @@ message GiftReceiveResponse {
   api.CommonResponse commonResponse = 9999;
 }
 message GiftHistoryListResponse {
-  repeated transaction.UserGiftHistory gifts = 1;
+  repeated ptransaction.UserGiftHistory gifts = 1;
   api.CommonResponse commonResponse = 9999;
 }
 message GppReceiveRewardRequest {
@@ -4127,7 +4126,7 @@ message GppReceiveRewardRequest {
   string signature = 3;
 }
 message GppReceiveRewardResponse {
-  repeated transaction.Reward rewards = 1;
+  repeated ptransaction.Reward rewards = 1;
   api.CommonResponse commonResponse = 9999;
 }
 message GuildListResponse {
@@ -4207,21 +4206,21 @@ message GvgStartRequest {
   int32 deckNumber = 3;
   bool isSkip = 5;
   int32 matchNumber = 6;
-  ProtoEnum.GvgChallengeConsumptionType challengeConsumptionType = 7;
+  penum.GvgChallengeConsumptionType challengeConsumptionType = 7;
 }
 message GvgStartResponse {
   api.LiveResult result = 1;
   int64 point = 2;
   int64 addPoint = 3;
   int32 rank = 4;
-  repeated transaction.Reward musicMasteryRewards = 5;
-  repeated transaction.RewardResult challengeRewards = 6;
+  repeated ptransaction.Reward musicMasteryRewards = 5;
+  repeated ptransaction.RewardResult challengeRewards = 6;
   int64 guildPoint = 7;
   int64 addGuildPoint = 8;
   int64 totalPoint = 9;
   api.AllProfileInfo profile = 10;
   api.AllProfileInfo opponentProfile = 11;
-  repeated transaction.RewardResult winRewards = 12;
+  repeated ptransaction.RewardResult winRewards = 12;
   api.CommonResponse commonResponse = 9999;
 }
 message GvgListAssetRequest {
@@ -4264,11 +4263,11 @@ message HierarchyRankingResponse {
   api.CommonResponse commonResponse = 9999;
 }
 message HierarchyRewardsReceiveResponse {
-  repeated transaction.RewardResult results = 1;
+  repeated ptransaction.RewardResult results = 1;
   api.CommonResponse commonResponse = 9999;
 }
 message HierarchyDivisionRewardsReceiveResponse {
-  repeated transaction.RewardResult results = 1;
+  repeated ptransaction.RewardResult results = 1;
   api.CommonResponse commonResponse = 9999;
 }
 message HomeEnterRequest {
@@ -4299,7 +4298,7 @@ message SettingInfo {
   int32 soundBgm = 1;
   int32 soundEffect = 2;
   int32 soundVoice = 3;
-  ProtoEnum.GraphicType graphicType = 4;
+  penum.GraphicType graphicType = 4;
   int32 frameRate = 5;
   bool activityFinishNotification = 6;
   bool messageNotification = 7;
@@ -4328,7 +4327,7 @@ message HomeSetCharacterPositionRequest {
   repeated api.HomeCharacterPosition positions = 1;
 }
 message HomeCharacterPosition {
-  ProtoEnum.HomePositionType type = 1;
+  penum.HomePositionType type = 1;
   string characterId = 2;
   bool isCharacterRandom = 3;
   bool isCostumeRandom = 4;
@@ -4344,7 +4343,7 @@ message HomeLeagueInfo {
   int64 nextBattleStartTime = 1;
   int64 battleEndTime = 2;
   int64 nextSeasonStartTime = 3;
-  ProtoEnum.LeagueStatusType statusType = 4;
+  penum.LeagueStatusType statusType = 4;
   bool isNewsUnread = 5;
   bool isNewSeasonNotJoined = 6;
   bool isRemainingImperfectDeck = 7;
@@ -4352,14 +4351,14 @@ message HomeLeagueInfo {
 }
 message HomeLeagueDeckInfo {
   string seasonId = 1;
-  ProtoEnum.LeagueDeckType deckType = 2;
-  repeated transaction.UserDeckPosition deckPositions = 3;
+  penum.LeagueDeckType deckType = 2;
+  repeated ptransaction.UserDeckPosition deckPositions = 3;
 }
 message PvpRewardResultInfo {
   string name = 1;
   int64 point = 2;
   int64 rank = 3;
-  repeated transaction.Reward rankingRewards = 4;
+  repeated ptransaction.Reward rankingRewards = 4;
   api.HierarchyChangeInfo hierarchyChangeInfo = 5;
 }
 message GvgRewardResultInfo {
@@ -4368,50 +4367,50 @@ message GvgRewardResultInfo {
   int32 rank = 3;
   int32 rankRate = 4;
   int32 guildRank = 5;
-  repeated transaction.Reward rankingRewards = 6;
-  repeated transaction.Reward guildRankingRewards = 7;
+  repeated ptransaction.Reward rankingRewards = 6;
+  repeated ptransaction.Reward guildRankingRewards = 7;
   api.HierarchyChangeInfo hierarchyChangeInfo = 8;
 }
 message TourRewardResultInfo {
   string name = 1;
   int64 score = 2;
   int32 rank = 3;
-  repeated transaction.Reward rankingRewards = 4;
+  repeated ptransaction.Reward rankingRewards = 4;
 }
 message BacksideRewardResultInfo {
   string name = 1;
   int64 score = 2;
   int32 rank = 3;
-  repeated transaction.Reward rankingRewards = 4;
+  repeated ptransaction.Reward rankingRewards = 4;
 }
 message PhotoContestRewardResultInfo {
   string name = 1;
   int64 score = 2;
   int32 rank = 3;
-  repeated transaction.Reward rankingRewards = 4;
+  repeated ptransaction.Reward rankingRewards = 4;
 }
 message RaceRewardResultInfo {
   string name = 1;
   int64 score = 2;
   int32 rank = 3;
-  repeated transaction.Reward rankingRewards = 4;
+  repeated ptransaction.Reward rankingRewards = 4;
 }
 message RaceDailyRewardResultInfo {
   int64 score = 1;
   int32 rank = 2;
-  repeated transaction.Reward rankingRewards = 3;
+  repeated ptransaction.Reward rankingRewards = 3;
   repeated api.RaceDailyRankingUserInfo rankingUserInfos = 4;
   int32 days = 5;
 }
 message BuddyUsedRewardResultInfo {
   int64 usedCount = 1;
-  repeated transaction.Reward rewards = 2;
+  repeated ptransaction.Reward rewards = 2;
 }
 message HomeActiveFanEvent {
   repeated string characterIds = 1;
   int64 finishTime = 2;
   int32 activityPoint = 3;
-  ProtoEnum.ResultRankType rankType = 4;
+  penum.ResultRankType rankType = 4;
   int32 rankPlus = 5;
   int32 currentCheerPoint = 6;
 }
@@ -4428,7 +4427,7 @@ message HomeActiveRefresh {
   int64 finishTime = 2;
 }
 message FunctionMaintenanceInfo {
-  ProtoEnum.FunctionMaintenanceType type = 1;
+  penum.FunctionMaintenanceType type = 1;
   repeated string targetIds = 2;
   bool isTwitter = 3;
   string websiteUrl = 4;
@@ -4469,24 +4468,24 @@ message PurchasedConditionRewardShopInfo {
 message LeagueRewardResultInfo {
   string leagueSeasonName = 1;
   string leagueGradeName = 2;
-  ProtoEnum.LeagueSeasonResultType seasonResultType = 3;
+  penum.LeagueSeasonResultType seasonResultType = 3;
   int32 rank = 4;
   int64 point = 5;
   int32 winCount = 6;
   int32 loseCount = 7;
-  repeated transaction.Reward rewards = 8;
+  repeated ptransaction.Reward rewards = 8;
   string highestLeagueGradeName = 9;
 }
 message DiceRewardResultInfo {
   int64 score = 1;
   int32 rank = 2;
-  repeated transaction.Reward rewardResults = 3;
+  repeated ptransaction.Reward rewardResults = 3;
   int64 totalAreaCount = 4;
   int64 totalMovedPanelCount = 5;
 }
 message ShowcaseLikedRewardResultInfo {
   int64 likedCount = 1;
-  repeated transaction.Reward rewards = 2;
+  repeated ptransaction.Reward rewards = 2;
 }
 message HomeSatelliteInfo {
   string id = 1;
@@ -4510,7 +4509,7 @@ message InviteReceiveHostRewardsRequest {
   repeated string userIds = 1;
 }
 message InviteReceiveHostRewardsResponse {
-  repeated transaction.RewardResult results = 1;
+  repeated ptransaction.RewardResult results = 1;
   api.CommonResponse commonResponse = 9999;
 }
 message InviteEnterCodeRequest {
@@ -4541,7 +4540,7 @@ message LadderPanelReachRequest {
   int32 lane = 3;
 }
 message LadderPanelReachResponse {
-  repeated transaction.RewardResult rewardResults = 1;
+  repeated ptransaction.RewardResult rewardResults = 1;
   api.LadderProgressInfo progressInfo = 2;
   int32 reachablePanelCount = 3;
   api.CommonResponse commonResponse = 9999;
@@ -4577,7 +4576,7 @@ message LeagueSeasonResultInfo {
   int32 rank = 3;
   int32 winCount = 4;
   int32 loseCount = 5;
-  ProtoEnum.LeagueSeasonResultType seasonResultType = 6;
+  penum.LeagueSeasonResultType seasonResultType = 6;
   int64 upgradeRankThreshold = 7;
   string upgradeLeagueGradeName = 8;
   int64 downgradeRankThreshold = 9;
@@ -4633,7 +4632,7 @@ message LeagueGetLiveResultRequest {
   string seasonId = 1;
   int64 date = 2;
   string userId = 3;
-  ProtoEnum.LeagueDeckType deckType = 4;
+  penum.LeagueDeckType deckType = 4;
   bool isDetail = 5;
 }
 message LeagueGetLiveResultResponse {
@@ -4642,18 +4641,18 @@ message LeagueGetLiveResultResponse {
 }
 message LeagueSaveDeckRequest {
   string seasonId = 1;
-  ProtoEnum.LeagueDeckType deckType = 2;
-  repeated transaction.UserDeckPosition deckPositions = 3;
-  ProtoEnum.DeckEditType deckEditType = 4;
+  penum.LeagueDeckType deckType = 2;
+  repeated ptransaction.UserDeckPosition deckPositions = 3;
+  penum.DeckEditType deckEditType = 4;
 }
 message LeagueSaveDeckResponse {
-  repeated transaction.UserDeckPosition deckPositions = 1;
+  repeated ptransaction.UserDeckPosition deckPositions = 1;
   api.CommonResponse commonResponse = 9999;
 }
 message LeagueDeckInfo {
   string seasonId = 1;
-  ProtoEnum.LeagueDeckType deckType = 2;
-  repeated transaction.UserDeckPosition deckPositions = 3;
+  penum.LeagueDeckType deckType = 2;
+  repeated ptransaction.UserDeckPosition deckPositions = 3;
   int32 winCount = 4;
   int32 loseCount = 5;
   int32 consecutiveWinCount = 6;
@@ -4709,7 +4708,7 @@ message LeagueRankExistInfo {
   repeated api.LeagueCardRankExistInfo cardRankExistInfos = 2;
 }
 message LeagueCardRankExistInfo {
-  ProtoEnum.LeagueSeasonCardResultType resultType = 1;
+  penum.LeagueSeasonCardResultType resultType = 1;
   bool isExist = 2;
 }
 message LoginBonusListResponse {
@@ -4720,12 +4719,12 @@ message LoginBonusReceiveRequest {
   string loginBonusId = 1;
 }
 message LoginBonusReceiveResponse {
-  transaction.UserLoginBonus userLoginBonus = 1;
-  repeated transaction.RewardResult rewards = 2;
+  ptransaction.UserLoginBonus userLoginBonus = 1;
+  repeated ptransaction.RewardResult rewards = 2;
   api.CommonResponse commonResponse = 9999;
 }
 message LoginBonusInfo {
-  transaction.UserLoginBonus userLoginBonus = 1;
+  ptransaction.UserLoginBonus userLoginBonus = 1;
   api.NoticeInfo noticeInfo = 2;
 }
 message LoveTitleResponse {
@@ -4766,7 +4765,7 @@ message LoveLessonProgress {
 message LoveLevelInfo {
   int32 level = 1;
   int32 unlockStoryEpisode = 2;
-  ProtoEnum.LoveHintType unlockLoveHintType = 3;
+  penum.LoveHintType unlockLoveHintType = 3;
   bool isTextViewable = 4;
 }
 message LoveStartRequest {
@@ -4812,7 +4811,7 @@ message LoveSelectStoryChoiceInfo {
   bool isValid = 3;
 }
 message LoveFinishResponse {
-  repeated transaction.RewardResult rewards = 1;
+  repeated ptransaction.RewardResult rewards = 1;
   string storyEndName = 2;
   bool unlockSave = 3;
   string endRollAssetId = 4;
@@ -4857,7 +4856,7 @@ message LoveReceiveLessonRewardRequest {
   string loveId = 1;
 }
 message LoveReceiveLessonRewardResponse {
-  repeated transaction.Reward rewards = 1;
+  repeated ptransaction.Reward rewards = 1;
   int64 obtainExp = 2;
   int64 totalExp = 3;
   api.LoveLessonProgress lessonProgress = 4;
@@ -4867,7 +4866,7 @@ message LovePromoteLessonRequest {
   string loveId = 1;
 }
 message LovePromoteLessonResponse {
-  repeated transaction.Reward rewards = 1;
+  repeated ptransaction.Reward rewards = 1;
   int64 obtainExp = 2;
   int64 totalExp = 3;
   api.LoveLessonProgress lessonProgress = 4;
@@ -4911,13 +4910,13 @@ message MarathonQuestStartRequest {
   int32 deckNumber = 3;
   bool isSkip = 4;
   int32 execCount = 5;
-  repeated transaction.UserDeckPosition userBuddyDeckPositions = 6;
+  repeated ptransaction.UserDeckPosition userBuddyDeckPositions = 6;
   string buddyDeckName = 7;
 }
 message MarathonQuestListAssetRequest {
   string marathonId = 1;
   int32 deckNumber = 2;
-  repeated transaction.UserDeckPosition userBuddyDeckPositions = 3;
+  repeated ptransaction.UserDeckPosition userBuddyDeckPositions = 3;
   string buddyDeckName = 4;
 }
 message MarathonQuestListAssetResponse {
@@ -4947,7 +4946,7 @@ message MarathonDeckSaveRequest {
   string marathonQuestId = 1;
   int32 number = 2;
   string name = 3;
-  repeated transaction.UserDeckPosition userDeckPositions = 4;
+  repeated ptransaction.UserDeckPosition userDeckPositions = 4;
   int32 marathonQuestDifficultyNumber = 5;
 }
 message MarathonDeckSaveResponse {
@@ -4962,7 +4961,7 @@ message MarathonBuddyDeckRequest {
 message MarathonBuddyDeck {
   int32 deckNumber = 1;
   string deckName = 2;
-  repeated transaction.UserDeckPosition userBuddyDeckPositions = 3;
+  repeated ptransaction.UserDeckPosition userBuddyDeckPositions = 3;
 }
 message MarathonBuddyDeckResponse {
   repeated api.MarathonDeckInfo buddyDeckInfos = 1;
@@ -5072,7 +5071,7 @@ message MarathonRaidDeckSaveRequest {
   string marathonId = 1;
   int32 number = 2;
   string name = 3;
-  repeated transaction.UserDeckPosition userDeckPositions = 4;
+  repeated ptransaction.UserDeckPosition userDeckPositions = 4;
   int32 difficultyNumber = 5;
 }
 message MarathonRaidDeckSaveResponse {
@@ -5095,12 +5094,12 @@ message UserMarathonInfo {
 message MarathonQuestDifficultyLevelInfo {
   int32 marathonQuestDifficultyNumber = 1;
   bool cleared = 2;
-  ProtoEnum.ResultRankType rankType = 3;
+  penum.ResultRankType rankType = 3;
   int32 plus = 4;
   api.QuestOpponentInfo opponentInfo = 5;
   bool unlocked = 6;
   int64 highestScore = 7;
-  ProtoEnum.LiveSkipType liveSkipType = 8;
+  penum.LiveSkipType liveSkipType = 8;
 }
 message MarathonDeckInfo {
   int32 number = 1;
@@ -5131,9 +5130,9 @@ message MarathonRaidResult {
   int32 elapsedMilliSeconds = 5;
   int32 rank = 6;
   int32 joinedUserCount = 7;
-  repeated transaction.RewardResult mvpRewards = 8;
+  repeated ptransaction.RewardResult mvpRewards = 8;
   repeated api.MarathonRaidRankedUser rankedUsers = 9;
-  repeated transaction.RewardResult clearRewards = 10;
+  repeated ptransaction.RewardResult clearRewards = 10;
 }
 message MarathonRaidSimpleRankedUser {
   int32 rank = 1;
@@ -5149,8 +5148,8 @@ message MarathonRaidQuestProgress {
   int64 totalScore = 6;
   int32 difficultyNumber = 7;
   int32 difficultyLevel = 8;
-  ProtoEnum.MarathonRaidProgressType progressType = 9;
-  ProtoEnum.LiveSkipType liveSkipType = 10;
+  penum.MarathonRaidProgressType progressType = 9;
+  penum.LiveSkipType liveSkipType = 10;
 }
 message MarketListItemResponse {
   repeated api.MarketItem marketItems = 1;
@@ -5178,28 +5177,28 @@ message MarketPurchaseResponse {
   api.CommonResponse commonResponse = 9999;
 }
 message MasterGetResponse {
-  transaction.MasterTag masterTag = 1;
+  ptransaction.MasterTag masterTag = 1;
 }
 message MasterFaqResponse {
-  repeated master.HelpCategory helpCategories = 1;
+  repeated pmaster.HelpCategory helpCategories = 1;
 }
 message MasterRuleRequest {
-  ProtoEnum.RuleType ruleType = 1;
+  penum.RuleType ruleType = 1;
 }
 message MasterRuleResponse {
   string text = 1;
 }
 message MasterGetInquiryTemplateRequest {
-  ProtoEnum.InquiryTemplateType templateType = 1;
+  penum.InquiryTemplateType templateType = 1;
 }
 message MasterGetInquiryTemplateResponse {
   string text = 1;
 }
 message MasterGetHelpCategoryRequest {
-  ProtoEnum.HelpType helpType = 1;
+  penum.HelpType helpType = 1;
 }
 message MasterGetHelpCategoryResponse {
-  repeated master.HelpCategory helpCategories = 1;
+  repeated pmaster.HelpCategory helpCategories = 1;
 }
 message MessageListGroupResponse {
   repeated api.MessageGroupInfo infos = 1;
@@ -5306,31 +5305,31 @@ message MigrationMigrateTwitterRequest {
 message MigrationLinkResponse {
   bool success = 1;
   string linkedUserId = 2;
-  transaction.User linkedUser = 3;
+  ptransaction.User linkedUser = 3;
   string onetimeToken = 4;
   api.CommonResponse commonResponse = 9999;
 }
 message MigrationMigrateResponse {
   bool success = 1;
   string linkedUserId = 2;
-  transaction.User linkedUser = 3;
+  ptransaction.User linkedUser = 3;
   string onetimeToken = 4;
 }
 message MigrationUnlinkRequest {
-  ProtoEnum.ProviderType providerType = 1;
+  penum.ProviderType providerType = 1;
 }
 message MigrationUnlinkResponse {
   api.CommonResponse commonResponse = 9999;
 }
 message MissionListResponse {
-  repeated transaction.UserMission userMissions = 1;
+  repeated ptransaction.UserMission userMissions = 1;
   api.CommonResponse commonResponse = 9999;
 }
 message MissionReceiveRequest {
   repeated string missionIds = 1;
 }
 message MissionReceiveResponse {
-  repeated transaction.RewardResult results = 1;
+  repeated ptransaction.RewardResult results = 1;
   api.CommonResponse commonResponse = 9999;
 }
 message MissionURLTransitionRequest {
@@ -5360,7 +5359,7 @@ message MosaicExchangeRequest {
   int32 count = 3;
 }
 message MosaicExchangeResponse {
-  repeated transaction.RewardResult rewardResults = 1;
+  repeated ptransaction.RewardResult rewardResults = 1;
   api.MosaicProgressInfo progressInfo = 2;
   api.MosaicPanelInfo afterPanelInfo = 3;
   api.CommonResponse commonResponse = 9999;
@@ -5369,7 +5368,7 @@ message MosaicReceiveTotalConsumptionRewardRequest {
   string mosaicId = 1;
 }
 message MosaicReceiveTotalConsumptionRewardResponse {
-  repeated transaction.RewardResult rewardResults = 1;
+  repeated ptransaction.RewardResult rewardResults = 1;
   api.MosaicProgressInfo progressInfo = 2;
   api.CommonResponse commonResponse = 9999;
 }
@@ -5383,7 +5382,7 @@ message CheckOption {
   bool disableCheckAppVersion = 7;
 }
 message ErrorOption {
-  repeated ProtoEnum.ErrorCode errorCodes = 1;
+  repeated penum.ErrorCode errorCodes = 1;
 }
 message NoticeListResponse {
   repeated api.NoticeInfo notices = 1;
@@ -5423,7 +5422,7 @@ message PhotoDeleteRequest {
   repeated string photoIds = 1;
 }
 message PhotoDeleteResponse {
-  repeated transaction.RewardResult rewardResults = 1;
+  repeated ptransaction.RewardResult rewardResults = 1;
   api.CommonResponse commonResponse = 9999;
 }
 message PhotoEnhanceRequest {
@@ -5458,7 +5457,7 @@ message PhotoReportResponse {
   api.CommonResponse commonResponse = 9999;
 }
 message PhotoGetImageUrlRequest {
-  ProtoEnum.PhotoImageRequestType type = 1;
+  penum.PhotoImageRequestType type = 1;
   repeated string assetIds = 2;
 }
 message PhotoGetImageUrlResponse {
@@ -5470,7 +5469,7 @@ message PhotoImageUrl {
   string tmbUrl = 3;
 }
 message PhotoCheckShootingRequest {
-  ProtoEnum.PhotoShootingActionType actionType = 1;
+  penum.PhotoShootingActionType actionType = 1;
   string photoActivityId = 2;
   string photoMusicId = 3;
   string photoStageId = 4;
@@ -5482,7 +5481,7 @@ message PhotoCheckShootingResponse {
   api.CommonResponse commonResponse = 9999;
 }
 message PhotoCreateShootingsRequest {
-  ProtoEnum.PhotoShootingActionType actionType = 1;
+  penum.PhotoShootingActionType actionType = 1;
   string photoActivityId = 2;
   string photoMusicId = 3;
   string photoStageId = 4;
@@ -5498,7 +5497,7 @@ message PhotoCreateShootingParam {
   string mainCharacterId = 3;
 }
 message PhotoCreateShootingsResponse {
-  repeated transaction.UserPhoto photos = 1;
+  repeated ptransaction.UserPhoto photos = 1;
   bool isGift = 2;
   api.CommonResponse commonResponse = 9999;
 }
@@ -5517,14 +5516,14 @@ message PhotoSaleRecipeRequest {
   repeated string photoRecipeIds = 1;
 }
 message PhotoSaleRecipeResponse {
-  repeated transaction.RewardResult rewardResults = 1;
+  repeated ptransaction.RewardResult rewardResults = 1;
   api.CommonResponse commonResponse = 9999;
 }
 message PhotoListSpecialShootingRequest {
   string specialPhotoShootingId = 1;
 }
 message PhotoCheckSpecialShootingRequest {
-  ProtoEnum.PhotoShootingActionType actionType = 1;
+  penum.PhotoShootingActionType actionType = 1;
   string specialPhotoShootingId = 2;
   string musicId = 3;
   string stageId = 4;
@@ -5536,7 +5535,7 @@ message PhotoCheckSpecialShootingResponse {
   api.CommonResponse commonResponse = 9999;
 }
 message PhotoCreateSpecialShootingsRequest {
-  ProtoEnum.PhotoShootingActionType actionType = 1;
+  penum.PhotoShootingActionType actionType = 1;
   string specialPhotoShootingId = 2;
   string musicId = 3;
   string stageId = 4;
@@ -5547,7 +5546,7 @@ message PhotoCreateSpecialShootingsRequest {
   int32 manualCount = 9;
 }
 message PhotoCreateSpecialShootingsResponse {
-  repeated transaction.UserPhoto photos = 1;
+  repeated ptransaction.UserPhoto photos = 1;
   bool isGift = 2;
   string snsText = 3;
   api.CommonResponse commonResponse = 9999;
@@ -5597,7 +5596,7 @@ message PhotoCreateStoryEpisodeShootingsRequest {
   int32 manualCount = 6;
 }
 message PhotoCreateStoryEpisodeShootingsResponse {
-  repeated transaction.UserPhoto photos = 1;
+  repeated ptransaction.UserPhoto photos = 1;
   bool isGift = 2;
   api.CommonResponse commonResponse = 9999;
 }
@@ -5608,7 +5607,7 @@ message PhotoCreateCardStoryShootingsRequest {
   int32 manualCount = 4;
 }
 message PhotoCreateCardStoryShootingsResponse {
-  repeated transaction.UserPhoto photos = 1;
+  repeated ptransaction.UserPhoto photos = 1;
   bool isGift = 2;
   api.CommonResponse commonResponse = 9999;
 }
@@ -5630,7 +5629,7 @@ message PhotoCreateExpressionShootingsRequest {
   int32 manualCount = 8;
 }
 message PhotoCreateExpressionShootingsResponse {
-  repeated transaction.UserPhoto photos = 1;
+  repeated ptransaction.UserPhoto photos = 1;
   bool isGift = 2;
   api.CommonResponse commonResponse = 9999;
 }
@@ -5640,7 +5639,7 @@ message PhotoCreateExpressionShootingParam {
   int32 stagePositionNumber = 3;
   string photoPoseId = 4;
   string photoFacialId = 5;
-  ProtoEnum.PhotoLookingType photoLookingType = 6;
+  penum.PhotoLookingType photoLookingType = 6;
 }
 message PhotoDokanInfo {
   repeated api.DokanInfo expressions = 1;
@@ -5675,12 +5674,12 @@ message PhotoContestReceiveSectionRewardsRequest {
   string sectionId = 3;
 }
 message PhotoContestReceiveSectionRewardsResponse {
-  repeated transaction.RewardResult results = 1;
+  repeated ptransaction.RewardResult results = 1;
   api.CommonResponse commonResponse = 9999;
 }
 message PhotoContestCheckShootingRequest {
   string photoContestId = 1;
-  ProtoEnum.PhotoShootingActionType actionType = 2;
+  penum.PhotoShootingActionType actionType = 2;
   string photoContestActivityId = 3;
   string photoContestQuestMusicId = 4;
   string photoContestQuestStageId = 5;
@@ -5697,7 +5696,7 @@ message PhotoContestSubmitShootingRequest {
   string photoContestId = 1;
   string sectionId = 2;
   string itemId = 3;
-  ProtoEnum.PhotoShootingActionType actionType = 4;
+  penum.PhotoShootingActionType actionType = 4;
   string photoContestActivityId = 5;
   string photoContestQuestMusicId = 6;
   string photoContestQuestStageId = 7;
@@ -5722,13 +5721,13 @@ message PhotoContestCreateShootingRequest {
   string itemId = 3;
 }
 message PhotoContestCreateShootingResponse {
-  transaction.UserPhoto photo = 1;
+  ptransaction.UserPhoto photo = 1;
   bool isGift = 2;
   api.CommonResponse commonResponse = 9999;
 }
 message PhotoContestSectionBaseGuideInfo {
-  ProtoEnum.PhotoContestBaseEvaluationType baseEvaluationType = 1;
-  ProtoEnum.PhotoContestBaseGuideRankType baseGuideRankType = 2;
+  penum.PhotoContestBaseEvaluationType baseEvaluationType = 1;
+  penum.PhotoContestBaseGuideRankType baseGuideRankType = 2;
 }
 message PhotoContestSectionAdvanceGuideInfo {
   int32 number = 1;
@@ -5751,10 +5750,10 @@ message ProfileUpdateMessageResponse {
   api.CommonResponse commonResponse = 9999;
 }
 message ProfileUpdateBackgroundRequest {
-  ProtoEnum.ProfileBackgroundType backgroundType = 1;
+  penum.ProfileBackgroundType backgroundType = 1;
   string favoriteCardId = 2;
   string favoritePhotoId = 3;
-  ProtoEnum.CardDisplayType favoriteCardDisplayType = 4;
+  penum.CardDisplayType favoriteCardDisplayType = 4;
 }
 message ProfileUpdateBackgroundResponse {
   api.CommonResponse commonResponse = 9999;
@@ -5778,9 +5777,9 @@ message ProfileUpdateEmblemResponse {
   api.CommonResponse commonResponse = 9999;
 }
 message ProfileUpdateLayoutRequest {
-  ProtoEnum.ProfileLayoutType layoutType = 1;
-  ProtoEnum.ProfileInformationType informationType = 2;
-  ProtoEnum.ProfileColorType colorType = 3;
+  penum.ProfileLayoutType layoutType = 1;
+  penum.ProfileInformationType informationType = 2;
+  penum.ProfileColorType colorType = 3;
 }
 message ProfileUpdateLayoutResponse {
   api.CommonResponse commonResponse = 9999;
@@ -5848,8 +5847,8 @@ message PvpStartResponse {
   int64 point = 2;
   int64 addPoint = 3;
   int32 rank = 4;
-  repeated transaction.Reward musicMasteryRewards = 5;
-  repeated transaction.RewardResult challengeRewards = 6;
+  repeated ptransaction.Reward musicMasteryRewards = 5;
+  repeated ptransaction.RewardResult challengeRewards = 6;
   api.AllProfileInfo profile = 7;
   api.AllProfileInfo opponentProfile = 8;
   api.CommonResponse commonResponse = 9999;
@@ -5887,7 +5886,7 @@ message QuestStartRequest {
   bool useDailyTicket = 3;
   bool isSkip = 4;
   int32 playCount = 5;
-  repeated transaction.UserDeckPosition userBuddyDeckPositions = 6;
+  repeated ptransaction.UserDeckPosition userBuddyDeckPositions = 6;
   string buddyDeckName = 7;
 }
 message QuestStartBulkDailyResponse {
@@ -5916,7 +5915,7 @@ message QuestListLatestClearResponse {
 message QuestListAssetRequest {
   string questId = 1;
   int32 deckNumber = 2;
-  repeated transaction.UserDeckPosition userBuddyDeckPositions = 3;
+  repeated ptransaction.UserDeckPosition userBuddyDeckPositions = 3;
   string buddyDeckName = 4;
 }
 message QuestListAssetResponse {
@@ -5979,7 +5978,7 @@ message RaceMovePanelRequest {
   string raceId = 1;
 }
 message RaceMovePanelResponse {
-  repeated transaction.RewardResult rewardResults = 1;
+  repeated ptransaction.RewardResult rewardResults = 1;
   api.UserRaceInfo userRaceInfo = 2;
   repeated api.RaceOpponentProgressInfo opponentProgressInfos = 3;
   repeated api.RaceLiveQuestInfo liveQuestInfos = 4;
@@ -5989,7 +5988,7 @@ message RaceReceiveActivityLessonRequest {
   string raceId = 1;
 }
 message RaceReceiveActivityLessonResponse {
-  repeated transaction.Reward rewards = 1;
+  repeated ptransaction.Reward rewards = 1;
   api.UserRaceInfo userRaceInfo = 2;
   api.CommonResponse commonResponse = 9999;
 }
@@ -6056,7 +6055,7 @@ message RaceSaveDeckRequest {
   string raceId = 1;
   int32 number = 2;
   string name = 3;
-  repeated transaction.UserDeckPosition userDeckPositions = 4;
+  repeated ptransaction.UserDeckPosition userDeckPositions = 4;
   string raceQuestId = 5;
   int32 difficultyNumber = 6;
 }
@@ -6158,39 +6157,39 @@ message RouletteDrawRequest {
   string rouletteId = 1;
 }
 message RouletteDrawResponse {
-  repeated transaction.RewardResult rewardResults = 1;
+  repeated ptransaction.RewardResult rewardResults = 1;
   int32 number = 2;
-  ProtoEnum.RouletteRarityType rarityType = 3;
+  penum.RouletteRarityType rarityType = 3;
   api.RouletteEffectInfo effectInfo = 4;
   repeated api.RouletteReward rewardList = 5;
   api.CommonResponse commonResponse = 9999;
 }
 message RouletteReward {
-  transaction.Reward reward = 1;
+  ptransaction.Reward reward = 1;
   int32 number = 2;
-  ProtoEnum.RouletteRarityType rarityType = 3;
+  penum.RouletteRarityType rarityType = 3;
 }
 message RouletteEffectInfo {
-  ProtoEnum.RouletteSpecialEffectType specialEffectType = 1;
+  penum.RouletteSpecialEffectType specialEffectType = 1;
   string reversalEffectAssetId = 2;
-  ProtoEnum.RouletteCharacterType characterType = 3;
+  penum.RouletteCharacterType characterType = 3;
   string frameAssetId = 4;
   string characterStoppingAssetId = 5;
   string characterRotatingAssetId = 6;
   string crowdAssetId = 7;
-  ProtoEnum.RouletteBackgroundColorType backgroundColorType = 8;
+  penum.RouletteBackgroundColorType backgroundColorType = 8;
   string buttonColorAssetId = 9;
-  ProtoEnum.RouletteButtonColorType buttonColorType = 10;
+  penum.RouletteButtonColorType buttonColorType = 10;
   bool isMuteBgm = 11;
   bool isVibration = 12;
   bool isRotateDirectionLeft = 13;
-  ProtoEnum.RouletteObtainEffectType obtainEffectType = 14;
+  penum.RouletteObtainEffectType obtainEffectType = 14;
 }
 message SalaryGetPayslipRequest {
   repeated int32 yearMonths = 1;
 }
 message SalaryGetPayslipResponse {
-  repeated transaction.Payslip payslips = 1;
+  repeated ptransaction.Payslip payslips = 1;
   api.CommonResponse commonResponse = 9999;
 }
 message SalaryPayRequest {
@@ -6198,7 +6197,7 @@ message SalaryPayRequest {
   int32 month = 2;
 }
 message SalaryPayResponse {
-  transaction.Payslip payslip = 1;
+  ptransaction.Payslip payslip = 1;
   api.CommonResponse commonResponse = 9999;
 }
 message SatelliteInitCodeRequest {
@@ -6251,7 +6250,7 @@ message ShelfCreatePhotoRequest {
   string assetId = 2;
 }
 message ShelfCreatePhotoResponse {
-  transaction.UserPhoto photo = 1;
+  ptransaction.UserPhoto photo = 1;
   bool isGift = 2;
   api.CommonResponse commonResponse = 9999;
 }
@@ -6260,7 +6259,7 @@ message ShelfCreateAlbumPhotoRequest {
   string assetId = 2;
 }
 message ShelfCreateAlbumPhotoResponse {
-  transaction.UserPhoto photo = 1;
+  ptransaction.UserPhoto photo = 1;
   bool isGift = 2;
   api.CommonResponse commonResponse = 9999;
 }
@@ -6288,7 +6287,7 @@ message ShelfUnsetPhotoResponse {
 message ShelfTemplateInfo {
   string templateId = 1;
   repeated api.ShelfAlbumSlotInfo slotInfos = 2;
-  ProtoEnum.ShelfTemplateType templateType = 3;
+  penum.ShelfTemplateType templateType = 3;
   string backgroundAssetId = 4;
 }
 message ShelfAlbumSlotInfo {
@@ -6332,7 +6331,7 @@ message ShopPurchaseRequest {
   string shopItemId = 1;
 }
 message ShopPurchaseResponse {
-  repeated transaction.RewardResult rewards = 1;
+  repeated ptransaction.RewardResult rewards = 1;
   api.CommonResponse commonResponse = 9999;
 }
 message ShopRegisterPurchaseTransactionRequest {
@@ -6358,7 +6357,7 @@ message ShopPurchaseStoneRequest {
   int64 localizedPricePermyriad = 6;
 }
 message ShopPurchaseStoneResponse {
-  repeated transaction.RewardResult rewards = 1;
+  repeated ptransaction.RewardResult rewards = 1;
   api.PaidJpy paidJpy = 2;
   api.CommonResponse commonResponse = 9999;
 }
@@ -6370,7 +6369,7 @@ message ShopRecoverPurchaseStoneRequest {
   int64 localizedPricePermyriad = 5;
 }
 message ShopRecoverPurchaseStoneResponse {
-  repeated transaction.RewardResult rewards = 1;
+  repeated ptransaction.RewardResult rewards = 1;
   string shopItemName = 2;
   api.CommonResponse commonResponse = 9999;
 }
@@ -6396,7 +6395,7 @@ message ShopReceiveConditionRewardRequest {
   repeated int32 numbers = 2;
 }
 message ShopReceiveConditionRewardResponse {
-  repeated transaction.RewardResult rewards = 1;
+  repeated ptransaction.RewardResult rewards = 1;
   api.CommonResponse commonResponse = 9999;
 }
 message ShopTryOnRequest {
@@ -6461,7 +6460,7 @@ message ShowcaseLikeRequest {
   int32 number = 2;
 }
 message ShowcaseLikeResponse {
-  repeated transaction.Reward rewards = 1;
+  repeated ptransaction.Reward rewards = 1;
   bool isAlreadyLike = 2;
   api.CommonResponse commonResponse = 9999;
 }
@@ -6515,7 +6514,7 @@ message ShowcaseCreatePhotoRequest {
   int32 manualCount = 3;
 }
 message ShowcaseCreatePhotoResponse {
-  repeated transaction.UserPhoto photos = 1;
+  repeated ptransaction.UserPhoto photos = 1;
   bool isGift = 2;
   api.CommonResponse commonResponse = 9999;
 }
@@ -6528,7 +6527,7 @@ message ShowcaseMysetInfo {
   string defaultName = 2;
 }
 message ShowcaseInfo {
-  transaction.UserShowcase showcase = 1;
+  ptransaction.UserShowcase showcase = 1;
   api.ProfileInfo profileInfo = 2;
   bool isFriend = 3;
   bool isLiked = 4;
@@ -6562,13 +6561,13 @@ message ShowcaseToyArrangementInfo {
   int32 showcaseFaceNumber = 7;
 }
 message StaffTrainRequest {
-  ProtoEnum.ParameterType parameterType = 1;
+  penum.ParameterType parameterType = 1;
 }
 message StaffTrainResponse {
   api.CommonResponse commonResponse = 9999;
 }
 message StaffLevelLimitBreakRequest {
-  ProtoEnum.ParameterType parameterType = 1;
+  penum.ParameterType parameterType = 1;
 }
 message StaffLevelLimitBreakResponse {
   api.CommonResponse commonResponse = 9999;
@@ -6578,7 +6577,7 @@ message StoryReadRequest {
   bool isLast = 2;
 }
 message StoryReadResponse {
-  repeated transaction.RewardResult rewards = 1;
+  repeated ptransaction.RewardResult rewards = 1;
   api.CommonResponse commonResponse = 9999;
 }
 message StoryReleaseEpisodeRequest {
@@ -6600,7 +6599,7 @@ message StoryReadEventRequest {
   bool isLast = 3;
 }
 message StoryReadEventResponse {
-  repeated transaction.RewardResult rewards = 1;
+  repeated ptransaction.RewardResult rewards = 1;
   api.CommonResponse commonResponse = 9999;
 }
 message StoryListExtraResponse {
@@ -6613,7 +6612,7 @@ message StoryReadExtraRequest {
   bool isLast = 3;
 }
 message StoryReadExtraResponse {
-  repeated transaction.RewardResult rewards = 1;
+  repeated ptransaction.RewardResult rewards = 1;
   api.CommonResponse commonResponse = 9999;
 }
 message StoryReadAnniversaryStoryRequest {
@@ -6626,7 +6625,7 @@ message StoryReadCharacterCompanyEnjoyStoryRequest {
   bool isLast = 3;
 }
 message StoryReadCharacterCompanyEnjoyStoryResponse {
-  repeated transaction.RewardResult rewards = 1;
+  repeated ptransaction.RewardResult rewards = 1;
   api.CommonResponse commonResponse = 9999;
 }
 message SystemCheckRequest {
@@ -6799,8 +6798,8 @@ message TourDeckSaveResponse {
 message TourInfo {
   string id = 1;
   string name = 2;
-  ProtoEnum.TourType type = 3;
-  ProtoEnum.TourEnemyType enemyType = 4;
+  penum.TourType type = 3;
+  penum.TourEnemyType enemyType = 4;
   int64 startTime = 5;
   int64 endTime = 6;
   int64 aggregateEndTime = 7;
@@ -6858,14 +6857,14 @@ message TourAreaInfo {
   bool isAreaCleared = 14;
   bool isRetired = 15;
   repeated api.TourStepInfo stepInfos = 16;
-  repeated transaction.Reward areaRewards = 17;
+  repeated ptransaction.Reward areaRewards = 17;
   repeated api.TourLiveBonusInfo liveBonusInfos = 18;
   repeated api.TourCardInfo cardInfos = 19;
   repeated api.TourScoutInfo scoutInfos = 20;
   repeated api.TourDeckInfo deckInfos = 21;
   bool isLastArea = 22;
-  ProtoEnum.TourType tourType = 23;
-  ProtoEnum.TourAreaType tourAreaType = 24;
+  penum.TourType tourType = 23;
+  penum.TourAreaType tourAreaType = 24;
 }
 message TourStepInfo {
   int32 step = 1;
@@ -6873,7 +6872,7 @@ message TourStepInfo {
 }
 message TourPositionInfo {
   int32 position = 1;
-  ProtoEnum.TourStepType type = 2;
+  penum.TourStepType type = 2;
   api.TourEffectActivity activityInfo = 3;
   api.TourEffectRefresh refreshInfo = 4;
   api.TourEffectScout scoutInfo = 5;
@@ -6916,14 +6915,14 @@ message TourScoutInfo {
 }
 message TourLiveInfo {
   api.LiveResult result = 1;
-  repeated transaction.Reward rewards = 2;
-  ProtoEnum.ResultRankType rankType = 3;
+  repeated ptransaction.Reward rewards = 2;
+  penum.ResultRankType rankType = 3;
   int32 rankPlus = 4;
   repeated api.QuestRankPattern rankPatterns = 5;
 }
 message TourAreaClearInfo {
-  repeated transaction.Reward areaRewards = 1;
-  repeated transaction.Reward firstClearRewards = 2;
+  repeated ptransaction.Reward areaRewards = 1;
+  repeated ptransaction.Reward firstClearRewards = 2;
   int64 score = 3;
   int64 areaScore = 4;
   int64 rank = 5;
@@ -6941,7 +6940,7 @@ message TutorialInitResponse {
   api.CommonResponse commonResponse = 9999;
 }
 message TutorialProgressRequest {
-  ProtoEnum.TutorialType type = 1;
+  penum.TutorialType type = 1;
   int32 step = 2;
 }
 message TutorialProgressResponse {
@@ -6960,12 +6959,12 @@ message TutorialActivityStartFanEventResponse {
   api.CommonResponse commonResponse = 9999;
 }
 message TutorialActivityReceivePromotionRewardResponse {
-  repeated transaction.Reward rewards = 1;
+  repeated ptransaction.Reward rewards = 1;
   api.ActivityLevelProgress activityLevelProgress = 2;
   api.CommonResponse commonResponse = 9999;
 }
 message TutorialActivityReceiveLessonRewardResponse {
-  repeated transaction.Reward rewards = 1;
+  repeated ptransaction.Reward rewards = 1;
   api.CommonResponse commonResponse = 9999;
 }
 message TutorialPhotoCreateShootingRequest {
@@ -6973,7 +6972,7 @@ message TutorialPhotoCreateShootingRequest {
   string photoImageId = 2;
 }
 message TutorialPhotoCreateShootingResponse {
-  transaction.UserPhoto photo = 1;
+  ptransaction.UserPhoto photo = 1;
   bool isGift = 2;
   api.CommonResponse commonResponse = 9999;
 }
@@ -6981,57 +6980,57 @@ message TutorialSkipResponse {
   api.CommonResponse commonResponse = 9999;
 }
 message UserGetResponse {
-  transaction.User user = 1;
-  repeated transaction.UserItem items = 2;
-  repeated transaction.UserCard cards = 3;
-  repeated transaction.UserCharacter characters = 4;
-  repeated transaction.UserCostume costumes = 5;
-  repeated transaction.UserAccessory accessories = 6;
-  repeated transaction.UserPhoto photos = 7;
-  repeated transaction.UserDeck decks = 8;
-  repeated transaction.UserDeckPosition deckPositions = 9;
-  repeated transaction.UserStory stories = 10;
-  repeated transaction.UserPoint points = 11;
-  repeated transaction.UserStaff staffs = 12;
-  repeated transaction.UserMessage messages = 13;
-  repeated transaction.UserTelephone telephones = 14;
-  repeated transaction.UserMission missions = 15;
-  transaction.UserProfile profile = 16;
-  repeated transaction.UserEmblem emblems = 17;
-  repeated transaction.UserCharacterMusic characterMusics = 18;
-  transaction.UserBalance balance = 19;
-  transaction.UserTotalCount totalCount = 20;
-  repeated transaction.UserArea areas = 21;
-  repeated transaction.UserQuest quests = 22;
-  repeated transaction.UserGachaButton gachaButtons = 23;
-  repeated transaction.UserHomeTalk homeTalks = 24;
-  transaction.UserPhotoReport photoReport = 25;
-  repeated transaction.UserCardSupport cardSupports = 26;
-  repeated transaction.UserMessageSchedule messageSchedules = 27;
-  repeated transaction.UserNotification notifications = 28;
-  transaction.UserHierarchy hierarchy = 29;
-  repeated transaction.UserTutorial tutorials = 30;
-  repeated transaction.UserHomePosition homePositions = 31;
-  repeated transaction.UserMusic musics = 32;
-  repeated transaction.UserDecoration decorations = 33;
-  repeated transaction.UserPhotoRecipe photoRecipes = 34;
-  transaction.UserBuddy buddy = 35;
-  transaction.UserInvite invite = 36;
-  repeated transaction.UserHair hairs = 37;
-  transaction.UserActivityFanEventProgress activityFanEventProgress = 38;
-  repeated transaction.UserLove loves = 39;
-  repeated transaction.UserLeagueDeckPosition leagueDeckPositions = 40;
-  repeated transaction.UserDuty duties = 41;
-  repeated transaction.UserDutyPoint dutyPoints = 42;
-  transaction.UserCompany company = 43;
-  repeated transaction.UserShowcase showcases = 44;
-  transaction.UserShowcaseLike showcaseLike = 45;
-  repeated transaction.UserShowcaseMusic showcaseMusics = 46;
-  repeated transaction.UserShowcaseToy showcaseToys = 47;
-  repeated transaction.UserShowcaseMyset showcaseMysets = 48;
-  repeated transaction.UserTourArea tourAreas = 49;
-  repeated transaction.UserPhotoPose photoPoses = 50;
-  transaction.UserPublic userPublic = 999;
+  ptransaction.User user = 1;
+  repeated ptransaction.UserItem items = 2;
+  repeated ptransaction.UserCard cards = 3;
+  repeated ptransaction.UserCharacter characters = 4;
+  repeated ptransaction.UserCostume costumes = 5;
+  repeated ptransaction.UserAccessory accessories = 6;
+  repeated ptransaction.UserPhoto photos = 7;
+  repeated ptransaction.UserDeck decks = 8;
+  repeated ptransaction.UserDeckPosition deckPositions = 9;
+  repeated ptransaction.UserStory stories = 10;
+  repeated ptransaction.UserPoint points = 11;
+  repeated ptransaction.UserStaff staffs = 12;
+  repeated ptransaction.UserMessage messages = 13;
+  repeated ptransaction.UserTelephone telephones = 14;
+  repeated ptransaction.UserMission missions = 15;
+  ptransaction.UserProfile profile = 16;
+  repeated ptransaction.UserEmblem emblems = 17;
+  repeated ptransaction.UserCharacterMusic characterMusics = 18;
+  ptransaction.UserBalance balance = 19;
+  ptransaction.UserTotalCount totalCount = 20;
+  repeated ptransaction.UserArea areas = 21;
+  repeated ptransaction.UserQuest quests = 22;
+  repeated ptransaction.UserGachaButton gachaButtons = 23;
+  repeated ptransaction.UserHomeTalk homeTalks = 24;
+  ptransaction.UserPhotoReport photoReport = 25;
+  repeated ptransaction.UserCardSupport cardSupports = 26;
+  repeated ptransaction.UserMessageSchedule messageSchedules = 27;
+  repeated ptransaction.UserNotification notifications = 28;
+  ptransaction.UserHierarchy hierarchy = 29;
+  repeated ptransaction.UserTutorial tutorials = 30;
+  repeated ptransaction.UserHomePosition homePositions = 31;
+  repeated ptransaction.UserMusic musics = 32;
+  repeated ptransaction.UserDecoration decorations = 33;
+  repeated ptransaction.UserPhotoRecipe photoRecipes = 34;
+  ptransaction.UserBuddy buddy = 35;
+  ptransaction.UserInvite invite = 36;
+  repeated ptransaction.UserHair hairs = 37;
+  ptransaction.UserActivityFanEventProgress activityFanEventProgress = 38;
+  repeated ptransaction.UserLove loves = 39;
+  repeated ptransaction.UserLeagueDeckPosition leagueDeckPositions = 40;
+  repeated ptransaction.UserDuty duties = 41;
+  repeated ptransaction.UserDutyPoint dutyPoints = 42;
+  ptransaction.UserCompany company = 43;
+  repeated ptransaction.UserShowcase showcases = 44;
+  ptransaction.UserShowcaseLike showcaseLike = 45;
+  repeated ptransaction.UserShowcaseMusic showcaseMusics = 46;
+  repeated ptransaction.UserShowcaseToy showcaseToys = 47;
+  repeated ptransaction.UserShowcaseMyset showcaseMysets = 48;
+  repeated ptransaction.UserTourArea tourAreas = 49;
+  repeated ptransaction.UserPhotoPose photoPoses = 50;
+  ptransaction.UserPublic userPublic = 999;
 }
 message UserUpdateRequest {
   string name = 1;

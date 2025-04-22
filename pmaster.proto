@@ -1,8 +1,7 @@
 syntax = "proto3";
-package master;
-option go_package = "solis/pkg/proto/master";
-option csharp_namespace = "Solis.Common.Proto.Master";
-import "ProtoEnum.proto";
+package pmaster;
+option go_package = "vibbit/solis/proto/pmaster";
+import "penum.proto";
 
 message PhotoContestSection {
   string id = 1;
@@ -19,11 +18,11 @@ message Accessory {
   string classification = 3;
   int32 rarity = 4;
   string name = 5;
-  ProtoEnum.AccessoryCategoryType categoryType = 6;
-  ProtoEnum.AccessoryParameterType param1Type = 7;
+  penum.AccessoryCategoryType categoryType = 6;
+  penum.AccessoryParameterType param1Type = 7;
   int32 param1Permil = 8;
   int32 param1Value = 9;
-  ProtoEnum.AccessoryParameterType param2Type = 10;
+  penum.AccessoryParameterType param2Type = 10;
   int32 param2Permil = 11;
   int32 param2Value = 12;
   int32 salePrice = 13;
@@ -33,11 +32,11 @@ message Accessory {
 message ActivityFanEvent {
   string id = 1;
   string name = 2;
-  ProtoEnum.ActivityFanEventType type = 3;
+  penum.ActivityFanEventType type = 3;
   string viewConditionId = 4;
   string unlockConditionId = 5;
   int32 order = 6;
-  repeated master.ActivityFanEventLevel levels = 101;
+  repeated pmaster.ActivityFanEventLevel levels = 101;
 }
 message ActivityFanEventLevel {
   int32 level = 1;
@@ -65,7 +64,7 @@ message ActivityPromotion {
   string viewConditionId = 3;
   string unlockConditionId = 4;
   int32 order = 5;
-  repeated master.ActivityPromotionLevel levels = 101;
+  repeated pmaster.ActivityPromotionLevel levels = 101;
 }
 message ActivityPromotionLevel {
   int32 level = 1;
@@ -78,7 +77,7 @@ message ActivityRefresh {
   string viewConditionId = 3;
   string unlockConditionId = 4;
   int32 order = 5;
-  repeated master.ActivityRefreshLevel levels = 101;
+  repeated pmaster.ActivityRefreshLevel levels = 101;
 }
 message ActivityRefreshLevel {
   int32 level = 1;
@@ -97,7 +96,7 @@ message AdvLiveMovie {
 }
 message Area {
   string id = 1;
-  ProtoEnum.AreaType type = 2;
+  penum.AreaType type = 2;
   string name = 3;
   string description = 4;
   int32 order = 5;
@@ -105,7 +104,7 @@ message Area {
   string viewConditionId = 7;
   string unlockConditionId = 8;
   int32 dailyLimitCount = 9;
-  ProtoEnum.ItemType dailyTicketItemType = 10;
+  penum.ItemType dailyTicketItemType = 10;
   string rewardAssetId = 11;
   string assetId = 12;
   string colorCode = 13;
@@ -130,11 +129,11 @@ message BacksidePanelGoalSetting {
 }
 message BacksideQuestSetting {
   string id = 1;
-  ProtoEnum.AttributeType position1AttributeType = 2;
-  ProtoEnum.AttributeType position2AttributeType = 3;
-  ProtoEnum.AttributeType position3AttributeType = 4;
-  ProtoEnum.AttributeType position4AttributeType = 5;
-  ProtoEnum.AttributeType position5AttributeType = 6;
+  penum.AttributeType position1AttributeType = 2;
+  penum.AttributeType position2AttributeType = 3;
+  penum.AttributeType position3AttributeType = 4;
+  penum.AttributeType position4AttributeType = 5;
+  penum.AttributeType position5AttributeType = 6;
   int32 activeSkillWeightPermil = 7;
   int32 specialSkillWeightPermil = 8;
   int32 skillStaminaWeightPermil = 9;
@@ -145,7 +144,7 @@ message BacksideQuestSetting {
   string questPressureId = 14;
   string questCharacterAdvantageId = 15;
   string questAudienceAdvantageId = 16;
-  ProtoEnum.MoodType moodType = 17;
+  penum.MoodType moodType = 17;
 }
 message BoxGacha {
   string id = 1;
@@ -161,7 +160,7 @@ message Card {
   string assetId = 2;
   string name = 3;
   string description = 4;
-  ProtoEnum.CardType type = 5;
+  penum.CardType type = 5;
   string characterId = 6;
   int32 initialRarity = 7;
   string cardParameterId = 8;
@@ -184,9 +183,9 @@ message Card {
   string cardEvolutionLevelReleaseGroupId = 38;
   string cardEvolutionLevelGroupId = 39;
   string skillId4 = 40;
-  repeated master.CardStory stories = 101;
-  repeated master.CardMessage messages = 102;
-  repeated master.CardHomeTalk homeTalks = 103;
+  repeated pmaster.CardStory stories = 101;
+  repeated pmaster.CardMessage messages = 102;
+  repeated pmaster.CardHomeTalk homeTalks = 103;
 }
 message CardDuplicateReward {
   int32 initialRarity = 1;
@@ -212,8 +211,8 @@ message CardHomeTalk {
 }
 message CardImage {
   string cardId = 1;
-  ProtoEnum.CardDisplayType displayType = 2;
-  ProtoEnum.CardImageType imageType = 3;
+  penum.CardDisplayType displayType = 2;
+  penum.CardImageType imageType = 3;
   float displayPositionX = 4;
   float displayPositionY = 5;
   float displayScale = 6;
@@ -252,22 +251,22 @@ message Character {
   string unfavorite = 15;
   string profile = 16;
   repeated string costumeIds = 18;
-  repeated master.CharacterDuplicate altCharacters = 19;
+  repeated pmaster.CharacterDuplicate altCharacters = 19;
   string defaultCostumeId = 20;
   int32 heightCorrectionPermil = 21;
   string color = 22;
-  repeated master.ActivityFanEventWord activityFanEventWords = 23;
+  repeated pmaster.ActivityFanEventWord activityFanEventWords = 23;
   string talkArrivalMotionAssetId = 24;
   string talkArrivalAdditionMotionAssetId = 25;
   string viewConditionId = 26;
-  ProtoEnum.CharacterPersonalityType personalityType = 27;
-  ProtoEnum.SimpleCharacterPersonalityType simplePersonalityType = 28;
-  ProtoEnum.CharacterSdPersonalityType sdPersonalityType = 29;
+  penum.CharacterPersonalityType personalityType = 27;
+  penum.SimpleCharacterPersonalityType simplePersonalityType = 28;
+  penum.CharacterSdPersonalityType sdPersonalityType = 29;
   repeated string costumeMotionAssetIds = 30;
   repeated string costumeAdditionMotionAssetIds = 31;
   repeated string costumeVoiceAssetIds = 32;
   bool isLeftHanded = 33;
-  ProtoEnum.PsylliumColorType psylliumColorType = 34;
+  penum.PsylliumColorType psylliumColorType = 34;
   string shortProfile = 35;
   string threeSize = 36;
   string catchphrase = 37;
@@ -281,16 +280,16 @@ message Character {
   string catchphraseColor = 46;
   string unlockConditionId = 47;
   bool isHomeDanceTarget = 48;
-  ProtoEnum.CharacterType type = 49;
+  penum.CharacterType type = 49;
   string groupName = 50;
-  master.LoveCharacterInfo loveInfo = 51;
-  repeated master.CharacterCompanyEnjoyStory companyEnjoyStories = 52;
+  pmaster.LoveCharacterInfo loveInfo = 51;
+  repeated pmaster.CharacterCompanyEnjoyStory companyEnjoyStories = 52;
   string homeMainCharacterStayMotionAssetId = 53;
   string homeMainCharacterStayAdditionMotionAssetId = 54;
   string homeMainCharacterStayStartMotionAssetId = 55;
   string homeMainCharacterStayPropAssetId = 56;
   string gachaMovieName = 57;
-  repeated master.LoveCharacterInfo loveInfos = 58;
+  repeated pmaster.LoveCharacterInfo loveInfos = 58;
 }
 message CharacterCompanyEnjoyStory {
   int32 number = 1;
@@ -314,11 +313,11 @@ message CharacterGroup {
   string name = 4;
   string viewConditionId = 5;
   string color = 6;
-  repeated master.CharacterGroupMapping mappings = 7;
+  repeated pmaster.CharacterGroupMapping mappings = 7;
   string backgroundColor = 9;
   string textColor = 10;
   string nameColor = 11;
-  ProtoEnum.CharacterType characterType = 12;
+  penum.CharacterType characterType = 12;
 }
 message CharacterGroupMapping {
   string characterId = 1;
@@ -344,7 +343,7 @@ message CompanyEnjoyObtainPointItemSetting {
   string characterId = 1;
   string itemId = 2;
   int32 obtainPoint = 3;
-  ProtoEnum.CompanyEnjoyObtainPointItemGrowthType growthType = 4;
+  penum.CompanyEnjoyObtainPointItemGrowthType growthType = 4;
 }
 message CompanyGrade {
   string id = 1;
@@ -550,7 +549,7 @@ message Costume {
   string motifAssetId = 11;
   bool isUserUnavailable = 12;
   string defaultHairId = 13;
-  repeated ProtoEnum.PhotoPoseType impossiblePhotoPoseTypes = 14;
+  repeated penum.PhotoPoseType impossiblePhotoPoseTypes = 14;
 }
 message Decoration {
   string id = 1;
@@ -571,7 +570,7 @@ message Emblem {
 }
 message EventMission {
   string id = 1;
-  ProtoEnum.EventMissionType eventMissionType = 2;
+  penum.EventMissionType eventMissionType = 2;
   string assetId = 3;
   string name = 4;
   int32 order = 5;
@@ -586,7 +585,7 @@ message EventStory {
   string description = 4;
   int32 order = 5;
   string viewConditionId = 6;
-  repeated master.EventStoryEpisode episodes = 11;
+  repeated pmaster.EventStoryEpisode episodes = 11;
 }
 message EventStoryEpisode {
   int32 episode = 1;
@@ -645,8 +644,8 @@ message ExtraStory {
   int32 order = 6;
   string viewConditionId = 7;
   string unlockConditionId = 8;
-  repeated master.ExtraStoryEpisode episodes = 9;
-  ProtoEnum.ExtraStoryType extraStoryType = 10;
+  repeated pmaster.ExtraStoryEpisode episodes = 9;
+  penum.ExtraStoryType extraStoryType = 10;
   string iconAssetId = 11;
   string backgroundAssetId = 12;
   string secretEffectColorCode = 13;
@@ -668,13 +667,13 @@ message ExtraStoryPart {
   string subTitle = 4;
   string noteText = 5;
   int32 order = 6;
-  ProtoEnum.ExtraStoryPartType type = 7;
+  penum.ExtraStoryPartType type = 7;
   string viewConditionId = 8;
   string unlockConditionId = 9;
   repeated string extraStoryIds = 10;
 }
 message FunctionLock {
-  ProtoEnum.FunctionLockType type = 1;
+  penum.FunctionLockType type = 1;
   int32 requiredManagerLevel = 2;
   string unlockConditionId = 3;
 }
@@ -688,11 +687,11 @@ message Gacha {
   string name = 7;
   string description = 8;
   string precaution = 9;
-  ProtoEnum.GachaType gachaType = 10;
+  penum.GachaType gachaType = 10;
   string viewConditionId = 11;
   string unlockConditionId = 12;
   repeated string pickupCardIds = 13;
-  ProtoEnum.ResourceType exchangeResourceType = 14;
+  penum.ResourceType exchangeResourceType = 14;
   string exchangeResourceId = 15;
   string exchangeBoothId = 16;
   int32 order = 17;
@@ -704,7 +703,7 @@ message Gacha {
   string bgmAssetId = 23;
   repeated string buttonIds = 100;
   repeated string exchangeIds = 101;
-  repeated master.GachaCardReward cardRewards = 102;
+  repeated pmaster.GachaCardReward cardRewards = 102;
 }
 message GachaButton {
   string id = 1;
@@ -712,11 +711,11 @@ message GachaButton {
   string description = 3;
   bool isAnimation = 4;
   string consumptionId = 5;
-  ProtoEnum.GachaLimitType discountLimitType = 6;
+  penum.GachaLimitType discountLimitType = 6;
   int32 discountCount = 7;
   string discountConsumptionId = 8;
   int32 drawCount = 9;
-  ProtoEnum.GachaLimitType limitType = 10;
+  penum.GachaLimitType limitType = 10;
   int32 limitCount = 11;
   string bonusRewardId = 12;
   int32 bonusCount = 13;
@@ -769,7 +768,7 @@ message Hair {
   int32 order = 9;
   string name = 10;
   int64 releaseTime = 11;
-  repeated ProtoEnum.PhotoPoseType impossiblePhotoPoseTypes = 12;
+  repeated penum.PhotoPoseType impossiblePhotoPoseTypes = 12;
 }
 message HierarchyDetailGrade {
   string id = 1;
@@ -788,7 +787,7 @@ message HierarchyDivisionReward {
 }
 message HierarchyReward {
   string id = 1;
-  ProtoEnum.HierarchyRewardType hierarchyRewardType = 2;
+  penum.HierarchyRewardType hierarchyRewardType = 2;
   int32 order = 3;
   string name = 4;
   string conditionId = 5;
@@ -801,15 +800,15 @@ message HomeAction {
   string additionMotionAssetId = 4;
   string voiceAssetId = 5;
   string text = 6;
-  ProtoEnum.HomePositionType positionType = 7;
+  penum.HomePositionType positionType = 7;
   string conditionId = 8;
   int32 weight = 9;
-  ProtoEnum.HomeActionType actionType = 10;
+  penum.HomeActionType actionType = 10;
 }
 message HomeBackground {
   string homeBackgroundId = 1;
   string name = 2;
-  ProtoEnum.HomePlaceType placeType = 3;
+  penum.HomePlaceType placeType = 3;
   string backgroundAssetId = 4;
   string cameraAssetId = 5;
   string conditionId = 6;
@@ -819,18 +818,18 @@ message HomeBackground {
   string characterCostumeGroupId = 10;
   string homeBackgroundCategoryId = 11;
   string bgmAssetId = 12;
-  ProtoEnum.HomeBackgroundVersionType versionType = 13;
+  penum.HomeBackgroundVersionType versionType = 13;
 }
 message HomeDrama {
   string homeDramaId = 1;
   int32 weight = 2;
-  ProtoEnum.HomePlaceType placeType = 3;
+  penum.HomePlaceType placeType = 3;
   string conditionId = 4;
   string homeDramaPositionGroupId = 5;
   repeated string cameraAssetIds = 6;
-  repeated master.HomeDramaDetail details = 7;
+  repeated pmaster.HomeDramaDetail details = 7;
   bool isBreak = 8;
-  ProtoEnum.SimpleCharacterPersonalityType simplePersonalityType = 9;
+  penum.SimpleCharacterPersonalityType simplePersonalityType = 9;
 }
 message HomeDramaDetail {
   int32 order = 1;
@@ -855,7 +854,7 @@ message HomeDramaFree {
 }
 message HomeMainCharacterStay {
   string id = 1;
-  ProtoEnum.HomePositionType homePositionType = 2;
+  penum.HomePositionType homePositionType = 2;
   string homeBackgroundCategoryId = 3;
   string viewConditionId = 4;
   string fixedCharacterId = 5;
@@ -872,7 +871,7 @@ message HomeNavigation {
   string characterId = 2;
   string navigationText = 3;
   string detailText = 4;
-  ProtoEnum.LinkType linkType = 5;
+  penum.LinkType linkType = 5;
   string linkDetail = 6;
   string viewConditionId = 7;
   int32 order = 8;
@@ -882,12 +881,12 @@ message HomeSubCharacterStayGroup {
   string homeBackgroundCategoryId = 2;
   string viewConditionId = 3;
   int32 weight = 4;
-  repeated master.HomeSubCharacterStay stays = 5;
+  repeated pmaster.HomeSubCharacterStay stays = 5;
 }
 message HomeTalk {
   string homeTalkId = 1;
   string characterId = 2;
-  ProtoEnum.HomePlaceType placeType = 3;
+  penum.HomePlaceType placeType = 3;
   string conditionId = 4;
   int32 firstPriority = 5;
   int32 weight = 6;
@@ -900,7 +899,7 @@ message HomeTalk {
   string displayConditionDescription = 13;
   int32 order = 14;
   int64 releaseDate = 15;
-  repeated master.CharacterTalk characterTalks = 100;
+  repeated pmaster.CharacterTalk characterTalks = 100;
 }
 message HomeTalkCallPattern {
   string characterId = 1;
@@ -915,20 +914,20 @@ message InviteSetting {
   int32 guestCodeEnterAllowDays = 3;
   int32 hostRewardAmountLimit = 4;
   int32 hostGuestLimit = 5;
-  ProtoEnum.ResourceType hostRewardResourceType = 6;
+  penum.ResourceType hostRewardResourceType = 6;
   string hostRewardResourceId = 7;
 }
 message LiveAbilityLevel {
   int32 level = 1;
   string description = 2;
   string shortDescription = 3;
-  ProtoEnum.LiveAbilityType type = 4;
+  penum.LiveAbilityType type = 4;
   int32 requiredItemAmount = 5;
   int32 requiredCardLevel = 6;
   int32 value = 7;
   string skillId = 8;
-  ProtoEnum.MoodType moodType = 9;
-  ProtoEnum.LiveAbilityLevelBackgroundRankType backgroundRankType = 10;
+  penum.MoodType moodType = 9;
+  penum.LiveAbilityLevelBackgroundRankType backgroundRankType = 10;
 }
 message LiveBonus {
   string id = 1;
@@ -942,8 +941,8 @@ message LiveBonusGroup {
 }
 message LiveResultAnimation {
   string id = 1;
-  ProtoEnum.CharacterPersonalityType personalityType = 2;
-  ProtoEnum.LiveResultType resultType = 3;
+  penum.CharacterPersonalityType personalityType = 2;
+  penum.LiveResultType resultType = 3;
   string firstMotionAssetId = 4;
   string firstVoiceAssetId = 5;
   string secondMotionAssetId = 6;
@@ -971,8 +970,8 @@ message LiveStartVoiceAssetGroup {
 }
 message Loading {
   string id = 1;
-  ProtoEnum.LoadingType loadingType = 2;
-  repeated ProtoEnum.LoadingDisplayTargetType targets = 3;
+  penum.LoadingType loadingType = 2;
+  repeated penum.LoadingDisplayTargetType targets = 3;
   string viewConditionId = 4;
   string title = 5;
   string assetId = 6;
@@ -983,7 +982,7 @@ message LoginBonus {
   string id = 1;
   string name = 2;
   string description = 3;
-  ProtoEnum.LoginBonusType type = 4;
+  penum.LoginBonusType type = 4;
   string assetId = 5;
   string topColorCode = 6;
   string bottomColorCode = 7;
@@ -1011,7 +1010,7 @@ message LoveHomeAction {
   int64 nowBefore = 11;
   repeated string unlockLoveStoryEndIds = 12;
   int32 weight = 13;
-  ProtoEnum.LoveHomeActionType actionType = 14;
+  penum.LoveHomeActionType actionType = 14;
   string costumeId = 15;
 }
 message LoveStoryEpisode {
@@ -1055,11 +1054,11 @@ message MarathonQuest {
   string musicChartPatternId = 11;
   int32 requiredUnlockItemAmount = 12;
   int32 requiredStamina = 13;
-  ProtoEnum.AttributeType position1AttributeType = 14;
-  ProtoEnum.AttributeType position2AttributeType = 15;
-  ProtoEnum.AttributeType position3AttributeType = 16;
-  ProtoEnum.AttributeType position4AttributeType = 17;
-  ProtoEnum.AttributeType position5AttributeType = 18;
+  penum.AttributeType position1AttributeType = 14;
+  penum.AttributeType position2AttributeType = 15;
+  penum.AttributeType position3AttributeType = 16;
+  penum.AttributeType position4AttributeType = 17;
+  penum.AttributeType position5AttributeType = 18;
   int32 activeSkillWeightPermil = 19;
   int32 specialSkillWeightPermil = 20;
   int32 skillStaminaWeightPermil = 21;
@@ -1070,7 +1069,7 @@ message MarathonQuest {
   string questPressureId = 26;
   string questCharacterAdvantageId = 27;
   string questAudienceAdvantageId = 28;
-  ProtoEnum.MoodType moodType = 29;
+  penum.MoodType moodType = 29;
   int32 maxCapacity = 30;
   int32 dailyLimitCount = 31;
   string assetId = 32;
@@ -1099,12 +1098,12 @@ message Message {
   string id = 1;
   string messageGroupId = 2;
   string name = 3;
-  ProtoEnum.MessageType type = 4;
+  penum.MessageType type = 4;
   string characterId = 5;
-  ProtoEnum.MessageInstantType instantType = 6;
-  ProtoEnum.MessageRarityType rarityType = 7;
+  penum.MessageInstantType instantType = 6;
+  penum.MessageRarityType rarityType = 7;
   string unlockConditionId = 8;
-  repeated master.MessageDetail details = 9;
+  repeated pmaster.MessageDetail details = 9;
 }
 message MessageDetail {
   string messageDetailId = 1;
@@ -1127,21 +1126,21 @@ message MessageGroup {
 }
 message Mission {
   string id = 1;
-  ProtoEnum.MissionCategoryType categoryType = 2;
-  ProtoEnum.MissionType missionType = 3;
+  penum.MissionCategoryType categoryType = 2;
+  penum.MissionType missionType = 3;
   repeated string targetIds = 4;
   string name = 5;
   string shortDescription = 6;
   string longDescription = 7;
   int32 order = 8;
   string viewConditionId = 9;
-  ProtoEnum.LinkType linkType = 10;
+  penum.LinkType linkType = 10;
   string linkDetail = 11;
-  repeated master.MissionProgress progresses = 12;
+  repeated pmaster.MissionProgress progresses = 12;
   string eventMissionId = 13;
   string companyEnjoyCharacterId = 14;
-  ProtoEnum.CompanyEnjoyCharacterMissionCategoryType companyEnjoyCharacterMissionCategoryType = 15;
-  ProtoEnum.CompanyTrustMissionCategoryType companyTrustMissionCategoryType = 16;
+  penum.CompanyEnjoyCharacterMissionCategoryType companyEnjoyCharacterMissionCategoryType = 15;
+  penum.CompanyTrustMissionCategoryType companyTrustMissionCategoryType = 16;
 }
 message MissionProgress {
   int64 threshold = 1;
@@ -1167,10 +1166,10 @@ message Music {
   int32 chartStartOffsetMillisecond = 17;
   int32 displayCharacterAmount = 21;
   string colorVariation = 22;
-  repeated master.MusicDigest digests = 23;
+  repeated pmaster.MusicDigest digests = 23;
   int64 releaseTime = 24;
   repeated string originalCharacterIds = 25;
-  repeated ProtoEnum.StageType notSelectableStageTypes = 26;
+  repeated penum.StageType notSelectableStageTypes = 26;
   string mvAssetId = 27;
   repeated string selectableStageIds = 28;
 }
@@ -1193,15 +1192,15 @@ message PhotoAbility {
   string id = 1;
   string name = 2;
   string description = 3;
-  ProtoEnum.PhotoAbilityType abilityType = 4;
-  ProtoEnum.MoodType moodType = 5;
+  penum.PhotoAbilityType abilityType = 4;
+  penum.MoodType moodType = 5;
   string skillId = 6;
-  repeated master.PhotoAbilityLevel photoAbilityLevels = 7;
-  repeated master.PhotoAbilityGrade photoAbilityGrades = 8;
+  repeated pmaster.PhotoAbilityLevel photoAbilityLevels = 7;
+  repeated pmaster.PhotoAbilityGrade photoAbilityGrades = 8;
   string abilityTargetId = 9;
-  ProtoEnum.CardType conditionCardType = 10;
-  ProtoEnum.LiveType conditionLiveType = 11;
-  ProtoEnum.StatusEffectType statusEffectType = 12;
+  penum.CardType conditionCardType = 10;
+  penum.LiveType conditionLiveType = 11;
+  penum.StatusEffectType statusEffectType = 12;
 }
 message PhotoAbilityInfo {
   string photoAbilityId = 1;
@@ -1218,7 +1217,7 @@ message PhotoAbilitySet {
 message PhotoActivity {
   string id = 1;
   string name = 2;
-  ProtoEnum.PhotoShootingActionType type = 3;
+  penum.PhotoShootingActionType type = 3;
   string thumbAssetId = 4;
   string stageId = 5;
   repeated string costumeTypeIds = 6;
@@ -1239,14 +1238,14 @@ message PhotoAllInOne {
   string placeName = 6;
   string eventName = 7;
   int32 level = 8;
-  repeated master.PhotoAbilityInfo abilities = 9;
+  repeated pmaster.PhotoAbilityInfo abilities = 9;
   int64 shootingTime = 10;
   string focusCharacterId = 11;
 }
 message PhotoContestActivity {
   string id = 1;
   string name = 2;
-  ProtoEnum.PhotoShootingActionType type = 3;
+  penum.PhotoShootingActionType type = 3;
   string thumbAssetId = 4;
   string stageId = 5;
   repeated string costumeTypeIds = 6;
@@ -1305,7 +1304,7 @@ message PhotoExpressionStagePosition {
   string stageId = 1;
   int32 number = 2;
   string name = 3;
-  ProtoEnum.PhotoPoseType possiblePhotoPoseType = 4;
+  penum.PhotoPoseType possiblePhotoPoseType = 4;
   string initialPhotoPoseId = 5;
   repeated float characterPositions = 6;
   repeated float characterAngles = 7;
@@ -1399,7 +1398,7 @@ message PhotoShootingReplaceCharacter {
 }
 message PhotoShootingSimplePersonalityMotion {
   string id = 1;
-  ProtoEnum.SimpleCharacterPersonalityType personalityType = 2;
+  penum.SimpleCharacterPersonalityType personalityType = 2;
   string motionAssetId = 3;
   repeated string propAssetIds = 4;
   string photoShootingCharacterMotionId = 5;
@@ -1431,11 +1430,11 @@ message Quest {
   string description = 7;
   int32 order = 8;
   string musicChartPatternId = 10;
-  ProtoEnum.AttributeType position1AttributeType = 11;
-  ProtoEnum.AttributeType position2AttributeType = 12;
-  ProtoEnum.AttributeType position3AttributeType = 13;
-  ProtoEnum.AttributeType position4AttributeType = 14;
-  ProtoEnum.AttributeType position5AttributeType = 15;
+  penum.AttributeType position1AttributeType = 11;
+  penum.AttributeType position2AttributeType = 12;
+  penum.AttributeType position3AttributeType = 13;
+  penum.AttributeType position4AttributeType = 14;
+  penum.AttributeType position5AttributeType = 15;
   int32 activeSkillWeightPermil = 16;
   int32 specialSkillWeightPermil = 17;
   int32 skillStaminaWeightPermil = 18;
@@ -1448,7 +1447,7 @@ message Quest {
   string questPressureId = 25;
   string questCharacterAdvantageId = 26;
   string questAudienceAdvantageId = 27;
-  ProtoEnum.MoodType moodType = 28;
+  penum.MoodType moodType = 28;
   int64 clearScore = 29;
   int32 rewardManagerExp = 30;
   int32 rewardCardExp = 31;
@@ -1463,9 +1462,9 @@ message Quest {
   string unlockConditionId = 40;
   int32 dailyLimitCount = 41;
   int32 ticketAmount = 42;
-  repeated master.QuestAchievedRankReward achievedRankRewards = 43;
+  repeated pmaster.QuestAchievedRankReward achievedRankRewards = 43;
   string liveBonusGroupId = 44;
-  ProtoEnum.LiveSkipType liveSkipType = 101;
+  penum.LiveSkipType liveSkipType = 101;
 }
 message QuestAchievedRankReward {
   int32 highRank = 1;
@@ -1495,7 +1494,7 @@ message RaceLiveBonusGroup {
 message RacePanel {
   string raceAreaId = 1;
   int32 number = 2;
-  ProtoEnum.RacePanelType type = 3;
+  penum.RacePanelType type = 3;
   string raceQuestId = 4;
   int32 eventStoryEpisode = 5;
   int32 requiredRacePointAmount = 6;
@@ -1515,11 +1514,11 @@ message RaceQuest {
   string unlockConditionId = 6;
   string musicId = 7;
   string musicChartPatternId = 8;
-  ProtoEnum.AttributeType position1AttributeType = 9;
-  ProtoEnum.AttributeType position2AttributeType = 10;
-  ProtoEnum.AttributeType position3AttributeType = 11;
-  ProtoEnum.AttributeType position4AttributeType = 12;
-  ProtoEnum.AttributeType position5AttributeType = 13;
+  penum.AttributeType position1AttributeType = 9;
+  penum.AttributeType position2AttributeType = 10;
+  penum.AttributeType position3AttributeType = 11;
+  penum.AttributeType position4AttributeType = 12;
+  penum.AttributeType position5AttributeType = 13;
   int32 activeSkillWeightPermil = 14;
   int32 specialSkillWeightPermil = 15;
   int32 skillStaminaWeightPermil = 16;
@@ -1530,9 +1529,9 @@ message RaceQuest {
   string questPressureId = 21;
   string questCharacterAdvantageId = 22;
   string questAudienceAdvantageId = 23;
-  ProtoEnum.MoodType moodType = 24;
-  ProtoEnum.RaceActivityLessonRewardType activityLessonRewardType = 25;
-  ProtoEnum.LiveSkipType liveSkipType = 101;
+  penum.MoodType moodType = 24;
+  penum.RaceActivityLessonRewardType activityLessonRewardType = 25;
+  penum.LiveSkipType liveSkipType = 101;
 }
 message RaceQuestDifficulty {
   string raceQuestId = 1;
@@ -1548,7 +1547,7 @@ message RaceQuestDifficulty {
 }
 message RaceRankingReward {
   string rankGradeId = 1;
-  ProtoEnum.RaceRankingType type = 2;
+  penum.RaceRankingType type = 2;
   int32 rankFrom = 3;
   string rewardId = 4;
 }
@@ -1669,14 +1668,14 @@ message Setting {
   int32 homeTalkDrawTimesPerDay = 120;
   int32 questContestTicketLimitUseCount = 121;
   int32 searchSkillNameCountLimit = 122;
-  repeated ProtoEnum.StatusEffectType statusEffectTypeStrengthList = 1001;
-  repeated ProtoEnum.StatusEffectType statusEffectTypeWeaknessDownList = 1002;
-  repeated ProtoEnum.StatusEffectType statusEffectTypeWeaknessOtherList = 1003;
-  repeated ProtoEnum.SkillEfficacyType skillEfficacyTypeScoreList = 1101;
-  repeated ProtoEnum.SkillEfficacyType skillEfficacyTypeStrengthList = 1102;
-  repeated ProtoEnum.SkillEfficacyType skillEfficacyTypeSupportList = 1103;
-  repeated ProtoEnum.SkillEfficacyType skillEfficacyTypeWeaknessDownList = 1104;
-  repeated ProtoEnum.SkillEfficacyType skillEfficacyTypeWeaknessOtherList = 1105;
+  repeated penum.StatusEffectType statusEffectTypeStrengthList = 1001;
+  repeated penum.StatusEffectType statusEffectTypeWeaknessDownList = 1002;
+  repeated penum.StatusEffectType statusEffectTypeWeaknessOtherList = 1003;
+  repeated penum.SkillEfficacyType skillEfficacyTypeScoreList = 1101;
+  repeated penum.SkillEfficacyType skillEfficacyTypeStrengthList = 1102;
+  repeated penum.SkillEfficacyType skillEfficacyTypeSupportList = 1103;
+  repeated penum.SkillEfficacyType skillEfficacyTypeWeaknessDownList = 1104;
+  repeated penum.SkillEfficacyType skillEfficacyTypeWeaknessOtherList = 1105;
   int32 backsideRankingDisplayNum = 200;
   int32 photoContestRankingDisplayNum = 300;
   int32 raceRankingDisplayNum = 400;
@@ -1736,7 +1735,7 @@ message ShowcaseToy {
   string assetId = 5;
   string description = 6;
   repeated string hashTagIds = 7;
-  repeated ProtoEnum.ShowcaseToyPutType putTypes = 8;
+  repeated penum.ShowcaseToyPutType putTypes = 8;
   int32 order = 9;
   repeated string photoShootingCharacterIds = 10;
   int32 angle = 11;
@@ -1748,7 +1747,7 @@ message SkillDetail {
 message SkillEfficacy {
   string id = 1;
   string name = 2;
-  ProtoEnum.SkillEfficacyType type = 3;
+  penum.SkillEfficacyType type = 3;
   string description = 4;
   string shortDescription = 5;
   int32 grade = 6;
@@ -1767,16 +1766,16 @@ message SkillLevel {
   int32 probabilityPermil = 8;
   int32 limitCount = 9;
   int32 coolTime = 10;
-  repeated master.SkillDetail skillDetails = 11;
+  repeated pmaster.SkillDetail skillDetails = 11;
   int32 staminaPermil = 12;
 }
 message SkillTrigger {
   string id = 1;
-  ProtoEnum.SkillTriggerType type = 2;
+  penum.SkillTriggerType type = 2;
   repeated string characterIds = 3;
 }
 message StaffLevel {
-  ProtoEnum.ParameterType parameterType = 1;
+  penum.ParameterType parameterType = 1;
   int32 level = 2;
   int32 requiredMedalAmount = 3;
   int32 advantage = 4;
@@ -1788,13 +1787,13 @@ message Story {
   string name = 4;
   string description = 5;
   string rewardId = 6;
-  repeated ProtoEnum.StoryAdvPlayType advPlayTypes = 7;
+  repeated penum.StoryAdvPlayType advPlayTypes = 7;
   repeated string advAssetIds = 8;
   repeated string additionalDisplayCharacterIds = 9;
   string branchFirstText = 10;
   string branchCautionText = 11;
   string branchBgmAssetId = 12;
-  repeated master.StoryBranchChoice branchChoices = 13;
+  repeated pmaster.StoryBranchChoice branchChoices = 13;
 }
 message StoryEpisode {
   int32 episode = 1;
@@ -1810,12 +1809,12 @@ message StoryPart {
   string name = 3;
   string subTitle = 4;
   int32 order = 5;
-  ProtoEnum.StoryPartType type = 6;
+  penum.StoryPartType type = 6;
   string viewConditionId = 7;
   string unlockConditionId = 8;
-  ProtoEnum.PointType pointType = 9;
+  penum.PointType pointType = 9;
   string storyEpisodeConsumptionId = 10;
-  repeated master.StoryChapter chapters = 11;
+  repeated pmaster.StoryChapter chapters = 11;
   string noteText = 12;
 }
 message Telephone {
@@ -1828,11 +1827,11 @@ message Telephone {
 }
 message TourQuestSetting {
   string id = 1;
-  ProtoEnum.AttributeType position1AttributeType = 2;
-  ProtoEnum.AttributeType position2AttributeType = 3;
-  ProtoEnum.AttributeType position3AttributeType = 4;
-  ProtoEnum.AttributeType position4AttributeType = 5;
-  ProtoEnum.AttributeType position5AttributeType = 6;
+  penum.AttributeType position1AttributeType = 2;
+  penum.AttributeType position2AttributeType = 3;
+  penum.AttributeType position3AttributeType = 4;
+  penum.AttributeType position4AttributeType = 5;
+  penum.AttributeType position5AttributeType = 6;
   int32 activeSkillWeightPermil = 7;
   int32 specialSkillWeightPermil = 8;
   int32 skillStaminaWeightPermil = 9;
@@ -1843,11 +1842,11 @@ message TourQuestSetting {
   string questPressureId = 14;
   string questCharacterAdvantageId = 15;
   string questAudienceAdvantageId = 16;
-  ProtoEnum.MoodType moodType = 17;
+  penum.MoodType moodType = 17;
 }
 message Tutorial {
-  ProtoEnum.TutorialType type = 1;
-  repeated master.TutorialStep stepInfo = 2;
+  penum.TutorialType type = 1;
+  repeated pmaster.TutorialStep stepInfo = 2;
   string unlockConditionId = 3;
 }
 message AccessoryEnhancement {
@@ -1858,7 +1857,7 @@ message ActivityAbility {
   string id = 1;
   string name = 2;
   string description = 3;
-  repeated master.ActivityAbilityLevel levels = 4;
+  repeated pmaster.ActivityAbilityLevel levels = 4;
 }
 message AppCapacityLimit {
   int32 appCapacityLimitKey = 1;
@@ -1866,11 +1865,11 @@ message AppCapacityLimit {
 }
 message AssetDownload {
   string assetId = 1;
-  ProtoEnum.AssetDownloadType type = 2;
+  penum.AssetDownloadType type = 2;
 }
 message BacksideAnimation {
-  ProtoEnum.BacksidePanelType panelType = 1;
-  ProtoEnum.BacksidePanelAttributeType panelAttributeType = 2;
+  penum.BacksidePanelType panelType = 1;
+  penum.BacksidePanelAttributeType panelAttributeType = 2;
   int32 panelRank = 3;
   string backgroundAssetId = 4;
   string cameraAssetId = 5;
@@ -1881,7 +1880,7 @@ message BacksideAnimation {
 }
 message BoxGachaGroup {
   string id = 1;
-  ProtoEnum.ResourceType requiredResourceType = 2;
+  penum.ResourceType requiredResourceType = 2;
   string requiredResourceId = 3;
 }
 message CardDuplicateExp {
@@ -1897,7 +1896,7 @@ message CardEvolutionLevel {
 message CardEvolutionLevelRelease {
   string groupId = 1;
   int32 level = 2;
-  repeated master.CardEvolutionLevelReleaseTarget targets = 3;
+  repeated pmaster.CardEvolutionLevelReleaseTarget targets = 3;
 }
 message CardLevel {
   int32 level = 1;
@@ -1906,7 +1905,7 @@ message CardLevel {
 message CardLevelRelease {
   string id = 1;
   int32 level = 2;
-  repeated master.CardLevelReleaseTarget targets = 3;
+  repeated pmaster.CardLevelReleaseTarget targets = 3;
 }
 message CardParameter {
   string id = 1;
@@ -1940,7 +1939,7 @@ message ComboAdvantage {
 message CompanyEnjoyCharacterLevel {
   int32 levelKey = 1;
   int64 requiredPoint = 2;
-  ProtoEnum.ParameterType bonusParameterType = 3;
+  penum.ParameterType bonusParameterType = 3;
   int32 bonusParameterUpPermil = 4;
 }
 message CompanyEnjoyLevel {
@@ -1955,7 +1954,7 @@ message CompanyPoint {
 }
 message Condition {
   string id = 1;
-  repeated master.ConditionSetting settings = 3;
+  repeated pmaster.ConditionSetting settings = 3;
 }
 message ConditionDescription {
   string id = 1;
@@ -1963,7 +1962,7 @@ message ConditionDescription {
 }
 message Consumption {
   string id = 1;
-  repeated master.ConsumptionResource resources = 2;
+  repeated pmaster.ConsumptionResource resources = 2;
 }
 message CostumeType {
   string id = 1;
@@ -1991,19 +1990,19 @@ message DutyPoint {
 }
 message ExerciseAccessoryGroup {
   string groupId = 1;
-  repeated master.ExerciseAccessory accessories = 2;
+  repeated pmaster.ExerciseAccessory accessories = 2;
 }
 message ExerciseDeck {
   string id = 1;
-  repeated master.ExerciseDeckPosition positions = 2;
+  repeated pmaster.ExerciseDeckPosition positions = 2;
 }
 message ExerciseHint {
   string exerciseId = 1;
-  repeated master.ExerciseHintContent contents = 2;
+  repeated pmaster.ExerciseHintContent contents = 2;
 }
 message ExercisePhotoGroup {
   string groupId = 1;
-  repeated master.ExercisePhoto photos = 2;
+  repeated pmaster.ExercisePhoto photos = 2;
 }
 message ExerciseUser {
   string id = 1;
@@ -2035,11 +2034,11 @@ message Guild {
 }
 message HelpCategory {
   string id = 1;
-  ProtoEnum.HelpType type = 2;
+  penum.HelpType type = 2;
   string title = 3;
   int32 order = 4;
-  repeated ProtoEnum.HelpDisplayTargetType targetTypes = 5;
-  repeated master.HelpContent contents = 6;
+  repeated penum.HelpDisplayTargetType targetTypes = 5;
+  repeated pmaster.HelpContent contents = 6;
 }
 message HierarchyGrade {
   string id = 1;
@@ -2053,10 +2052,10 @@ message HomeBackgroundCategory {
 message HomeDramaPosition {
   string homeDramaPositionId = 1;
   string name = 2;
-  ProtoEnum.HomePlaceType placeType = 3;
+  penum.HomePlaceType placeType = 3;
   repeated float positions = 4;
   repeated float angles = 5;
-  ProtoEnum.SimpleCharacterPersonalityType simplePersonalityType = 6;
+  penum.SimpleCharacterPersonalityType simplePersonalityType = 6;
 }
 message HomeDramaPositionGroup {
   string homeDramaPositionGroupId = 1;
@@ -2073,7 +2072,7 @@ message Item {
   string assetId = 3;
   string description = 4;
   string howToGet = 5;
-  ProtoEnum.ItemType type = 6;
+  penum.ItemType type = 6;
   int32 value = 7;
   int32 order = 8;
   int32 salePrice = 9;
@@ -2083,11 +2082,11 @@ message LiveAbility {
   string id = 1;
   string name = 2;
   string description = 3;
-  repeated master.LiveAbilityLevel levels = 4;
+  repeated pmaster.LiveAbilityLevel levels = 4;
 }
 message LiveTip {
   string id = 1;
-  ProtoEnum.LiveTipType type = 2;
+  penum.LiveTipType type = 2;
   string description = 3;
   int32 priority = 4;
 }
@@ -2133,7 +2132,7 @@ message ManagerLevel {
 message MusicChartPattern {
   string id = 1;
   int32 number = 2;
-  ProtoEnum.MusicChartType type = 3;
+  penum.MusicChartType type = 3;
   int32 position = 4;
 }
 message MusicMasteryLevel {
@@ -2142,7 +2141,7 @@ message MusicMasteryLevel {
 }
 message PhotoAbilityTarget {
   string id = 1;
-  ProtoEnum.PhotoAbilityTargetType type = 2;
+  penum.PhotoAbilityTargetType type = 2;
   string targetId = 3;
 }
 message PhotoPose {
@@ -2150,9 +2149,9 @@ message PhotoPose {
   string name = 2;
   string description = 3;
   string thumbAssetId = 4;
-  ProtoEnum.PhotoPoseType poseType = 5;
-  ProtoEnum.PhotoPoseMotionType poseMotionType = 6;
-  ProtoEnum.PhotoLookingType lookingType = 7;
+  penum.PhotoPoseType poseType = 5;
+  penum.PhotoPoseMotionType poseMotionType = 6;
+  penum.PhotoLookingType lookingType = 7;
   int32 order = 8;
   int64 releaseDatetime = 9;
 }
@@ -2165,11 +2164,11 @@ message PhotoRarityLevel {
 }
 message PhotoShootingMotionSet {
   string id = 1;
-  ProtoEnum.PhotoShootingMotionType motionType1 = 2;
+  penum.PhotoShootingMotionType motionType1 = 2;
   string photoShootingMotionId1 = 3;
-  ProtoEnum.PhotoShootingMotionType motionType2 = 4;
+  penum.PhotoShootingMotionType motionType2 = 4;
   string photoShootingMotionId2 = 5;
-  ProtoEnum.PhotoShootingMotionType motionType3 = 6;
+  penum.PhotoShootingMotionType motionType3 = 6;
   string photoShootingMotionId3 = 7;
 }
 message QuestAudienceAdvantage {
@@ -2192,15 +2191,15 @@ message QuestStaminaConsumption {
 }
 message Reward {
   string id = 1;
-  repeated master.RewardResource resources = 2;
+  repeated pmaster.RewardResource resources = 2;
 }
 message RewardSort {
-  ProtoEnum.RewardSortTargetType rewardSortTargetType = 1;
-  ProtoEnum.RewardSortResourceType rewardSortResourceType = 2;
+  penum.RewardSortTargetType rewardSortTargetType = 1;
+  penum.RewardSortResourceType rewardSortResourceType = 2;
   int32 order = 3;
 }
 message Salary {
-  ProtoEnum.SalaryDetailType type = 1;
+  penum.SalaryDetailType type = 1;
   int64 threshold = 2;
   int32 amount = 3;
 }
@@ -2209,7 +2208,7 @@ message ShowcaseHashtag {
   int32 number = 2;
   string name = 3;
   string assetId = 4;
-  ProtoEnum.ShowcaseHashtagCategoryType categoryType = 5;
+  penum.ShowcaseHashtagCategoryType categoryType = 5;
 }
 message ShowcaseMusicFilter {
   string id = 1;
@@ -2230,29 +2229,29 @@ message ShowcaseToyShopFilter {
 message Skill {
   string id = 1;
   string name = 2;
-  ProtoEnum.SkillCategoryType categoryType = 3;
-  repeated master.SkillLevel levels = 5;
+  penum.SkillCategoryType categoryType = 3;
+  repeated pmaster.SkillLevel levels = 5;
   string assetId = 6;
 }
 message SkillTarget {
   string id = 1;
-  ProtoEnum.SkillTargetType type = 2;
+  penum.SkillTargetType type = 2;
   bool isOpponent = 101;
 }
 message StaffLevelLimitBreakRank {
-  ProtoEnum.ParameterType parameterType = 1;
+  penum.ParameterType parameterType = 1;
   int32 rank = 2;
   int32 levelLimit = 3;
   int64 consumptionItemAmount = 4;
   int64 consumptionGoldAmount = 5;
 }
 message StaffTraining {
-  ProtoEnum.ParameterType parameterType = 1;
+  penum.ParameterType parameterType = 1;
   string name = 2;
 }
 message Stage {
   string id = 1;
-  ProtoEnum.StageType type = 2;
+  penum.StageType type = 2;
   string assetId = 3;
   string thumbnailAssetId = 4;
   string name = 5;
@@ -2264,7 +2263,7 @@ message Stage {
   repeated string additionalAssetIds = 11;
 }
 message StatusEffectName {
-  ProtoEnum.StatusEffectType statusEffectType = 1;
+  penum.StatusEffectType statusEffectType = 1;
   string name = 2;
 }
 message StoreGppProduct {
@@ -2273,7 +2272,7 @@ message StoreGppProduct {
 }
 message StoreProduct {
   string productId = 1;
-  ProtoEnum.PlatformType platformType = 2;
+  penum.PlatformType platformType = 2;
   int32 price = 3;
   int32 stoneAmount = 4;
 }
@@ -2285,7 +2284,7 @@ message StoryEpisodeConsumption {
 message TitleBackground {
   string id = 1;
   string assetId = 2;
-  ProtoEnum.TitleBackgroundType type = 3;
+  penum.TitleBackgroundType type = 3;
   repeated string voiceAssetIds = 4;
   string bgmAssetId = 5;
   int64 startTime = 6;
@@ -2305,18 +2304,18 @@ message ActivityAbilityLevel {
   int32 level = 1;
   string description = 2;
   string shortDescription = 3;
-  ProtoEnum.ActivityAbilityType type = 4;
+  penum.ActivityAbilityType type = 4;
   int32 requiredItemAmount = 5;
   int32 requiredCardLevel = 6;
   string targetId = 7;
   int32 value = 8;
 }
 message CardEvolutionLevelReleaseTarget {
-  ProtoEnum.CardLevelReleaseType type = 1;
+  penum.CardLevelReleaseType type = 1;
   int32 number = 2;
 }
 message CardLevelReleaseTarget {
-  ProtoEnum.CardLevelReleaseType type = 1;
+  penum.CardLevelReleaseType type = 1;
   int32 number = 2;
 }
 message ActivityFanEventWord {
@@ -2333,109 +2332,109 @@ message LoveCharacterInfo {
   string loveId = 7;
 }
 message ConditionSetting {
-  master.ConditionSatisfyCondition satisfyCondition = 1;
-  master.ConditionNotSatisfyCondition notSatisfyCondition = 2;
-  master.ConditionStartHours startHours = 3;
-  master.ConditionNotLoginDays notLoginDays = 4;
-  master.ConditionAccumulationLoginDays accumulationLoginDays = 5;
-  master.ConditionManagerLevel managerLevel = 6;
-  master.ConditionDeckMaxOverallValue deckMaxOverallValue = 7;
-  master.ConditionClearQuest clearQuest = 8;
-  master.ConditionMaxQuestScoreRank maxQuestScoreRank = 9;
-  master.ConditionDailyQuestClear dailyQuestClear = 10;
-  master.ConditionDailyAreaClear dailyAreaClear = 11;
-  master.ConditionAnimeStoryPoint animeStoryPoint = 12;
-  master.ConditionGameStoryPoint gameStoryPoint = 13;
-  master.ConditionGroupStoryPoint groupStoryPoint = 14;
-  master.ConditionReadStory readStory = 15;
-  master.ConditionClearMission clearMission = 16;
-  master.ConditionObtainCharacter obtainCharacter = 17;
-  master.ConditionObtainCard obtainCard = 18;
-  master.ConditionObtainCostume obtainCostume = 19;
-  master.ConditionWearCostume wearCostume = 20;
-  master.ConditionCardLevel cardLevel = 21;
-  master.ConditionCardRarity cardRarity = 22;
-  master.ConditionPhotoReportPityTimer photoReportPityTimer = 23;
-  master.ConditionActivityLevel activityLevel = 24;
-  master.ConditionExchangeCount exchangeCount = 25;
-  master.ConditionTerm term = 26;
-  master.ConditionDayOfWeek dayOfWeek = 27;
-  master.ConditionTime time = 28;
-  master.ConditionObtainItem obtainItem = 29;
-  master.ConditionItemAmount itemAmount = 30;
-  master.ConditionGold gold = 31;
-  master.ConditionStone stone = 32;
-  master.ConditionObtainEmblem obtainEmblem = 33;
-  master.ConditionOpenGacha openGacha = 34;
-  master.ConditionDrawGacha drawGacha = 35;
-  master.ConditionPurchaseShop purchaseShop = 36;
-  master.ConditionPlatformType platformType = 37;
-  master.ConditionDivision division = 38;
-  master.ConditionJoinedGuild joinedGuild = 39;
-  master.ConditionActivityFanEventLevel activityFanEventLevel = 40;
-  master.ConditionActivityPromotionLevel activityPromotionLevel = 41;
-  master.ConditionActivityRefreshLevel activityRefreshLevel = 42;
-  master.ConditionContestQuestTotalScore contestQuestTotalScore = 43;
-  master.ConditionClearArea clearArea = 45;
-  master.ConditionReliability reliability = 46;
-  master.ConditionHierarchyDetailGradeId hierarchyDetailGradeId = 47;
-  master.ConditionHierarchyPointGte hierarchyPointGte = 48;
-  master.ConditionDiary diary = 49;
-  master.ConditionStaffTrainTotalCount staffTrainTotalCount = 50;
-  master.ConditionPhotoShootTotalCount photoShootTotalCount = 51;
-  master.ConditionTourAreaProgress tourAreaProgress = 52;
-  master.ConditionActivityFanEventBestScoreRank activityFanEventBestScoreRank = 53;
-  master.ConditionActivityFanEventTotalCount activityFanEventTotalCount = 54;
-  master.ConditionActivityPromotionTotalHours activityPromotionTotalHours = 55;
-  master.ConditionActivityRefreshTotalCount activityRefreshTotalCount = 56;
-  master.ConditionLiveCharacterHighestScore liveCharacterHighestScore = 57;
-  master.ConditionFanAmount fanAmount = 58;
-  master.ConditionHighestSalary highestSalary = 59;
-  master.ConditionCharacterPhotoAmount characterPhotoAmount = 60;
-  master.ConditionTutorialStep tutorialStep = 61;
-  master.ConditionForumCreateReplyCount forumCreateReplyCount = 62;
-  master.ConditionBirthDay birthday = 63;
-  master.ConditionFinishedMessage finishedMessage = 64;
-  master.ConditionPvpOpen pvpOpen = 65;
-  master.ConditionObtainAccessory obtainAccessory = 66;
-  master.ConditionAccessoryAmount accessoryAmount = 67;
-  master.ConditionWearLiveCostume wearLiveCostume = 68;
-  master.ConditionContestQuestHighestRank contestQuestHighestRank = 69;
-  master.ConditionComebackUser comebackUser = 70;
-  master.ConditionGameStartTerm gameStartTerm = 71;
-  master.ConditionObtainHair obtainHair = 72;
-  master.ConditionWearHair wearHair = 73;
-  master.ConditionWearLiveHair wearLiveHair = 74;
-  master.ConditionSatisfyConditions satisfyConditions = 75;
-  master.ConditionNotSatisfyConditions notSatisfyConditions = 76;
-  master.ConditionAllObtainCostumes allObtainCostumes = 77;
-  master.ConditionAnyObtainCostumes anyObtainCostumes = 78;
-  master.ConditionNotAllObtainCostumes notAllObtainCostumes = 79;
-  master.ConditionNotAnyObtainCostumes notAnyObtainCostumes = 80;
-  master.ConditionAllObtainHairs allObtainHairs = 81;
-  master.ConditionAnyObtainHairs anyObtainHairs = 82;
-  master.ConditionNotAllObtainHairs notAllObtainHairs = 83;
-  master.ConditionNotAnyObtainHairs notAnyObtainHairs = 84;
-  master.ConditionAllObtainCards allObtainCards = 85;
-  master.ConditionAnyObtainCards anyObtainCards = 86;
-  master.ConditionNotAllObtainCards notAllObtainCards = 87;
-  master.ConditionNotAnyObtainCards notAnyObtainCards = 88;
-  master.ConditionActivatePhotoShootingStory activatePhotoShootingStory = 89;
-  master.ConditionShootPhotoShootingStory shootPhotoShootingStory = 90;
-  master.ConditionDutyExchangeReward dutyExchangeReward = 91;
-  master.ConditionDutyExchangeRewardCount dutyExchangeRewardCount = 92;
-  master.ConditionDutyTotalObtainPointCount dutyTotalObtainPointCount = 93;
-  master.ConditionCompanyGradeGte companyGradeGte = 94;
-  master.ConditionCompanyPointGte companyPointGte = 95;
-  master.ConditionCompanyEnjoyLevelGte companyEnjoyLevelGte = 96;
-  master.ConditionCompanyEnjoyPointGte companyEnjoyPointGte = 97;
-  master.ConditionCompanyEnjoyCharacterLevelGte companyEnjoyCharacterLevelGte = 98;
-  master.ConditionCompanyTrustLevelGte companyTrustLevelGte = 99;
-  master.ConditionCompanyTrustPointGte companyTrustPointGte = 100;
-  master.ConditionCompanySalaryPointGte companySalaryPointGte = 101;
-  master.ConditionStaffLevelGte staffLevelGte = 102;
-  master.ConditionCompanyEnjoyCharacterPointGte companyEnjoyCharacterPointGte = 103;
-  master.ConditionCardEvolutionLevelGte cardEvolutionLevelGte = 104;
+  pmaster.ConditionSatisfyCondition satisfyCondition = 1;
+  pmaster.ConditionNotSatisfyCondition notSatisfyCondition = 2;
+  pmaster.ConditionStartHours startHours = 3;
+  pmaster.ConditionNotLoginDays notLoginDays = 4;
+  pmaster.ConditionAccumulationLoginDays accumulationLoginDays = 5;
+  pmaster.ConditionManagerLevel managerLevel = 6;
+  pmaster.ConditionDeckMaxOverallValue deckMaxOverallValue = 7;
+  pmaster.ConditionClearQuest clearQuest = 8;
+  pmaster.ConditionMaxQuestScoreRank maxQuestScoreRank = 9;
+  pmaster.ConditionDailyQuestClear dailyQuestClear = 10;
+  pmaster.ConditionDailyAreaClear dailyAreaClear = 11;
+  pmaster.ConditionAnimeStoryPoint animeStoryPoint = 12;
+  pmaster.ConditionGameStoryPoint gameStoryPoint = 13;
+  pmaster.ConditionGroupStoryPoint groupStoryPoint = 14;
+  pmaster.ConditionReadStory readStory = 15;
+  pmaster.ConditionClearMission clearMission = 16;
+  pmaster.ConditionObtainCharacter obtainCharacter = 17;
+  pmaster.ConditionObtainCard obtainCard = 18;
+  pmaster.ConditionObtainCostume obtainCostume = 19;
+  pmaster.ConditionWearCostume wearCostume = 20;
+  pmaster.ConditionCardLevel cardLevel = 21;
+  pmaster.ConditionCardRarity cardRarity = 22;
+  pmaster.ConditionPhotoReportPityTimer photoReportPityTimer = 23;
+  pmaster.ConditionActivityLevel activityLevel = 24;
+  pmaster.ConditionExchangeCount exchangeCount = 25;
+  pmaster.ConditionTerm term = 26;
+  pmaster.ConditionDayOfWeek dayOfWeek = 27;
+  pmaster.ConditionTime time = 28;
+  pmaster.ConditionObtainItem obtainItem = 29;
+  pmaster.ConditionItemAmount itemAmount = 30;
+  pmaster.ConditionGold gold = 31;
+  pmaster.ConditionStone stone = 32;
+  pmaster.ConditionObtainEmblem obtainEmblem = 33;
+  pmaster.ConditionOpenGacha openGacha = 34;
+  pmaster.ConditionDrawGacha drawGacha = 35;
+  pmaster.ConditionPurchaseShop purchaseShop = 36;
+  pmaster.ConditionPlatformType platformType = 37;
+  pmaster.ConditionDivision division = 38;
+  pmaster.ConditionJoinedGuild joinedGuild = 39;
+  pmaster.ConditionActivityFanEventLevel activityFanEventLevel = 40;
+  pmaster.ConditionActivityPromotionLevel activityPromotionLevel = 41;
+  pmaster.ConditionActivityRefreshLevel activityRefreshLevel = 42;
+  pmaster.ConditionContestQuestTotalScore contestQuestTotalScore = 43;
+  pmaster.ConditionClearArea clearArea = 45;
+  pmaster.ConditionReliability reliability = 46;
+  pmaster.ConditionHierarchyDetailGradeId hierarchyDetailGradeId = 47;
+  pmaster.ConditionHierarchyPointGte hierarchyPointGte = 48;
+  pmaster.ConditionDiary diary = 49;
+  pmaster.ConditionStaffTrainTotalCount staffTrainTotalCount = 50;
+  pmaster.ConditionPhotoShootTotalCount photoShootTotalCount = 51;
+  pmaster.ConditionTourAreaProgress tourAreaProgress = 52;
+  pmaster.ConditionActivityFanEventBestScoreRank activityFanEventBestScoreRank = 53;
+  pmaster.ConditionActivityFanEventTotalCount activityFanEventTotalCount = 54;
+  pmaster.ConditionActivityPromotionTotalHours activityPromotionTotalHours = 55;
+  pmaster.ConditionActivityRefreshTotalCount activityRefreshTotalCount = 56;
+  pmaster.ConditionLiveCharacterHighestScore liveCharacterHighestScore = 57;
+  pmaster.ConditionFanAmount fanAmount = 58;
+  pmaster.ConditionHighestSalary highestSalary = 59;
+  pmaster.ConditionCharacterPhotoAmount characterPhotoAmount = 60;
+  pmaster.ConditionTutorialStep tutorialStep = 61;
+  pmaster.ConditionForumCreateReplyCount forumCreateReplyCount = 62;
+  pmaster.ConditionBirthDay birthday = 63;
+  pmaster.ConditionFinishedMessage finishedMessage = 64;
+  pmaster.ConditionPvpOpen pvpOpen = 65;
+  pmaster.ConditionObtainAccessory obtainAccessory = 66;
+  pmaster.ConditionAccessoryAmount accessoryAmount = 67;
+  pmaster.ConditionWearLiveCostume wearLiveCostume = 68;
+  pmaster.ConditionContestQuestHighestRank contestQuestHighestRank = 69;
+  pmaster.ConditionComebackUser comebackUser = 70;
+  pmaster.ConditionGameStartTerm gameStartTerm = 71;
+  pmaster.ConditionObtainHair obtainHair = 72;
+  pmaster.ConditionWearHair wearHair = 73;
+  pmaster.ConditionWearLiveHair wearLiveHair = 74;
+  pmaster.ConditionSatisfyConditions satisfyConditions = 75;
+  pmaster.ConditionNotSatisfyConditions notSatisfyConditions = 76;
+  pmaster.ConditionAllObtainCostumes allObtainCostumes = 77;
+  pmaster.ConditionAnyObtainCostumes anyObtainCostumes = 78;
+  pmaster.ConditionNotAllObtainCostumes notAllObtainCostumes = 79;
+  pmaster.ConditionNotAnyObtainCostumes notAnyObtainCostumes = 80;
+  pmaster.ConditionAllObtainHairs allObtainHairs = 81;
+  pmaster.ConditionAnyObtainHairs anyObtainHairs = 82;
+  pmaster.ConditionNotAllObtainHairs notAllObtainHairs = 83;
+  pmaster.ConditionNotAnyObtainHairs notAnyObtainHairs = 84;
+  pmaster.ConditionAllObtainCards allObtainCards = 85;
+  pmaster.ConditionAnyObtainCards anyObtainCards = 86;
+  pmaster.ConditionNotAllObtainCards notAllObtainCards = 87;
+  pmaster.ConditionNotAnyObtainCards notAnyObtainCards = 88;
+  pmaster.ConditionActivatePhotoShootingStory activatePhotoShootingStory = 89;
+  pmaster.ConditionShootPhotoShootingStory shootPhotoShootingStory = 90;
+  pmaster.ConditionDutyExchangeReward dutyExchangeReward = 91;
+  pmaster.ConditionDutyExchangeRewardCount dutyExchangeRewardCount = 92;
+  pmaster.ConditionDutyTotalObtainPointCount dutyTotalObtainPointCount = 93;
+  pmaster.ConditionCompanyGradeGte companyGradeGte = 94;
+  pmaster.ConditionCompanyPointGte companyPointGte = 95;
+  pmaster.ConditionCompanyEnjoyLevelGte companyEnjoyLevelGte = 96;
+  pmaster.ConditionCompanyEnjoyPointGte companyEnjoyPointGte = 97;
+  pmaster.ConditionCompanyEnjoyCharacterLevelGte companyEnjoyCharacterLevelGte = 98;
+  pmaster.ConditionCompanyTrustLevelGte companyTrustLevelGte = 99;
+  pmaster.ConditionCompanyTrustPointGte companyTrustPointGte = 100;
+  pmaster.ConditionCompanySalaryPointGte companySalaryPointGte = 101;
+  pmaster.ConditionStaffLevelGte staffLevelGte = 102;
+  pmaster.ConditionCompanyEnjoyCharacterPointGte companyEnjoyCharacterPointGte = 103;
+  pmaster.ConditionCardEvolutionLevelGte cardEvolutionLevelGte = 104;
 }
 message ConditionStartHours {
   int32 hoursLte = 1;
@@ -2480,7 +2479,7 @@ message ConditionGameStartTerm {
   int64 gameStartDatetimeBefore = 2;
 }
 message ConditionDayOfWeek {
-  ProtoEnum.DayOfWeekType dayOfWeekType = 1;
+  penum.DayOfWeekType dayOfWeekType = 1;
 }
 message ConditionTime {
   int64 nowAfter = 1;
@@ -2499,14 +2498,14 @@ message ConditionPurchaseShop {
   string shopItemId = 1;
 }
 message ConditionPlatformType {
-  ProtoEnum.PlatformType platformType = 1;
+  penum.PlatformType platformType = 1;
 }
 message ConditionDivision {
   int32 divisionOrderGte = 1;
   int32 divisionOrderLte = 2;
 }
 message ConditionJoinedGuild {
-  ProtoEnum.JoinedGuildType joinedGuildType = 1;
+  penum.JoinedGuildType joinedGuildType = 1;
 }
 message ConditionActivityFanEventLevel {
   string fanEventId = 1;
@@ -2541,7 +2540,7 @@ message ConditionTourAreaProgress {
   int32 areaGte = 2;
 }
 message ConditionActivityFanEventBestScoreRank {
-  ProtoEnum.ResultRankType rankType = 1;
+  penum.ResultRankType rankType = 1;
   int32 plus = 2;
 }
 message ConditionActivityFanEventTotalCount {
@@ -2557,7 +2556,7 @@ message ConditionHighestSalary {
   int64 highestSalaryGte = 1;
 }
 message ConditionTutorialStep {
-  ProtoEnum.TutorialType tutorialType = 1;
+  penum.TutorialType tutorialType = 1;
   int32 stepGte = 2;
   int32 stepLte = 3;
 }
@@ -2574,10 +2573,10 @@ message ConditionComebackUser {
   bool isComebackUser = 1;
 }
 message ConditionSatisfyConditions {
-  repeated master.ConditionSatisfyCondition conditions = 1;
+  repeated pmaster.ConditionSatisfyCondition conditions = 1;
 }
 message ConditionNotSatisfyConditions {
-  repeated master.ConditionNotSatisfyCondition conditions = 1;
+  repeated pmaster.ConditionNotSatisfyCondition conditions = 1;
 }
 message ConditionDutyExchangeReward {
   string dutyId = 1;
@@ -2610,18 +2609,18 @@ message ConditionCompanySalaryPointGte {
   int64 pointGte = 1;
 }
 message ConditionStaffLevelGte {
-  ProtoEnum.ParameterType parameterType = 1;
+  penum.ParameterType parameterType = 1;
   int32 levelGte = 2;
 }
 message ConsumptionResource {
-  ProtoEnum.ResourceType resourceType = 1;
+  penum.ResourceType resourceType = 1;
   repeated string resourceIds = 2;
   repeated string subResourceIds = 3;
   int32 amount = 4;
 }
 message ExerciseHintContent {
   int32 number = 1;
-  ProtoEnum.ExerciseHintType type = 2;
+  penum.ExerciseHintType type = 2;
   string title = 3;
   string text = 4;
   repeated string assetIds = 5;
@@ -2631,13 +2630,13 @@ message HelpContent {
   string title = 2;
   string text = 3;
   int32 order = 4;
-  repeated ProtoEnum.HelpDisplayTargetType targetTypes = 5;
+  repeated penum.HelpDisplayTargetType targetTypes = 5;
   repeated string assetIds = 6;
 }
 message HomeSubCharacterStay {
   int32 position = 1;
-  ProtoEnum.SimpleCharacterPersonalityType simplePersonalityType = 2;
-  repeated ProtoEnum.HomePositionType homePositionTypes = 3;
+  penum.SimpleCharacterPersonalityType simplePersonalityType = 2;
+  repeated penum.HomePositionType homePositionTypes = 3;
   string motionAssetId = 4;
   string additiveMotionAssetId = 5;
   string tapAssistMotionAssetId = 6;
@@ -2647,7 +2646,7 @@ message HomeSubCharacterStay {
   float angleX = 10;
   float angleY = 11;
   float angleZ = 12;
-  repeated ProtoEnum.HomePositionType talkHomePositionTypes = 13;
+  repeated penum.HomePositionType talkHomePositionTypes = 13;
   string propAssetId = 14;
 }
 message CharacterTalk {
@@ -2669,10 +2668,10 @@ message PhotoAbilityGrade {
   int32 grade = 1;
   int32 bonusPermil = 2;
   int32 bonusValue = 3;
-  ProtoEnum.PhotoAbilityGradeType type = 4;
+  penum.PhotoAbilityGradeType type = 4;
 }
 message RewardResource {
-  ProtoEnum.ResourceType resourceType = 1;
+  penum.ResourceType resourceType = 1;
   string resourceId = 2;
   int32 amount = 3;
 }
@@ -2685,13 +2684,13 @@ message StoryChapter {
   int32 chapter = 1;
   int32 route = 2;
   string name = 3;
-  repeated master.StoryEpisode episodes = 4;
+  repeated pmaster.StoryEpisode episodes = 4;
 }
 message TutorialStep {
   int32 step = 1;
   int32 subStep = 2;
-  ProtoEnum.TutorialNavigationType navigationType = 3;
-  ProtoEnum.TutorialNavigationPositionType navigationPositionType = 4;
+  penum.TutorialNavigationType navigationType = 3;
+  penum.TutorialNavigationPositionType navigationPositionType = 4;
   repeated string texts = 5;
   repeated string assetIds = 6;
 }

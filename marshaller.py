@@ -70,6 +70,6 @@ def manual_deserialize(raw: bytes) -> bytes:
 if __name__ == "__main__":
     raw = Path("cache/sec_sys_check_req.bin").read_bytes()
     plain = manual_deserialize(raw)
-    import ProtoApi_pb2 as ProtoApi__pb2
-    response = ProtoApi__pb2.SystemCheckRequest.FromString(plain)
+    import papi_pb2 as papi__pb2
+    response = papi__pb2.SystemCheckRequest.FromString(plain)
     a = 1

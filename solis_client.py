@@ -10,10 +10,10 @@ from pathlib import Path
 from bs4 import BeautifulSoup
 import master_manager as master
 import octo_manager as octo
-import ProtoEnum_pb2 as penum
-import ProtoApi_pb2 as apip
-import ProtoApi_grpc as apig
-import ProtoTransaction_pb2 as transp
+import penum_pb2 as penum
+import papi_pb2 as apip
+import papi_grpc as apig
+import ptransaction_pb2 as transp
 import google.protobuf.empty_pb2 as empty
 import rich_console as console
 from cache_manager import set_cache, get_cache

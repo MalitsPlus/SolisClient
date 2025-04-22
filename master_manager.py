@@ -2,8 +2,8 @@ import json
 import requests
 from pathlib import Path
 import rich_console as console
-import ProtoTransaction_pb2 as transp
-import ProtoMaster_pb2 as masp
+import ptransaction_pb2 as transp
+import pmaster_pb2 as masp
 from cache_manager import set_cache, get_cache
 from request_base import send_request
 from sqlcipher3 import dbapi2 as sqlcipher

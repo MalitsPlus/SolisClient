@@ -1,8 +1,7 @@
 syntax = "proto3";
-package transaction;
-option go_package = "solis/pkg/proto/transaction";
-option csharp_namespace = "Solis.Common.Proto.Transaction";
-import "ProtoEnum.proto";
+package ptransaction;
+option go_package = "vibbit/solis/proto/ptransaction";
+import "penum.proto";
 
 message Payslip {
   int32 managerLevel = 1;
@@ -85,7 +84,7 @@ message UserCard {
   bool supported = 10;
   int64 lastEnhanceTime = 11;
   int32 rankTotalExp = 12;
-  ProtoEnum.CardDisplayType displayType = 13;
+  penum.CardDisplayType displayType = 13;
   int32 skillLevel4 = 14;
   int64 evolutionLevelTotalExp = 15;
   int32 level = 100;
@@ -144,7 +143,7 @@ message UserCharacter {
   int64 lastHomeTalkFirstReadTime = 17;
   int32 activityLevel = 100;
   int32 audienceCandidateAmount = 101;
-  repeated transaction.CompanyBonusParameterInfo companyBonusParameterInfos = 102;
+  repeated ptransaction.CompanyBonusParameterInfo companyBonusParameterInfos = 102;
 }
 message UserCharacterMusic {
   string characterId = 1;
@@ -181,7 +180,7 @@ message UserHierarchy {
   repeated string receivedDivisionRewardIds = 7;
 }
 message UserHomePosition {
-  ProtoEnum.HomePositionType homePositionType = 1;
+  penum.HomePositionType homePositionType = 1;
   string characterId = 2;
   bool isCharacterRandom = 3;
   bool isCostumeRandom = 4;
@@ -203,7 +202,7 @@ message UserLoginBonus {
 }
 message UserMessage {
   string messageId = 1;
-  ProtoEnum.MessageStatusType messageStatusType = 2;
+  penum.MessageStatusType messageStatusType = 2;
   repeated string selectMessageDetailIds = 3;
   int64 arrivedTime = 4;
 }
@@ -215,7 +214,7 @@ message UserMission {
   string missionId = 1;
   int64 currentThreshold = 2;
   int64 progress = 3;
-  ProtoEnum.MissionStatusType statusType = 4;
+  penum.MissionStatusType statusType = 4;
   int64 lastUpdateTime = 5;
 }
 message UserMusic {
@@ -224,7 +223,7 @@ message UserMusic {
 message UserPhoto {
   string photoId = 1;
   string assetId = 2;
-  ProtoEnum.PhotoImageType imageType = 3;
+  penum.PhotoImageType imageType = 3;
   repeated string characterIds = 4;
   string name = 5;
   int32 rarity = 6;
@@ -233,7 +232,7 @@ message UserPhoto {
   bool locked = 9;
   int32 level = 10;
   bool rerollable = 11;
-  repeated transaction.UserPhotoAbility abilities = 12;
+  repeated ptransaction.UserPhotoAbility abilities = 12;
   int64 shootingTime = 13;
   string focusCharacterId = 14;
   string photoRecipeId = 15;
@@ -263,13 +262,13 @@ message UserProfile {
   string message = 4;
   int64 birthMonth = 5;
   int64 birthDay = 6;
-  ProtoEnum.ProfileBackgroundType backgroundType = 7;
-  ProtoEnum.ProfileLayoutType layoutType = 8;
-  transaction.TwitterInfo twitterInfo = 9;
+  penum.ProfileBackgroundType backgroundType = 7;
+  penum.ProfileLayoutType layoutType = 8;
+  ptransaction.TwitterInfo twitterInfo = 9;
   string decorationId = 10;
-  ProtoEnum.ProfileInformationType informationType = 11;
-  ProtoEnum.ProfileColorType colorType = 12;
-  ProtoEnum.CardDisplayType favoriteCardDisplayType = 13;
+  penum.ProfileInformationType informationType = 11;
+  penum.ProfileColorType colorType = 12;
+  penum.CardDisplayType favoriteCardDisplayType = 13;
 }
 message UserQuest {
   string questId = 1;
@@ -282,7 +281,7 @@ message UserQuest {
   int64 currentRankingHighestScoreTime = 8;
   int64 currentRankingHighestRank = 9;
   string currentRankingSeasonID = 10;
-  ProtoEnum.ResultRankType highestScoreRank = 100;
+  penum.ResultRankType highestScoreRank = 100;
 }
 message UserShowcase {
   int32 number = 1;
@@ -309,7 +308,7 @@ message UserShowcaseToy {
 }
 message UserStory {
   string storyId = 1;
-  ProtoEnum.StoryStatusType statusType = 2;
+  penum.StoryStatusType statusType = 2;
   bool isInvalid = 3;
   bool isUseActivatePhotoShootingStoryTicket = 4;
   bool isPhotoShot = 5;
@@ -318,10 +317,10 @@ message UserTelephone {
   string telephoneId = 1;
   int64 unlockedTime = 2;
   int64 scheduledTime = 3;
-  ProtoEnum.TelephoneStatusType telephoneStatusType = 4;
+  penum.TelephoneStatusType telephoneStatusType = 4;
 }
 message ConsumptionResult {
-  ProtoEnum.ResourceType resourceType = 1;
+  penum.ResourceType resourceType = 1;
   string resourceId = 2;
   int64 amount = 3;
   int64 beforeAmount = 4;
@@ -329,7 +328,7 @@ message ConsumptionResult {
 }
 message MasterTag {
   string version = 1;
-  repeated transaction.MasterTagPack masterTagPacks = 2;
+  repeated ptransaction.MasterTagPack masterTagPacks = 2;
 }
 message MasterTagPack {
   string type = 1;
@@ -339,25 +338,25 @@ message MasterTagPack {
   string downloadUrl = 5;
 }
 message Reward {
-  ProtoEnum.ResourceType resourceType = 1;
+  penum.ResourceType resourceType = 1;
   string resourceId = 2;
   int64 amount = 3;
 }
 message RewardResult {
-  ProtoEnum.ResourceType resourceType = 1;
+  penum.ResourceType resourceType = 1;
   string resourceId = 2;
   int64 beforeAmount = 4;
   int64 afterAmount = 5;
   bool isNew = 6;
   bool isTruncate = 7;
   bool isGift = 8;
-  repeated transaction.RewardResult duplicateRewardResults = 9;
-  repeated transaction.Reward additionalGifts = 10;
+  repeated ptransaction.RewardResult duplicateRewardResults = 9;
+  repeated ptransaction.Reward additionalGifts = 10;
   int64 amountI64 = 11;
   int32 increasedAfterEvolutionLevel = 12;
 }
 message UserActivityFanEventProgress {
-  ProtoEnum.ResultRankType bestScoreRankType = 1;
+  penum.ResultRankType bestScoreRankType = 1;
   int64 bestScoreRankPlus = 2;
 }
 message UserBalance {
@@ -373,7 +372,7 @@ message UserCardSupport {
   int64 removableTime = 4;
 }
 message CompanyBonusParameterInfo {
-  ProtoEnum.ParameterType bonusParameterType = 1;
+  penum.ParameterType bonusParameterType = 1;
   int64 bonusParameterUpPermil = 2;
 }
 message UserCompany {
@@ -410,26 +409,26 @@ message UserGachaButton {
 }
 message UserGift {
   string giftId = 1;
-  ProtoEnum.ResourceType resourceType = 2;
+  penum.ResourceType resourceType = 2;
   string resourceId = 3;
   int64 amount = 4;
   string message = 5;
   int64 postedTime = 6;
   int64 limitTime = 7;
-  transaction.PhotoGift photoGift = 8;
+  ptransaction.PhotoGift photoGift = 8;
 }
 message PhotoGift {
   string name = 1;
 }
 message UserGiftHistory {
   string giftId = 1;
-  ProtoEnum.ResourceType resourceType = 2;
+  penum.ResourceType resourceType = 2;
   string resourceId = 3;
   int64 amount = 4;
   string message = 5;
   int64 postedTime = 6;
   int64 receivedTime = 7;
-  transaction.PhotoGiftHistory photoGift = 8;
+  ptransaction.PhotoGiftHistory photoGift = 8;
 }
 message PhotoGiftHistory {
   string name = 1;
@@ -440,7 +439,7 @@ message UserInvite {
 }
 message UserLeagueDeckPosition {
   string leagueSeasonId = 1;
-  ProtoEnum.LeagueDeckType deckType = 2;
+  penum.LeagueDeckType deckType = 2;
   int32 position = 3;
   string cardId = 4;
   string part1AccessoryId = 5;
@@ -456,16 +455,16 @@ message UserLove {
   bool isReadingStory = 4;
 }
 message UserNotification {
-  ProtoEnum.NotificationType notificationType = 1;
+  penum.NotificationType notificationType = 1;
   bool valid = 2;
   int64 startTime = 3;
 }
 message UserPhotoReport {
-  repeated transaction.UserPhoto photos = 1;
+  repeated ptransaction.UserPhoto photos = 1;
   bool received = 2;
 }
 message UserPoint {
-  ProtoEnum.PointType pointType = 1;
+  penum.PointType pointType = 1;
   int64 amount = 2;
 }
 message TwitterInfo {
@@ -481,7 +480,7 @@ message UserShowcaseLike {
   int64 rewardLikeCount = 2;
 }
 message UserStaff {
-  ProtoEnum.ParameterType parameterType = 1;
+  penum.ParameterType parameterType = 1;
   int32 level = 2;
   int32 levelLimitBreakRank = 3;
 }
@@ -502,7 +501,7 @@ message UserTotalCount {
 }
 message UserTourArea {
   string tourId = 1;
-  repeated transaction.UserTourDeck decks = 2;
+  repeated ptransaction.UserTourDeck decks = 2;
   bool isRetired = 3;
 }
 message UserTourDeck {
@@ -510,7 +509,7 @@ message UserTourDeck {
   string cardId = 2;
 }
 message UserTutorial {
-  ProtoEnum.TutorialType tutorialType = 1;
+  penum.TutorialType tutorialType = 1;
   int64 step = 2;
 }
 
