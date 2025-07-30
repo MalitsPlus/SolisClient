@@ -129,6 +129,8 @@ def main():
         # Update masterdata if new version is found
         console.info("Updating master data...")
         client.update_master(force=args.force)
+        # Update cache/OctoManifest.json
+        client.update_octo_manifest()
         # If kv, kvauth and kvurl are given, notify the server to update data
         if args.kv and args.kvauth != "" and args.kvurl != "":
             console.info("Notifing KV server...")
@@ -137,8 +139,7 @@ def main():
             # Update notices
             client.put_master(force=args.force_kv)
             client.put_notice()
-            # Update octo
-            client.update_octo_manifest()
+            # Put octo
             client.put_octo()
         # Update octo if new revision is found
         if args.asset_mode:

@@ -172,15 +172,17 @@ class SolisClient(ClientBase):
 
     def update_octo_manifest(self):
         pre_revision = get_cache("octoManifestRevision")
-        console.info(f"Previous octo manifest revision: {pre_revision}.")
+        # console.info(f"Previous octo manifest revision: {pre_revision}.")
         console.info(f"Current octo manifest revision:  {self.octo_server_revision}.")
-        if pre_revision < self.octo_server_revision:
-            console.info(f"Start downloading octo manifest...")
-            octo.update_octo_manifest(self.octo_cache)
-        else:
-            console.info(
-                f"Octo manifest is already up-to-date, thus won't be download this time."
-            )
+        console.info(f"Start decrypting octo manifest...")
+        octo.update_octo_manifest(self.octo_cache)
+        # if pre_revision < self.octo_server_revision:
+        #     console.info(f"Start decrypting octo manifest...")
+        #     octo.update_octo_manifest(self.octo_cache)
+        # else:
+        #     console.info(
+        #         f"Octo manifest is already up-to-date, thus won't be download this time."
+        #     )
 
     def update_octo(self, dl_all: bool = False) -> bool:
         revision, content = self.get_octo(dl_all)

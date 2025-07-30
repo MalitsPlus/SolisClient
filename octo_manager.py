@@ -25,6 +25,7 @@ _KR_FILE_KEY = bytes.fromhex("62ec03eb7971f85cffda333e123155a7")
 _FILE_IV = bytes.fromhex("1c6e6f9255c0e5412712f4010225e378")
 _SIGNATURE = b"\x55\x6e\x69\x74\x79"
 
+_raw_path = "cache/raw"
 _asset_path = "cache/asset"
 _image_path = "cache/image"
 _image_out_path = "cache/esrgan"
@@ -145,6 +146,13 @@ def one_task(data: octop.Data, _type: str, revision: int, url_format: str):
         .replace("{g}", str(data.generation))
     )
     obj = send_request(requests.get, url, verify=True).content
+
+    # save raw content
+    save_dir = f"{_raw_path}/{data.uploadVersionId}/{_type}"
+    Path(save_dir).mkdir(exist_ok=True, parents=True)
+    with open(f"{save_dir}/{data.objectName}", "wb") as fp:
+        fp.write(obj)
+
     if obj.__len__() == 0:
         console.info(f"Empty object '{data.name}', skipping.")
         return
@@ -211,6 +219,7 @@ def update_octo(raw_cache: bytes, is_file: bool = False):
 
     revision = database.revision
 
+    Path(_raw_path).mkdir(exist_ok=True)
     Path(_asset_path).mkdir(exist_ok=True)
     Path(_image_path).mkdir(exist_ok=True)
 
@@ -258,4 +267,10 @@ def scale_with_esrgan():
 
 
 if __name__ == "__main__":
-    scale_with_esrgan()
+    data = Path("cache/495x").read_bytes()
+    database = decrypt_api_database(data)
+    octo_dict = MessageToDict(
+        database, use_integers_for_enums=True, always_print_fields_with_no_presence=True
+    )
+    s = json.dumps(octo_dict, ensure_ascii=False, indent=2)
+    print(s)
