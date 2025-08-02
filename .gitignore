@@ -133,6 +133,7 @@ cache/
 masterdata/
 ipr-master-diff/
 VenusSysLib/
+node_modules/
 
 # Userdata
 client_cache.json

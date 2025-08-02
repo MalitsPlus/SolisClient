@@ -2,7 +2,7 @@
 
 FLAG_FILE="cache/need_update.txt"
 REPO_NAME="VenusSysLib"
-REPO_SSH="git@github.com:MalitsPlus/VenusSysLib.git"
+REPO_SSH="git@github.com:vilebbit/VenusSysLib.git"
 
 if [ ! -f ${FLAG_FILE} ]; then
   echo "No need to update venus. Exiting."

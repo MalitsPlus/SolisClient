@@ -90,7 +90,7 @@ jobs:
             - client-cache-v3-
       - run:
           name: Init
-          command: npx pnpm install
+          command: npm ci
       - run:
           name: Get GooglePlay App version
           command: node checkGooglePlayVersion.js
